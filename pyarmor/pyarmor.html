@@ -1,0 +1,539 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Quick Start &mdash; Pyarmor 2.5.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '2.5.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyarmor 2.5.2 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="#">Pyarmor 2.5.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Quick Start</a><ul>
+<li><a class="reference internal" href="#linux">Linux</a></li>
+<li><a class="reference internal" href="#windows">Windows</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#basic-usage">Basic Usage</a><ul>
+<li><a class="reference internal" href="#encrypt-script">Encrypt Script</a></li>
+<li><a class="reference internal" href="#distribute-script">Distribute Script</a></li>
+<li><a class="reference internal" href="#generate-special-license-lic">Generate Special &#8220;license.lic&#8221;</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#advanced-usage">Advanced Usage</a><ul>
+<li><a class="reference internal" href="#run-encrypted-script">Run Encrypted Script</a></li>
+<li><a class="reference internal" href="#cross-publish">Cross Publish</a></li>
+<li><a class="reference internal" href="#generate-license-lic-for-special-machine">Generate &#8220;license.lic&#8221; For Special Machine</a></li>
+<li><a class="reference internal" href="#generate-periodic-license-lic">Generate Periodic &#8220;license.lic&#8221;</a></li>
+<li><a class="reference internal" href="#generate-license-lic-bind-to-fix-file">Generate &#8220;license.lic&#8221; Bind to Fix File</a></li>
+<li><a class="reference internal" href="#generate-license-lic-both-expired-date-and-fix-file-fix-key">Generate &#8220;license.lic&#8221; Both Expired-Date and Fix File/Fix Key</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#change-logs">Change Logs</a><ul>
+<li><a class="reference internal" href="#id1">2.5.2</a></li>
+<li><a class="reference internal" href="#id2">2.5.1</a></li>
+<li><a class="reference internal" href="#id3">2.4.1</a></li>
+<li><a class="reference internal" href="#id4">2.3.4</a></li>
+<li><a class="reference internal" href="#id5">2.3.3</a></li>
+<li><a class="reference internal" href="#id6">2.3.2</a></li>
+<li><a class="reference internal" href="#id7">2.3.1</a></li>
+<li><a class="reference internal" href="#id8">2.2.1</a></li>
+<li><a class="reference internal" href="#id9">2.1.2</a></li>
+<li><a class="reference internal" href="#id10">2.1.1</a></li>
+<li><a class="reference internal" href="#id11">2.0.1</a></li>
+<li><a class="reference internal" href="#id12">1.7.7</a></li>
+<li><a class="reference internal" href="#id13">1.7.6</a></li>
+<li><a class="reference internal" href="#id14">1.7.5</a></li>
+<li><a class="reference internal" href="#id15">1.7.4</a></li>
+<li><a class="reference internal" href="#id16">1.7.3</a></li>
+<li><a class="reference internal" href="#id17">1.7.2</a></li>
+<li><a class="reference internal" href="#id18">1.7.1</a></li>
+<li><a class="reference internal" href="#id19">1.7.0</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#faq">FAQ</a></li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/pyarmor.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="quick-start">
+<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
+<p>Since Pyarmor is written in the Python language, you need to install
+Python (the required version is at least 2.6).</p>
+<p>Pyarmor packages are available on the <a class="reference external" href="https://pypi.python.org/pypi/pyarmor#downloads">Python Package Index</a>.</p>
+<p>Pyarmor is a command line tool, the main script is &#8220;pyarmor.py&#8221;.</p>
+<p>There is a gui wizard &#8220;wizard.py&#8221; which includes many examples, it&#8217;s
+useful to understand all of the featuers of Pyarmor. In order to run
+Pyarmor Wizard, be sure you have installed python package: Tkinter</p>
+<p>See next chapter to know the basic usage of pyarmor.py.</p>
+<div class="section" id="linux">
+<h2>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h2>
+<p>Extract Pyarmor source package.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>tar xzf pyarmor-2.3.3.tar.gz
+</pre></div>
+</div>
+<p>Run Pyarmor.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python pyarmor.py
+</pre></div>
+</div>
+<p>Start pyarmor wizard.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python wizard.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="windows">
+<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
+<p>Unzip Pyarmor source package.</p>
+<div class="highlight-bat"><div class="highlight"><pre>C:\<span class="p">&gt;</span> <span class="n">unzip</span> pyarmor<span class="m">-2</span>.<span class="m">3</span>.<span class="m">3</span>.zip
+</pre></div>
+</div>
+<p>Run Pyarmor.</p>
+<div class="highlight-bat"><div class="highlight"><pre>C:\pyarmor\<span class="p">&gt;</span> <span class="n">python</span> pyarmor.py
+</pre></div>
+</div>
+<p>Start pyarmor wizard.</p>
+<div class="highlight-bat"><div class="highlight"><pre>C:\pyarmor\<span class="p">&gt;</span> <span class="n">python</span> wizard.py
+</pre></div>
+</div>
+<p>If you have not Python, you can download an all-in-one installer:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://dashingsoft.com/products/pyarmor/pyarmor-2.4.1.exe">pyarmor-2.4.1.exe</a></li>
+</ul>
+<p>After installation, there is a desktop icon. Double-click it, Pyarmor
+Wizard will run.</p>
+</div>
+</div>
+<div class="section" id="basic-usage">
+<h1>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h1>
+<p>The normal scenario for a developer to use pyarmor is</p>
+<ul class="simple">
+<li>Generate project capsule for each project</li>
+<li>Encrypt python scripts with project capsule</li>
+<li>Distribute the encrypted scripts to target machine</li>
+</ul>
+<p>Next it&#8217;s an example to show you how to use pyarmor to encrypt scripts
+and how to distribute encrypted scripts.</p>
+<div class="section" id="encrypt-script">
+<h2>Encrypt Script<a class="headerlink" href="#encrypt-script" title="Permalink to this headline">¶</a></h2>
+<p>Assume you have 2 scripts: moda.py modb.py,</p>
+<ul>
+<li><p class="first">Generate project capsule</p>
+<p><cite>For example,</cite>:</p>
+<div class="highlight-python"><pre>$ python pyarmor.py capsule</pre>
+</div>
+<p>It will make a file &#8220;project.zip&#8221; in the current directory.</p>
+</li>
+<li><p class="first">Encrypt python scripts</p>
+<p><cite>For example,</cite>:</p>
+<div class="highlight-python"><pre>$ python pyarmor.py encrypt --with-capsule=project.zip \
+  moda.py modb.py</pre>
+</div>
+<p>After above command finished, you will find the following files in
+the path &#8220;dist&#8221;</p>
+<blockquote>
+<div><ul class="simple">
+<li>moda.pye</li>
+<li>modb.pye</li>
+<li>pyimcore.py</li>
+<li>pytransform.pyd (for windows) or pytransform.so (for linux)</li>
+<li>cygtfm-0.dll / libtfm-0.dll (only for windows)</li>
+<li>cygtomcrypt-0.dll / libtomcrypt-0.dll (only for windows)</li>
+<li>pyshield.key</li>
+<li>pyshield.lic</li>
+<li>product.key</li>
+<li>license.lic</li>
+</ul>
+</div></blockquote>
+<p>The first 2 files are encrypted scripts, the others are
+auxiliary. All of these files is required when distribute encrypted
+scripts.</p>
+<p><cite>About more usage of pyarmor</cite>:</p>
+<div class="highlight-python"><pre>C:/Python32/python pyarmor --help
+C:/Python32/python pyarmor encrypt --help</pre>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="distribute-script">
+<h2>Distribute Script<a class="headerlink" href="#distribute-script" title="Permalink to this headline">¶</a></h2>
+<p>Before you distribute encrypted scripts above, you need change a
+little in your main script &#8211; add a line &#8216;import pyimcore&#8217; before
+import those encrypted module. Assume your startup script is main.py,
+what you will do is add a line in the file header somewhere.</p>
+<p><cite>For example,</cite>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pyimore</span>
+</pre></div>
+</div>
+<p>The main function of pyimcore is to install an import hook, so that
+the encrypted module will be imported correctly. For you, everything
+is transparent, all of the source code need to be changed nothing
+else !</p>
+<p>Now copy the following files to your customer:</p>
+<blockquote>
+<div><ul class="simple">
+<li>main.py</li>
+<li>moda.pye</li>
+<li>modb.pye</li>
+<li>pyimcore.py</li>
+<li>pytransform.pyd (for windows) or pytransform.so (for linux)</li>
+<li>cygtfm-0.dll / libtfm-0.dll (only for windows)</li>
+<li>cygtomcrypt-0.dll / libtomcrypt-0.dll (only for windows)</li>
+<li>pyshield.key</li>
+<li>pyshield.lic</li>
+<li>product.key</li>
+<li>license.lic</li>
+</ul>
+</div></blockquote>
+<p>And run it as if there are no any encrypted scripts.</p>
+</div>
+<div class="section" id="generate-special-license-lic">
+<h2>Generate Special &#8220;license.lic&#8221;<a class="headerlink" href="#generate-special-license-lic" title="Permalink to this headline">¶</a></h2>
+<p>By default, the distribute path will include a file &#8220;license.lic&#8221;,
+it&#8217;s required to run/import encrypted scripts. You can generate other
+license file by command &#8220;license&#8221; for special users.</p>
+<p><cite>Generate license.lic with registration code &#8220;MYPROJECT-001&#8221;</cite>:</p>
+<div class="highlight-python"><pre>$ python pyarmor.py license --with-capsule=project.zip MYPROJECT-001</pre>
+</div>
+<p>This command will generate a new &#8220;license.lic&#8221; with registration code
+&#8220;MYPROJECT-001&#8221;, replace the old with this one in &#8220;dist&#8221; path.</p>
+</div>
+</div>
+<div class="section" id="advanced-usage">
+<h1>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="run-encrypted-script">
+<h2>Run Encrypted Script<a class="headerlink" href="#run-encrypted-script" title="Permalink to this headline">¶</a></h2>
+<p>Someone maybe say I want to encrypt my startup script either, then how
+to run it.</p>
+<p><cite>Encrypt the script at first,</cite>:</p>
+<div class="highlight-python"><pre>$ python pyarmor.py encrypt --with-capsule=project.zip \
+  main.py moda.py modb.py</pre>
+</div>
+<p><cite>Run python with -c, for example,</cite>:</p>
+<div class="highlight-python"><pre>python -c "import pyimcore
+import pytransform
+pytransform.exec_file('main.pye')"</pre>
+</div>
+<p><cite>Or create a startup script startup.py like this,</cite>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pyimcore</span>
+<span class="kn">import</span> <span class="nn">pytransform</span>
+<span class="n">pytransform</span><span class="o">.</span><span class="n">exec_file</span><span class="p">(</span><span class="s">&#39;main.pye&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then run startup.py as normal python script.</p>
+<p>You can read the source file pyarmor.py to know the basic usage of
+pytransform extension.</p>
+</div>
+<div class="section" id="cross-publish">
+<h2>Cross Publish<a class="headerlink" href="#cross-publish" title="Permalink to this headline">¶</a></h2>
+<p>If target machine is different from development machine, you need use
+option &#8216;&#8211;with-extension&#8217; to publish encrypted scripts. A common case
+is to distribute python scripts to embedded linux system. The only
+difference is to replace python extension &#8220;pytransform&#8221; with the
+corresponding platform.</p>
+<p>In the sub-directory &#8220;extensions&#8221; of pyarmor, there are many files
+looks like:</p>
+<blockquote>
+<div>pytransform-1.7.2.win32-ARCH-pyX.Y.pyd
+pytransform-1.7.2.linux-ARCH-pyX.Y.so</div></blockquote>
+<p>X.Y is python major and minor version, ARCH may be x86, x86_64, arm etc.</p>
+<p><cite>Encrypt scripts with option &#8211;with-extension</cite>:</p>
+<div class="highlight-python"><pre>$ python pyarmor.py encrypt --with-capsule=project.zip \
+  --with-extension=extensions/pytransform-1.7.2.linux-arm-py2.so \
+  main.py moda.py modb.py</pre>
+</div>
+<p><cite>Another example, encrypted scripts for Python2.3</cite>:</p>
+<div class="highlight-python"><pre>$ python3  pyarmor.py encrypt --with-capsule=project.zip \
+  --with-extension=extensions/pytransform-1.7.2.win32-x86-py2.3.pyd \
+  main.py moda.py modb.py</pre>
+</div>
+</div>
+<div class="section" id="generate-license-lic-for-special-machine">
+<h2>Generate &#8220;license.lic&#8221; For Special Machine<a class="headerlink" href="#generate-license-lic-for-special-machine" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes you want to run/import encrypted scripts in special
+machine. You can generate a &#8220;license.lic&#8221; bind to serial number of
+hard disk.</p>
+<p><cite>Generate license.lic with serial number of hard disk &#8220;PBN2081SF3NJ5T&#8221;</cite>:</p>
+<div class="highlight-python"><pre>$ python pyarmor.py license --with-capsule=project.zip --bind \
+  PBN2081SF3NJ5T</pre>
+</div>
+<p>This command will generate a new &#8220;license.lic&#8221; bind to harddisk which
+serial number is &#8220;PBN2081SF3NJ5T&#8221;, replace the old with this one in
+&#8220;dist&#8221; path.</p>
+</div>
+<div class="section" id="generate-periodic-license-lic">
+<h2>Generate Periodic &#8220;license.lic&#8221;<a class="headerlink" href="#generate-periodic-license-lic" title="Permalink to this headline">¶</a></h2>
+<p><cite>Generate license.lic which will be expired in Jan. 31, 2015</cite>:</p>
+<div class="highlight-python"><pre>$ python pyarmor.py license --with-capsule=project.zip \
+  --expired-date 2015-01-31</pre>
+</div>
+<p>This command will generate a new &#8220;license.lic&#8221; will be expired in
+Jan. 31, 2015.</p>
+</div>
+<div class="section" id="generate-license-lic-bind-to-fix-file">
+<h2>Generate &#8220;license.lic&#8221; Bind to Fix File<a class="headerlink" href="#generate-license-lic-bind-to-fix-file" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes you want to run/import encrypted scripts bind to your ssh
+private key. You can generate a &#8220;license.lic&#8221; bind to fix file as the
+following steps:</p>
+<p><cite>Generate license.lic with your ssh private key file &#8220;id_rsa&#8221;</cite>:</p>
+<div class="highlight-python"><pre>$ python pyarmor.py license --with-capsule=project.zip \
+  --bind-file ~/.ssh/id_rsa /home/jondy/my_id_rsa</pre>
+</div>
+<p>This command will generate a new &#8220;license.lic&#8221; bind to fix file
+&#8220;~/.ssh/id_rsa&#8221;. After that,</p>
+<blockquote>
+<div><ul class="simple">
+<li>Copy &#8220;license.lic&#8221; with your encrypted python scripts to target machine</li>
+<li>Copy &#8220;~/.ssh/id_rsa&#8221; in your develop machine to target machine,
+and save as /home/jondy/my_id_rsa</li>
+</ul>
+</div></blockquote>
+<p>In target machine pyarmor will check &#8220;license.lic&#8221; by reading data
+from &#8220;/home/jondy/my_id_rsa&#8221; when run/import encrypted python scripts.</p>
+<p>You can specify any path or any name in target machine, for example,
+&#8220;/var/pyarmor/my_any_file&#8221;, only it&#8217;s same as your bind file.</p>
+</div>
+<div class="section" id="generate-license-lic-both-expired-date-and-fix-file-fix-key">
+<h2>Generate &#8220;license.lic&#8221; Both Expired-Date and Fix File/Fix Key<a class="headerlink" href="#generate-license-lic-both-expired-date-and-fix-file-fix-key" title="Permalink to this headline">¶</a></h2>
+<p>You can even mix expired date and fix file or fix key in the same license file.</p>
+<p><cite>Generate license.lic with your ssh private key file &#8220;id_rsa&#8221; and expired at 2015-01-31</cite>:</p>
+<div class="highlight-python"><pre>$ python pyarmor.py license --with-capsule=project.zip \
+  --expired-date 2015-01-31 --bind-file ~/.ssh/id_rsa /home/jondy/my_id_rsa</pre>
+</div>
+<p>This command will generate a new &#8220;license.lic&#8221; bind to fix file &#8220;~/.ssh/id_rsa&#8221; and
+will expired on Jan. 31, 2015.</p>
+</div>
+</div>
+<div class="section" id="change-logs">
+<h1>Change Logs<a class="headerlink" href="#change-logs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>2.5.2<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>License file can mix expire-date with fix file or fix key.</li>
+<li>Fix log error: not enough arguments for format string</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>2.5.1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>License file can bind to ssh private key file or any other fixed file.</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>2.4.1<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Change default extension &#8221;.pyx&#8221; to &#8221;.pye&#8221;, because it confilcted with CPython.</li>
+<li>Custom the extension of encrypted scripts by os environment variable: PYARMOR_EXTRA_CHAR</li>
+<li>Block the hole by which to get bytescode of functions.</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>2.3.4<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The trial license will never be expired (But in trial version, the
+key used to encrypt scripts is fixed).</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>2.3.3<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Refine the document</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>2.3.2<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Fix error data in examples of wizard</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>2.3.1<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Implement Run function in the GUI wizard</li>
+<li>Make license works in trial version</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>2.2.1<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Add a GUI wizard</li>
+<li>Add examples to show how to use pyarmor</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2>2.1.2<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Fix syntax-error when run/import encrypted scripts in linux x86_64</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h2>2.1.1<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Support armv6</li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h2>2.0.1<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Add option &#8216;&#8211;path&#8217; for command &#8216;encrypt&#8217;</li>
+<li>Support script list in the file for command &#8216;encrypt&#8217;</li>
+<li>Fix issue to encrypt an empty file result in pytransform crash</li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h2>1.7.7<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Add option &#8216;&#8211;expired-date&#8217; for command &#8216;license&#8217;</li>
+<li>Fix undefined &#8216;tfm_desc&#8217; for arm-linux</li>
+<li>Enhance security level of scripts</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h2>1.7.6<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Print exactaly message when pyarmor couldn&#8217;t load extension
+&#8220;pytransform&#8221;</li>
+<li>Fix problem &#8220;version &#8216;GLIBC_2.14&#8217; not found&#8221;</li>
+<li>Generate &#8220;license.lic&#8221; which could be bind to fixed machine.</li>
+</ul>
+</div>
+<div class="section" id="id14">
+<h2>1.7.5<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Add missing extensions for linux x86_64.</li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h2>1.7.4<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Add command &#8220;licene&#8221; to generate more &#8220;license.lic&#8221; by project
+capsule.</li>
+</ul>
+</div>
+<div class="section" id="id16">
+<h2>1.7.3<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Add information for using registration code</li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h2>1.7.2<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Add option &#8211;with-extension to support cross-platform publish.</li>
+<li>Implement command &#8220;capsule&#8221; and add option &#8211;with-capsule so that we
+can encrypt scripts with same capsule.</li>
+<li>Remove command &#8220;convert&#8221; and option &#8220;-K/&#8211;key&#8221;</li>
+</ul>
+</div>
+<div class="section" id="id18">
+<h2>1.7.1<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Encrypt pyshield.lic when distributing source code.</li>
+</ul>
+</div>
+<div class="section" id="id19">
+<h2>1.7.0<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Enhance encrypt algorithm to protect source code.</li>
+<li>Developer can use custom key/iv to encrypt source code</li>
+<li>Compiled scripts (.pyc, .pyo) could be encrypted by pyshield</li>
+<li>Extension modules (.dll, .so, .pyd) could be encrypted by pyshield</li>
+</ul>
+</div>
+</div>
+<div class="section" id="faq">
+<h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h1>
+<p>Q: Will the license expire? Is the license the same for develop machine
+and target machine?</p>
+<p>A:</p>
+<div class="highlight-python"><pre>"license.lic" for pyarmor will expired about by the end of next
+ month.  After that, a registration code is required to run pyarmor.
+
+ The "license.lic" in the target machine is different from develop
+ machine, it is generated by pyarmor. Simply to say, "license.lic"
+ of pyarmor is generated by me, "license.lic" in the target machine
+ is generated by developer who uses pyarmor.</pre>
+</div>
+<p>Q: If I pay for the registration code, it is valid forever? Or I have to
+pay periodically?</p>
+<p>A:</p>
+<div class="highlight-python"><pre>Forever now.</pre>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="#">Pyarmor 2.5.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Dashingsoft Corp..
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
