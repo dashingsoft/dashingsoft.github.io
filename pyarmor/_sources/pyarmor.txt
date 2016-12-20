@@ -59,7 +59,7 @@ Start pyarmor wizard.
 
 If you have not Python, you can download an all-in-one installer:
 
-* `pyarmor-2.4.1.exe <http://dashingsoft.com/products/pyarmor/pyarmor-2.4.1.exe>`__
+* `pyarmor-2.5.3.exe <http://dashingsoft.com/products/pyarmor/pyarmor-2.5.3.exe>`__
 
 After installation, there is a desktop icon. Double-click it, Pyarmor
 Wizard will run.
@@ -297,6 +297,12 @@ will expired on Jan. 31, 2015.
 
 Change Logs
 ===========
+
+2.5.3
+-----
+* Fix problem when script has line "from __future__ import with_statement"
+* Fix error when running pyarmor by 32bit python on the 64bits Windows.
+* (Experimental)Support darwin_15-x86_64 platform by adding extensions/pytransform-2.3.3.darwin_15.x86_64-py2.7.so
 
 2.5.2
 -----

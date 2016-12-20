@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Quick Start &mdash; Pyarmor 2.5.2 documentation</title>
+    <title>Quick Start &mdash; Pyarmor 2.5.3 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.5.2',
+        URL_ROOT:    './',
+        VERSION:     '2.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyarmor 2.5.2 documentation" href="index.html" /> 
+    <link rel="top" title="Pyarmor 2.5.3 documentation" href="index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,7 +32,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li><a href="#">Pyarmor 2.5.2 documentation</a> &raquo;</li> 
+        <li><a href="#">Pyarmor 2.5.3 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -62,25 +60,26 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#change-logs">Change Logs</a><ul>
-<li><a class="reference internal" href="#id1">2.5.2</a></li>
-<li><a class="reference internal" href="#id2">2.5.1</a></li>
-<li><a class="reference internal" href="#id3">2.4.1</a></li>
-<li><a class="reference internal" href="#id4">2.3.4</a></li>
-<li><a class="reference internal" href="#id5">2.3.3</a></li>
-<li><a class="reference internal" href="#id6">2.3.2</a></li>
-<li><a class="reference internal" href="#id7">2.3.1</a></li>
-<li><a class="reference internal" href="#id8">2.2.1</a></li>
-<li><a class="reference internal" href="#id9">2.1.2</a></li>
-<li><a class="reference internal" href="#id10">2.1.1</a></li>
-<li><a class="reference internal" href="#id11">2.0.1</a></li>
-<li><a class="reference internal" href="#id12">1.7.7</a></li>
-<li><a class="reference internal" href="#id13">1.7.6</a></li>
-<li><a class="reference internal" href="#id14">1.7.5</a></li>
-<li><a class="reference internal" href="#id15">1.7.4</a></li>
-<li><a class="reference internal" href="#id16">1.7.3</a></li>
-<li><a class="reference internal" href="#id17">1.7.2</a></li>
-<li><a class="reference internal" href="#id18">1.7.1</a></li>
-<li><a class="reference internal" href="#id19">1.7.0</a></li>
+<li><a class="reference internal" href="#id1">2.5.3</a></li>
+<li><a class="reference internal" href="#id2">2.5.2</a></li>
+<li><a class="reference internal" href="#id3">2.5.1</a></li>
+<li><a class="reference internal" href="#id4">2.4.1</a></li>
+<li><a class="reference internal" href="#id5">2.3.4</a></li>
+<li><a class="reference internal" href="#id6">2.3.3</a></li>
+<li><a class="reference internal" href="#id7">2.3.2</a></li>
+<li><a class="reference internal" href="#id8">2.3.1</a></li>
+<li><a class="reference internal" href="#id9">2.2.1</a></li>
+<li><a class="reference internal" href="#id10">2.1.2</a></li>
+<li><a class="reference internal" href="#id11">2.1.1</a></li>
+<li><a class="reference internal" href="#id12">2.0.1</a></li>
+<li><a class="reference internal" href="#id13">1.7.7</a></li>
+<li><a class="reference internal" href="#id14">1.7.6</a></li>
+<li><a class="reference internal" href="#id15">1.7.5</a></li>
+<li><a class="reference internal" href="#id16">1.7.4</a></li>
+<li><a class="reference internal" href="#id17">1.7.3</a></li>
+<li><a class="reference internal" href="#id18">1.7.2</a></li>
+<li><a class="reference internal" href="#id19">1.7.1</a></li>
+<li><a class="reference internal" href="#id20">1.7.0</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#faq">FAQ</a></li>
@@ -153,7 +152,7 @@ Pyarmor Wizard, be sure you have installed python package: Tkinter</p>
 </div>
 <p>If you have not Python, you can download an all-in-one installer:</p>
 <ul class="simple">
-<li><a class="reference external" href="http://dashingsoft.com/products/pyarmor/pyarmor-2.4.1.exe">pyarmor-2.4.1.exe</a></li>
+<li><a class="reference external" href="http://dashingsoft.com/products/pyarmor/pyarmor-2.5.3.exe">pyarmor-2.5.3.exe</a></li>
 </ul>
 <p>After installation, there is a desktop icon. Double-click it, Pyarmor
 Wizard will run.</p>
@@ -175,14 +174,16 @@ and how to distribute encrypted scripts.</p>
 <ul>
 <li><p class="first">Generate project capsule</p>
 <p><cite>For example,</cite>:</p>
-<div class="highlight-python"><pre>$ python pyarmor.py capsule</pre>
+<div class="highlight-python"><div class="highlight"><pre>$ python pyarmor.py capsule
+</pre></div>
 </div>
 <p>It will make a file &#8220;project.zip&#8221; in the current directory.</p>
 </li>
 <li><p class="first">Encrypt python scripts</p>
 <p><cite>For example,</cite>:</p>
-<div class="highlight-python"><pre>$ python pyarmor.py encrypt --with-capsule=project.zip \
-  moda.py modb.py</pre>
+<div class="highlight-python"><div class="highlight"><pre>$ python pyarmor.py encrypt --with-capsule=project.zip \
+  moda.py modb.py
+</pre></div>
 </div>
 <p>After above command finished, you will find the following files in
 the path &#8220;dist&#8221;</p>
@@ -204,8 +205,9 @@ the path &#8220;dist&#8221;</p>
 auxiliary. All of these files is required when distribute encrypted
 scripts.</p>
 <p><cite>About more usage of pyarmor</cite>:</p>
-<div class="highlight-python"><pre>C:/Python32/python pyarmor --help
-C:/Python32/python pyarmor encrypt --help</pre>
+<div class="highlight-python"><div class="highlight"><pre>C:/Python32/python pyarmor --help
+C:/Python32/python pyarmor encrypt --help
+</pre></div>
 </div>
 </li>
 </ul>
@@ -248,7 +250,8 @@ else !</p>
 it&#8217;s required to run/import encrypted scripts. You can generate other
 license file by command &#8220;license&#8221; for special users.</p>
 <p><cite>Generate license.lic with registration code &#8220;MYPROJECT-001&#8221;</cite>:</p>
-<div class="highlight-python"><pre>$ python pyarmor.py license --with-capsule=project.zip MYPROJECT-001</pre>
+<div class="highlight-python"><div class="highlight"><pre>$ python pyarmor.py license --with-capsule=project.zip MYPROJECT-001
+</pre></div>
 </div>
 <p>This command will generate a new &#8220;license.lic&#8221; with registration code
 &#8220;MYPROJECT-001&#8221;, replace the old with this one in &#8220;dist&#8221; path.</p>
@@ -261,13 +264,15 @@ license file by command &#8220;license&#8221; for special users.</p>
 <p>Someone maybe say I want to encrypt my startup script either, then how
 to run it.</p>
 <p><cite>Encrypt the script at first,</cite>:</p>
-<div class="highlight-python"><pre>$ python pyarmor.py encrypt --with-capsule=project.zip \
-  main.py moda.py modb.py</pre>
+<div class="highlight-python"><div class="highlight"><pre>$ python pyarmor.py encrypt --with-capsule=project.zip \
+  main.py moda.py modb.py
+</pre></div>
 </div>
 <p><cite>Run python with -c, for example,</cite>:</p>
-<div class="highlight-python"><pre>python -c "import pyimcore
+<div class="highlight-python"><div class="highlight"><pre>python -c &quot;import pyimcore
 import pytransform
-pytransform.exec_file('main.pye')"</pre>
+pytransform.exec_file(&#39;main.pye&#39;)&quot;
+</pre></div>
 </div>
 <p><cite>Or create a startup script startup.py like this,</cite>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pyimcore</span>
@@ -293,14 +298,16 @@ looks like:</p>
 pytransform-1.7.2.linux-ARCH-pyX.Y.so</div></blockquote>
 <p>X.Y is python major and minor version, ARCH may be x86, x86_64, arm etc.</p>
 <p><cite>Encrypt scripts with option &#8211;with-extension</cite>:</p>
-<div class="highlight-python"><pre>$ python pyarmor.py encrypt --with-capsule=project.zip \
+<div class="highlight-python"><div class="highlight"><pre>$ python pyarmor.py encrypt --with-capsule=project.zip \
   --with-extension=extensions/pytransform-1.7.2.linux-arm-py2.so \
-  main.py moda.py modb.py</pre>
+  main.py moda.py modb.py
+</pre></div>
 </div>
 <p><cite>Another example, encrypted scripts for Python2.3</cite>:</p>
-<div class="highlight-python"><pre>$ python3  pyarmor.py encrypt --with-capsule=project.zip \
+<div class="highlight-python"><div class="highlight"><pre>$ python3  pyarmor.py encrypt --with-capsule=project.zip \
   --with-extension=extensions/pytransform-1.7.2.win32-x86-py2.3.pyd \
-  main.py moda.py modb.py</pre>
+  main.py moda.py modb.py
+</pre></div>
 </div>
 </div>
 <div class="section" id="generate-license-lic-for-special-machine">
@@ -309,8 +316,9 @@ pytransform-1.7.2.linux-ARCH-pyX.Y.so</div></blockquote>
 machine. You can generate a &#8220;license.lic&#8221; bind to serial number of
 hard disk.</p>
 <p><cite>Generate license.lic with serial number of hard disk &#8220;PBN2081SF3NJ5T&#8221;</cite>:</p>
-<div class="highlight-python"><pre>$ python pyarmor.py license --with-capsule=project.zip --bind \
-  PBN2081SF3NJ5T</pre>
+<div class="highlight-python"><div class="highlight"><pre>$ python pyarmor.py license --with-capsule=project.zip --bind \
+  PBN2081SF3NJ5T
+</pre></div>
 </div>
 <p>This command will generate a new &#8220;license.lic&#8221; bind to harddisk which
 serial number is &#8220;PBN2081SF3NJ5T&#8221;, replace the old with this one in
@@ -319,8 +327,9 @@ serial number is &#8220;PBN2081SF3NJ5T&#8221;, replace the old with this one in
 <div class="section" id="generate-periodic-license-lic">
 <h2>Generate Periodic &#8220;license.lic&#8221;<a class="headerlink" href="#generate-periodic-license-lic" title="Permalink to this headline">¶</a></h2>
 <p><cite>Generate license.lic which will be expired in Jan. 31, 2015</cite>:</p>
-<div class="highlight-python"><pre>$ python pyarmor.py license --with-capsule=project.zip \
-  --expired-date 2015-01-31</pre>
+<div class="highlight-python"><div class="highlight"><pre>$ python pyarmor.py license --with-capsule=project.zip \
+  --expired-date 2015-01-31
+</pre></div>
 </div>
 <p>This command will generate a new &#8220;license.lic&#8221; will be expired in
 Jan. 31, 2015.</p>
@@ -331,8 +340,9 @@ Jan. 31, 2015.</p>
 private key. You can generate a &#8220;license.lic&#8221; bind to fix file as the
 following steps:</p>
 <p><cite>Generate license.lic with your ssh private key file &#8220;id_rsa&#8221;</cite>:</p>
-<div class="highlight-python"><pre>$ python pyarmor.py license --with-capsule=project.zip \
-  --bind-file ~/.ssh/id_rsa /home/jondy/my_id_rsa</pre>
+<div class="highlight-python"><div class="highlight"><pre>$ python pyarmor.py license --with-capsule=project.zip \
+  --bind-file ~/.ssh/id_rsa /home/jondy/my_id_rsa
+</pre></div>
 </div>
 <p>This command will generate a new &#8220;license.lic&#8221; bind to fix file
 &#8220;~/.ssh/id_rsa&#8221;. After that,</p>
@@ -352,8 +362,9 @@ from &#8220;/home/jondy/my_id_rsa&#8221; when run/import encrypted python script
 <h2>Generate &#8220;license.lic&#8221; Both Expired-Date and Fix File/Fix Key<a class="headerlink" href="#generate-license-lic-both-expired-date-and-fix-file-fix-key" title="Permalink to this headline">¶</a></h2>
 <p>You can even mix expired date and fix file or fix key in the same license file.</p>
 <p><cite>Generate license.lic with your ssh private key file &#8220;id_rsa&#8221; and expired at 2015-01-31</cite>:</p>
-<div class="highlight-python"><pre>$ python pyarmor.py license --with-capsule=project.zip \
-  --expired-date 2015-01-31 --bind-file ~/.ssh/id_rsa /home/jondy/my_id_rsa</pre>
+<div class="highlight-python"><div class="highlight"><pre>$ python pyarmor.py license --with-capsule=project.zip \
+  --expired-date 2015-01-31 --bind-file ~/.ssh/id_rsa /home/jondy/my_id_rsa
+</pre></div>
 </div>
 <p>This command will generate a new &#8220;license.lic&#8221; bind to fix file &#8220;~/.ssh/id_rsa&#8221; and
 will expired on Jan. 31, 2015.</p>
@@ -362,89 +373,97 @@ will expired on Jan. 31, 2015.</p>
 <div class="section" id="change-logs">
 <h1>Change Logs<a class="headerlink" href="#change-logs" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>2.5.2<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>2.5.3<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Fix problem when script has line &#8220;from __future__ import with_statement&#8221;</li>
+<li>Fix error when running pyarmor by 32bit python on the 64bits Windows.</li>
+<li>(Experimental)Support darwin_15-x86_64 platform by adding extensions/pytransform-2.3.3.darwin_15.x86_64-py2.7.so</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>2.5.2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>License file can mix expire-date with fix file or fix key.</li>
 <li>Fix log error: not enough arguments for format string</li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h2>2.5.1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>2.5.1<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>License file can bind to ssh private key file or any other fixed file.</li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h2>2.4.1<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>2.4.1<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Change default extension &#8221;.pyx&#8221; to &#8221;.pye&#8221;, because it confilcted with CPython.</li>
 <li>Custom the extension of encrypted scripts by os environment variable: PYARMOR_EXTRA_CHAR</li>
 <li>Block the hole by which to get bytescode of functions.</li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h2>2.3.4<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2>2.3.4<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>The trial license will never be expired (But in trial version, the
 key used to encrypt scripts is fixed).</li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h2>2.3.3<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h2>2.3.3<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Refine the document</li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h2>2.3.2<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h2>2.3.2<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Fix error data in examples of wizard</li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h2>2.3.1<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h2>2.3.1<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Implement Run function in the GUI wizard</li>
 <li>Make license works in trial version</li>
 </ul>
 </div>
-<div class="section" id="id8">
-<h2>2.2.1<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h2>2.2.1<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Add a GUI wizard</li>
 <li>Add examples to show how to use pyarmor</li>
 </ul>
 </div>
-<div class="section" id="id9">
-<h2>2.1.2<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id10">
+<h2>2.1.2<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Fix syntax-error when run/import encrypted scripts in linux x86_64</li>
 </ul>
 </div>
-<div class="section" id="id10">
-<h2>2.1.1<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id11">
+<h2>2.1.1<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Support armv6</li>
 </ul>
 </div>
-<div class="section" id="id11">
-<h2>2.0.1<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id12">
+<h2>2.0.1<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Add option &#8216;&#8211;path&#8217; for command &#8216;encrypt&#8217;</li>
 <li>Support script list in the file for command &#8216;encrypt&#8217;</li>
 <li>Fix issue to encrypt an empty file result in pytransform crash</li>
 </ul>
 </div>
-<div class="section" id="id12">
-<h2>1.7.7<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id13">
+<h2>1.7.7<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Add option &#8216;&#8211;expired-date&#8217; for command &#8216;license&#8217;</li>
 <li>Fix undefined &#8216;tfm_desc&#8217; for arm-linux</li>
 <li>Enhance security level of scripts</li>
 </ul>
 </div>
-<div class="section" id="id13">
-<h2>1.7.6<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id14">
+<h2>1.7.6<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Print exactaly message when pyarmor couldn&#8217;t load extension
 &#8220;pytransform&#8221;</li>
@@ -452,27 +471,27 @@ key used to encrypt scripts is fixed).</li>
 <li>Generate &#8220;license.lic&#8221; which could be bind to fixed machine.</li>
 </ul>
 </div>
-<div class="section" id="id14">
-<h2>1.7.5<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id15">
+<h2>1.7.5<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Add missing extensions for linux x86_64.</li>
 </ul>
 </div>
-<div class="section" id="id15">
-<h2>1.7.4<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id16">
+<h2>1.7.4<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Add command &#8220;licene&#8221; to generate more &#8220;license.lic&#8221; by project
 capsule.</li>
 </ul>
 </div>
-<div class="section" id="id16">
-<h2>1.7.3<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id17">
+<h2>1.7.3<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Add information for using registration code</li>
 </ul>
 </div>
-<div class="section" id="id17">
-<h2>1.7.2<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id18">
+<h2>1.7.2<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Add option &#8211;with-extension to support cross-platform publish.</li>
 <li>Implement command &#8220;capsule&#8221; and add option &#8211;with-capsule so that we
@@ -480,14 +499,14 @@ can encrypt scripts with same capsule.</li>
 <li>Remove command &#8220;convert&#8221; and option &#8220;-K/&#8211;key&#8221;</li>
 </ul>
 </div>
-<div class="section" id="id18">
-<h2>1.7.1<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id19">
+<h2>1.7.1<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Encrypt pyshield.lic when distributing source code.</li>
 </ul>
 </div>
-<div class="section" id="id19">
-<h2>1.7.0<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id20">
+<h2>1.7.0<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Enhance encrypt algorithm to protect source code.</li>
 <li>Developer can use custom key/iv to encrypt source code</li>
@@ -501,18 +520,20 @@ can encrypt scripts with same capsule.</li>
 <p>Q: Will the license expire? Is the license the same for develop machine
 and target machine?</p>
 <p>A:</p>
-<div class="highlight-python"><pre>"license.lic" for pyarmor will expired about by the end of next
+<div class="highlight-python"><div class="highlight"><pre>&quot;license.lic&quot; for pyarmor will expired about by the end of next
  month.  After that, a registration code is required to run pyarmor.
 
- The "license.lic" in the target machine is different from develop
- machine, it is generated by pyarmor. Simply to say, "license.lic"
- of pyarmor is generated by me, "license.lic" in the target machine
- is generated by developer who uses pyarmor.</pre>
+ The &quot;license.lic&quot; in the target machine is different from develop
+ machine, it is generated by pyarmor. Simply to say, &quot;license.lic&quot;
+ of pyarmor is generated by me, &quot;license.lic&quot; in the target machine
+ is generated by developer who uses pyarmor.
+</pre></div>
 </div>
 <p>Q: If I pay for the registration code, it is valid forever? Or I have to
 pay periodically?</p>
 <p>A:</p>
-<div class="highlight-python"><pre>Forever now.</pre>
+<div class="highlight-python"><div class="highlight"><pre>Forever now.
+</pre></div>
 </div>
 </div>
 
@@ -528,12 +549,12 @@ pay periodically?</p>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li><a href="#">Pyarmor 2.5.2 documentation</a> &raquo;</li> 
+        <li><a href="#">Pyarmor 2.5.3 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2015, Dashingsoft Corp..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>
