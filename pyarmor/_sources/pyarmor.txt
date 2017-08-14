@@ -22,7 +22,7 @@ Extract Pyarmor source package.
 
 .. code-block:: bash
 
-   $ tar xzf pyarmor-2.3.3.tar.gz
+   $ tar xzf pyarmor-2.5.4.tar.gz
 
 Run Pyarmor.
 
@@ -43,7 +43,7 @@ Unzip Pyarmor source package.
 
 .. code-block:: bat
 
-   C:\> unzip pyarmor-2.3.3.zip
+   C:\> unzip pyarmor-2.5.3.zip
 
 Run Pyarmor.
 
@@ -59,7 +59,7 @@ Start pyarmor wizard.
 
 If you have not Python, you can download an all-in-one installer:
 
-* `pyarmor-2.5.3.exe <http://dashingsoft.com/products/pyarmor/pyarmor-2.5.3.exe>`__
+* `pyarmor-2.5.4.exe <http://dashingsoft.com/products/pyarmor/pyarmor-2.5.4.exe>`__
 
 After installation, there is a desktop icon. Double-click it, Pyarmor
 Wizard will run.
@@ -297,6 +297,16 @@ will expired on Jan. 31, 2015.
 
 Change Logs
 ===========
+
+2.5.5
+-----
+* Add option '-i' for command 'encrypt' so that the encrypted scripts will be saved in the original path.
+
+2.5.4
+-----
+* Verbose tracelog when checking license in trace mode.
+* In license command, change default output filename to "license.lic.txt".
+* Read bind file when generate license in binary mode other than text mode.
 
 2.5.3
 -----
