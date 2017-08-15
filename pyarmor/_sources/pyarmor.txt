@@ -298,6 +298,10 @@ will expired on Jan. 31, 2015.
 Change Logs
 ===========
 
+2.6.1
+-----
+* Fix encrypted scripts don't work in multi-thread framework (Django).
+
 2.5.5
 -----
 * Add option '-i' for command 'encrypt' so that the encrypted scripts will be saved in the original path.
