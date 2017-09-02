@@ -4,219 +4,41 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />    
     <title>Pyarmor</title>
     
-    <link rel="stylesheet" href="_static/sphinx13.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.3.1+',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  false
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
-          rel='stylesheet' type='text/css' />
- 
-    <style type="text/css">
-      table.right { float: right; margin-left: 20px; }
-      table.right td { border: 1px solid #ccc; }
-      
-      .related { display: none; }
-      
-    </style>
-    <script type="text/javascript">
-      // intelligent scrolling of the sidebar content
-      $(window).load(function() {
-        var sb = $('.sphinxsidebarwrapper');
-        var win = $(window);
-        var sbh = sb.height();
-        var offset = $('.sphinxsidebar').position()['top'];
-        var wintop = win.scrollTop();
-        var winbot = wintop + win.innerHeight();
-        var curtop = sb.position()['top'];
-        var curbot = curtop + sbh;
-		sb.css('top',  - sbh - 50);
-		return ;
-        // does sidebar fit in window?
-        if (sbh < win.innerHeight()) {
-          // yes: easy case -- always keep at the top
-          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
-                                $(document).height() - sbh - 200]));
-        } else {
-          // no: only scroll if top/bottom edge of sidebar is at
-          // top/bottom edge of window
-          if (curtop > wintop && curbot > winbot) {
-            sb.css('top', $u.max([wintop - offset - 10, 0]));
-          } else if (curtop < wintop && curbot < winbot) {
-            sb.css('top', $u.min([winbot - sbh - offset - 20,
-                                  $(document).height() - sbh - 200]));
-          }
-        }
-      });
-    </script>
+</head>
+<body>
 
-  </head>
-  <body role="document">
-<div class="pageheader">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="pyarmor.html">Docs</a></li>
-    <li><a href="https://pypi.python.org/pypi/pyarmor#downloads">Downloads</a></li>
-	<li><a href="https://shopper.mycommerce.com/checkout/cart/add/55259-1">Purchase</a></li>
-  </ul>
-  <div>
-    <h1><p class="logo"><a href="#">P Y A R M O R</a></p></h1>
-  </div>
-</div>
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <h1>Pyarmor</h1>
-
-  <div class="quotebar">
-  <!--
-    <p><em>Guard your python scripts</em></p>
-    <p>Do you worry about how to protect your python scripts?  Now, it's easy
-with the coming of Pyarmor.</p>
-  -->
-  </div>
-  <p>
-  Pyarmor is a python package which could import/run encrypted python scripts.</p>
-  <p>
-  Pyarmor is designed for developers who do not want distribute literal
-  python scripts to their customers.</p>
-  <p>
-  Here are the main differences of using Pyarmor to run/import encrypted
-  python scripts:
-  <ul>
-  <li>transform python script to encrypted one with extension ".pye"</li>
-  <li>add a few of auxiliary files</li>
-  </ul></p>
-  <p>
-  It means Pyarmor almost doesn't change anything, you can run/import
-  encrypted pythons scripts just as they're not encrypted. So you can
-  run/import encrypted python scripts in any environment which python
-  can run. For example, in a web framework, or as cgi scripts.</p>
-
-  <p>
-  Besides, Pyarmor could run/import encrypted python scripts in target
-  machine as one of the following ways:
-  <ul>
-  <li>Any target machine, or</li>
-  <li>only in a special machine (bind to hard disk serial number), or</li>
-  <li>expired on some day</li>
-  </ul>
-  </p>
-  <!--
-  <h2 style="margin-bottom: 0">Documentation</h2>
-
-  <table class="contentstable" align="center" style="margin-left: 30px"><tr>
-    <td width="50%">
-      <p class="biglink"><a class="biglink" href="pyarmor.html#get_it">Get it</a><br/>
-         <span class="linkdescr"></span>install and quick start</p>
-      <p class="biglink"><a class="biglink" href="pyarmor.html#user_guide">User guide</a><br/>
-         <span class="linkdescr"></span>usage in detail </p>
-    </td><td width="50%">
-      <p class="biglink"><a class="biglink" href="pyarmor.html#examples">Examples</a><br/>
-         <span class="linkdescr"></span>how to use pyarmor</p>
-      <p class="biglink"><a class="biglink" href="genindex.html">General Index</a><br/>
-         <span class="linkdescr">all functions, terms</span></p>
-    </td></tr>
-  </table>
-
-  <p>
-    You can also download PDF versions of the Pyarmor documentation:
-    a <a href="http://dashingsoft.com/pyarmor/docs/pyarmor.pdf">pyarmor.pdf</a>.
-  </p>
-  -->
-  
-  <h2 style="margin-bottom: 0">License Policy</h2>
-
-  <p>
-  Pyarmor is published as shareware, in the trial version, the key
-  used to encrypt scripts is fixed. A registration code is required in
-  order to use any key to encrypt scripts.</p>
-  <ul>
-  <li><b>Personal user:</b>one registration code is enough.</li>
-  <li><b>Company user:</b>one registration code is only used for one project/product.</li>
-  </ul>
-  <p>
-  Click <a href="https://shopper.mycommerce.com/checkout/cart/add/55259-1">Purchase</a>, 
-  you will receive information electronically immediately after payment is completed 
-  successfully. Then replace the content of "license.lic" with registration code only 
-  (no newline).
-  </p>
-
-          </div>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-	
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2006-2017, Dashingsoft Corp.
-    </div>
-	
-	<!--
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li><a href="#">Sphinx home</a>&nbsp;|</li>
-        <li><a href="contents.html">Documentation</a> &raquo;</li>
- 
-      </ul>
-    </div>
-	-->
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-		<!--
-		<p class="logo">A <a href="http://www.python.org/"><img src="https://pypi.python.org/static/images/python-logo.png" alt="PYPI" /></a> module</p>
-		-->
-		<p class="logo"><a href="http://www.python.org/"><img src="https://pypi.python.org/static/images/python-logo.png" alt="PYPI" /></a></p>
-		
-<h3>Download</h3>
-
-<p>Current version: <b>2.6.1</b></p>
-<p>Get Pyarmor from the <a href="https://pypi.python.org/pypi/pyarmor">Python Package
-Index</a>, or install it with:</p>
-
-<pre>pip install -U pyarmor</pre>
-
-<p>Besides, there is an all-in-one installer for windows:<a href="http://dashingsoft.com/products/pyarmor/pyarmor-2.6.1.exe">pyarmor-2.6.1.exe</a>.</p>
-
-<h3>Questions? Suggestions?</h3>
-
-<p>Join the <a href="http://groups.google.com/group/pyarmor-users">Google group</a>:</p>
-<form action="http://groups.google.com/group/pyarmor-users/boxsubscribe"
-      style="padding-left: 0.5em">
-  <input type="text" name="email" value="your@email" style="font-size: 90%; width: 120px"
-         onfocus="$(this).val('');"/>
-  <input type="submit" name="sub" value="Subscribe" style="font-size: 90%; width: 70px"/>
-</form>
-<p>or mail to: <a href=mailto:jondy.zhao@gmail.com>jondy.zhao@gmail.com</a></p>
-<p>You can also open an issue at the
-  <a href="https://github.com/jondy/pyarmor/issues">tracker</a>.</p>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+<h1 id="pyarmor">Pyarmor</h1>
+<p>Pyarmor is a command line tool used to import or run encrypted python scripts. Only by a few extra files, pyarmor can run and imported encrypted files in the normal python environments. Here are the basic steps:</p>
+<ul>
+<li>Generate project capsule</li>
+<li>Encrypt python scripts with project capsule</li>
+<li>Copy project capsule and encrypted scripts to runtime environments.</li>
+</ul>
+<p>Pyarmor just likes an enhancement which let python could run or import encrypted files.</p>
+<h2 id="main-features">Main Features</h2>
+<ul>
+<li>Run encrypted script or import encrypted module</li>
+<li>Run or import encrypted compiled python files (.pyc, .pyo)</li>
+<li>Mixed encrypted files with normal python files.</li>
+<li>Expire encrypted files</li>
+<li>Bind encrypted files to harddisk</li>
+</ul>
+<h2 id="support-platforms">Support Platforms</h2>
+<ul>
+<li><p>Python 2.5, 2.6, 2.7 and Python3</p></li>
+<li><p>Prebuilt Platform: win32, win_amd64, linux_i386, linux_x86_64</p></li>
+</ul>
+<p>Got prebuilt library <a href="https://github.com/dashingsoft/pyarmor/releases/latest">platforms.zip</a>, then extract it to src of Pyarmor</p>
+<p>The core of <a href="#pyarmor">Pyarmor</a> is written by C, the only dependency is libc. So it's not difficult to build for any other platform, even for embeded system. Contact <a href="mailto:jondy.zhao@gmail.com">jondy.zhao@gmail.com</a> if you'd like to run encrypted scripts in other platform.</p>
+<h2 id="installation">Installation</h2>
+<p>Got source package from <a href="https://pypi.python.org/pypi/pyarmor">pypi</a></p>
+<p>Pyarmor is a command line tool, main script is pyarmor.py. After you got source package, unpack it to any path, then run paramor.py as common python script</p>
+<pre><code>    python pyarmor.py</code></pre>
+<p>For more information, refer to <a href="https://github.com/dashingsoft/pyarmor">pyarmor homepage</a></p>
+<p>Any question feel free to contact <a href="mailto:jondy.zhao@gmail.com">jondy.zhao@gmail.com</a></p>    
 	
   </body>
 </html>
