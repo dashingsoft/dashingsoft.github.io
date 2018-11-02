@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="A tool used to obfuscate python scripts." />
+  <meta name="Keywords" content="python, obfuscate, obfuscation, obfuscator" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Obfuscate Python Scripts</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all" />
+</head>
+
+<body>
+
+  <nav role="navigation" class="navbar navbar-expand-md navbar-dark bg-secondary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="http://dashingsoft.com">
+        <img src="logo.svg" width="32" height="32" alt="Pyarmor"/>
+        Pyarmor
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-tab"
+              aria-controls="navbar-main-tab" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse collapse" id="navbar-main-tab">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item active"><a class="nav-link" href="">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/how-to-work.html">Documentation</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/license.html">License</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/demo.html">Demo</a></li>
+          <li class="nav-item d-md-none mt-5"><a class="nav-link" href="index-zh.html">简体中文</a></li>
+        </ul>
+      </div>
+
+      <ul class="navbar-nav ml-auto d-none d-md-block">
+        <li class="nav-item"><a class="nav-link" href="index-zh.html">简体中文</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <div class="jumbotron jumbotron-fluid bg-secondary">
+    <div class="container">
+      <p class="lead text-white">A command line tool used to obfuscate python scripts.</p>
+      <p class="lead">
+        <a class="btn btn-info btn-lg"
+           href="https://github.com/dashingsoft/pyarmor/blob/master/docs/protect-python-scripts-by-pyarmor.md"
+           role="button" title="How to protect Python scripts by Pyarmor">Learn More</a>
+        <a class="btn btn-info btn-lg mx-5" href="#quick-start" role="button">Quick Start</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row align-items-center justify-content-between">
+      <div class="col-lg-6 mt-5 order-2 order-lg-1">
+        <img class="img-fluid mx-auto d-block" src="images/foo.jpg" alt="" />
+      </div>
+      <div class="col-lg-5 order-1 order-lg-2">
+        <h1 class="mb-2 text-bold w-100">Seamless Replacement</h1>
+        <p class="fs-16 text-secondary">The obfuscated script is a normal python script with an extra module <strong>pytransform.py</strong> and a few extra runtime files. So original python scripts can be replaced with obfuscated scripts seamlessly.</p>
+        <p class="fs-16 text-secondary">And works well with <strong>py2exe</strong>, <strong>py2app</strong>, <strong>PyInstaller</strong> etc.</p>
+      </div>
+    </div>
+
+    <div class="row align-items-center justify-content-between">
+      <div class="col-lg-5 mt-5 order-1 order-lg-1">
+        <h1 class="mb-2 text-bold w-100">Runtime Obfuscation</h1>
+        <p class="fs-16 text-secondary">The byte code of each code object will be obfuscated as soon as code object completed execution, and f_locals of frame is cleared at the same time.</p>
+      </div>
+      <div class="col-lg-6 mt-5 order-2 order-lg-2">
+        <img class="img-fluid mx-auto d-block" src="images/run.png" alt="" />
+      </div>
+    </div>
+
+    <div class="row mt-3 mb-5 pt-5 mb-lg-3">
+      <div class="col-lg-6 px-lg-4 pb-5">
+        <div class="card">
+          <div class="card-header text-center"><h2>Different Licenses<h2></div>
+              <div class="card-body">
+                <p class="card-text">Expire obfuscated scripts</p>
+                <p class="card-text">Bind obfuscated scripts to serial number of harddisk, mac address of network card, ip address ect.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 px-lg-4 pb-5">
+            <div class="card">
+              <div class="card-header text-center"><h2>Support Platforms<h2></div>
+                  <div class="card-body">
+                    <p class="card-text">Python 2.5, 2.6, 2.7 and Python3</p>
+                    <p class="card-text">win32, win_amd64, linux_i386, linux_x86_64, macosx_intel</p>
+                    <p class="card-text">Embedded Platform: Raspberry Pi, Banana Pi, TS-4600 / TS-7600</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h2 class="w-100 text-center p-3 bg-light">Our Customers</h2>
+      <div class="">        
+      </div>
+    </div>
+  </div>
+
+  <div class="container border-gray p-3">
+    <h1 class="w-100 text-center bg-light">Quick Start</h1>
+    <ul>
+      <li>
+        <h5 class="my-2 text-bold">Install</h5>
+        <pre class="p-2 bg-light"><code>
+  pip install pyarmor
+        </code></pre>
+      </li>
+      <li>
+        <h5 class="my-2 text-bold">Obfuscate Scripts</h5>
+        <pre class="p-2 bg-light"><code>
+  cd /path/to/pyaror
+  python pyarmor.py obfuscate --src=examples/simple --entry=queens.py
+        </code></pre>
+      </li>
+      <li>
+        <h5 class="my-2 text-bold">Run Obfuscated Scripts</h5>
+        <pre class="p-2 bg-light"><code>
+  cd ./dist
+  python queens.py
+          </code>
+        </pre>
+      </li>
+      <li>
+        <h5 class="my-2 text-bold">Bind to fixed machine and expire obfuscated scripts</h5>        
+        <pre class="p-2 bg-light"><code>
+  # First get hardware information
+  python pyarmor.py hdinfo
+
+  # Sample output
+  Serial number of first harddisk: '100304PBN2081SF3NJ5T'
+  Mac address: '70:f1:a1:23:f0:94'
+  Ip address: '192.168.121.101'
+  Domain name: ''
+          </code>
+        </pre>
+        <pre class="p-2 bg-light"><code>
+  # Generate new license
+  python pyarmor.py licenses --expired 2018-12-31 \
+                             --bind-disk "100304PBN2081SF3NJ5T" \
+                             --bind-mac "70:f1:a1:23:f0:94" \
+                             --bind-ipv4 "202.10.2.52" \
+                             customer-jondy
+
+  # Overwrite default license
+  cp licenses/customer-jondy/license.lic ./dist
+
+  # Run obfuscated scripts under new license
+  cd dist
+  python queens.py
+          </code>
+        </pre>
+      </li>
+    </ul>
+  </div>
+
+  <div class="w-100 p-3 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-4">
+          <h1 class="text-info">More Resources</h1>    
+          <div class="list-group list-group-flush border-bottom mt-3">
+            <a href="https://github.com/dashingsoft/pyarmor/blob/master/docs/protect-python-scripts-by-pyarmor.md" class="list-group-item list-group-item-action text-info bg-light">Workaround</a>
+
+            <a href="https://github.com/dashingsoft/pyarmor/blob/master/src/user-guide.md" class="list-group-item list-group-item-action text-info bg-light">Examples</a>
+            <a href="https://github.com/dashingsoft/pyarmor/blob/master/src/user-guide.md" class="list-group-item list-group-item-action text-info bg-light">User Guide</a>
+            <a href="https://github.com/dashingsoft/pyarmor/issues" class="list-group-item list-group-item-action text-info bg-light">Report Issues</a>
+            <a href="https://github.com/dashingsoft/pyarmor" class="list-group-item list-group-item-action text-info bg-light">Source Code</a>
+            <a href="https://shopper.mycommerce.com/checkout/cart/add/55259-1" class="list-group-item list-group-item-action text-info bg-light">Purchase</a>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-12">
+          <p class="text-muted">Copyright @ 2008-2018 Dashingsoft Corp. Licensed under the <a href="license.html">Pyarmor License v1.0.</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="js/menu.js"></script>
+
+</body>
+</html>
