@@ -12,8 +12,8 @@
 
 <body>
 
-  <nav role="navigation" class="navbar navbar-expand-md navbar-dark bg-secondary">
-    <div class="container-fluid">
+  <nav role="navigation" class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
       <a class="navbar-brand" href="http://dashingsoft.com">
         <img src="logo.svg" width="32" height="32" alt="Pyarmor"/>
         Pyarmor
@@ -26,28 +26,28 @@
       <div class="navbar-collapse collapse" id="navbar-main-tab">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item active"><a class="nav-link" href="">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="pages/how-to-work.html">Documentation</a></li>
-          <li class="nav-item"><a class="nav-link" href="pages/license.html">License</a></li>
-          <li class="nav-item"><a class="nav-link" href="pages/demo.html">Demo</a></li>
-          <li class="nav-item d-md-none mt-5"><a class="nav-link" href="index-zh.html">简体中文</a></li>
+          <li class="nav-item"><a class="nav-link" href="license.html">License</a></li>
+          <li class="nav-item"><a class="nav-link" href="http://pyarmor.dashingsoft.com/">Demo</a></li>
+          <li class="nav-item d-md-none mt-5"><a class="nav-link" href="zh-cn/index.html">简体中文</a></li>
         </ul>
       </div>
 
       <ul class="navbar-nav ml-auto d-none d-md-block">
-        <li class="nav-item"><a class="nav-link" href="index-zh.html">简体中文</a></li>
+        <li class="nav-item"><a class="nav-link" href="zh-cn/index.html">简体中文</a></li>
       </ul>
 
     </div>
   </nav>
 
-  <div class="jumbotron jumbotron-fluid bg-secondary">
+  <div class="jumbotron jumbotron-fluid bg-light">
     <div class="container">
-      <p class="lead text-white">A command line tool used to obfuscate python scripts.</p>
+      <h1 class="display-4">Pyarmor</h1>
+      <p class="lead col-lg-6">A command line tool used to obfuscate python scripts, bind obfuscated scripts to fixed machine or expire obfuscated scripts.</p>
       <p class="lead">
         <a class="btn btn-info btn-lg"
            href="https://github.com/dashingsoft/pyarmor/blob/master/docs/protect-python-scripts-by-pyarmor.md"
            role="button" title="How to protect Python scripts by Pyarmor">Learn More</a>
-        <a class="btn btn-info btn-lg mx-5" href="#quick-start" role="button">Quick Start</a>
+        <a class="btn btn-info btn-lg mx-3 mx-md-5" href="#quick-start" role="button">Quick Start</a>
       </p>
     </div>
   </div>
@@ -99,16 +99,22 @@
         </div>
       </div>
     </div>
-
-    <div class="row">
-      <h2 class="w-100 text-center p-3 bg-light">Our Customers</h2>
-      <div class="">        
-      </div>
-    </div>
   </div>
 
-  <div class="container border-gray p-3">
-    <h1 class="w-100 text-center bg-light">Quick Start</h1>
+  <h1 class="w-100 text-center p-3 bg-light">Our Customers</h1>    
+  <div class="container d-flex flex-nowrap align-items-center w-100 p-5" style="overflow-y: auto;">
+    <a class="" href="https://www.ahana.co.in/"><img src="images/ahana-logo.png"/></a>
+    <a class="mx-3" href="https://www.cortexica.com/"><img src="images/cortexica_ai_solutions_logo_final1_2017_web.png"/></a>
+    <a class="mx-3 p-1 bg-info" href="https://www.hostess-promoter.com/"><img src="images/logo-hnp.png"/></a>
+    <a class="mx-3 p-1 bg-secondary" href="https://www.sparkcognition.com/"><img src="images/sparkcogntion-logo.svg"/></a>
+    <a class="mx-3 p-2 bg-info" href="https://www.neteera.com/"><img src="images/neteera-logo.svg"/></a>
+    <a class="mx-3 bg-secondary" href="http://trafficcast.com"><img src="images/TrafficCast-Logo.png"/></a>
+    <a class="mx-3" href="http://sutelinco.com/es/"><img width="200px" src="images/sutelinco-logo.svg"/></a>
+    <a class="mx-3" href="http://www.joonis.de"><img src="images/joonis-logo.png"/></a>
+  </div>
+
+  <h1 id="quick-start" class="w-100 text-center p-3 bg-light">Quick Start</h1>
+  <div class="container p-3">
     <ul>
       <li>
         <h5 class="my-2 text-bold">Install</h5>
@@ -132,7 +138,7 @@
         </pre>
       </li>
       <li>
-        <h5 class="my-2 text-bold">Bind to fixed machine and expire obfuscated scripts</h5>        
+        <h5 class="my-2 text-bold">Bind to fixed machine and expire obfuscated scripts</h5>
         <pre class="p-2 bg-light"><code>
   # First get hardware information
   python pyarmor.py hdinfo
@@ -168,7 +174,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-md-6 col-lg-4">
-          <h1 class="text-info">More Resources</h1>    
+          <h1 class="text-info">More Resources</h1>
           <div class="list-group list-group-flush border-bottom mt-3">
             <a href="https://github.com/dashingsoft/pyarmor/blob/master/docs/protect-python-scripts-by-pyarmor.md" class="list-group-item list-group-item-action text-info bg-light">Workaround</a>
 
