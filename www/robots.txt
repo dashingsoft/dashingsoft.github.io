@@ -1,0 +1,5 @@
+Sitemap: http://dashingsoft.com/sitemap.xml
+User-agent: *
+Disallow: /css/
+Disallow: /images/
+Disallow: /js/

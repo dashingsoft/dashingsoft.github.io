@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="A tool used to obfuscate python scripts." />
+  <meta name="Keywords" content="python, 加密, 混淆, 源代码" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Python源代码加密工具</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all" />
+</head>
+
+<body>
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="float-right px-3">
+      <a class="btn btn-outline-info btn-sm" href="index.html" role="button">English</a>
+    </div>
+    <div class="container">
+      <h1 class="display-4">Pyarmor</h1>
+      <p class="lead">一个加密<strong>Python</strong>源代码的命令行工具</p>
+      <p class="lead">
+        <a class="btn btn-success btn-lg" href="https://github.com/dashingsoft/pyarmor" role="button">了解更多</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row align-items-center justify-content-between">
+      <div class="col-lg-6 mt-5 order-2 order-lg-1">
+        <img class="img-fluid mx-auto d-block" src="images/foo.jpg" alt="" />
+      </div>
+      <div class="col-lg-5 order-1 order-lg-2">
+        <h1 class="mb-2 text-bold w-100">无缝替换</h1>
+        <p class="fs-16 text-secondary">经过<strong>Pyarmor</strong>加密后的脚本也是一个合法的<strong>Python</strong>脚本。只需要额外的一个模块 <strong>pytransform.py</strong> 和几个辅助文件，加密后的脚本可以无缝的替换的原来的脚本，然后被<strong>Python</strong>解释器正常导入和运行。</p>
+      </div>
+    </div>
+
+    <div class="row mb-5 pt-5 mb-lg-3">
+      <div class="col-md-4 px-md-4 pb-5">
+        <h5 class="my-2 text-bold text-center">设置运行期限</h5>
+        <p class="text-secondary">可以设置加密脚本的运行期限，过期之后加密脚本就不能被运行</p>
+      </div>
+      <div class="col-md-4 px-md-4 pb-5">
+        <h5 class="my-2 text-bold text-center">绑定到硬盘或者网卡</h5>
+        <p class="text-secondary">可以绑定加密后的脚本到硬盘序列号，网卡地址等，限制加密脚本只能在某一台机器上运行</p>
+      </div>
+      <div class="col-md-4 px-md-4 pb-5">
+        <h5 class="my-2 text-bold text-center">多平台支持</h5>
+        <ul class="text-secondary">
+          <li>Python 2.5, 2.6, 2.7 和 Python3</li>
+          <li>win32, win_amd64, linux_i386, linux_x86_64, macosx_intel</li>
+          <li>嵌入式平台: Raspberry Pi, Banana Pi, TS-4600 / TS-7600</li>
+        </ul>
+      </div>
+    </div>          
+  </div>
+
+  <div class="container border-gray border-top p-3">
+    <h1 class="text-center">快速开始</h1>
+    <ul>
+      <li>
+        <h5 class="my-2 text-bold">安装</h5>
+        <pre class="p-2 bg-light"><code>pip install pyarmor</code></pre>
+      </li>
+      <li>
+        <h5 class="my-2 text-bold">加密脚本</h5>
+        <pre class="p-2 bg-light"><code>python pyarmor.py obfuscate --src=examples/simple --entry=queens.py</code></pre>
+      </li>
+      <li>
+        <h5 class="my-2 text-bold">运行加密脚本</h5>
+        <pre class="px-2 pt-2 bg-light"><code>cd dist</code></pre>
+        <pre class="px-2 pb-2 bg-light"><code>python queens.py</code></pre>
+      </li>
+    </ul>
+    <p class="row text-secondary p-2">了解更多信息，请访问&nbsp;<a href="https://github.com/dashingsoft/pyarmor">https://github.com/dashingsoft/pyarmor</a></p>
+  </div>
+
+  <div class="container border-gray border-top p-3">
+    <p class="text-secondary text-center">@2008-2018 Dashingsoft Corp.</p>
+  </div>
+
+</body>
+</html>
