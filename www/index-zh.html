@@ -6,7 +6,7 @@
   <meta name="description" content="A tool used to obfuscate python scripts." />
   <meta name="Keywords" content="python, obfuscate, obfuscation, obfuscator" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Obfuscate Python Scripts</title>
+  <title>Python源代码加密器</title>
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all" />
 </head>
 
@@ -25,15 +25,15 @@
 
       <div class="navbar-collapse collapse" id="navbar-main-tab">
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item active"><a class="nav-link" href="">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="license.html">License</a></li>
-          <li class="nav-item"><a class="nav-link" href="demo/index.html">Demo</a></li>
-          <li class="nav-item d-md-none mt-5"><a class="nav-link" href="index-zh.html">简体中文</a></li>
+          <li class="nav-item active"><a class="nav-link" href="">首页</a></li>
+          <li class="nav-item"><a class="nav-link" href="license-zh.html">许可方式</a></li>
+          <li class="nav-item"><a class="nav-link" href="http://pyarmor.dashingsoft.com/index-zh.html">演示版本</a></li>
+          <li class="nav-item d-md-none mt-5"><a class="nav-link" href="index.html">English</a></li>
         </ul>
       </div>
 
       <ul class="navbar-nav ml-auto d-none d-md-block">
-        <li class="nav-item"><a class="nav-link" href="index-zh.html">简体中文</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">English</a></li>
       </ul>
 
     </div>
@@ -42,12 +42,14 @@
   <div class="jumbotron jumbotron-fluid bg-light">
     <div class="container">
       <h1 class="display-4">Pyarmor</h1>
-      <p class="lead col-lg-6">A command line tool used to obfuscate python scripts, bind obfuscated scripts to fixed machine or expire obfuscated scripts.</p>
+      <p class="lead col-lg-6">一个能够加密Python源代码的小工具，能够保
+      护运行时刻的Python二进制代码不被泄露，设置加密后Python源代码的有
+      效期限，绑定加密后的Python源代码到硬盘、网卡等硬件设备</p>
       <p class="lead">
         <a class="btn btn-info btn-lg"
            href="https://github.com/dashingsoft/pyarmor/blob/master/docs/protect-python-scripts-by-pyarmor.md"
-           role="button" title="How to protect Python scripts by Pyarmor">Learn More</a>
-        <a class="btn btn-info btn-lg mx-3 mx-md-5" href="#quick-start" role="button">Quick Start</a>
+           role="button" title="How to protect Python scripts by Pyarmor">加密原理</a>
+        <a class="btn btn-info btn-lg mx-3 mx-md-5" href="#quick-start" role="button">快速开始</a>
       </p>
     </div>
   </div>
@@ -58,16 +60,17 @@
         <img class="img-fluid mx-auto d-block" src="images/foo.jpg" alt="" />
       </div>
       <div class="col-lg-5 order-1 order-lg-2">
-        <h1 class="mb-2 text-bold w-100">Seamless Replacement</h1>
-        <p class="fs-16 text-secondary">The obfuscated script is a normal python script with an extra module <strong>pytransform.py</strong> and a few extra runtime files. So original python scripts can be replaced with obfuscated scripts seamlessly.</p>
-        <p class="fs-16 text-secondary">And works well with <strong>py2exe</strong>, <strong>py2app</strong>, <strong>PyInstaller</strong> etc.</p>
+        <h1 class="mb-2 text-bold w-100">无缝替换</h1>
+        <p class="fs-16 text-secondary">加密后的Python源代码也是一个正常的Python脚本。只需要将一个模块<code>pytransform.py</code>，和几个额外的文件，加入到项目里面，就可以把原来的Python脚本全部替换成为加密后的脚本，然后使用和以前一样的方式运行这些加密脚本。</p>
+        <p class="fs-16 text-secondary">这个特性也使得经过Pyarmor加密后的脚本，还可以在继续使用第三方代码工具，例如 <strong>py2exe</strong>, <strong>py2app</strong>, <strong>PyInstaller</strong> 打包发布</p>
       </div>
     </div>
 
     <div class="row align-items-center justify-content-between">
       <div class="col-lg-5 mt-5 order-1 order-lg-1">
-        <h1 class="mb-2 text-bold w-100">Runtime Obfuscation</h1>
-        <p class="fs-16 text-secondary">The byte code of each code object will be obfuscated as soon as code object completed execution, and f_locals of frame is cleared at the same time.</p>
+        <h1 class="mb-2 text-bold w-100">动态加密</h1>
+        <p class="fs-16 text-secondary">Pyarmor不仅仅加密Python源代码，即便在脚本被解释执行的运行过程中，一旦函数（代码块）执行完成，就被重新加密，从更深层次保证了Python脚本的安全性</p>
+        <p class="fs-16 text-secondary">对于使用 Python包（<code>Package</code>）进行发布的代码，这种方式更能够提供有效的安全保障</p>
       </div>
       <div class="col-lg-6 mt-lg-5 order-2 order-lg-2">
         <img class="img-fluid mx-auto d-block" src="images/run.png" alt="" />
@@ -76,22 +79,22 @@
 
   </div>
 
-  <h1 class="w-100 text-center p-3 mt-3 bg-light">Different Licenses</h1>
+  <h1 class="w-100 text-center p-3 mt-3 bg-light">加密脚本的许可方式</h1>
   <div class="container">
     <div class="row">
       <div class="col-lg-6 px-lg-4 pb-3">
         <div class="card border-0">
           <div class="card-body">
-            <h5 class="card-title"><strong>Expire obfuscated scripts</strong></h5>
-            <p class="card-text">Expire obfuscated scripts on some day. After that, obfuscated scripts can not be run.</p>
+            <h5 class="card-title"><strong>设置使用期限</strong></h5>
+            <p class="card-text">Pyarmor 可以为加密的脚本设置使用期限，过期之后加密的Python脚本就无法在继续运行</p>
           </div>
         </div>
       </div>
       <div class="col-lg-6 px-lg-4 pb-3">
         <div class="card border-0">
           <div class="card-body">
-            <h5 class="card-title"><strong>Bind to fixed machine</strong></h5>
-            <p class="card-text">Bind obfuscated scripts to serial number of harddisk, mac address of network card, ip address ect.</p>
+            <h5 class="card-title"><strong>绑定加密的Python脚本到固定机器</strong></h5>
+            <p class="card-text">Pyarmor 可以绑定加密后的Python脚本到硬盘序列号、网卡的Mac地址、IP地址等</p>
           </div>
         </div>
       </div>
@@ -99,8 +102,8 @@
   </div>
 
   <div class="container-fluid text-center bg-light mt-3 pb-3">
-    <h1 class="p-3">Supported Platforms</h1>
-    <p class="text-muted">See a list of <a href="http://pyarmor.dashingsoft.com/downloads/platforms/" target="_blank">Prebuilt Dynamic Library</a> in each platform</p>
+    <h1 class="p-3">支持的平台</h1>
+    <p class="text-muted">查看不同平台下可用的<a href="http://pyarmor.dashingsoft.com/downloads/platforms/" target="_blank">动态库列表</a></p>
     <div class="row mt-3 p-3 bg-secondary">
       <div class="col-lg-2 offset-lg-2">
         <img width="20" src="images/windows-brands.svg" />
@@ -116,21 +119,21 @@
       </div>
       <div class="col-lg-2">
         <img width="20" src="images/mobile-alt-solid.svg" />
-        <p class="card-text">Embedded System</p>
+        <p class="card-text">嵌入式设备</p>
       </div>
     </div>
   </div>
 
   <div class="container-fluid mt-3 mb-3">
     <div class="text-center p-3">
-      <h3 class="text-info">How to protect Python scripts by Pyarmor? <a class="btn btn-outline-info m-3"
+      <h3 class="text-info">Pyarmor是如何保护Python源代码呢？ <a class="btn btn-outline-info m-3"
            href="https://github.com/dashingsoft/pyarmor/blob/master/docs/protect-python-scripts-by-pyarmor.md"
-           role="button" title="How to protect Python scripts by Pyarmor">Learn More</a>
+           role="button" title="How to protect Python scripts by Pyarmor">工作原理</a>
       </h3>
     </div>
   </div>
 
-  <h1 class="w-100 text-center p-3 bg-light">Our Customers</h1>    
+  <h1 class="w-100 text-center p-3 bg-light">Pyarmor的商业客户</h1>
   <div class="container d-flex flex-nowrap align-items-center w-100 p-5" style="overflow-y: auto;">
     <a class="" href="https://www.ahana.co.in/"><img src="images/ahana-logo.png"/></a>
     <a class="m-3" href="https://www.cortexica.com/"><img src="images/cortexica_ai_solutions_logo_final1_2017_web.png"/></a>
@@ -142,15 +145,15 @@
     <a class="m-3" href="http://www.joonis.de"><img src="images/joonis-logo.png"/></a>
   </div>
 
-  <h1 id="quick-start" class="w-100 text-center p-3 mt-5 bg-light">Quick Start</h1>
+  <h1 id="quick-start" class="w-100 text-center p-3 mt-5 bg-light">快速开始</h1>
   <div class="container p-3">
     <div class="row">
 
       <div class="col-lg-6 pb-3">
         <div class="card border-0">
           <div class="card-body pt-0">
-            <h5 class="card-title"><strong>Install Pyarmor</strong></h5>
-            <p class="card-text">The easy way is by <strong>pip</strong>, or download source package from <a href="https://pypi.python.org/pypi/pyarmor">pypi/pyarmor</a></p>
+            <h5 class="card-title"><strong>安装 Pyarmor</strong></h5>
+            <p class="card-text">最简单的方式是 <strong>pip</strong>, 或者从 PyPi 上面下载 <a href="https://pypi.python.org/pypi/pyarmor">pypi/pyarmor</a></p>
           </div>
         </div>
       </div>
@@ -167,8 +170,11 @@
       <div class="col-lg-6 pb-3">
         <div class="card border-0">
           <div class="card-body pt-0">
-            <h5 class="card-title"><strong>Obfuscate Scripts</strong></h5>
-            <p class="card-text">Run <code>pyarmor.py</code> with command <code>obfuscate</code> to obfuscate all the <code>.py</code> files in the path specified by <code>--src</code></p>
+            <h5 class="card-title"><strong>加密脚本</strong></h5>
+            <p class="card-text">使用 <code>pyarmor.py</code>，只需要一
+            个 <code>obfuscate</code> 命令，就可以递归加
+            密 <code>--src</code> 目录下面的所有 <code>.py</code> 文
+            件</p>
           </div>
         </div>
       </div>
@@ -186,9 +192,9 @@ python pyarmor.py obfuscate --src=examples/simple --entry=queens.py</code></pre>
       <div class="col-lg-6 pb-3">
         <div class="card border-0">
           <div class="card-body pt-0">
-            <h5 class="card-title"><strong>Run Obfuscated Scripts</strong></h5>
-            <p class="card-text">The obfuscated scripts and all the required runtime files are generated in the default output path <code>dist</code></p>
-            <p class="card-text">Run obfuscated script <code>queens.py</code> as normal Python script</p>
+            <h5 class="card-title"><strong>运行加密脚本</strong></h5>
+            <p class="card-text">加密后的脚本和运行加密脚本需要的额外文件都被生成在默认目录 <code>dist</code></p>
+            <p class="card-text">切换到输出目录，像运行正常角本一样运行加密后的脚本 <code>queens.py</code></p>
           </div>
         </div>
       </div>
@@ -206,11 +212,11 @@ python queens.py</code></pre>
       <div class="col-lg-6 pb-3">
         <div class="card border-0">
           <div class="card-body pt-0">
-            <h5 class="card-title"><strong>Generate Different Licenses</strong></h5>
-            <p class="card-text">First get hardware information by command <code>hdinfo</code>, it will print hardware information in command console</p>
-            <p class="card-text">Then generate a new license with command <code>licenses</code>, new license file <code>license.lic</code> will saved in the path <code>licenses/CODE</code>. Here <code>CODE</code> is <code>customer-jondy</code></p>
-            <p class="card-text">Next overwrite default license <code>dist/license.lic</code> with new one, the default license allows obfuscated scripts run in any machine and never expired</p>
-            <p class="card-text">Finally run obfuscated script <code>queens.py</code> with new license</p>
+            <h5 class="card-title"><strong>生成不同许可文件</strong></h5>
+            <p class="card-text">通常需要先得到目标机器的硬件设备信息，Pyarmor 提供了一个命令 <code>hdinfo</code>，可以显示当前机器的硬件设备信息</p>
+            <p class="card-text">然后就可以使用另外一个命令 <code>licenses</code>, 创建新的许可文件。新许可文件会存放在当前目录下 <code>licenses/CODE/license.lic</code>，这里<code>CODE</code>就是<code>customer-jondy</code></p>
+            <p class="card-text">接着替换到默认的许可文件 <code>dist/license.lic</code>，默认许可文件允许加密后的脚本运行在任何电脑上，并且永不过期</p>
+            <p class="card-text">最后，在新的许可证下再次运行加密脚本 <code>queens.py</code> </p>
           </div>
         </div>
       </div>
@@ -245,8 +251,8 @@ python queens.py
         <div class="card border-0">
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>WebUI</strong></h5>
-            <p class="card-text">There is a web gui used to obfuscate scripts and generate licenses easily.</p>
-            <p class="card-text">It will start a light weight web server in localhost, and open a page in web browser.</p>
+            <p class="card-text">Pyarmor 还提供了一个网页版的图形界面，使用起来比较方便，但是只包含了最亮眼的功能，高级功能还是要用命令行</p>
+            <p class="card-text">运行 <code>pyarmor-webui</code> 会首先启动了一个本地 Web 服务，然后自动在浏览器中打开 Pyarmor 的网页版</p>
           </div>
         </div>
       </div>
@@ -266,21 +272,21 @@ python queens.py
     <div class="container">
       <div class="row">
         <div class="col-12 col-md-6 col-lg-4">
-          <h1 class="text-info">More Resources</h1>
+          <h1 class="text-info">更多资源</h1>
           <div class="list-group list-group-flush border-bottom mt-3">
-            <a href="https://github.com/dashingsoft/pyarmor/blob/master/docs/protect-python-scripts-by-pyarmor.md" class="list-group-item list-group-item-action text-info bg-light">Workaround</a>
+            <a href="https://github.com/dashingsoft/pyarmor/blob/master/docs/protect-python-scripts-by-pyarmor.md" class="list-group-item list-group-item-action text-info bg-light">工作原理</a>
 
-            <a href="https://github.com/dashingsoft/pyarmor/blob/master/src/user-guide.md" class="list-group-item list-group-item-action text-info bg-light">Examples</a>
-            <a href="https://github.com/dashingsoft/pyarmor/blob/master/src/user-guide.md" class="list-group-item list-group-item-action text-info bg-light">User Guide</a>
-            <a href="https://github.com/dashingsoft/pyarmor/issues" class="list-group-item list-group-item-action text-info bg-light">Report Issues</a>
-            <a href="https://github.com/dashingsoft/pyarmor" class="list-group-item list-group-item-action text-info bg-light">Source Code</a>
-            <a href="https://shopper.mycommerce.com/checkout/cart/add/55259-1" class="list-group-item list-group-item-action text-info bg-light">Purchase</a>
+            <a href="https://github.com/dashingsoft/pyarmor/blob/master/src/user-guide.md" class="list-group-item list-group-item-action text-info bg-light">示例</a>
+            <a href="https://github.com/dashingsoft/pyarmor/blob/master/src/user-guide.md" class="list-group-item list-group-item-action text-info bg-light">用户指南</a>
+            <a href="https://github.com/dashingsoft/pyarmor/issues" class="list-group-item list-group-item-action text-info bg-light">报告问题</a>
+            <a href="https://github.com/dashingsoft/pyarmor" class="list-group-item list-group-item-action text-info bg-light">源代码</a>
+            <a href="https://shopper.mycommerce.com/checkout/cart/add/55259-1" class="list-group-item list-group-item-action text-info bg-light">购买</a>
           </div>
         </div>
       </div>
       <div class="row mt-5">
         <div class="col-12">
-          <p class="text-muted">Copyright @ 2008-2018 Dashingsoft Corp. Licensed under the <a href="license.html">Pyarmor License v1.0.</a></p>
+          <p class="text-muted">版权所有 @ 2008-2018 德新软件科技有限公司。Pyarmor的授权方式 <a href="license-zh.html">最终用户使用协议</a></p>
         </div>
       </div>
     </div>
