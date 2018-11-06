@@ -1,5 +1,6 @@
-Sitemap: http://dashingsoft.com/sitemap.xml
 User-agent: *
+Disallow: /downloads/
 Disallow: /css/
 Disallow: /images/
 Disallow: /js/
+Sitemap: http://pyarmor.dashingsoft.com/sitemap.xml

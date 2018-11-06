@@ -1,23 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
 <url>
-<loc>http://dashingsoft.com/</loc>
-<lastmod>2018-11-04T01:09:10+00:00</lastmod>
+  <loc>http://pyarmor.dashingsoft.com/</loc>
+  <lastmod>2018-11-06T02:09:31+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-<loc>http://dashingsoft.com/index.html</loc>
-<lastmod>2018-11-04T01:09:10+00:00</lastmod>
+  <loc>http://pyarmor.dashingsoft.com/license.html</loc>
+  <lastmod>2018-11-06T02:09:33+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://dashingsoft.com/license.html</loc>
-<lastmod>2018-11-04T01:09:10+00:00</lastmod>
+  <loc>http://pyarmor.dashingsoft.com/demo/index.html</loc>
+  <lastmod>2018-11-06T02:09:40+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://dashingsoft.com/index-zh.html</loc>
-<lastmod>2018-11-04T01:09:10+00:00</lastmod>
+  <loc>http://pyarmor.dashingsoft.com/index-zh.html</loc>
+  <lastmod>2018-11-06T02:09:34+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://dashingsoft.com/license-zh.html</loc>
-<lastmod>2018-11-04T01:09:10+00:00</lastmod>
+  <loc>http://pyarmor.dashingsoft.com/downloads/platforms/</loc>
+  <lastmod>2018-11-03T16:58:34+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
+<url>
+  <loc>http://pyarmor.dashingsoft.com/index.html</loc>
+  <lastmod>2018-11-06T02:09:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pyarmor.dashingsoft.com/license-zh.html</loc>
+  <lastmod>2018-11-06T02:09:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pyarmor.dashingsoft.com/demo/index-zh.html</loc>
+  <lastmod>2018-11-06T02:09:42+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
 </urlset>
