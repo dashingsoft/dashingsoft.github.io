@@ -6,7 +6,7 @@
   <meta name="description" content="A tool used to obfuscate python scripts." />
   <meta name="Keywords" content="python, obfuscate, obfuscation, obfuscator" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Python源代码加密器</title>
+  <title>Python 源代码加密器</title>
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all" />
 </head>
 
@@ -43,9 +43,7 @@
   <div class="jumbotron jumbotron-fluid bg-light">
     <div class="container">
       <h1 class="display-4">Pyarmor</h1>
-      <p class="lead col-lg-6">一个能够加密Python源代码的小工具，能够保
-      护运行时刻的Python二进制代码不被泄露，设置加密后Python源代码的有
-      效期限，绑定加密后的Python源代码到硬盘、网卡等硬件设备</p>
+      <p class="lead col-lg-6">一个保护 Python 源代码的小工具，能够加密 Python 源代码，保护运行时刻的 Python 代码不被泄露，设置加密源代码的有效期限，绑定加密源代码到硬盘、网卡等硬件设备</p>
       <p class="lead">
         <a class="btn btn-info btn-lg"
            href="https://github.com/dashingsoft/pyarmor/blob/master/docs/zh-cn/protect-python-scripts-by-pyarmor.md"
@@ -62,16 +60,16 @@
       </div>
       <div class="col-lg-5 order-1 order-lg-2">
         <h1 class="mb-2 text-bold w-100">无缝替换</h1>
-        <p class="fs-16 text-secondary">加密后的Python源代码也是一个正常的Python脚本。只需要将一个模块<code>pytransform.py</code>，和几个额外的文件，加入到项目里面，就可以把原来的Python脚本全部替换成为加密后的脚本，然后使用和以前一样的方式运行这些加密脚本。</p>
-        <p class="fs-16 text-secondary">这个特性也使得经过Pyarmor加密后的脚本，还可以在继续使用第三方代码工具，例如 <strong>py2exe</strong>, <strong>py2app</strong>, <strong>PyInstaller</strong> 打包发布</p>
+        <p class="fs-16 text-secondary">经过 Pyarmor 加密后的 Python 源代码也是一个正常的 Python 脚本，只需要将一个模块 <code>pytransform.py</code>，和几个辅助文件，加入到原来的代码里面，就可以把原来的 Python 源代码全部替换成为加密源代码，像以前一样使用和运行这些加密后的源代码</p>
+        <p class="fs-16 text-secondary">这个特性也使得经过 Pyarmor 加密后的脚本，还可以在继续使用第三方代码工具，例如 <strong>py2exe</strong>, <strong>py2app</strong>, <strong>PyInstaller</strong>，<strong>cx_Freeze</strong> 等打包发布</p>
       </div>
     </div>
 
     <div class="row align-items-center justify-content-between">
       <div class="col-lg-5 mt-5 order-1 order-lg-1">
         <h1 class="mb-2 text-bold w-100">动态加密</h1>
-        <p class="fs-16 text-secondary">Pyarmor不仅仅加密Python源代码，即便在脚本被解释执行的运行过程中，一旦函数（代码块）执行完成，就被重新加密，从更深层次保证了Python脚本的安全性</p>
-        <p class="fs-16 text-secondary">对于使用 Python包（<code>Package</code>）进行发布的代码，这种方式更能够提供有效的安全保障</p>
+        <p class="fs-16 text-secondary">Pyarmor 不仅仅能够加密 Python 源代码，即便在脚本被解释执行的运行过程中，一旦函数（代码块）执行完成，就会被重新加密，从更深层次保证了 Python 脚本的安全性</p>
+        <p class="fs-16 text-secondary">对于使用 Python 包（<code>Package</code>）进行发布的代码，这种方式能够提供有效的安全保障</p>
       </div>
       <div class="col-lg-6 mt-lg-5 order-2 order-lg-2">
         <img class="img-fluid mx-auto d-block" src="images/run.png" alt="" />
@@ -80,22 +78,22 @@
 
   </div>
 
-  <h1 class="w-100 text-center p-3 mt-3 bg-light">加密脚本的许可方式</h1>
+  <h1 class="w-100 text-center p-3 mt-3 bg-light">设置加密脚本的许可方式</h1>
   <div class="container">
     <div class="row">
       <div class="col-lg-6 px-lg-4 pb-3">
         <div class="card border-0">
           <div class="card-body">
             <h5 class="card-title"><strong>设置使用期限</strong></h5>
-            <p class="card-text">Pyarmor 可以为加密的脚本设置使用期限，过期之后加密的Python脚本就无法在继续运行</p>
+            <p class="card-text">Pyarmor 可以为加密的脚本设置使用期限，过期之后加密的 Python 脚本就无法在继续运行</p>
           </div>
         </div>
       </div>
       <div class="col-lg-6 px-lg-4 pb-3">
         <div class="card border-0">
           <div class="card-body">
-            <h5 class="card-title"><strong>绑定加密的Python脚本到固定机器</strong></h5>
-            <p class="card-text">Pyarmor 可以绑定加密后的Python脚本到硬盘序列号、网卡的Mac地址、IP地址等</p>
+            <h5 class="card-title"><strong>设置允许运行的设备</strong></h5>
+            <p class="card-text">Pyarmor 可以绑定加密 Python 脚本到硬盘序列号、网卡的 Mac 地址、IP 地址等</p>
           </div>
         </div>
       </div>
@@ -104,7 +102,7 @@
 
   <div class="container-fluid text-center bg-light mt-3 pb-3">
     <h1 class="p-3">支持的平台</h1>
-    <p class="text-muted">查看不同平台下可用的<a href="http://pyarmor.dashingsoft.com/downloads/platforms/" target="_blank">动态库列表</a></p>
+    <p class="text-muted">查看不同平台下可用的 <a href="http://pyarmor.dashingsoft.com/downloads/platforms/" target="_blank">动态链接库列表</a></p>
     <div class="row mt-3 p-3 bg-secondary">
       <div class="col-lg-2 offset-lg-2">
         <img width="20" src="images/windows-brands.svg" />
@@ -127,14 +125,14 @@
 
   <div class="container-fluid mt-3 mb-3">
     <div class="text-center p-3">
-      <h3 class="text-info">Pyarmor是如何保护Python源代码呢？ <a class="btn btn-outline-info m-3"
+      <h3 class="text-info">Pyarmor 是如何保护 Python 源代码呢？ <a class="btn btn-outline-info m-3"
            href="https://github.com/dashingsoft/pyarmor/blob/master/docs/zh-cn/protect-python-scripts-by-pyarmor.md"
            role="button" title="How to protect Python scripts by Pyarmor">工作原理</a>
       </h3>
     </div>
   </div>
 
-  <h1 class="w-100 text-center p-3 bg-light">Pyarmor的商业客户</h1>
+  <h1 class="w-100 text-center p-3 bg-light">Pyarmor 的商业客户</h1>
   <div class="container d-flex flex-nowrap align-items-center w-100 p-5" style="overflow-y: auto;">
     <a class="" href="https://www.ahana.co.in/"><img src="images/ahana-logo.png"/></a>
     <a class="m-3" href="https://www.cortexica.com/"><img src="images/cortexica_ai_solutions_logo_final1_2017_web.png"/></a>
@@ -153,7 +151,7 @@
       <div class="col-lg-6 pb-3">
         <div class="card border-0">
           <div class="card-body pt-0">
-            <h5 class="card-title"><strong>安装 Pyarmor</strong></h5>
+            <h5 class="card-title"><strong>安装</strong></h5>
             <p class="card-text">最简单的方式是 <strong>pip</strong>, 或者从 PyPi 上面下载 <a href="https://pypi.python.org/pypi/pyarmor">pypi/pyarmor</a></p>
           </div>
         </div>
@@ -194,7 +192,7 @@ python pyarmor.py obfuscate --src=examples/simple --entry=queens.py</code></pre>
         <div class="card border-0">
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>运行加密脚本</strong></h5>
-            <p class="card-text">加密后的脚本和运行加密脚本需要的额外文件都被生成在默认目录 <code>dist</code></p>
+            <p class="card-text">加密后的脚本和运行辅助文件都被生成在默认目录 <code>dist</code></p>
             <p class="card-text">切换到输出目录，像运行正常角本一样运行加密后的脚本 <code>queens.py</code></p>
           </div>
         </div>
@@ -215,9 +213,9 @@ python queens.py</code></pre>
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>生成不同许可文件</strong></h5>
             <p class="card-text">通常需要先得到目标机器的硬件设备信息，Pyarmor 提供了一个命令 <code>hdinfo</code>，可以显示当前机器的硬件设备信息</p>
-            <p class="card-text">然后就可以使用另外一个命令 <code>licenses</code>, 创建新的许可文件。新许可文件会存放在当前目录下 <code>licenses/CODE/license.lic</code>，这里<code>CODE</code>就是<code>customer-jondy</code></p>
-            <p class="card-text">接着替换到默认的许可文件 <code>dist/license.lic</code>，默认许可文件允许加密后的脚本运行在任何电脑上，并且永不过期</p>
-            <p class="card-text">最后，在新的许可证下再次运行加密脚本 <code>queens.py</code> </p>
+            <p class="card-text">然后就可以使用另外一个命令 <code>licenses</code>, 创建新的许可文件。新许可文件会存放在当前目录下 <code>licenses/CODE/license.lic</code>，这里 <code>CODE</code> 就是 <code>customer-jondy</code></p>
+            <p class="card-text">接着使用新生成的许可文件替换默认许可文件 <code>dist/license.lic</code>（默认许可文件是在加密脚本的时候自动生成的，允许加密后的脚本运行在任何电脑上，并且永不过期）</p>
+            <p class="card-text">最后再次运行加密脚本 <code>queens.py</code>，测试一下新的许可证</p>
           </div>
         </div>
       </div>
@@ -252,8 +250,9 @@ python queens.py
         <div class="card border-0">
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>WebUI</strong></h5>
-            <p class="card-text">Pyarmor 还提供了一个网页版的图形界面，使用起来比较方便，但是只包含了最亮眼的功能，高级功能还是要用命令行</p>
-            <p class="card-text">运行 <code>pyarmor-webui</code> 会首先启动了一个本地 Web 服务，然后自动在浏览器中打开 Pyarmor 的网页版</p>
+            <p class="card-text">Pyarmor 还提供了一个网页版的图形界面，简单易用</p>
+            <p class="card-text">运行 <code>pyarmor-webui</code> 会启动了一个本地 Web 服务，然后在浏览器中打开 Pyarmor 的网页版</p>
+            <p class="card-text">WebUI 只包含了最基本的功能，高级功能还是要用命令行</p>
           </div>
         </div>
       </div>
