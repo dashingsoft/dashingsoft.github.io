@@ -1,6 +1,6 @@
-function logPyarmorOrder() {
+function logPyarmorOrder( payment ) {
 
-    var queryString = [];
+    var queryString = [ 'payment=' + payment ];
 
     var element = document.querySelector( '#input-name' );
     var value = element.value;
@@ -67,13 +67,13 @@ window.addEventListener( 'load', function () {
 
 
     document.querySelector( '.weixin-payment-link' ).addEventListener( 'click', function ( e ) {
-        if ( ! logPyarmorOrder() ) {
+        if ( ! logPyarmorOrder( 'weixin' ) ) {
             e.stopPropagation();
         }
     }, false );
 
     document.querySelector( '.alipay-payment-link' ).addEventListener( 'click', function ( e ) {
-        if ( ! logPyarmorOrder() ) {
+        if ( ! logPyarmorOrder( 'alipay' ) ) {
             e.stopPropagation();
         }
         copyAlipayAccount();
