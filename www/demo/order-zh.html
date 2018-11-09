@@ -56,12 +56,15 @@
       <div class="panel panel-default" style="margin-top: 1em;">
         <div class="panel-body">
           <div class="payment-way" id="payment-weixin">
-            <button type="button" class="btn btn-success payment-link" data-toggle="modal" data-target=".weixin-payment-image" id="open-pay">微信扫码支付</button>
+            <p>请点击下面的按钮扫描微信二维收款码进行支付</p>
+            <button type="button" class="btn btn-success weixin-payment-link" data-toggle="modal" data-target=".popup-weixin-payment">微信扫码支付</button>
           </div>
           <div class="payment-way" id="payment-alipay" style="display: none;">
-            <button type="button" class="btn btn-success payment-link" data-toggle="modal" data-target=".weixin-payment-image" id="open-pay">支付宝转账</button>
+            <p>请点击下面的按钮复制支付宝收款账号，然后通过支付宝转账 <strong>212.00</strong> 元</p>
+            <button type="button" class="btn btn-success alipay-payment-link" data-toggle="modal" data-target=".popup-alipay-payment">复制 Pyarmor 收款账号</button>
           </div>
           <div class="payment-way" id="payment-website" style="display: none;">
+            <p>在国外最常用的共享软件下载网站购买</p>
             <a role="button" class="btn btn-link" href="https://order.shareit.com/cart/add?vendorid=200089125&PRODUCT[300871197]=1">
               <img height="40" src="https://mycommerce.akamaized.net/ui/Content/img/logo_mycommerce.svg" alt="Digital River" />
             </a>
@@ -72,71 +75,36 @@
     </form>
   </div>
 
-  <div class="modal fade weixin-payment-image" tabindex="-1" role="dialog" aria-labelledby="weixin">
+  <div class="modal fade popup-weixin-payment" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close btn-lg" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <p class="help-text" style="margin-right: 1em;">手机用户请首先点击保存收款二维码图片到手机，然后使用微信扫一扫功能，扫描相册中的二维码图片完成支付</p>
+        </div>
         <img class="img-responsive" src="weixin-212.jpg"/>
       </div>
     </div>
   </div>
 
-  <script type="text/javascript">
+  <div class="modal fade popup-alipay-payment" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close btn-lg" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="model-title">支付宝收款账号</h4>
+        </div>
+        <div class="modal-body text-center">
+          <h3>zhaojunde1976@163.com</h3>
+        </div>
+        <div class="modal-footer">
+          <div class="alert alert-info text-center" role="alert">账号还没有复制</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    Array.prototype.forEach.call( document.querySelectorAll( 'input[name="inlineRadioOptions"]' ), function ( radio ) {
-        radio.addEventListener( 'click', function ( e ) {
-            Array.prototype.forEach.call( document.querySelectorAll( '.payment-way' ), function ( element ) {
-                element.style.display = 'none';
-            } );
-            document.querySelector( '#payment-' + e.currentTarget.value ).style.display = '';
-        } );
-    } );
-
-    function logPyarmorOrder() {
-
-        var queryString = [];
-
-        var element = document.querySelector( '#input-name' );
-        var value = element.value;
-        if ( ! value ) {
-            element.focus();
-            return false;
-        }
-        queryString.push( 'name=' + encodeURIComponent(value) );
-
-        element = document.querySelector( '#input-email' );
-        value = element.value;
-        if ( ! value ) {
-            element.focus();
-            return false;
-        }
-        queryString.push( 'email=' + encodeURIComponent(value) );
-
-        var request = new XMLHttpRequest();
-
-        request.onload = function() {
-
-            if (request.status != 200) {
-                console.log( 'Log pyarmor order failed' );
-                return;
-            }
-
-            console.log( queryString.join( '&' ) );
-
-        };
-
-        request.open('GET', 'order-log.html?' + queryString.join( '&' ), true);
-        request.send();
-    }
-
-    Array.prototype.forEach.call( document.querySelectorAll( '.payment-link' ), function ( element ) {
-        element.addEventListener( 'click', function ( e ) {
-            if ( ! logPyarmorOrder() ) {
-                e.stopPropagation();
-            }    
-        }, false );
-    } );
-
-  </script>
+  <script type="text/javascript" src="order.js"></script>
 
 </body>
 </html>
