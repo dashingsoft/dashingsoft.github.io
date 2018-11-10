@@ -1,5 +1,8 @@
 function logPyarmorOrder( payment ) {
 
+    // var base_url ='order-log.html';
+    var base_url = 'http://snsoffice.com:8081/ifuture/log-order';
+
     var queryString = [ 'payment=' + payment ];
 
     var element = document.querySelector( '#input-name' );
@@ -31,7 +34,9 @@ function logPyarmorOrder( payment ) {
 
     };
 
-    request.open('GET', 'order-log.html?' + queryString.join( '&' ), true);
+    var url = base_url + '?' + queryString.join( '&' );
+    request.open('GET', url, true);
+    request.responseType = 'json';
     request.send();
     return true;
 }
