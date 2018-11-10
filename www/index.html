@@ -208,6 +208,23 @@ python queens.py</code></pre>
       <div class="col-lg-6 pb-3">
         <div class="card border-0">
           <div class="card-body pt-0">
+            <h5 class="card-title"><strong>Pack Obfuscated Scripts</strong></h5>
+            <p class="card-text">Pyarmor can pack obfuscated scripts with <strong>py2exe</strong>, <strong>cx_Freeze</strong> etc.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 pb-3">
+        <div class="card bg-light">
+          <div class="card-body">
+            <pre class="p-2"><code>python pyarmor.py pack -t cx_Freeze examples/py2exe/hello.py</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 pb-3">
+        <div class="card border-0">
+          <div class="card-body pt-0">
             <h5 class="card-title"><strong>Generate Different Licenses</strong></h5>
             <p class="card-text">First get hardware information by command <code>hdinfo</code>, it will print hardware information in console window</p>
             <p class="card-text">Then generate a new license with command <code>licenses</code>, new license file will be saved as <code>licenses/CODE/license.lic</code>. Here <code>CODE</code> is <code>customer-jondy</code></p>
@@ -222,10 +239,7 @@ python queens.py</code></pre>
           <div class="card-body">
             <pre class="p-2"><code>python pyarmor.py hdinfo</code></pre>
             <button class="btn btn-outline-secondary float-right d-none">Copy</button>
-          </div>
-        </div>
-        <div class="card bg-light">
-          <div class="card-body">
+            <hr/>
             <pre class="p-2 bg-light"><code>python pyarmor.py licenses \
                 --expired "2018-12-31" \
                 --bind-disk "100304PBN2081SF3NJ5T" \
