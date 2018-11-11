@@ -61,7 +61,7 @@
       <div class="col-lg-5 order-1 order-lg-2">
         <h1 class="mb-2 text-bold w-100">Seamless Replacement</h1>
         <p class="fs-16 text-secondary">The obfuscated script is a normal python script. With an extra module <code>pytransform.py</code> and a few extra runtime files, clear Python scripts can be replaced with obfuscated ones seamlessly</p>
-        <p class="fs-16 text-secondary">And Pyarmor works well with <strong>py2exe</strong>, <strong>py2app</strong>, <strong>PyInstaller</strong>, <strong>cx_Freeze</strong> etc.</p>
+        <p class="fs-16 text-secondary d-none">And Pyarmor works well with <strong>py2exe</strong>, <strong>py2app</strong>, <strong>PyInstaller</strong>, <strong>cx_Freeze</strong> etc.</p>
       </div>
     </div>
 
@@ -73,6 +73,16 @@
       </div>
       <div class="col-lg-6 mt-lg-5 order-2 order-lg-2">
         <img class="img-fluid mx-auto d-block" src="images/run.png" alt="" />
+      </div>
+    </div>
+
+    <div class="row align-items-center justify-content-between">
+      <div class="col-12 mt-5 text-center">
+        <h1 class="text-center">Pack Obfuscated Scripts</h1>
+        <p class="fs-16 text-secondary">Pyarmor could pack obfuscated scripts with <strong>py2exe</strong>, <strong>py2app</strong>, <strong>PyInstaller</strong>, <strong>cx_Freeze</strong> etc.</p>
+      </div>
+      <div class="col-12">
+        <img class="img-fluid mx-auto d-block" src="images/packer.png" alt="" />
       </div>
     </div>
 
@@ -170,7 +180,7 @@
         <div class="card border-0">
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>Obfuscate Scripts</strong></h5>
-            <p class="card-text">Run <code>pyarmor.py</code> with command <code>obfuscate</code> to obfuscate all the <code>.py</code> files in the path specified by <code>--src</code></p>
+            <p class="card-text">Obfuscate all the <code>.py</code> files in the path <code>--src</code> by command <code>obfuscate</code></p>
           </div>
         </div>
       </div>
@@ -209,7 +219,7 @@ python queens.py</code></pre>
         <div class="card border-0">
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>Pack Obfuscated Scripts</strong></h5>
-            <p class="card-text">Pyarmor can pack obfuscated scripts with <strong>py2exe</strong>, <strong>cx_Freeze</strong> etc.</p>
+            <p class="card-text">Pack obfuscated scripts by command <code>pack</code></p>
           </div>
         </div>
       </div>
@@ -227,8 +237,9 @@ python queens.py</code></pre>
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>Generate Different Licenses</strong></h5>
             <p class="card-text">First get hardware information by command <code>hdinfo</code>, it will print hardware information in console window</p>
-            <p class="card-text">Then generate a new license with command <code>licenses</code>, new license file will be saved as <code>licenses/CODE/license.lic</code>. Here <code>CODE</code> is <code>customer-jondy</code></p>
-            <p class="card-text">Next overwrite default license <code>dist/license.lic</code> with this one. The default license is generated while obfuscating scripts, it allows obfuscated scripts run in any machine and never expired</p>
+            <p class="card-text">Then generate a new license with command <code>licenses</code>, new license file will be saved as <code>licenses/CODE/license.lic</code></p>
+            <p class="card-text">Next overwrite default license <code>dist/license.lic</code></p>
+            <p class="card-text d-none">The default license is generated while obfuscating scripts, it allows obfuscated scripts run in any machine and never expired</p>
             <p class="card-text">Finally run obfuscated script <code>queens.py</code> with new license</p>
           </div>
         </div>
@@ -261,7 +272,7 @@ python queens.py
         <div class="card border-0">
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>WebUI</strong></h5>
-            <p class="card-text">There is a web ui used to obfuscate scripts and generate licenses easily. But only for basic usage, full features still need shell command way</p>
+            <p class="card-text">Run <code>pyarmor-webui</code> to start web page. It could obfuscate scripts and generate licenses easily</p>
             <p class="card-text d-none">It will start a light weight web server in localhost, and open a page in web browser.</p>
           </div>
         </div>
