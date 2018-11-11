@@ -81,8 +81,8 @@
         <h1 class="text-center">打包加密脚本</h1>
         <p class="fs-16 text-secondary">Pyarmor 能够通过第三方工具，例如  <strong>py2exe</strong>, <strong>py2app</strong>, <strong>PyInstaller</strong>, <strong>cx_Freeze</strong> 等，把脚本加密之后直接打包发布</p>
       </div>
-      <div class="col-12">
-        <img class="img-fluid mx-auto d-block" src="images/packer-zh.png" alt="" />
+      <div class="col-12 mb-5">
+        <img class="img-fluid mx-auto d-block" src="images/packer-land-zh.jpg" alt="" />
       </div>
     </div>
 
@@ -180,10 +180,7 @@
         <div class="card border-0">
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>加密脚本</strong></h5>
-            <p class="card-text">使用 <code>pyarmor.py</code>，只需要一
-            个 <code>obfuscate</code> 命令，就可以递归加
-            密 <code>--src</code> 目录下面的所有 <code>.py</code> 文
-            件</p>
+            <p class="card-text">使用 <code>obfuscate</code> 命令，递归加密 <code>--src</code> 目录下面的所有 <code>.py</code> 文件</p>
           </div>
         </div>
       </div>
@@ -222,7 +219,7 @@ python queens.py</code></pre>
         <div class="card border-0">
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>打包加密脚本</strong></h5>
-            <p class="card-text">Pyarmor 能够通过第三方工具，例如 py2exe, cx_Freeze 等，把脚本加密之后直接打包发布</p>
+            <p class="card-text">使用 <code>pack</code> 命令，通过第三方工具把脚本加密之后直接打包发布</p>
           </div>
         </div>
       </div>
@@ -239,9 +236,10 @@ python queens.py</code></pre>
         <div class="card border-0">
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>生成不同许可文件</strong></h5>
-            <p class="card-text">通常需要先得到目标机器的硬件设备信息，Pyarmor 提供了一个命令 <code>hdinfo</code>，可以显示当前机器的硬件设备信息</p>
-            <p class="card-text">然后就可以使用另外一个命令 <code>licenses</code>, 创建新的许可文件。新许可文件会存放在当前目录下 <code>licenses/CODE/license.lic</code>，这里 <code>CODE</code> 就是 <code>customer-jondy</code></p>
-            <p class="card-text">接着使用新生成的许可文件替换默认许可文件 <code>dist/license.lic</code>（默认许可文件是在加密脚本的时候自动生成的，允许加密后的脚本运行在任何电脑上，并且永不过期）</p>
+            <p class="card-text">首先使用命令 <code>hdinfo</code> 查看目标机器的硬件设备信息</p>
+            <p class="card-text">然后使用命令 <code>licenses</code>, 创建新的许可文件，新许可文件会存放在当前目录下 <code>licenses/CODE/license.lic</code></p>
+            <p class="card-text">接着使用新生成的许可文件替换默认许可文件 <code>dist/license.lic</code></p>
+            <p class="card-text d-none">（默认许可文件是在加密脚本的时候自动生成的，允许加密后的脚本运行在任何电脑上，并且永不过期）</p>
             <p class="card-text">最后再次运行加密脚本 <code>queens.py</code>，测试一下新的许可证</p>
           </div>
         </div>
