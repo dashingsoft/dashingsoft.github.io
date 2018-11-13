@@ -162,7 +162,7 @@
         <div class="card border-0">
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>Install Pyarmor</strong></h5>
-            <p class="card-text">The easy way is by <strong>pip</strong>, or download source package from <a href="https://pypi.python.org/pypi/pyarmor">pypi/pyarmor</a></p>
+            <p class="card-text">The easy way is by <strong>pip</strong></p>
           </div>
         </div>
       </div>
@@ -180,7 +180,7 @@
         <div class="card border-0">
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>Obfuscate Scripts</strong></h5>
-            <p class="card-text">Obfuscate all the <code>.py</code> files in the path <code>--src</code> by command <code>obfuscate</code></p>
+            <p class="card-text">Obfuscate all the <code>.py</code> files in the path <code>project/src</code> by command <code>obfuscate</code></p>
           </div>
         </div>
       </div>
@@ -188,8 +188,7 @@
       <div class="col-lg-6 pb-3">
         <div class="card bg-light">
           <div class="card-body">
-            <pre class="p-2"><code>cd /path/to/pyaror
-python pyarmor.py obfuscate --src=examples/simple --entry=queens.py</code></pre>
+            <pre class="p-2"><code>pyarmor obfuscate project/src/hello.py</code></pre>
             <button class="btn btn-outline-secondary float-right d-none">Copy</button>
           </div>
         </div>
@@ -199,8 +198,7 @@ python pyarmor.py obfuscate --src=examples/simple --entry=queens.py</code></pre>
         <div class="card border-0">
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>Run Obfuscated Scripts</strong></h5>
-            <p class="card-text">The obfuscated scripts and all the required runtime files are generated in the default output path <code>dist</code></p>
-            <p class="card-text">Run obfuscated script <code>queens.py</code> as normal Python script</p>
+            <p class="card-text">Run obfuscated script <code>dist/hello.py</code> as normal Python script</p>
           </div>
         </div>
       </div>
@@ -208,8 +206,8 @@ python pyarmor.py obfuscate --src=examples/simple --entry=queens.py</code></pre>
       <div class="col-lg-6 pb-3">
         <div class="card bg-light">
           <div class="card-body">
-            <pre class="p-2"><code>cd ./dist
-python queens.py</code></pre>
+            <pre class="p-2"><code>cd ./dist/
+python hello.py</code></pre>
             <button class="btn btn-outline-secondary float-right d-none">Copy</button>
           </div>
         </div>
@@ -227,7 +225,7 @@ python queens.py</code></pre>
       <div class="col-lg-6 pb-3">
         <div class="card bg-light">
           <div class="card-body">
-            <pre class="p-2"><code>python pyarmor.py pack -t cx_Freeze examples/py2exe/hello.py</code></pre>
+            <pre class="p-2"><code>pyarmor pack -t PyInstaller project/src/hello.py</code></pre>
           </div>
         </div>
       </div>
@@ -237,7 +235,7 @@ python queens.py</code></pre>
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>Generate Different Licenses</strong></h5>
             <p class="card-text">First get hardware information by command <code>hdinfo</code></p>
-            <p class="card-text">Then generate a new license with command <code>licenses</code>, new license file will be saved as <code>licenses/CODE/license.lic</code></p>
+            <p class="card-text">Then generate a new license with command <code>licenses</code></p>
             <p class="card-text">Next overwrite default license <code>dist/license.lic</code></p>
             <p class="card-text d-none">The default license is generated while obfuscating scripts, it allows obfuscated scripts run in any machine and never expired</p>
             <p class="card-text">Finally run obfuscated script <code>queens.py</code> with new license</p>
@@ -248,19 +246,19 @@ python queens.py</code></pre>
       <div class="col-lg-6 pb-3">
         <div class="card bg-light">
           <div class="card-body">
-            <pre class="p-2"><code>python pyarmor.py hdinfo</code></pre>
+            <pre class="p-2"><code>pyarmor hdinfo</code></pre>
             <button class="btn btn-outline-secondary float-right d-none">Copy</button>
             <hr/>
-            <pre class="p-2 bg-light"><code>python pyarmor.py licenses \
-                --expired "2018-12-31" \
-                --bind-disk "100304PBN2081SF3NJ5T" \
-                --bind-mac "70:f1:a1:23:f0:94" \
-                --bind-ipv4 "202.10.2.52" \
-                customer-jondy
-
-cp licenses/customer-jondy/license.lic ./dist
-
-cd dist
+            <pre class="p-2"><code>pyarmor licenses \
+        --expired "2018-12-31" \
+        --bind-disk "100304PBN2081SF3NJ5T" \
+        --bind-mac "70:f1:a1:23:f0:94" \
+        --bind-ipv4 "202.10.2.52" \
+        customer-jondy</code></pre>
+            <hr/>
+            <pre class="p-2"><code>cp licenses/customer-jondy/license.lic ./dist/</code></pre>
+            <hr/>
+            <pre class="p-2"><code>cd ./dist/
 python queens.py
             </code></pre>
             <button class="btn btn-outline-secondary float-right d-none">Copy</button>

@@ -162,7 +162,7 @@
         <div class="card border-0">
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>安装</strong></h5>
-            <p class="card-text">最简单的方式是 <strong>pip</strong>, 或者从 PyPi 上面下载 <a href="https://pypi.python.org/pypi/pyarmor">pypi/pyarmor</a></p>
+            <p class="card-text">最简单的方式是 <strong>pip</strong></p>
           </div>
         </div>
       </div>
@@ -180,7 +180,7 @@
         <div class="card border-0">
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>加密脚本</strong></h5>
-            <p class="card-text">使用 <code>obfuscate</code> 命令，递归加密 <code>--src</code> 目录下面的所有 <code>.py</code> 文件</p>
+            <p class="card-text">使用 <code>obfuscate</code> 命令，加密 <code>project/src</code> 目录下面的所有 <code>.py</code> 文件</p>
           </div>
         </div>
       </div>
@@ -188,8 +188,7 @@
       <div class="col-lg-6 pb-3">
         <div class="card bg-light">
           <div class="card-body">
-            <pre class="p-2"><code>cd /path/to/pyaror
-python pyarmor.py obfuscate --src=examples/simple --entry=queens.py</code></pre>
+            <pre class="p-2"><code>pyarmor obfuscate project/src/hello.py</code></pre>
             <button class="btn btn-outline-secondary float-right d-none">Copy</button>
           </div>
         </div>
@@ -199,8 +198,7 @@ python pyarmor.py obfuscate --src=examples/simple --entry=queens.py</code></pre>
         <div class="card border-0">
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>运行加密脚本</strong></h5>
-            <p class="card-text">加密后的脚本和运行辅助文件都被生成在默认目录 <code>dist</code></p>
-            <p class="card-text">切换到输出目录，像运行正常角本一样运行加密后的脚本 <code>queens.py</code></p>
+            <p class="card-text">像运行正常角本一样运行加密后的脚本 <code>hello.py</code></p>
           </div>
         </div>
       </div>
@@ -208,8 +206,8 @@ python pyarmor.py obfuscate --src=examples/simple --entry=queens.py</code></pre>
       <div class="col-lg-6 pb-3">
         <div class="card bg-light">
           <div class="card-body">
-            <pre class="p-2"><code>cd ./dist
-python queens.py</code></pre>
+            <pre class="p-2"><code>cd ./dist/
+python hello.py</code></pre>
             <button class="btn btn-outline-secondary float-right d-none">Copy</button>
           </div>
         </div>
@@ -219,7 +217,7 @@ python queens.py</code></pre>
         <div class="card border-0">
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>打包加密脚本</strong></h5>
-            <p class="card-text">使用 <code>pack</code> 命令，通过第三方工具把脚本加密之后直接打包发布</p>
+            <p class="card-text">使用 <code>pack</code> 命令，把脚本加密之后直接生成可以单独运行的可执行文件</p>
           </div>
         </div>
       </div>
@@ -227,7 +225,7 @@ python queens.py</code></pre>
       <div class="col-lg-6 pb-3">
         <div class="card bg-light">
           <div class="card-body">
-            <pre class="p-2"><code>python pyarmor.py pack -t cx_Freeze examples/py2exe/hello.py</code></pre>
+            <pre class="p-2"><code>pyarmor pack -t PyInstaller project/src/hello.py</code></pre>
           </div>
         </div>
       </div>
@@ -238,7 +236,7 @@ python queens.py</code></pre>
             <h5 class="card-title"><strong>生成不同许可文件</strong></h5>
             <p class="card-text">首先使用命令 <code>hdinfo</code> 查看目标机器的硬件设备信息</p>
             <p class="card-text">然后使用命令 <code>licenses</code>, 创建新的许可文件</p>
-            <p class="card-text">接着使用新生成的许可文件 <code>licenses/CODE/license.lic</code> 替换默认许可文件 <code>dist/license.lic</code></p>
+            <p class="card-text">接着使用新生成的许可文件替换默认许可文件 <code>dist/license.lic</code></p>
             <p class="card-text d-none">（默认许可文件是在加密脚本的时候自动生成的，允许加密后的脚本运行在任何电脑上，并且永不过期）</p>
             <p class="card-text">最后再次运行加密脚本 <code>queens.py</code>，测试一下新的许可证</p>
           </div>
@@ -248,19 +246,19 @@ python queens.py</code></pre>
       <div class="col-lg-6 pb-3">
         <div class="card bg-light">
           <div class="card-body">
-            <pre class="p-2"><code>python pyarmor.py hdinfo</code></pre>
+            <pre class="p-2"><code>pyarmor hdinfo</code></pre>
             <button class="btn btn-outline-secondary float-right d-none">Copy</button>
             <hr/>
-            <pre class="p-2 bg-light"><code>python pyarmor.py licenses \
-                --expired "2018-12-31" \
-                --bind-disk "100304PBN2081SF3NJ5T" \
-                --bind-mac "70:f1:a1:23:f0:94" \
-                --bind-ipv4 "202.10.2.52" \
-                customer-jondy
-
-cp licenses/customer-jondy/license.lic ./dist
-
-cd dist
+            <pre class="p-2"><code>pyarmor licenses \
+        --expired "2018-12-31" \
+        --bind-disk "100304PBN2081SF3NJ5T" \
+        --bind-mac "70:f1:a1:23:f0:94" \
+        --bind-ipv4 "202.10.2.52" \
+        customer-jondy</code></pre>
+            <hr/>
+            <pre class="p-2"><code>cp licenses/customer-jondy/license.lic ./dist/</code></pre>
+            <hr/>
+            <pre class="p-2"><code>cd ./dist/
 python queens.py
             </code></pre>
             <button class="btn btn-outline-secondary float-right d-none">Copy</button>
