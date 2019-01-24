@@ -91,7 +91,7 @@
   <h1 class="w-100 text-center p-3 mt-3 bg-light">设置不同的许可方式</h1>
   <div class="container">
     <div class="row">
-      <div class="col-lg-6 px-lg-4 pb-3">
+      <div class="col-lg-4 px-lg-4 pb-3">
         <div class="card border-0">
           <div class="card-body">
             <h5 class="card-title"><strong>设置使用期限</strong></h5>
@@ -99,11 +99,19 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-6 px-lg-4 pb-3">
+      <div class="col-lg-4 px-lg-4 pb-3">
         <div class="card border-0">
           <div class="card-body">
             <h5 class="card-title"><strong>设置允许运行的设备</strong></h5>
             <p class="card-text">PyArmor 可以绑定加密 Python 脚本到硬盘序列号、网卡的 Mac 地址、IP 地址等</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 px-lg-4 pb-3">
+        <div class="card border-0">
+          <div class="card-body">
+            <h5 class="card-title"><strong>扩展其他认证方式</strong></h5>
+            <p class="card-text">加密后的脚本对用户来说就是黑盒子，所以可以在 Python 脚本里面添加任意的认证方式</p>
           </div>
         </div>
       </div>
@@ -135,9 +143,9 @@
 
   <div class="container-fluid mt-3 mb-3">
     <div class="text-center p-3">
-      <h3 class="text-info">PyArmor 是如何保护 Python 源代码呢？ <a class="btn btn-outline-info m-3"
-           href="https://github.com/dashingsoft/pyarmor/blob/master/docs/zh-cn/protect-python-scripts-by-pyarmor.md"
-           role="button" title="How to protect Python scripts by PyArmor">工作原理</a>
+      <h3 class="text-info">PyArmor 使用动态代码生成和交叉保护机制来保证加密脚本的安全性 <a class="btn btn-outline-info m-3"
+           href="https://github.com/dashingsoft/pyarmor/blob/master/docs/zh-cn/security.rst"
+           role="button" title="PyArmor 的安全性">工作原理</a>
       </h3>
     </div>
   </div>
@@ -308,7 +316,7 @@ python queens.py
       <div class="row align-left mt-5 mb-3">
         <div class="col">
           <ul class="list-inline">
-            <li class="list-inline-item mt-3"><small class="text-muted">版权所有 @ 2008-2018 德新软件科技有限公司。</small></li>
+            <li class="list-inline-item mt-3"><small class="text-muted">版权所有 @ 2008-2019 德新软件科技有限公司。</small></li>
             <li class="list-inline-item mt-3"><a href="mailto:jondy.zhao@gmail.com"><small class="text-muted">联系我们</small></a></li>
             <li class="list-inline-item mt-3"><a href="mailto:jondy.zhao@gmail.com"><small class="text-muted">商业合作</small></a></li>
             <li class="list-inline-item mt-3 ml-5"><a href="http://www.miitbeian.gov.cn"><small class="text-muted">陕ICP备17018150号-1</small></a></li>
