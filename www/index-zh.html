@@ -59,7 +59,7 @@
         <img class="img-fluid mx-auto d-block" src="images/foo.jpg" alt="" />
       </div>
       <div class="col-lg-5 order-1 order-lg-2">
-        <h1 class="mb-2 text-bold w-100">无缝替换</h1>
+        <h2 class="mb-2 text-bold w-100">无缝替换</h2>
         <p class="fs-16 text-secondary">经过 PyArmor 加密后的 Python 源代码也是一个正常的 Python 脚本，只需要将一个模块 <code>pytransform.py</code> 和几个辅助文件加入到原来的代码里面，就可以把原来的 Python 源代码全部替换成为加密源代码，按照以前的方式使用和运行这些加密源代码</p>
         <p class="fs-16 text-secondary d-none">这个特性也使得经过 PyArmor 加密后的脚本，还可以在继续使用第三方工具（例如 <strong>py2exe</strong>, <strong>py2app</strong>, <strong>PyInstaller</strong>，<strong>cx_Freeze</strong> 等打包发布</p>
       </div>
@@ -67,9 +67,8 @@
 
     <div class="row align-items-center justify-content-between">
       <div class="col-lg-5 mt-5 order-1 order-lg-1">
-        <h1 class="mb-2 text-bold w-100">动态加密</h1>
+        <h2 class="mb-2 text-bold w-100">动态加密</h2>
         <p class="fs-16 text-secondary">PyArmor 不仅仅能够加密 Python 源代码，即便在脚本被解释执行的运行过程中，一旦函数（代码块）执行完成，就会被重新加密，从更深层次保证了 Python 脚本的安全性</p>
-        <p class="fs-16 text-secondary">对于使用 Python 包（<code>Package</code>）进行发布的代码，这种方式能够提供有效的安全保障</p>
       </div>
       <div class="col-lg-6 mt-lg-5 order-2 order-lg-2">
         <img class="img-fluid mx-auto d-block" src="images/run.png" alt="" />
@@ -78,7 +77,7 @@
 
     <div class="row align-items-center justify-content-between">
       <div class="col-12 mt-5 text-center">
-        <h1 class="text-center">打包加密脚本</h1>
+        <h2 class="text-center">打包加密脚本</h2>
         <p class="fs-16 text-secondary">PyArmor 能够通过第三方工具，例如  <strong>PyInstaller</strong>, <strong>py2exe</strong>, <strong>py2app</strong>, <strong>cx_Freeze</strong> 等，把脚本加密之后直接打包发布</p>
       </div>
       <div class="col-12 mb-5">
@@ -88,7 +87,7 @@
 
   </div>
 
-  <h1 class="w-100 text-center p-3 mt-3 bg-light">设置不同的许可方式</h1>
+  <h2 class="w-100 text-center p-3 mt-3 bg-light">设置不同的许可方式</h2>
   <div class="container">
     <div class="row">
       <div class="col-lg-4 px-lg-4 pb-3">
@@ -119,7 +118,7 @@
   </div>
 
   <div class="container-fluid text-center bg-light mt-3 pb-3">
-    <h1 class="p-3">支持的平台</h1>
+    <h2 class="p-3">支持的平台</h2>
     <p class="text-muted">查看不同平台下可用的 <a href="http://pyarmor.dashingsoft.com/downloads/platforms/" target="_blank">动态链接库列表</a></p>
     <div class="row mt-3 p-3 bg-secondary">
       <div class="col-lg-2 offset-lg-2">
@@ -150,7 +149,7 @@
     </div>
   </div>
 
-  <h1 class="w-100 text-center p-3 bg-light">PyArmor 的商业客户</h1>
+  <h2 class="w-100 text-center p-3 bg-light">PyArmor 的商业客户</h2>
   <div class="container d-flex flex-nowrap align-items-center w-100 p-5" style="overflow-y: auto;">
     <a class="mx-3" href="http://www.fujitsu.com/global/"><img src="images/fujitsu.png"/></a>
     <a class="mx-3" href="https://www.autodesk.com/"><img height="60px" src="images/maya-2017-lockup.png"/></a>
@@ -164,7 +163,7 @@
     <a class="m-3" href="http://www.joonis.de"><img src="images/joonis-logo.png"/></a>
   </div>
 
-  <h1 id="quick-start" class="w-100 text-center p-3 mt-5 bg-light">快速开始</h1>
+  <h2 id="quick-start" class="w-100 text-center p-3 mt-5 bg-light">快速开始</h2>
   <div class="container p-3">
     <div class="row">
 
@@ -235,7 +234,7 @@ python hello.py</code></pre>
       <div class="col-lg-6 pb-3">
         <div class="card bg-light">
           <div class="card-body">
-            <pre class="p-2"><code>pyarmor pack -t PyInstaller project/src/hello.py</code></pre>
+            <pre class="p-2"><code>pyarmor pack project/src/hello.py</code></pre>
           </div>
         </div>
       </div>
@@ -301,12 +300,11 @@ python queens.py
     <div class="container">
       <div class="row">
         <div class="col-12 col-md-6 col-lg-4">
-          <h1 class="text-info">更多资源</h1>
+          <h2 class="text-info">更多资源</h2>
           <div class="list-group list-group-flush border-bottom mt-3">
             <a href="https://pyarmor.readthedocs.io/en/latest/" class="list-group-item list-group-item-action text-info bg-light">文档</a>
             <a href="demo/index-zh.html" target="_blank" class="list-group-item list-group-item-action text-info bg-light">WebUI 演示版</a>
             <a href="https://github.com/dashingsoft/pyarmor/blob/master/src/examples/README-ZH.md" class="list-group-item list-group-item-action text-info bg-light">示例</a>
-            <a href="https://github.com/dashingsoft/pyarmor/blob/master/src/user-guide.md" class="list-group-item list-group-item-action text-info bg-light">用户指南</a>
             <a href="https://github.com/dashingsoft/pyarmor/issues" class="list-group-item list-group-item-action text-info bg-light">报告问题</a>
             <a href="https://github.com/dashingsoft/pyarmor" class="list-group-item list-group-item-action text-info bg-light">源代码</a>
             <a href="demo/order-zh.html" class="list-group-item list-group-item-action text-info bg-light">购买</a>
