@@ -78,7 +78,7 @@
     <div class="row align-items-center justify-content-between">
       <div class="col-12 mt-5 text-center">
         <h2 class="text-center">打包加密脚本</h2>
-        <p class="fs-16 text-secondary">PyArmor 能够通过第三方工具，例如  <strong>PyInstaller</strong>, <strong>py2exe</strong>, <strong>py2app</strong>, <strong>cx_Freeze</strong> 等，把脚本加密之后直接打包发布</p>
+        <p class="fs-16 text-secondary">PyArmor 能够通过第三方工具，例如  <strong>PyInstaller</strong>等，把脚本加密之后直接打包发布</p>
       </div>
       <div class="col-12 mb-5">
         <img class="img-fluid mx-auto d-block" src="images/packer-zh.jpg" alt="" />
@@ -189,7 +189,7 @@
         <div class="card border-0">
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>加密脚本</strong></h5>
-            <p class="card-text">使用 <code>obfuscate</code> 命令，加密 <code>project/src</code> 目录下面的所有 <code>.py</code> 文件</p>
+            <p class="card-text">使用 <code>obfuscate</code> 命令，加密 <code>src</code> 目录下面的所有 <code>.py</code> 文件</p>
           </div>
         </div>
       </div>
@@ -197,7 +197,7 @@
       <div class="col-lg-6 pb-3">
         <div class="card bg-light">
           <div class="card-body">
-            <pre class="p-2"><code>pyarmor obfuscate project/src/hello.py</code></pre>
+            <pre class="p-2"><code>pyarmor obfuscate src/hello.py</code></pre>
             <button class="btn btn-outline-secondary float-right d-none">Copy</button>
           </div>
         </div>
@@ -234,7 +234,7 @@ python hello.py</code></pre>
       <div class="col-lg-6 pb-3">
         <div class="card bg-light">
           <div class="card-body">
-            <pre class="p-2"><code>pyarmor pack project/src/hello.py</code></pre>
+            <pre class="p-2"><code>pyarmor pack src/hello.py</code></pre>
           </div>
         </div>
       </div>
@@ -268,7 +268,7 @@ python hello.py</code></pre>
             <pre class="p-2"><code>cp licenses/customer-jondy/license.lic ./dist/</code></pre>
             <hr/>
             <pre class="p-2"><code>cd ./dist/
-python queens.py
+python hello.py
             </code></pre>
             <button class="btn btn-outline-secondary float-right d-none">Copy</button>
           </div>

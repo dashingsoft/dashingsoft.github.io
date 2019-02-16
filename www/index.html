@@ -78,7 +78,7 @@
     <div class="row align-items-center justify-content-between">
       <div class="col-12 mt-5 text-center">
         <h2 class="text-center">Pack Obfuscated Scripts</h2>
-        <p class="fs-16 text-secondary">PyArmor could pack obfuscated scripts with <strong>PyInstaller</strong>, <strong>py2exe</strong>, <strong>py2app</strong>, <strong>cx_Freeze</strong> etc.</p>
+        <p class="fs-16 text-secondary">PyArmor could pack obfuscated scripts into one bundle with <strong>PyInstaller</strong> etc.</p>
       </div>
       <div class="col-12 mb-5">
         <img class="img-fluid mx-auto d-block" src="images/packer.jpg" alt="" />
@@ -190,7 +190,7 @@
         <div class="card border-0">
           <div class="card-body pt-0">
             <h5 class="card-title"><strong>Obfuscate Scripts</strong></h5>
-            <p class="card-text">Obfuscate all the <code>.py</code> files in the path <code>project/src</code> by command <code>obfuscate</code></p>
+            <p class="card-text">Obfuscate all the <code>.py</code> files in the path <code>src</code> by command <code>obfuscate</code></p>
           </div>
         </div>
       </div>
@@ -198,7 +198,7 @@
       <div class="col-lg-6 pb-3">
         <div class="card bg-light">
           <div class="card-body">
-            <pre class="p-2"><code>pyarmor obfuscate project/src/hello.py</code></pre>
+            <pre class="p-2"><code>pyarmor obfuscate src/hello.py</code></pre>
             <button class="btn btn-outline-secondary float-right d-none">Copy</button>
           </div>
         </div>
@@ -235,7 +235,7 @@ python hello.py</code></pre>
       <div class="col-lg-6 pb-3">
         <div class="card bg-light">
           <div class="card-body">
-            <pre class="p-2"><code>pyarmor pack project/src/hello.py</code></pre>
+            <pre class="p-2"><code>pyarmor pack src/hello.py</code></pre>
           </div>
         </div>
       </div>
@@ -268,7 +268,7 @@ python hello.py</code></pre>
             <pre class="p-2"><code>cp licenses/customer-jondy/license.lic ./dist/</code></pre>
             <hr/>
             <pre class="p-2"><code>cd ./dist/
-python queens.py
+python hello.py
             </code></pre>
             <button class="btn btn-outline-secondary float-right d-none">Copy</button>
           </div>
