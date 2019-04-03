@@ -45,6 +45,15 @@
   <lastmod>2018-11-11T02:09:42+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-
+<url>
+  <loc>http://pyarmor.dashingsoft.com/platforms.html</loc>
+  <lastmod>2019-04-03T022:09:52+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>http://pyarmor.dashingsoft.com/platforms-zh.html</loc>
+  <lastmod>2019-04-03T022:09:52+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
 
 </urlset>
