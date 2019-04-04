@@ -42,9 +42,9 @@
   </nav>
 
   <div class="container py-5">
-    
+
     <h1 class="pb-3 text-center">PyArmor Prebuilt Dynamic Libraries</h1>
-    
+
     <p>The core of PyArmor is written by C, the prebuilt dynamic
     libraries include the common platforms and some embeded
     platforms.</p>
@@ -52,160 +52,165 @@
     <p>Some of them are distributed with PyArmor package, refer to <a href="#table-1">Table-1.</a></p>
     <p>Some of them are not, refer to <a href="#table-2">Table-2.</a> In these platforms, in order to run pyarmor, first download the corresponding prebuilt dynamic library, then put it in the installed path of PyArmor package.</p>
     <p>Contact <a href="mailto:jondy.zhao@gmail.com">jondy.zhao@gmail.com</a> if you'd like to run PyArmor in other platform.</p>
-    
-    <table id="table-1" class="table table-striped table-sm mt-5">
-      <caption>Table 1. Prebuilt Libraries Distributed with PyArmor</caption>
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">OS</th>
-          <th scope="col">Arch</th>
-          <th scope="col">Features</th>
-          <th scope="col">Download</th>
-          <th scope="col">Remark</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th></th>
-          <td>Windows</td>
-          <td>i686</td>
-          <td><ul class="list-unstyled"><li>AntiDebug</li><li>JIT</li></ul></td>
-          <td><a href="http://pyarmor.dashingsoft.com/downloads/platforms/win32/_pytransform.dll">_pytransform.dll</a></td>
-          <td>Cross compile by i686-pc-mingw32-gcc in cygwin</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>Windows</td>
-          <td>AMD64</td>
-          <td><ul class="list-unstyled"><li>AntiDebug</li><li>JIT</li></ul></td>
-          <td><a href="http://pyarmor.dashingsoft.com/downloads/platforms/win_amd64/_pytransform.dll">_pytransform.dll</a></td>
-          <td>Cross compile by x86_64-w64-mingw32-gcc in cygwin</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>Linux</td>
-          <td>i686</td>
-          <td><ul class="list-unstyled"><li>AntiDebug</li><li>JIT</li></ul></td>
-          <td><a href="http://pyarmor.dashingsoft.com/downloads/platforms/linux_i386/_pytransform.so">_pytransform.so</a></td>
-          <td>Built by GCC</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>Linux</td>
-          <td>x86_64</td>
-          <td><ul class="list-unstyled"><li>AntiDebug</li><li>JIT</li></ul></td>
-          <td><a href="http://pyarmor.dashingsoft.com/downloads/platforms/linux_x86_64/_pytransform.so">_pytransform.so</a></td>
-          <td>Built by GCC</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>Linux</td>
-          <td>armv7</td>
-          <td></td>
-          <td><a href="http://pyarmor.dashingsoft.com/downloads/platforms/armv7/_pytransform.so">_pytransform.so</a></td>
-          <td>Cross compile by GCC in ubuntu 16.04 (x86_64)<br>for 32-bit Armv7 Cortex-A, hard-float, little-endian</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>Linux</td>
-          <td>aarch64</td>
-          <td></td>
-          <td><a href="http://pyarmor.dashingsoft.com/downloads/platforms/armv8.64-bit/_pytransform.so">_pytransform.so</a></td>
-          <td>Cross compile by GCC in ubuntu 16.04 (x86_64)<br>for 64-bit Armv8 Cortex-A, little-endian</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>MacOSX</td>
-          <td>x86_64, intel</td>
-          <td><ul class="list-unstyled"><li>AntiDebug</li><li>JIT</li></ul></td>
-          <td><a href="http://pyarmor.dashingsoft.com/downloads/platforms/macosx_x86_64/_pytransform.dylib">_pytransform.dylib</a></td>
-          <td>Built by CLang with MacOSX10.11</td>
-        </tr>
-      </tbody>
-    </table>
 
-    <table id="table-2" class="table table-striped table-sm">
-      <caption>Table 2. All The Others Prebuilt Libraries For PyArmor</caption>
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">OS</th>
-          <th scope="col">Arch</th>
-          <th scope="col">Features</th>
-          <th scope="col">Download</th>
-          <th scope="col">Remark</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th></th>
-          <td>Windows</td>
-          <td>x86</td>
-          <td></td>
-          <td><a href="http://pyarmor.dashingsoft.com/downloads/platforms/vs2015/x86/_pytransform.dll">_pytransform.dll</a></td>
-          <td>Built by VS2015</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>Windows</td>
-          <td>x64</td>
-          <td></td>
-          <td><a href="http://pyarmor.dashingsoft.com/downloads/platforms/vs2015/x64/_pytransform.dll">_pytransform.dll</a></td>
-          <td>Built by VS2015</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>iOS</td>
-          <td>arm64</td>
-          <td></td>
-          <td><a href="http://pyarmor.dashingsoft.com/downloads/platforms/ios.arm64/_pytransform.dylib">_pytransform.dylib</a></td>
-          <td>Cross compiled by CLang with iPhoneOS9.3sdk</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>Linux</td>
-          <td>armv5</td>
-          <td></td>
-          <td><a href="http://pyarmor.dashingsoft.com/downloads/platforms/armv5/_pytransform.so">_pytransform.so</a></td>
-          <td>Cross compile by GCC in ubuntu 16.04 (x86_64)<br>for 32-bit Armv5 (arm926ej-s)</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>Linux</td>
-          <td>aarch32</td>
-          <td></td>
-          <td><a href="http://pyarmor.dashingsoft.com/downloads/platforms/armv8.32-bit/_pytransform.so">_pytransform.so</a></td>
-          <td>Cross compile by GCC in ubuntu 16.04 (x86_64)<br>for 32-bit Armv8 Cortex-A, hard-float, little-endian</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>FreeBSD</td>
-          <td>x86_64</td>
-          <td></td>
-          <td><a href="http://pyarmor.dashingsoft.com/downloads/platforms/freebsd/_pytransform.so">_pytransform.so</a></td>
-          <td>Cross compile by GCC in ubuntu 16.04 (x86_64)<br>Do not support serial number of harddisk</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>Linux</td>
-          <td>ppc64le</td>
-          <td></td>
-          <td><a href="http://pyarmor.dashingsoft.com/downloads/platforms/ppc64le/_pytransform.so">_pytransform.so</a></td>
-          <td>Cross compile by GCC in ubuntu 16.04 (x86_64)</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>Alpine Linux</td>
-          <td>x86_64</td>
-          <td></td>
-          <td><a href="http://pyarmor.dashingsoft.com/downloads/platforms/alpine/_pytransform.so">_pytransform.so</a></td>
-          <td>Cross compile by <a href="https://github.com/richfelker/musl-cross-make">musl-cross-make</a> in ubuntu 16.04 (x86_64) with musl-1.1.21</td>
-        </tr>        
-      </tbody>
-    </table>
   </div>
-  
+
+  <div class="container">
+
+    <h5 id="table-1" class="border-bottom py-3 mb-3">Table 1. Prebuilt Libraries Distributed with PyArmor</h5>
+
+    <div class="row py-2 mb-3">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        Windows i686
+        <span class="badge badge-info mx-1 px-1">Anti-Debug</span>
+        <span class="badge badge-info mx-1 px-1">JIT</span>
+        <small class="mx-2"><a href="http://pyarmor.dashingsoft.com/downloads/platforms/win32/_pytransform.dll" class="list-group-item-action">下载</a></small>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <small class="text-muted">Cross compile by i686-pc-mingw32-gcc in cygwin</small>
+      </div>
+    </div>
+
+    <div class="row py-2 mb-3">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        Windows AMD64
+        <span class="badge badge-info mx-1 px-1">Anti-Debug</span>
+        <span class="badge badge-info mx-1 px-1">JIT</span>
+        <small class="mx-2"><a href="http://pyarmor.dashingsoft.com/downloads/platforms/win_amd64/_pytransform.dll" class="list-group-item-action">下载</a></small>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <small class="text-muted">Cross compile by x86_64-w64-mingw32-gcc in cygwin</small>
+      </div>
+    </div>
+
+    <div class="row py-2 mb-3">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        Linux i686
+        <span class="badge badge-info mx-1 px-1">Anti-Debug</span>
+        <span class="badge badge-info mx-1 px-1">JIT</span>
+        <small class="mx-2"><a href="http://pyarmor.dashingsoft.com/downloads/platforms/linux_i386/_pytransform.so" class="list-group-item-action">下载</a></small>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <small class="text-muted">Built by GCC</small>
+      </div>
+    </div>
+    <div class="row py-2 mb-3">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        Linux x86_64
+        <span class="badge badge-info mx-1 px-1">Anti-Debug</span>
+        <span class="badge badge-info mx-1 px-1">JIT</span>
+        <small class="mx-2"><a href="http://pyarmor.dashingsoft.com/downloads/platforms/linux_x86_64/_pytransform.so" class="list-group-item-action">下载</a></small>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <small class="text-muted">Built by GCC</small>
+      </div>
+    </div>
+    <div class="row py-2 mb-3">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        Linux armv7
+        <small class="mx-2"><a href="http://pyarmor.dashingsoft.com/downloads/platforms/armv7/_pytransform.so" class="list-group-item-action">下载</a></small>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <small class="text-muted">32-bit Armv7 Cortex-A, hard-float, little-endian</small>
+      </div>
+    </div>
+    <div class="row py-2 mb-3">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        Linux aarch64
+        <small class="mx-2"><a href="http://pyarmor.dashingsoft.com/downloads/platforms/armv8.64-bit/_pytransform.so" class="list-group-item-action">下载</a></small>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <small class="text-muted">64-bit Armv8 Cortex-A, little-endian</small>
+      </div>
+    </div>
+    <div class="row py-2 mb-3">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        MacOSX x86_64/intel
+        <span class="badge badge-info mx-1 px-1">Anti-Debug</span>
+        <span class="badge badge-info mx-1 px-1">JIT</span>
+        <small class="mx-2"><a href="http://pyarmor.dashingsoft.com/downloads/platforms/macosx_x86_64/_pytransform.dylib" class="list-group-item-action">下载</a></small>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <small class="text-muted">Built by CLang with MacOSX10.11</small>
+      </div>
+    </div>
+
+    <h5 id="table-2" class="border-bottom py-3">Table 2. All The Others Prebuilt Libraries For PyArmor</h5>
+
+    <div class="row py-2">
+      <div class="col-xs-12 col-sm-6 col-lg-3">
+        Windows x86 <small class="px-3"><a href="http://pyarmor.dashingsoft.com/downloads/platforms/vs2015/x86/_pytransform.dll" class="list-group-item-action">下载</a></small>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <small class="text-muted">Built by VS2015</small>
+      </div>
+    </div>
+
+    <div class="row py-2">
+      <div class="col-xs-12 col-sm-6 col-lg-3">
+        Windows x64 <small class="px-3"><a href="http://pyarmor.dashingsoft.com/downloads/platforms/vs2015/x64/_pytransform.dll" class="list-group-item-action">下载</a></small>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <small class="text-muted">Built by VS2015</small>
+      </div>
+    </div>
+
+    <div class="row py-2">
+      <div class="col-xs-12 col-sm-6 col-lg-3">
+        iOS arm64 <small class="px-3"><a href="http://pyarmor.dashingsoft.com/downloads/platforms/ios.arm64/_pytransform.dylib" class="list-group-item-action">下载</a></small>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <small class="text-muted">Cross compiled by CLang with iPhoneOS9.3sdk</small>
+      </div>
+    </div>
+
+    <div class="row py-2">
+      <div class="col-xs-12 col-sm-6 col-lg-3">
+        Linux armv5 <small class="px-3"><a href="http://pyarmor.dashingsoft.com/downloads/platforms/armv5/_pytransform.so" class="list-group-item-action">下载</a></small>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <small class="text-muted">32-bit Armv5 (arm926ej-s)</small>
+      </div>
+    </div>
+
+    <div class="row py-2">
+      <div class="col-xs-12 col-sm-6 col-lg-3">
+        Linux aarch32 <small class="px-3"><a href="http://pyarmor.dashingsoft.com/downloads/platforms/armv8.32-bit/_pytransform.so" class="list-group-item-action">下载</a></small>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <small class="text-muted">32-bit Armv8 Cortex-A, hard-float, little-endian</small>
+      </div>
+    </div>
+
+    <div class="row py-2">
+      <div class="col-xs-12 col-sm-6 col-lg-3">
+        FreeBSD x86_64 <small class="px-3"><a href="http://pyarmor.dashingsoft.com/downloads/platforms/freebsd/_pytransform.so" class="list-group-item-action">下载</a></small>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <small class="text-muted">Do not support serial number of harddisk</small>
+      </div>
+    </div>
+
+    <div class="row py-2">
+      <div class="col-xs-12 col-sm-6 col-lg-3">
+        Linux ppc64le <small class="px-3"><a href="http://pyarmor.dashingsoft.com/downloads/platforms/ppc64le/_pytransform.so" class="list-group-item-action">下载</a></small>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <small class="text-muted">For POWER8</small>
+      </div>
+    </div>
+
+    <div class="row py-2 mb-5">
+      <div class="col-xs-12 col-sm-6 col-lg-3">
+        Alpine Linux x86_64 <small class="px-3"><a href="http://pyarmor.dashingsoft.com/downloads/platforms/alpine/_pytransform.so" class="list-group-item-action">下载</a></small>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <small class="text-muted">Cross compile by musl-cross-make in ubuntu 16.04 (x86_64) with musl-1.1.21</small>
+      </div>
+    </div>
+
+  </div>
+
   <div class="w-100 p-3 bg-light">
     <div class="container">
       <div class="row">
