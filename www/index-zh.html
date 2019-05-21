@@ -6,7 +6,7 @@
   <meta name="description" content="A tool used to obfuscate python scripts." />
   <meta name="Keywords" content="python, obfuscate, obfuscation, obfuscator" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Python 源代码加密器</title>
+  <title>Python 脚本加密器</title>
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all" />
 </head>
 
@@ -44,7 +44,7 @@
   <div class="jumbotron jumbotron-fluid bg-light">
     <div class="container">
       <h1 class="display-4">PyArmor</h1>
-      <p class="lead col-lg-6">一个保护 Python 源代码的工具，能够加密 Python 源代码，保护运行时刻的 Python 代码不被泄露，设置加密源代码的有效期限，绑定加密源代码到硬盘、网卡等硬件设备</p>
+      <p class="lead col-lg-6">保护 Python 脚本的工具，能够加密 Python 脚本，保护运行时刻的 Python 代码不被泄露，设置加密脚本的有效期限，绑定加密脚本到硬盘、网卡等硬件设备</p>
       <p class="lead">
         <a class="btn btn-info btn-lg"
            href="https://pyarmor.readthedocs.io/zh/latest/how-to-do.html"
@@ -61,7 +61,7 @@
       </div>
       <div class="col-lg-5 order-1 order-lg-2">
         <h2 class="mb-2 text-bold w-100">无缝替换</h2>
-        <p class="fs-16 text-secondary">经过 PyArmor 加密后的 Python 源代码也是一个正常的 Python 脚本，只需要将一个模块 <code>pytransform.py</code> 和几个辅助文件加入到原来的代码里面，就可以把原来的 Python 源代码全部替换成为加密源代码，按照以前的方式使用和运行这些加密源代码</p>
+        <p class="fs-16 text-secondary">经过 PyArmor 加密后的 Python 脚本也是一个正常的 Python 脚本，只需要将一个模块 <code>pytransform.py</code> 和几个辅助文件加入到原来的代码里面，就可以把原来的 Python 脚本全部替换成为加密脚本，按照以前的方式使用和运行这些加密脚本</p>
         <p class="fs-16 text-secondary d-none">这个特性也使得经过 PyArmor 加密后的脚本，还可以在继续使用第三方工具（例如 <strong>py2exe</strong>, <strong>py2app</strong>, <strong>PyInstaller</strong>，<strong>cx_Freeze</strong> 等打包发布</p>
       </div>
     </div>
@@ -69,7 +69,7 @@
     <div class="row align-items-center justify-content-between">
       <div class="col-lg-5 mt-5 order-1 order-lg-1">
         <h2 class="mb-2 text-bold w-100">动态加密</h2>
-        <p class="fs-16 text-secondary">PyArmor 不仅仅能够加密 Python 源代码，即便在脚本被解释执行的运行过程中，一旦函数（代码块）执行完成，就会被重新加密，从更深层次保证了 Python 脚本的安全性</p>
+        <p class="fs-16 text-secondary">PyArmor 不仅仅能够加密 Python 脚本，即便在脚本被解释执行的运行过程中，一旦函数（代码块）执行完成，就会被重新加密，从更深层次保证了 Python 脚本的安全性</p>
       </div>
       <div class="col-lg-6 mt-lg-5 order-2 order-lg-2">
         <img class="img-fluid mx-auto d-block" src="images/run.png" alt="" />
@@ -328,9 +328,9 @@ python hello.py
         <div class="col">
           <ul class="list-inline">
             <li class="list-inline-item mt-3"><small class="text-muted">版权所有 @ 2008-2019 德新软件科技有限公司</small></li>
-            <li class="list-inline-item mt-3"><a href="mailto:jondy.zhao@gmail.com"><small class="text-muted">联系我们</small></a></li>
-            <li class="list-inline-item mt-3"><a href="mailto:jondy.zhao@gmail.com"><small class="text-muted">商业合作</small></a></li>
-            <li class="list-inline-item mt-3 ml-5"><a href="http://www.miitbeian.gov.cn"><small class="text-muted">陕ICP备17018150号-1</small></a></li>
+            <li class="list-inline-item mt-3 text-nowrap"><a href="mailto:jondy.zhao@gmail.com"><small class="text-muted">联系方式: jondy.zhao@gmail.com</small></a></li>
+            <li class="list-inline-item mt-3 text-nowrap"><a href="mailto:13991280625@163.com"><small class="text-muted">商业合作: 13991280625@163.com</small></a></li>
+            <li class="list-inline-item mt-3"><a href="http://www.miitbeian.gov.cn"><small class="text-muted">陕ICP备17018150号-1</small></a></li>
           </ul>
         </div>
       </div>
