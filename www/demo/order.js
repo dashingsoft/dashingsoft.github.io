@@ -1,7 +1,9 @@
 function logPyarmorOrder( payment ) {
 
     // var base_url ='order-log.html';
-    var base_url = 'http://snsoffice.com:8081/ifuture/log-order';
+    var base_url = window.location.protocol == 'http:'
+        ? 'http://snsoffice.com:8081/ifuture/log-order'
+        : 'https://api.snsoffice.com/log-order';
 
     var queryString = [ 'payment=' + payment ];
 
