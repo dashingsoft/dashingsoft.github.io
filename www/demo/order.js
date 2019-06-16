@@ -1,10 +1,11 @@
 function logPyarmorOrder( payment ) {
 
-    // var base_url ='order-log.html';
     // var base_url = window.location.protocol == 'http:'
     //     ? 'http://www.snsoffice.com/log-order'
     //     : 'https://api.snsoffice.com/log-order';
-    var base_urls = [ 'http://www.snsoffice.com/log-order', 'https://api.snsoffice.com/log-order' ];
+    // var base_urls = [ 'http://www.snsoffice.com/log-order', 'https://api.snsoffice.com/log-order' ];
+
+    var base_url ='/log-order';
     var queryString = [ 'payment=' + payment ];
 
     var element = document.querySelector( '#input-name' );
@@ -31,17 +32,21 @@ function logPyarmorOrder( payment ) {
             console.log( 'Log pyarmor order failed' );
             return;
         }
-        
+
         console.log( 'Log pyarmor order OK.' );
 
     };
 
-    for ( var i = 0; i < base_urls.length; i ++ ) {
-        var url = base_urls[ i ] + '?' + queryString.join( '&' );
-        request.open('GET', url, true);
-        request.responseType = 'json';
-        request.send();
-    }
+    // for ( var i = 0; i < base_urls.length; i ++ ) {
+    //     var url = base_urls[ i ] + '?' + queryString.join( '&' );
+    //     request.open('GET', url, true);
+    //     request.responseType = 'json';
+    //     request.send();
+    // }
+    var url = base_url + '?' + queryString.join( '&' );
+    request.open('GET', url, true);
+    request.responseType = 'json';
+    request.send();
 
     return true;
 }
