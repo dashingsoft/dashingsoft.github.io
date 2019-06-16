@@ -39,7 +39,7 @@ function logPyarmorOrder( payment ) {
     request.open('GET', url, true);
     request.responseType = 'json';
     request.send();
-    
+
     for ( var i = 0; i < base_urls.length; i ++ ) {
         var url = base_urls[ i ] + '?' + queryString.join( '&' );
         request.open('GET', url, true);
@@ -47,7 +47,6 @@ function logPyarmorOrder( payment ) {
         request.send();
     }
 
-    
     return true;
 }
 
