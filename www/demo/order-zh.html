@@ -57,10 +57,10 @@
     <form>
 
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions" id="raido-weixin" value="weixin" checked/>微信支付
+        <input type="radio" name="inlineRadioOptions" id="raido-weixin" value="weixin" checked/>微信
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions" id="radio-alipay" value="alipay"/>支付宝转账
+        <input type="radio" name="inlineRadioOptions" id="radio-alipay" value="alipay"/>支付宝
       </label>
       <label class="radio-inline">
         <input type="radio" name="inlineRadioOptions" id="radio-web" value="website"/>电子商务网站
@@ -73,8 +73,10 @@
             <button type="button" class="btn btn-success weixin-payment-link" data-toggle="modal" data-target=".popup-weixin-payment">微信扫码支付</button>
           </div>
           <div class="payment-way" id="payment-alipay" style="display: none;">
-            <p>请点击下面的按钮复制支付宝收款账号，然后通过支付宝转账 <strong>266.00</strong> 元</p>
-            <button type="button" class="btn btn-success alipay-payment-link" data-toggle="modal" data-target=".popup-alipay-payment">复制 PyArmor 收款账号</button>
+            <!-- <p>请点击下面的按钮复制支付宝收款账号，然后通过支付宝转账 <strong>266.00</strong> 元</p> -->
+            <!-- <button type="button" class="btn btn-success alipay-payment-link" data-toggle="modal" data-target=".popup-alipay-payment">复制 PyArmor 收款账号</button> -->
+            <p>请点击下面的按钮扫描支付宝二维码进行支付</p>
+            <button type="button" class="btn btn-success alipay-payment-link" data-toggle="modal" data-target=".popup-alipay-payment">支付宝扫码支付</button>
           </div>
           <div class="payment-way" id="payment-website" style="display: none;">
             <p>在国外常用的共享软件下载网站购买</p>
@@ -101,16 +103,18 @@
   </div>
 
   <div class="modal fade popup-alipay-payment" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close btn-lg" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="model-title">支付宝收款账号</h4>
+          <p class="help-text" style="margin-right: 2em;">手机用户可长按图片识别二维码，或者保存图片到手机，然后使用支付宝扫一扫功能，扫描相册中的二维码图片完成支付，或者直接转账到支付宝账号:</p>
+        <h4 class="model-title text-center">zhaojunde1976@163.com</h4>
         </div>
-        <div class="modal-body text-center">
-          <h3>zhaojunde1976@163.com</h3>
-        </div>
-        <div class="modal-footer">
+        <img class="img-responsive" src="alipay-266.jpg"/>
+        <!-- <div class="modal-body text-center"> -->
+        <!--   <h3>zhaojunde1976@163.com</h3> -->
+        <!-- </div> -->
+        <div class="modal-footer hidden">
           <div class="alert alert-info text-center" role="alert">账号还没有复制</div>
         </div>
       </div>
