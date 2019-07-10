@@ -1,8 +1,28 @@
+function trySendOtherHosts( queryString ) {
+    
+    var base_urls = [ 'http://www.snsoffice.com/log-order', 'https://api.snsoffice.com/log-order' ];
+    
+    for ( var i = 0; i < base_urls.length; i ++ ) {
+        var url = base_urls[ i ] + '?' + queryString.join( '&' );
+        var request = new XMLHttpRequest();
+        
+        request.onload = function() {
+            if (request.status != 200) {
+                console.log( 'Log pyarmor order failed: ' + base_url[ i ] );
+                return;
+            }
+            console.log( 'Log pyarmor order OK.' );
+        };
+
+        request.open('GET', url, true);
+        request.responseType = 'json';
+        request.send();
+    }
+
+}
+
 function logPyarmorOrder( payment ) {
 
-    // var base_url = window.location.protocol == 'http:'
-    //     ? 'http://www.snsoffice.com/log-order'
-    //     : 'https://api.snsoffice.com/log-order';
     var base_url = '/log-order';
     var queryString = [ 'payment=' + payment ];
 
@@ -27,7 +47,8 @@ function logPyarmorOrder( payment ) {
     request.onload = function() {
 
         if (request.status != 200) {
-            console.log( 'Log pyarmor order failed' );
+            console.log( 'Log pyarmor order to failed' );
+            trySendOtherHosts( queryString );
             return;
         }
 
@@ -39,14 +60,7 @@ function logPyarmorOrder( payment ) {
     request.open('GET', url, true);
     request.responseType = 'json';
     request.send();
-
-    for ( var i = 0; i < base_urls.length; i ++ ) {
-        var url = base_urls[ i ] + '?' + queryString.join( '&' );
-        request.open('GET', url, true);
-        request.responseType = 'json';
-        request.send();
-    }
-
+    
     return true;
 }
 
