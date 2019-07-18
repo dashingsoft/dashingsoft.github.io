@@ -1,0 +1,127 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="A tool used to obfuscate python scripts." />
+  <meta name="Keywords" content="Python, 加密, 源代码, 混淆, 保护" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>PyArmor 电子订单</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <style>
+    body {
+        background-color: #f5f5f5;
+    }
+    .container {
+        padding: 30px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        border: 1px #ccc solid;
+        background-color: #fff;
+    }
+  </style>  
+</head>
+
+<body role="document">
+
+  <div class="container">
+    <div class="page-header">
+      <h1>PyArmor <small>电子订单</small></h1>
+    </div>
+
+    <p class="lead"><small>一个用于加密和保护 Python 脚本的工具软件</small></p>
+    <dl>
+      <dt>单价（不含税）</dt>
+      <dd><strong>266.00</strong>元</dd>
+    </dl>
+
+    <h3>用户信息</h3>
+    <form>
+        <div class="form-group">
+          <label for="input-name">授权名称</label>
+          <input type="text" class="form-control" id="input-name" />
+          <p class="help-block">输入被授权的用户名称，公司用户填写公司的名称</p>
+        </div>
+        <div class="form-group">
+          <label for="input-email">电子邮件</label>
+          <input type="email" class="form-control" id="input-email" />
+          <p class="help-block">支付成功之后注册码会自动发送到电子邮箱，邮件系统有一定延迟性，一般在半个小时之内应该收到（注意检查一下是否在垃圾邮件里面）。如果还是没有收到，请发邮件到<a href="mailto:13991280625@163.com">13991280625@163.com</a>或者微信（手机）联系: <strong>13991280625</strong></p>
+        </div>
+    </form>
+
+    <h3>支付方式</h3>
+    <form>
+
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="raido-weixin" value="weixin" checked/>微信
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="radio-alipay" value="alipay"/>支付宝
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="radio-web" value="website"/>电子商务网站
+      </label>
+
+      <div class="panel panel-default" style="margin-top: 1em;">
+        <div class="panel-body">
+          <div class="payment-way" id="payment-weixin">
+            <p>请点击下面的按钮扫描微信二维收款码进行支付</p>
+            <button type="button" class="btn btn-success weixin-payment-link" data-toggle="modal" data-target=".popup-weixin-payment">微信扫码支付</button>
+          </div>
+          <div class="payment-way" id="payment-alipay" style="display: none;">
+            <!-- <p>请点击下面的按钮复制支付宝收款账号，然后通过支付宝转账 <strong>266.00</strong> 元</p> -->
+            <!-- <button type="button" class="btn btn-success alipay-payment-link" data-toggle="modal" data-target=".popup-alipay-payment">复制 PyArmor 收款账号</button> -->
+            <p>请点击下面的按钮扫描支付宝二维码进行支付</p>
+            <button type="button" class="btn btn-success alipay-payment-link" data-toggle="modal" data-target=".popup-alipay-payment">支付宝扫码支付</button>
+          </div>
+          <div class="payment-way" id="payment-website" style="display: none;">
+            <p>在国外常用的共享软件下载网站购买</p>
+            <a role="button" class="btn btn-link" href="https://order.shareit.com/cart/add?vendorid=200089125&PRODUCT[300871197]=1">
+              <img height="40" src="https://mycommerce.akamaized.net/ui/Content/img/logo_mycommerce.svg" alt="Digital River" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <p class="help-block">需要发票的用户请通过电子商务网站的方式进行支付，在购物车下单就能邮件方式收到发票，点击查看<a target="_blank" href="INV_598150533_200226880_201905091015.pdf">发票样例</a></p>
+    </form>
+  </div>
+
+  <div class="modal fade popup-weixin-payment" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close btn-lg" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <p class="help-text" style="margin-right: 2em;">手机用户可长按图片识别二维码，或者保存图片到手机，然后使用微信扫一扫功能，扫描相册中的二维码图片完成支付</p>
+        </div>
+        <img class="img-responsive" src="weixin-266.jpg"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade popup-alipay-payment" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close btn-lg" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <p class="help-text" style="margin-right: 2em;">手机用户可长按图片识别二维码，或者保存图片到手机，然后使用支付宝扫一扫功能，扫描相册中的二维码图片完成支付，或者直接转账到支付宝账号:</p>
+        <h4 class="model-title text-center">zhaojunde1976@163.com</h4>
+        </div>
+        <img class="img-responsive" src="alipay-266.jpg"/>
+        <!-- <div class="modal-body text-center"> -->
+        <!--   <h3>zhaojunde1976@163.com</h3> -->
+        <!-- </div> -->
+        <div class="modal-footer hidden">
+          <div class="alert alert-info text-center" role="alert">账号还没有复制</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="order.js"></script>
+
+</body>
+</html>
