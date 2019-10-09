@@ -3,7 +3,9 @@ function queryOrder(orderno, callback, onerror) {
     var request = new XMLHttpRequest();
     request.onload = function() {
         if (request.status != 200) {
-            onerror();
+            console.log( 'Query order failed: ' + request.status );
+            if ( typeof onerror === 'function' )
+                onerror();
         }
         else {
             callback(request.response);
@@ -39,7 +41,7 @@ function getPurchaseNo() {
     var purchase_no = window.localStorage.getItem( 'CACHED_PURCHASE_NO' );
     if ( ! purchase_no ) {
         var a = new Date();
-        var m = a.getMonth(),
+        var m = a.getMonth() + 1,
             d = a.getDate(),
             h = a.getHours(),
             i = a.getMinutes(),
@@ -54,7 +56,6 @@ function getPurchaseNo() {
             + ( s < 10 ? '0' + s : s.toString() )
             + '.' + ( c < 10 ? '0' + c : c.toString() );
     }
-    console.log( 'purchase_no is ' + purchase_no );
     return purchase_no;
 }
 
@@ -75,15 +76,15 @@ function newOrder() {
 
     var url = 'https://api.dashingsoft.com/product/order/add';
     var purchase_no = getPurchaseNo();
-    var data = {
-        'PURCHASED_ID': purchase_no,
-        'RUNNING_NO': 1,
-        'PRODUCT_ID': '300871197',
-        'QUANTITY': 1,
-        'REG_NAME': name,
-        'EMAIL': email,
-        'LICENSE_TYPE': document.querySelector( 'input[name="license_type"]' ).value,
-    };
+    var data =  [
+        'PURCHASE_ID=' + purchase_no ,
+        'RUNNING_NO=1',
+        'PRODUCT_ID=300871197',
+        'QUANTITY=1',
+        'REG_NAME='+ encodeURIComponent( name ),
+        'EMAIL=' + encodeURIComponent( email ),
+        'LICENSE_TYPE=' + document.querySelector( 'select[name="license_type"]' ).value,
+    ].join( '&' );
 
     var request = new XMLHttpRequest();
 
@@ -98,13 +99,14 @@ function newOrder() {
             return;
         }
 
+        var order = JSON.parse( request.responseText );
         setPurchaseNo( purchase_no );
-        setOrderState( purchase_no );
+        setOrderState( order.order_no, order.state );
 
     };
 
     request.open( 'POST', url, true );
-    // request.send( JSON.stringify( data ) );
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send( data );
 }
 
@@ -122,12 +124,9 @@ function renewOrder() {
 function refreshOrder() {
     var order_no = document.querySelector( '.order-info-no' ).innerHTML;
     if ( order_no ) {
-        queryOrder( order_no,
-                    function ( order ) {
-                        setOrderState( order.order_no, order.state );
-                    },
-                    function () {
-                    } );
+        queryOrder( order_no, function ( order ) {
+            setOrderState( order.order_no, order.state );
+        } );
     }
 }
 
@@ -137,17 +136,22 @@ window.addEventListener( 'load', function () {
     document.querySelector( '.renew-order' ).addEventListener( 'click', renewOrder, false );
     document.querySelector( '.refresh-order' ).addEventListener( 'click', refreshOrder, false );
 
+    console.log('get purchase no ' + getPurchaseNo());
+    
     var purchase_no = window.localStorage.getItem( 'CACHED_PURCHASE_NO' );
     if ( purchase_no ) {
+        var order_no = purchase_no + '-1';
+
         setPurchaseNo( purchase_no );
         queryOrder( order_no,
                     function ( order ) {
-                        document.querySelector( 'input[name="reg_name"]' ).value = order.cursomer.name;
-                        document.querySelector( 'input[name="email"]' ).value = order.cursomer.email;
-                        document.querySelector( 'input[name="license_type"]' ).value = order.license_type;
+                        document.querySelector( 'input[name="reg_name"]' ).value = order.customer.name;
+                        document.querySelector( 'input[name="email"]' ).value = order.customer.email;
+                        document.querySelector( 'select[name="license_type"]' ).value = order.license_type;
                         setOrderState( order.order_no, order.state );
                     },
                     function () {
+                        console.log( 'Query order failed' );
                     } );
     }
 
