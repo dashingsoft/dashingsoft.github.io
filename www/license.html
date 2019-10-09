@@ -109,12 +109,18 @@
 
     <p>5. To buy a license, please visit this <a href="https://order.shareit.com/cart/add?vendorid=200089125&PRODUCT[300871197]=1">PyArmor shopping link</a> in Digital River</p>
     <div class="px-3">
-      <p>A registration code will be sent to your immediately after payment is
-        completed successfully. After you receive this email, copy registration
-        code only (no newline), run the following command to make it effective
-        <pre><code>pyarmor register CODE</code></pre></p>
-      <p>within the software. Run the following command to check your registration code
-      <pre><code>pyarmor --version</code></pre></p>
+      <p>A registration keyfile generally named "pyarmor-regfile-1.zip" will be
+        sent to your by email immediately after payment is completed
+        successfully. There are 3 files in the archive:<ul>
+          <li>REAME.txt</li>
+          <li>license.lic (registration code)</li>
+          <li>.pyarmor_capsule.zip (private capsule).</li></ul></p>
+      <p>Run the following command to take this keyfile effects:
+        <pre><code>pyarmor register /path/to/pyarmor-regfile-1.zip</code></pre></p>
+      <p>Check the registeration information:
+        <pre><code>pyarmor register</code></pre></p>
+      <p>After the registration keyfile takes effect, you need obfuscate the scripts
+        again.</p>      
       <p>The registration code is valid forever, it can be used permanently. But
         it may not be rented or leased.</p>
     </div>
