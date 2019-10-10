@@ -17,77 +17,127 @@
         background-color: #f5f5f5;
     }
     .container {
-        padding: 30px;
-        margin-top: 2px;
-        margin-bottom: 2px;
+        padding: 2px 30px 30px 30px;
+        margin-top: 16px;
+        margin-bottom: 16px;
         border: 1px #ccc solid;
         background-color: #fff;
     }
-  </style>  
+  </style>
 </head>
 
 <body role="document">
 
   <div class="container">
     <div class="page-header">
-      <h1>PyArmor <small>电子订单</small></h1>
+      <h1>PyArmor 电子订单</h1>
     </div>
 
-    <p class="lead"><small>一个用于加密和保护 Python 脚本的工具软件</small></p>
-    <dl>
-      <dt>单价（不含税）</dt>
-      <dd><strong>266.00</strong>元</dd>
-    </dl>
+    <table class="table">
+      <caption>我的购物车</caption>
+      <thead>
+        <tr>
+          <th>产品名称</th>
+          <th>描述</th>
+          <th>价格（不含税）</th>
+          <th>数量</th>
+          <th>总金额</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="logo.png" width="20">PyArmor</td>
+          <td>用于加密和保护 Python 脚本的工具软件</td>
+          <td>266.00 元</td>
+          <td>1</td>
+          <td><strong>266.00 元</strong></td>
+        </tr>
+      </tbody>
+    </table>
 
-    <h3>用户信息</h3>
-    <form>
-        <div class="form-group">
-          <label for="input-name">授权名称</label>
-          <input type="text" class="form-control" id="input-name" />
-          <p class="help-block">输入被授权的用户名称，公司用户填写公司的名称</p>
-        </div>
-        <div class="form-group">
-          <label for="input-email">电子邮件</label>
-          <input type="email" class="form-control" id="input-email" />
-          <p class="help-block">支付成功之后注册码会自动发送到电子邮箱，邮件系统有一定延迟性，一般在半个小时之内应该收到（注意检查一下是否在垃圾邮件里面）。如果还是没有收到，请发邮件到<a href="mailto:13991280625@163.com">13991280625@163.com</a>或者微信（手机）联系: <strong>13991280625</strong></p>
-        </div>
-    </form>
-
-    <h3>支付方式</h3>
-    <form>
-
-      <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions" id="raido-weixin" value="weixin" checked/>微信
-      </label>
-      <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions" id="radio-alipay" value="alipay"/>支付宝
-      </label>
-      <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions" id="radio-web" value="website"/>电子商务网站
-      </label>
-
-      <div class="panel panel-default" style="margin-top: 1em;">
-        <div class="panel-body">
-          <div class="payment-way" id="payment-weixin">
-            <p>请点击下面的按钮扫描微信二维收款码进行支付</p>
-            <button type="button" class="btn btn-success weixin-payment-link" data-toggle="modal" data-target=".popup-weixin-payment">微信扫码支付</button>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-default user-info">
+          <div class="panel-heading">1. 填写注册信息并提交订单</div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                <label for="LICENSE_TYPE">选择许可类型</label>
+                <select class="form-control order-field" name="license_type">
+                  <option value="B">企业用户许可</option>
+                  <option value="P">个人用户许可</option>
+                </select>
+                <p class="help-block">请仔细阅读产品许可信息
+                  <a href="https://pyarmor.readthedocs.io/zh/latest/license.html" target="_blank">PyArmor 软件许可</a>
+                </p>
+              </div>
+              <div class="form-group">
+                <label for="input-name">授权名称</label>
+                <input type="text" class="form-control order-field" name="reg_name" required />
+                <p class="help-block">输入被授权的用户名称，公司用户填写公司的名称</p>
+              </div>
+              <div class="form-group">
+                <label for="input-email">电子邮件</label>
+                <input type="email" class="form-control order-field" name="email" required />
+                <p class="help-block">接受注册文件的电子邮箱，请务必填写正确，否则无法收到注册文件</p>
+              </div>
+            </form>
           </div>
-          <div class="payment-way" id="payment-alipay" style="display: none;">
-            <!-- <p>请点击下面的按钮复制支付宝收款账号，然后通过支付宝转账 <strong>266.00</strong> 元</p> -->
-            <!-- <button type="button" class="btn btn-success alipay-payment-link" data-toggle="modal" data-target=".popup-alipay-payment">复制 PyArmor 收款账号</button> -->
-            <p>请点击下面的按钮扫描支付宝二维码进行支付</p>
-            <button type="button" class="btn btn-success alipay-payment-link" data-toggle="modal" data-target=".popup-alipay-payment">支付宝扫码支付</button>
-          </div>
-          <div class="payment-way" id="payment-website" style="display: none;">
-            <p>在国外常用的共享软件下载网站购买</p>
-            <a role="button" class="btn btn-link" href="https://order.shareit.com/cart/add?vendorid=200089125&PRODUCT[300871197]=1">
-              <img height="40" src="https://mycommerce.akamaized.net/ui/Content/img/logo_mycommerce.svg" alt="Digital River" />
-            </a>
+          <div class="panel-footer">
+            <button type="button" class="btn btn-primary new-order">提交订单</button>
+            <button type="button" class="btn btn-danger renew-order" style="display: none;">重新下单</button>
           </div>
         </div>
       </div>
-      <p class="help-block">需要发票的用户请通过电子商务网站的方式进行支付，在购物车下单就能邮件方式收到发票，点击查看<a target="_blank" href="INV_598150533_200226880_201905091015.pdf">发票样例</a></p>
-    </form>
+
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">2. 选择支付方式并支付订单</div>
+          <div class="panel-body">
+            <form>
+              <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="raido-weixin" value="weixin" checked/>微信
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="radio-alipay" value="alipay"/>支付宝
+              </label>
+              <div class="panel panel-default" style="margin-top: 1em; border: 0;">
+                <div class="">
+                  <div class="payment-way" id="payment-weixin">
+                    <button type="button" class="btn btn-success weixin-payment-link" data-toggle="modal" data-target=".popup-weixin-payment">微信扫码支付</button>
+                  </div>
+                  <div class="payment-way" id="payment-alipay" style="display: none;">
+                    <button type="button" class="btn btn-success alipay-payment-link" data-toggle="modal" data-target=".popup-alipay-payment">支付宝扫码支付</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="panel panel-default order-info">          
+          <div class="panel-heading">3. 查看订单状态 <a role="button" class="btn btn-sm btn-default pull-right refresh-order" style="margin-top:-5px;">刷新</a></div>
+          <div class="panel-body">
+            <dl class="dl-horizontal">
+              <dt>订单编号</dt>
+              <dd class="order-info-no"></dd>
+            </dl>
+            <dl class="dl-horizontal">
+              <dt>订单状态</dt>
+              <dd class="order-info-state"></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="help-block">支付成功之后注册文件一般会在5~10分钟左右发送到注册信息中的电子邮箱，订单状态会变为“注册文件已经发送”。如果在半个小时之内没有收到（注意检查一下是否在垃圾邮件里面），请发邮件到<a href="mailto:13991280625@163.com">13991280625@163.com</a>或者微信（手机）联系: <strong>13991280625</strong></p>
+    
+    <p class="help-block">需要发票的用户推荐通过电子商务网站 <a role="button" class="btn btn-link" href="https://order.shareit.com/cart/add?vendorid=200089125&PRODUCT[300871197]=1">
+        <img height="40" src="https://mycommerce.akamaized.net/ui/Content/img/logo_mycommerce.svg" alt="Digital River" />
+      </a> 进行购买，在购物车下单就能邮件方式收到发票，点击查看<a target="_blank" href="INV_598150533_200226880_201905091015.pdf">发票样例</a></p>
+
+    <p class="help-block">如果发票必须要求是普通增值税发票请微信（手机）联系: <strong>13991280625</strong></p>
+    
   </div>
 
   <div class="modal fade popup-weixin-payment" tabindex="-1" role="dialog">
