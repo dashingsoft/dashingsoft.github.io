@@ -83,6 +83,8 @@ function newOrder() {
         'QUANTITY=1',
         'REG_NAME='+ encodeURIComponent( name ),
         'EMAIL=' + encodeURIComponent( email ),
+        'COUNTRY=China',
+        'ISO_CODE=ZH',
         'LICENSE_TYPE=' + document.querySelector( 'select[name="license_type"]' ).value,
     ].join( '&' );
 
@@ -105,9 +107,14 @@ function newOrder() {
 
     };
 
-    request.open( 'POST', url, true );
-    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    request.send( data );
+    try {    
+        request.open( 'POST', url, true );
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        request.send( data );
+    }
+    catch ( err ) {
+        alert( '提交订单失败:' + err );
+    }
 }
 
 function setOrderState( order_no, state ) {
