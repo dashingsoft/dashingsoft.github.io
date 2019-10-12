@@ -143,6 +143,15 @@ window.addEventListener( 'load', function () {
     document.querySelector( '.renew-order' ).addEventListener( 'click', renewOrder, false );
     document.querySelector( '.refresh-order' ).addEventListener( 'click', refreshOrder, false );
 
+    Array.prototype.forEach.call( document.querySelectorAll( 'input[name="inlineRadioOptions"]' ), function ( radio ) {
+        radio.addEventListener( 'click', function ( e ) {
+            Array.prototype.forEach.call( document.querySelectorAll( '.payment-way' ), function ( element ) {
+                element.style.display = 'none';
+            } );
+            document.querySelector( '#payment-' + e.currentTarget.value ).style.display = '';
+        } );
+    } );
+    
     console.log('get purchase no ' + getPurchaseNo());
     
     var purchase_no = window.localStorage.getItem( 'CACHED_PURCHASE_NO' );
