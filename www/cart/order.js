@@ -107,7 +107,7 @@ function newOrder() {
 
     };
 
-    try {    
+    try {
         request.open( 'POST', url, true );
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         request.send( data );
@@ -151,12 +151,12 @@ window.addEventListener( 'load', function () {
             document.querySelector( '#payment-' + e.currentTarget.value ).style.display = '';
         } );
     } );
-    
+
     console.log('get purchase no ' + getPurchaseNo());
-    
+
     var purchase_no = window.localStorage.getItem( 'CACHED_PURCHASE_NO' );
     if ( purchase_no ) {
-        var order_no = purchase_no + '-1';
+        var order_no = purchase_no;
 
         setPurchaseNo( purchase_no );
         queryOrder( order_no,
