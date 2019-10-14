@@ -84,7 +84,7 @@ function newOrder() {
         'REG_NAME='+ encodeURIComponent( name ),
         'EMAIL=' + encodeURIComponent( email ),
         'COUNTRY=China',
-        'ISO_CODE=ZH',
+        'LANGUAGE_ID=15',
         'ADD[LICENSE_TYPE]=' + document.querySelector( 'select[name="license_type"]' ).value,
     ].join( '&' );
 
