@@ -85,7 +85,7 @@ function newOrder() {
         'EMAIL=' + encodeURIComponent( email ),
         'COUNTRY=China',
         'ISO_CODE=ZH',
-        'LICENSE_TYPE=' + document.querySelector( 'select[name="license_type"]' ).value,
+        'ADD[LICENSE_TYPE]=' + document.querySelector( 'select[name="license_type"]' ).value,
     ].join( '&' );
 
     var request = new XMLHttpRequest();
