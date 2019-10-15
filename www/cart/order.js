@@ -1,17 +1,22 @@
-function queryOrder(orderno, callback, onerror) {
+function showMessage( msg ) {
+    document.querySelector( '.popup-message .modal-body p' ).innerHTML = msg;
+    $( '.popup-message' ).modal( 'show' );
+}
+
+function queryOrder( orderno, callback, onerror ) {
     var url = 'https://api.dashingsoft.com/product/order/' + orderno + '/query';
     var request = new XMLHttpRequest();
     request.onload = function() {
-        if (request.status != 200) {
+        if ( request.status != 200 ) {
             console.log( 'Query order failed: ' + request.status );
             if ( typeof onerror === 'function' )
                 onerror();
         }
         else {
-            callback(request.response);
+            callback( request.response );
         }
     };
-    request.open('GET', url, true);
+    request.open( 'GET', url, true );
     request.responseType = 'json';
     request.send();
 }
@@ -91,13 +96,13 @@ function newOrder() {
     var request = new XMLHttpRequest();
 
     request.onerror = function () {
-        alert( '提交订单失败' );
+        showMessage( '提交订单失败' );
     };
 
     request.onload = function() {
 
         if ( request.status !== 200 ) {
-            alert( '创建订单失败: ' + request.responseText );
+            showMessage( '创建订单失败: ' + request.responseText );
             return;
         }
 
@@ -113,7 +118,7 @@ function newOrder() {
         request.send( data );
     }
     catch ( err ) {
-        alert( '提交订单失败:' + err );
+        showMessage( '提交订单失败:' + err );
     }
 }
 
