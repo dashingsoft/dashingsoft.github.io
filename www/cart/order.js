@@ -1,10 +1,12 @@
+var server_url = 'https://api.dashingsoft.com';
+
 function showMessage( msg ) {
     document.querySelector( '.popup-message .modal-body p' ).innerHTML = msg;
     $( '.popup-message' ).modal( 'show' );
 }
 
 function queryOrder( orderno, callback, onerror ) {
-    var url = 'https://api.dashingsoft.com/product/order/' + orderno + '/query';
+    var url = server_url + '/product/order/' + orderno + '/query';
     var request = new XMLHttpRequest();
     request.onload = function() {
         if ( request.status != 200 ) {
@@ -79,7 +81,7 @@ function newOrder() {
         return false;
     }
 
-    var url = 'https://api.dashingsoft.com/product/order/add';
+    var url = server_url + '/product/order/add';
     var purchase_no = getPurchaseNo();
     var data =  [
         'PURCHASE_ID=' + purchase_no ,
