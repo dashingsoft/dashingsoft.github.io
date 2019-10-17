@@ -36,7 +36,6 @@ function setInvoiceInfo( invoice ) {
     document.querySelector( 'input[name="post_address"]' ).value = invoice.post_address;
 
     setInvoiceState( invoice );
-
 }
 
 function setInvoiceState( invoice ) {
@@ -168,7 +167,6 @@ function newOrder() {
         var order = JSON.parse( request.responseText );
         setPurchaseNo( purchase_no );
         setOrderState( order );
-
     };
 
     try {
@@ -193,6 +191,8 @@ function setOrderState( order ) {
 function renewOrder() {
     setOrderState();
     setPurchaseNo();
+    invoice_id = null;
+    window.localStorage.removeItem( 'CACHED_INVOICE_ID' );
 }
 
 function refreshOrder() {
@@ -204,8 +204,8 @@ function refreshOrder() {
     }
 }
 
-function setProductTax( e ) {
-    var tax = e.currentTarget.checked;
+function setProductTax() {
+    var tax = document.querySelector( 'input[name="tax"]' ).checked;
     document.querySelector( '.product-tax' ).innerHTML = tax ? '30.00 元' : '0 元';
     document.querySelector( '.product-amount' ).innerHTML = tax ? '296.00 元' : '266.00 元';
     document.querySelector( '.popup-weixin-payment img' ).src = tax ? 'weixin-296.jpg' : 'weixin-266.jpg';
@@ -239,15 +239,16 @@ function submitInvoice() {
         data[ name ] = document.querySelector( 'input[name="' + name + '"]' ).value;
 
     var request = new XMLHttpRequest();
+    var prompt = invoice_id ? '修改发票信息失败' : '提交发票信息失败';
 
     request.onerror = function () {
-        showMessage( '提交发票信息失败' );
+        showMessage( prompt );
     };
 
     request.onload = function() {
 
         if ( request.status !== 200 ) {
-            showMessage( '修改发票信息失败: ' + request.responseText );
+            showMessage( prompt + ': ' + request.responseText );
             return;
         }
         var invoice = JSON.parse( request.responseText );
@@ -257,7 +258,7 @@ function submitInvoice() {
             window.localStorage.setItem( 'CACHED_INVOICE_ID', invoice_id );
             document.querySelector( '.new-invoice' ).style.display = 'none';
             document.querySelector( '.update-invoice' ).style.display = '';
-        }            
+        }
     };
 
     try {
@@ -266,7 +267,7 @@ function submitInvoice() {
         request.send( data );
     }
     catch ( err ) {
-        showMessage( '提交发票信息失败:' + err );
+        showMessage( prompt + ': ' + err );
     }
 }
 
@@ -300,6 +301,7 @@ window.addEventListener( 'load', function () {
                         document.querySelector( 'select[name="license_type"]' ).value = order.license_type;
                         if ( order.price > 268 ) {
                             document.querySelector( 'input[name="tax"]' ).checked = true;
+                            setProductTax();
                         }
                         setOrderState( order );
                     },
