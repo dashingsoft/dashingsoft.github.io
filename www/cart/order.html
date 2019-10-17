@@ -33,13 +33,14 @@
       <h1>PyArmor 电子订单</h1>
     </div>
 
-    <table class="table">
+    <table class="table table-no-border">
       <caption>我的购物车</caption>
       <thead>
         <tr>
           <th>产品名称</th>
           <th>描述</th>
           <th>价格（不含税）</th>
+          <th><input name="tax" type="checkbox"> 增值税</th>
           <th>数量</th>
           <th>总金额</th>
         </tr>
@@ -49,11 +50,23 @@
           <td><img src="logo.png" width="20">PyArmor</td>
           <td>用于加密和保护 Python 脚本的工具软件</td>
           <td>266.00 元</td>
+          <td class="product-tax">0 元</td>
           <td>1</td>
-          <td><strong>266.00 元</strong></td>
+          <td><strong class="product-amount">266.00 元</strong></td>
         </tr>
       </tbody>
     </table>
+
+    <div class="panel">
+
+      <div class="panel-body">
+      <p class="help-block">需要发票的用户推荐通过电子商务网站 <a role="button" class="btn btn-link" href="https://order.shareit.com/cart/add?vendorid=200089125&PRODUCT[300871197]=1">
+        <img height="40" src="https://mycommerce.akamaized.net/ui/Content/img/logo_mycommerce.svg" alt="Digital River" />
+      </a> 进行购买，在购物车下单就能邮件方式收到电子发票，点击查看<a target="_blank" href="INV_598150533_200226880_201905091015.pdf">发票样例</a></p>
+
+        <p class="help-block">电子商务网站 MyCommerce 无法提供增值税发票，如果需要增值税发票，请选中购物车中 <strong>增值税</strong>，并在下方填写和发票相关的信息，开好的发票使用挂号信邮寄。</p>
+      </div>
+    </div>
 
     <div class="row">
       <div class="col-md-6">
@@ -125,18 +138,114 @@
               <dt>订单状态</dt>
               <dd class="order-info-state"></dd>
             </dl>
+            <p class="help-block">支付成功之后注册文件一般会在5~10分钟左右发送到注册信息中的电子邮箱，订单状态会变为“注册文件已经发送”。如果在半个小时之内没有收到（注意检查一下垃圾邮件），请微信（手机）联系: <strong>13991280625</strong></p>
           </div>
         </div>
       </div>
     </div>
 
-    <p class="help-block">支付成功之后注册文件一般会在5~10分钟左右发送到注册信息中的电子邮箱，订单状态会变为“注册文件已经发送”。如果在半个小时之内没有收到（注意检查一下垃圾邮件），请微信（手机）联系: <strong>13991280625</strong></p>
-
-    <p class="help-block">需要发票的用户推荐通过电子商务网站 <a role="button" class="btn btn-link" href="https://order.shareit.com/cart/add?vendorid=200089125&PRODUCT[300871197]=1">
-        <img height="40" src="https://mycommerce.akamaized.net/ui/Content/img/logo_mycommerce.svg" alt="Digital River" />
-      </a> 进行购买，在购物车下单就能邮件方式收到发票，点击查看<a target="_blank" href="INV_598150533_200226880_201905091015.pdf">发票样例</a></p>
-
-    <p class="help-block">如果发票必须要求是普通增值税发票请微信（手机）联系: <strong>13991280625</strong></p>
+    <div class="panel invoice-page" style="display: none;">
+      <div class="panel-body">
+        <div class="page-header">
+          <h3>填写发票信息</h3>
+        </div>
+        
+        <div class="row">
+          
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">增值税发票抬头</div>
+              <div class="panel-body">
+                <form>
+                  <div class="form-group">
+                    <label for="tax_no">税号</label>
+                    <input type="text" class="form-control" name="tax_no" required />
+                    <p class="help-block"></p>
+                  </div>
+                  <div class="form-group">
+                    <label for="tax_name">公司名称</label>
+                    <input type="text" class="form-control" name="tax_name" required />
+                    <p class="help-block">请和营业执照上的名称保持一致</p>
+                  </div>
+                  <div class="form-group">
+                    <label for="tax_phone">公司电话</label>
+                    <input type="text" class="form-control" name="tax_phone" required />
+                    <p class="help-block">请和营业执照上的电话保持一致</p>
+                  </div>
+                  <div class="form-group">
+                    <label for="tax_address">公司地址</label>
+                    <input type="text" class="form-control" name="tax_address" required />
+                    <p class="help-block">请和营业执照上的地址保持一致</p>
+                  </div>
+                  <div class="form-group">
+                    <label for="bank_account">银行基本户账号</label>
+                    <input type="text" class="form-control" name="bank_account" required />
+                    <p class="help-block"></p>
+                  </div>
+                  <div class="form-group">
+                    <label for="bank_name">开户银行名称</label>
+                    <input type="text" class="form-control" name="bank_name" required />
+                    <p class="help-block"></p>
+                  </div>
+                  <div class="form-group">
+                    <label for="bank_site">银行营业网点</label>
+                    <input type="text" class="form-control" name="bank_site" required />
+                    <p class="help-block"></p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div> <!-- end of .col-md-6 -->
+          
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">接收发票的邮寄地址</div>
+              <div class="panel-body">
+                <form>
+                  <div class="form-group">
+                    <label for="post_name">收件人</label>
+                    <input type="text" class="form-control" name="post_name" required />
+                    <p class="help-block">填写接受发票的收件人姓名</p>
+                  </div>
+                  <div class="form-group">
+                    <label for="post_phone">联系电话</label>
+                    <input type="text" class="form-control" name="post_phone" required />
+                    <p class="help-block">重要！</p>
+                  </div>
+                  <div class="form-group">
+                    <label for="post_code">邮政编码</label>
+                    <input type="text" class="form-control" name="post_code" required />
+                    <p class="help-block"></p>
+                  </div>
+                  <div class="form-group">
+                    <label for="post_address">详细地址</label>
+                    <input type="text" class="form-control" name="post_code" required />
+                    <p class="help-block"></p>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <dl class="dl-horizontal">
+                  <dt>发票状态</dt>
+                  <dd class="invoice-state"></dd>
+                </dl>
+                <dl class="dl-horizontal">
+                  <dt>备注信息</dt>
+                  <dd class="invoice-remark"></dd>
+                </dl>
+              </div>
+            </div>
+          </div> <!-- end of .col-md-6 -->
+        </div> <!-- end of .row -->
+        
+        <div class="">
+          <button type="button" class="btn btn-success new-invoice">提交发票信息</button>
+          <button type="button" class="btn btn-success update-invoice" style="display: none;">更新发票信息</button>
+        </div>      
+      </div>
+    </div>
 
   </div>
 
@@ -186,6 +295,7 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
+
 
   <script type="text/javascript" src="order.js"></script>
 
