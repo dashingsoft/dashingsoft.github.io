@@ -87,6 +87,8 @@ function newOrder() {
         'PURCHASE_ID=' + purchase_no ,
         'RUNNING_NO=1',
         'PRODUCT_ID=300871197',
+        'CURRENCY=CNY',
+        'PRICE=266.00',
         'QUANTITY=1',
         'REG_NAME='+ encodeURIComponent( name ),
         'EMAIL=' + encodeURIComponent( email ),
