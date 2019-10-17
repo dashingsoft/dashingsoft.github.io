@@ -213,7 +213,7 @@ function setProductTax( e ) {
     document.querySelector( '.invoice-page' ).style.display = tax ? '' : 'none';
 }
 
-function submitInvoice( action, invoice_id ) {
+function submitInvoice() {
     if ( ! order_id ) {
         showMessage( '请首先提交订单，然后才能提交发票信息' );
         return;
@@ -251,15 +251,17 @@ function submitInvoice( action, invoice_id ) {
             return;
         }
         var invoice = JSON.parse( request.responseText );
-        invoice_id = invoice.id;
         setInvoiceState( invoice );
-        document.querySelector( '.new-invoice' ).style.display = 'none';
-        document.querySelector( '.update-invoice' ).style.display = '';
-        window.localStorage.setItem( 'CACHED_INVOICE_ID', invoice_id );
+        if ( ! invoice.id ) {
+            invoice_id = invoice.id;
+            window.localStorage.setItem( 'CACHED_INVOICE_ID', invoice_id );
+            document.querySelector( '.new-invoice' ).style.display = 'none';
+            document.querySelector( '.update-invoice' ).style.display = '';
+        }            
     };
 
     try {
-        request.open( action, url, true );
+        request.open( invoice_id ? 'PUT' : 'POST', url, true );
         request.setRequestHeader('Content-Type', 'application/json');
         request.send( data );
     }
@@ -268,22 +270,14 @@ function submitInvoice( action, invoice_id ) {
     }
 }
 
-function newInvoice() {
-    submitInvoice( 'POST' );
-}
-
-function updateInvoice() {
-    submitInvoice( 'PUT', invoice_id );
-}
-
 window.addEventListener( 'load', function () {
 
     document.querySelector( '.new-order' ).addEventListener( 'click', newOrder, false );
     document.querySelector( '.renew-order' ).addEventListener( 'click', renewOrder, false );
     document.querySelector( '.refresh-order' ).addEventListener( 'click', refreshOrder, false );
     document.querySelector( 'input[name="tax"]' ).addEventListener( 'change', setProductTax, false );
-    document.querySelector( '.new-invoice' ).addEventListener( 'click', newInvoice, false );
-    document.querySelector( '.update-invoice' ).addEventListener( 'click', updateInvoice, false );
+    document.querySelector( '.new-invoice' ).addEventListener( 'click', submitInvoice, false );
+    document.querySelector( '.update-invoice' ).addEventListener( 'click', submitInvoice, false );
 
     Array.prototype.forEach.call( document.querySelectorAll( 'input[name="inlineRadioOptions"]' ), function ( radio ) {
         radio.addEventListener( 'click', function ( e ) {
