@@ -1,4 +1,5 @@
-var server_url = 'https://api.dashingsoft.com';
+// var server_url = 'https://api.dashingsoft.com';
+var server_url = 'http://test-api.dashingsoft.com';
 var order_id = null;
 var invoice_id = null;
 
@@ -8,7 +9,7 @@ function showMessage( msg ) {
 }
 
 function queryInvoice( invoice_id ) {
-    var url = server_url + '/products/invoices/' + invoice_id;
+    var url = server_url + '/product/invoices/' + invoice_id + '/';
     var request = new XMLHttpRequest();
     request.onload = function() {
         if ( request.status != 200 ) {
@@ -30,6 +31,9 @@ function setInvoiceInfo( invoice ) {
     document.querySelector( 'input[name="tax_name"]' ).value = invoice.tax_name;
     document.querySelector( 'input[name="tax_phone"]' ).value = invoice.tax_phone;
     document.querySelector( 'input[name="tax_address"]' ).value = invoice.tax_address;
+    document.querySelector( 'input[name="bank_account"]' ).value = invoice.bank_account;
+    document.querySelector( 'input[name="bank_name"]' ).value = invoice.bank_name;
+    document.querySelector( 'input[name="bank_site"]' ).value = invoice.bank_site;
     document.querySelector( 'input[name="post_name"]' ).value = invoice.post_name;
     document.querySelector( 'input[name="post_phone"]' ).value = invoice.post_phone;
     document.querySelector( 'input[name="post_code"]' ).value = invoice.post_code;
@@ -40,13 +44,19 @@ function setInvoiceInfo( invoice ) {
 
 function setInvoiceState( invoice ) {
     var state = invoice.state;
-    document.querySelector( '.invoice-state' ).innerHTML = state === 0 ? '新增' : state === 1 ? '正在开票' :
-        state === 2 ? '已经出票' : state === 3 ? '已经寄出' : state === 4 ? '收到发票' : '未知状态(' + state + ')';
+    document.querySelector( '.invoice-state' ).innerHTML = state === 0 ? '新增' :
+        state === 1 ? '正在开票' :
+        state === 2 ? '已经出票' :
+        state === 3 ? '发票已经寄出' :
+        state === 4 ? '发票已经签收' : '未知状态(' + state + ')';
     if ( state > 0 ) {
         document.querySelector( 'input[name="tax_no"]' ).setAttribute( 'disabled', true );
         document.querySelector( 'input[name="tax_name"]' ).setAttribute( 'disabled', true );
         document.querySelector( 'input[name="tax_phone"]' ).setAttribute( 'disabled', true );
         document.querySelector( 'input[name="tax_address"]' ).setAttribute( 'disabled', true );
+        document.querySelector( 'input[name="bank_name"]' ).setAttribute( 'disabled', true );
+        document.querySelector( 'input[name="bank_account"]' ).setAttribute( 'disabled', true );
+        document.querySelector( 'input[name="bank_site"]' ).setAttribute( 'disabled', true );
     }
     if ( state > 2 ) {
         document.querySelector( 'input[name="post_name"]' ).setAttribute( 'disabled', true );
@@ -57,8 +67,8 @@ function setInvoiceState( invoice ) {
     }
 }
 
-function queryOrder( orderno, callback, onerror ) {
-    var url = server_url + '/product/order/' + orderno + '/query';
+function queryOrder( orderid, callback, onerror ) {
+    var url = server_url + '/product/orders/' + orderid + '/';
     var request = new XMLHttpRequest();
     request.onload = function() {
         if ( request.status != 200 ) {
@@ -70,9 +80,14 @@ function queryOrder( orderno, callback, onerror ) {
             callback( request.response );
         }
     };
-    request.open( 'GET', url, true );
-    request.responseType = 'json';
-    request.send();
+    try {
+        request.open( 'GET', url, true );
+        request.responseType = 'json';
+        request.send();
+    }
+    catch ( err ) {
+        console.log( '查询订单失败: ' + err );
+    }
 }
 
 function setPurchaseNo( purchase_no ) {
@@ -88,35 +103,30 @@ function setPurchaseNo( purchase_no ) {
         document.querySelector( 'input[name="tax"]' ).removeAttribute("disabled");
         document.querySelector( '.new-order' ).style.display = '';
         document.querySelector( '.renew-order' ).style.display = 'none';
-        window.localStorage.removeItem( 'CACHED_PURCHASE_NO' );
     }
     else {
         document.querySelector( 'input[name="tax"]' ).setAttribute("disabled", true);
         document.querySelector( '.new-order' ).style.display = 'none';
         document.querySelector( '.renew-order' ).style.display = '';
-        window.localStorage.setItem( 'CACHED_PURCHASE_NO', purchase_no );
     }
 }
 
 function getPurchaseNo() {
-    var purchase_no = window.localStorage.getItem( 'CACHED_PURCHASE_NO' );
-    if ( ! purchase_no ) {
-        var a = new Date();
-        var m = a.getMonth() + 1,
-            d = a.getDate(),
-            h = a.getHours(),
-            i = a.getMinutes(),
-            s = a.getSeconds();
-        var c = Math.floor( 99 * Math.random() );
-        purchase_no = 'DS'
-            + a.getFullYear()
-            + ( m < 10 ? '0' + m : m.toString() )
-            + ( d < 10 ? '0' + d : d.toString() )
-            + ( h < 10 ? '0' + h : h.toString() )
-            + ( i < 10 ? '0' + i : i.toString() )
-            + ( s < 10 ? '0' + s : s.toString() )
-            + '.' + ( c < 10 ? '0' + c : c.toString() );
-    }
+    var a = new Date();
+    var m = a.getMonth() + 1,
+        d = a.getDate(),
+        h = a.getHours(),
+        i = a.getMinutes(),
+        s = a.getSeconds();
+    var c = Math.floor( 99 * Math.random() );
+    var purchase_no = 'DS'
+        + a.getFullYear()
+        + ( m < 10 ? '0' + m : m.toString() )
+        + ( d < 10 ? '0' + d : d.toString() )
+        + ( h < 10 ? '0' + h : h.toString() )
+        + ( i < 10 ? '0' + i : i.toString() )
+        + ( s < 10 ? '0' + s : s.toString() )
+        + '.' + ( c < 10 ? '0' + c : c.toString() );
     return purchase_no;
 }
 
@@ -142,7 +152,7 @@ function newOrder() {
         'RUNNING_NO=1',
         'PRODUCT_ID=300871197',
         'CURRENCY=CNY',
-        'PRICE=266.00',
+        'PRICE=' + (document.querySelector( 'input[name="tax"]' ).checked ? '296.00' : '266.00'),
         'QUANTITY=1',
         'REG_NAME='+ encodeURIComponent( name ),
         'EMAIL=' + encodeURIComponent( email ),
@@ -167,6 +177,8 @@ function newOrder() {
         var order = JSON.parse( request.responseText );
         setPurchaseNo( purchase_no );
         setOrderState( order );
+        order_id = order.id;
+        window.localStorage.setItem( 'CACHED_ORDER_ID', order.id );
     };
 
     try {
@@ -191,14 +203,16 @@ function setOrderState( order ) {
 function renewOrder() {
     setOrderState();
     setPurchaseNo();
+    order_id = null;
     invoice_id = null;
+    window.localStorage.removeItem( 'CACHED_ORDER_ID' );
     window.localStorage.removeItem( 'CACHED_INVOICE_ID' );
 }
 
 function refreshOrder() {
-    var order_no = document.querySelector( '.order-info-no' ).innerHTML;
-    if ( order_no ) {
-        queryOrder( order_no, function ( order ) {
+    // var order_no = document.querySelector( '.order-info-no' ).innerHTML;
+    if ( order_id ) {
+        queryOrder( order_id, function ( order ) {
             setOrderState( order );
         } );
     }
@@ -221,7 +235,8 @@ function submitInvoice() {
     var name_list = [ 'tax_no', 'tax_name', 'tax_phone', 'tax_address',
                       'bank_account', 'bank_name', 'bank_site',
                       'post_name', 'post_phone', 'post_code', 'post_address' ];
-    for ( var name in name_list ) {
+    for ( var i = 0 ; i < name_list.length; i ++ ) {
+        var name = name_list[ i ];
         var element = document.querySelector( 'input[name="' + name + '"]' );
         if ( ! element.value ) {
             element.focus();
@@ -229,14 +244,26 @@ function submitInvoice() {
         }
     }
 
-    var url = server_url + '/product/invoices/';
-    var data =  {
-        order: order_id,
-    };
-    if ( invoice_id )
-        data.id = invoice_id;
-    for ( var name in name_list )
-        data[ name ] = document.querySelector( 'input[name="' + name + '"]' ).value;
+    var url = server_url + '/product/invoices/' + (invoice_id ? invoice_id + '/' : '');
+    // var data =  {
+    //     order: order_id,
+    // };
+    // if ( invoice_id )
+    //     data.id = invoice_id;
+    // for ( var i = 0 ; i < name_list.length; i ++ ) {
+    //     var name = name_list[ i ];
+    //     data[ name ] = document.querySelector( 'input[name="' + name + '"]' ).value;
+    // }
+
+    data = [
+        'order=' + order_id,
+    ];
+    for ( var i = 0 ; i < name_list.length; i ++ ) {
+        var name = name_list[ i ];
+        var value = document.querySelector( 'input[name="' + name + '"]' ).value;
+        data.push( name + '=' + encodeURIComponent( value ) );
+    }
+    data = data.join( '&' );
 
     var request = new XMLHttpRequest();
     var prompt = invoice_id ? '修改发票信息失败' : '提交发票信息失败';
@@ -247,23 +274,28 @@ function submitInvoice() {
 
     request.onload = function() {
 
-        if ( request.status !== 200 ) {
+        if ( request.status === 200 || request.status === 201 ) {
+            var invoice = JSON.parse( request.responseText );
+            setInvoiceState( invoice );
+            if ( ! invoice_id ) {
+                invoice_id = invoice.id;
+                window.localStorage.setItem( 'CACHED_INVOICE_ID', invoice_id );
+                document.querySelector( '.new-invoice' ).style.display = 'none';
+                document.querySelector( '.update-invoice' ).style.display = '';
+            }
+            else
+                showMessage( '发票信息已经成功更新' );
+        }
+        else {
             showMessage( prompt + ': ' + request.responseText );
-            return;
         }
-        var invoice = JSON.parse( request.responseText );
-        setInvoiceState( invoice );
-        if ( ! invoice.id ) {
-            invoice_id = invoice.id;
-            window.localStorage.setItem( 'CACHED_INVOICE_ID', invoice_id );
-            document.querySelector( '.new-invoice' ).style.display = 'none';
-            document.querySelector( '.update-invoice' ).style.display = '';
-        }
+
     };
 
     try {
         request.open( invoice_id ? 'PUT' : 'POST', url, true );
-        request.setRequestHeader('Content-Type', 'application/json');
+        // request.setRequestHeader( 'Content-Type', 'application/json' );
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         request.send( data );
     }
     catch ( err ) {
@@ -289,12 +321,9 @@ window.addEventListener( 'load', function () {
         } );
     } );
 
-    console.log('get purchase no ' + getPurchaseNo());
-
-    var purchase_no = window.localStorage.getItem( 'CACHED_PURCHASE_NO' );
-    if ( purchase_no ) {
-        setPurchaseNo( purchase_no );
-        queryOrder( purchase_no,
+    order_id = window.localStorage.getItem( 'CACHED_ORDER_ID' );
+    if ( order_id ) {
+        queryOrder( order_id,
                     function ( order ) {
                         document.querySelector( 'input[name="reg_name"]' ).value = order.customer.name;
                         document.querySelector( 'input[name="email"]' ).value = order.customer.email;
@@ -303,6 +332,7 @@ window.addEventListener( 'load', function () {
                             document.querySelector( 'input[name="tax"]' ).checked = true;
                             setProductTax();
                         }
+                        setPurchaseNo( order.order_no );
                         setOrderState( order );
                     },
                     function () {
