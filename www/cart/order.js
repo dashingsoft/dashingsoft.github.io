@@ -1,5 +1,4 @@
-var server_url = 'https://api.dashingsoft.com';
-// var server_url = 'http://test-api.dashingsoft.com';
+var server_url = ( location.protocol === 'file:' ) ? 'http://test-api.dashingsoft.com' : 'https://api.dashingsoft.com';
 var order_id = null;
 var invoice_id = null;
 
