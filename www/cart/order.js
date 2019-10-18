@@ -1,5 +1,5 @@
-// var server_url = 'https://api.dashingsoft.com';
-var server_url = 'http://test-api.dashingsoft.com';
+var server_url = 'https://api.dashingsoft.com';
+// var server_url = 'http://test-api.dashingsoft.com';
 var order_id = null;
 var invoice_id = null;
 
@@ -90,6 +90,18 @@ function queryOrder( orderid, callback, onerror ) {
     }
 }
 
+function setOrderInfo( order ) {
+    document.querySelector( 'input[name="reg_name"]' ).value = order.customer.name;
+    document.querySelector( 'input[name="email"]' ).value = order.customer.email;
+    document.querySelector( 'select[name="license_type"]' ).value = order.license_type;
+    if ( order.price > 268 ) {
+        document.querySelector( 'input[name="tax"]' ).checked = true;
+        setProductTax();
+    }
+    setPurchaseNo( order.order_no );
+    setOrderState( order );
+}
+
 function setPurchaseNo( purchase_no ) {
     Array.prototype.forEach.call( document.querySelectorAll( '.order-field' ), function ( element ) {
         if ( ! purchase_no ) {
@@ -111,7 +123,7 @@ function setPurchaseNo( purchase_no ) {
     }
 }
 
-function getPurchaseNo() {
+function makePurchaseNo() {
     var a = new Date();
     var m = a.getMonth() + 1,
         d = a.getDate(),
@@ -146,7 +158,7 @@ function newOrder() {
     }
 
     var url = server_url + '/product/order/add';
-    var purchase_no = getPurchaseNo();
+    var purchase_no = makePurchaseNo();
     var data =  [
         'PURCHASE_ID=' + purchase_no ,
         'RUNNING_NO=1',
@@ -203,6 +215,10 @@ function setOrderState( order ) {
 function renewOrder() {
     setOrderState();
     setPurchaseNo();
+    document.querySelector( '.new-invoice' ).style.display = '';
+    document.querySelector( '.update-invoice' ).style.display = 'none';
+    document.querySelector( '.invoice-state' ).innerHTML = '';
+    document.querySelector( '.invoice-remark' ).innerHTML = '';
     order_id = null;
     invoice_id = null;
     window.localStorage.removeItem( 'CACHED_ORDER_ID' );
@@ -245,7 +261,7 @@ function submitInvoice() {
     }
 
     var url = server_url + '/product/invoices/' + (invoice_id ? invoice_id + '/' : '');
-    
+
     // var data =  {
     //     order: order_id,
     // };
@@ -323,21 +339,7 @@ window.addEventListener( 'load', function () {
 
     order_id = window.localStorage.getItem( 'CACHED_ORDER_ID' );
     if ( order_id ) {
-        queryOrder( order_id,
-                    function ( order ) {
-                        document.querySelector( 'input[name="reg_name"]' ).value = order.customer.name;
-                        document.querySelector( 'input[name="email"]' ).value = order.customer.email;
-                        document.querySelector( 'select[name="license_type"]' ).value = order.license_type;
-                        if ( order.price > 268 ) {
-                            document.querySelector( 'input[name="tax"]' ).checked = true;
-                            setProductTax();
-                        }
-                        setPurchaseNo( order.order_no );
-                        setOrderState( order );
-                    },
-                    function () {
-                        console.log( 'Query order failed' );
-                    } );
+        queryOrder( order_id, setOrderInfo );
     }
 
     invoice_id = window.localStorage.getItem( 'CACHED_INVOICE_ID' );
