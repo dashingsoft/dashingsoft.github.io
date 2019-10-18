@@ -245,17 +245,16 @@ function submitInvoice() {
     }
 
     var url = server_url + '/product/invoices/' + (invoice_id ? invoice_id + '/' : '');
+    
     // var data =  {
     //     order: order_id,
     // };
-    // if ( invoice_id )
-    //     data.id = invoice_id;
     // for ( var i = 0 ; i < name_list.length; i ++ ) {
     //     var name = name_list[ i ];
     //     data[ name ] = document.querySelector( 'input[name="' + name + '"]' ).value;
     // }
 
-    data = [
+    var data = [
         'order=' + order_id,
     ];
     for ( var i = 0 ; i < name_list.length; i ++ ) {
@@ -295,6 +294,7 @@ function submitInvoice() {
     try {
         request.open( invoice_id ? 'PUT' : 'POST', url, true );
         // request.setRequestHeader( 'Content-Type', 'application/json' );
+        // request.send( JSON.stringify( data ) );
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         request.send( data );
     }
