@@ -56,13 +56,13 @@ function setInvoiceState( invoice ) {
         document.querySelector( 'input[name="bank_name"]' ).setAttribute( 'disabled', true );
         document.querySelector( 'input[name="bank_account"]' ).setAttribute( 'disabled', true );
         document.querySelector( 'input[name="bank_site"]' ).setAttribute( 'disabled', true );
+        document.querySelector( '.invoice-remark' ).innerHTML = invoice.remark;
     }
     if ( state > 2 ) {
         document.querySelector( 'input[name="post_name"]' ).setAttribute( 'disabled', true );
         document.querySelector( 'input[name="post_phone"]' ).setAttribute( 'disabled', true );
         document.querySelector( 'input[name="post_code"]' ).setAttribute( 'disabled', true );
         document.querySelector( 'input[name="post_address"]' ).setAttribute( 'disabled', true );
-        document.querySelector( '.invoice-remark' ).innerHTML = invoice.remark;
     }
 }
 
