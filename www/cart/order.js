@@ -97,7 +97,6 @@ function setOrderInfo( order ) {
         document.querySelector( 'input[name="tax"]' ).checked = true;
         setProductTax();
     }
-    setPurchaseNo( order.order_no );
     setOrderState( order );
 }
 
@@ -186,7 +185,6 @@ function newOrder() {
         }
 
         var order = JSON.parse( request.responseText );
-        setPurchaseNo( purchase_no );
         setOrderState( order );
         order_id = order.id;
         window.localStorage.setItem( 'CACHED_ORDER_ID', order.id );
@@ -207,13 +205,42 @@ function setOrderState( order ) {
     var state = order === undefined ? null : order.state;
     order_id = order === undefined ? null : order.id;
     document.querySelector( '.order-info-no' ).innerHTML = order_no;
-    document.querySelector( '.order-info-state' ).innerHTML = state === null ? '' :
-        state === 'FIN' ? '注册文件已经发送' : '正在处理';
+    document.querySelector( '.order-info-state' ).innerHTML = state === null ? ''
+        : state === 'FIN' ? '注册文件已经发送'
+        : state === 'NEW' ? '正在处理'
+        : state === 'PAD' ? '已经支付'
+        : state === 'UNF' ? '已经取消'
+        : state;
+
+    Array.prototype.forEach.call(
+        document.querySelectorAll( 'div.payment-way button.btn-success' ), function ( element ) {
+            order_id === null
+                ? element.setAttribute("disabled", true)
+                : element.removeAttribute("disabled");
+        }
+    );
+
+    Array.prototype.forEach.call(
+        document.querySelectorAll( '.order-field' ), function ( element ) {
+            order_id === null
+                ? element.removeAttribute("disabled")
+                : element.setAttribute("disabled", true);
+        }
+    );
+    if ( order_id === null ) {
+        document.querySelector( 'input[name="tax"]' ).removeAttribute("disabled");
+        document.querySelector( '.new-order' ).style.display = '';
+        document.querySelector( '.renew-order' ).style.display = 'none';
+    }
+    else {
+        document.querySelector( 'input[name="tax"]' ).setAttribute("disabled", true);
+        document.querySelector( '.new-order' ).style.display = 'none';
+        document.querySelector( '.renew-order' ).style.display = '';
+    }
 }
 
 function renewOrder() {
     setOrderState();
-    setPurchaseNo();
     document.querySelector( '.new-invoice' ).style.display = '';
     document.querySelector( '.update-invoice' ).style.display = 'none';
     document.querySelector( '.invoice-state' ).innerHTML = '';
