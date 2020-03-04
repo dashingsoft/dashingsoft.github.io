@@ -100,6 +100,7 @@ function setOrderInfo( order ) {
     setOrderState( order );
 }
 
+// Unused function
 function setPurchaseNo( purchase_no ) {
     Array.prototype.forEach.call( document.querySelectorAll( '.order-field' ), function ( element ) {
         if ( ! purchase_no ) {
