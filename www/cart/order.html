@@ -10,6 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>PyArmor 电子订单</title>
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/loader.css" type="text/css" />
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <style>
@@ -119,10 +120,10 @@
               <div class="panel panel-default" style="margin-top: 1em; border: 0;">
                 <div class="">
                   <div class="payment-way" id="payment-weixin">
-                    <button type="button" class="btn btn-success weixin-payment-link" data-toggle="modal" data-target=".popup-weixin-payment" disabled="true">微信扫码支付</button>
+                    <button type="button" class="btn btn-success weixin-payment-link" data-toggle="modal" data-target=".popup-weixin-payment">微信扫码支付</button>
                   </div>
                   <div class="payment-way" id="payment-alipay" style="display: none;">
-                    <button type="button" class="btn btn-success alipay-payment-link" data-toggle="modal" data-target=".popup-alipay-payment" disabled="true">支付宝扫码支付</button>
+                    <button type="button" class="btn btn-success alipay-payment-link" data-toggle="modal" data-target=".popup-alipay-payment">支付宝扫码支付</button>
                   </div>
                 </div>
               </div>
@@ -300,6 +301,11 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
+  <div class="loader modal-backdrop in" style="display: none;">
+    <div class="plone-loader">
+      <div>...</div>
+    </div>
+  </div>
 
   <script type="text/javascript" src="order.js"></script>
 

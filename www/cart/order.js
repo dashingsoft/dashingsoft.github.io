@@ -7,6 +7,14 @@ function showMessage( msg ) {
     $( '.popup-message' ).modal( 'show' );
 }
 
+function showLoader() {
+    document.querySelector( 'div.loader' ).style.display = '';
+}
+
+function hideLoader() {
+    document.querySelector( 'div.loader' ).style.display = 'none';
+}
+
 function queryInvoice( invoice_id ) {
     var url = server_url + '/product/invoices/' + invoice_id + '/';
     var request = new XMLHttpRequest();
@@ -175,10 +183,13 @@ function newOrder() {
     var request = new XMLHttpRequest();
 
     request.onerror = function () {
+        hideLoader();
         showMessage( '提交订单失败' );
     };
 
     request.onload = function() {
+
+        hideLoader();
 
         if ( request.status !== 200 ) {
             showMessage( '创建订单失败: ' + request.responseText );
@@ -195,6 +206,7 @@ function newOrder() {
         request.open( 'POST', url, true );
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         request.send( data );
+        showLoader();
     }
     catch ( err ) {
         showMessage( '提交订单失败:' + err );
@@ -215,9 +227,9 @@ function setOrderState( order ) {
 
     Array.prototype.forEach.call(
         document.querySelectorAll( 'div.payment-way button.btn-success' ), function ( element ) {
-            order_id === null
-                ? element.setAttribute("disabled", true)
-                : element.removeAttribute("disabled");
+            // order_id === null
+            //     ? element.setAttribute("disabled", true)
+            //     : element.removeAttribute("disabled");
         }
     );
 
@@ -311,10 +323,13 @@ function submitInvoice() {
     var prompt = invoice_id ? '修改发票信息失败' : '提交发票信息失败';
 
     request.onerror = function () {
+        hideLoader();
         showMessage( prompt );
     };
 
     request.onload = function() {
+
+        hideLoader();
 
         if ( request.status === 200 || request.status === 201 ) {
             var invoice = JSON.parse( request.responseText );
@@ -340,6 +355,7 @@ function submitInvoice() {
         // request.send( JSON.stringify( data ) );
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         request.send( data );
+        showLoader();
     }
     catch ( err ) {
         showMessage( prompt + ': ' + err );
