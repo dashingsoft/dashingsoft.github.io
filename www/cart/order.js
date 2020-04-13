@@ -119,12 +119,12 @@ function setPurchaseNo( purchase_no ) {
         }
     } );
     if ( ! purchase_no ) {
-        document.querySelector( 'input[name="tax"]' ).removeAttribute("disabled");
+        // document.querySelector( 'input[name="tax"]' ).removeAttribute("disabled");
         document.querySelector( '.new-order' ).style.display = '';
         document.querySelector( '.renew-order' ).style.display = 'none';
     }
     else {
-        document.querySelector( 'input[name="tax"]' ).setAttribute("disabled", true);
+        // document.querySelector( 'input[name="tax"]' ).setAttribute("disabled", true);
         document.querySelector( '.new-order' ).style.display = 'none';
         document.querySelector( '.renew-order' ).style.display = '';
     }
@@ -241,12 +241,12 @@ function setOrderState( order ) {
         }
     );
     if ( order_id === null ) {
-        document.querySelector( 'input[name="tax"]' ).removeAttribute("disabled");
+        // document.querySelector( 'input[name="tax"]' ).removeAttribute("disabled");
         document.querySelector( '.new-order' ).style.display = '';
         document.querySelector( '.renew-order' ).style.display = 'none';
     }
     else {
-        document.querySelector( 'input[name="tax"]' ).setAttribute("disabled", true);
+        // document.querySelector( 'input[name="tax"]' ).setAttribute("disabled", true);
         document.querySelector( '.new-order' ).style.display = 'none';
         document.querySelector( '.renew-order' ).style.display = '';
     }
