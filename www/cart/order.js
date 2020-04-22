@@ -244,11 +244,13 @@ function setOrderState( order ) {
         // document.querySelector( 'input[name="tax"]' ).removeAttribute("disabled");
         document.querySelector( '.new-order' ).style.display = '';
         document.querySelector( '.renew-order' ).style.display = 'none';
+        document.querySelector( '.refresh-order' ).style.display = 'none';
     }
     else {
         // document.querySelector( 'input[name="tax"]' ).setAttribute("disabled", true);
         document.querySelector( '.new-order' ).style.display = 'none';
         document.querySelector( '.renew-order' ).style.display = '';
+        document.querySelector( '.refresh-order' ).style.display = '';
     }
 }
 
