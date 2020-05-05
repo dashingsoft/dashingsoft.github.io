@@ -41,7 +41,7 @@
           <th>产品名称</th>
           <th>描述</th>
           <th>价格（不含税）</th>
-          <th><input name="tax" type="checkbox"> 增值税服务</th>
+          <th style="display: none"><input name="tax" type="checkbox"> 增值税服务</th>
           <th>数量</th>
           <th>总金额</th>
         </tr>
@@ -52,7 +52,7 @@
           <td>用于加密和保护 Python 脚本的工具软件</td>
           <td><span style="color: #aaa;">原价：286.00元</span>
             <p>现价：266.00 元 （优惠至 2020-06-30）</td>
-          <td class="product-tax">0 元</td>
+          <td class="product-tax" style="display: none">0 元</td>
           <td>1</td>
           <td><strong class="product-amount">266.00 元</strong></td>
         </tr>
@@ -62,11 +62,13 @@
     <div class="panel">
 
       <div class="panel-body">
+      <p><strong>在当前网页提交的电子订单不提供任何发票</strong></p>
       <p class="help-block">需要发票的用户推荐通过电子商务网站 <a role="button" class="btn btn-link" href="https://order.shareit.com/cart/add?vendorid=200089125&PRODUCT[300871197]=1">
         <img height="40" src="https://mycommerce.akamaized.net/ui/Content/img/logo_mycommerce.svg" alt="Digital River" />
       </a> 进行购买，在购物车下单就能邮件方式收到电子发票，点击查看<a target="_blank" href="INV_598150533_200226880_201905091015.pdf">发票样例</a></p>
-
-        <p class="help-block">如果需要国内的增值税发票，请选中购物车中 <strong>增值税服务</strong>，并在下方填写和发票相关的信息，普通增值税发票使用挂号信方式寄出。</p>
+      <p class="help-block">如果需要国内的增值税发票，请通过国内共享软件网站<a role="button" class="btn btn-link" href="http://www.sharebank.com.cn/soft/softbuy.php?soid=52382">
+          <img src="http://www.sharebank.com.cn/images/btn_buynow_b1.gif" alt="软行天下" border="0">
+          </a>进行购买，开好的增值税发票会通过 EMS 寄出。</p>
       </div>
     </div>
 
