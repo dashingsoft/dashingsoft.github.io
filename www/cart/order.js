@@ -171,7 +171,7 @@ function newOrder() {
         'RUNNING_NO=1',
         'PRODUCT_ID=300871197',
         'CURRENCY=CNY',
-        'PRICE=' + (document.querySelector( 'input[name="tax"]' ).checked ? '296.00' : '266.00'),
+        'PRICE=' + (document.querySelector( 'input[name="tax"]' ).checked ? '296.00' : '286.00'),
         'QUANTITY=1',
         'REG_NAME='+ encodeURIComponent( name ),
         'EMAIL=' + encodeURIComponent( email ),
@@ -278,9 +278,9 @@ function refreshOrder() {
 function setProductTax() {
     var tax = document.querySelector( 'input[name="tax"]' ).checked;
     document.querySelector( '.product-tax' ).innerHTML = tax ? '30.00 元' : '0 元';
-    document.querySelector( '.product-amount' ).innerHTML = tax ? '296.00 元' : '266.00 元';
-    document.querySelector( '.popup-weixin-payment img' ).src = tax ? 'weixin-296.jpg' : 'weixin-266.jpg';
-    document.querySelector( '.popup-alipay-payment img' ).src = tax ? 'alipay-296.jpg' : 'alipay-266.jpg';
+    document.querySelector( '.product-amount' ).innerHTML = tax ? '296.00 元' : '286.00 元';
+    document.querySelector( '.popup-weixin-payment img' ).src = tax ? 'weixin-296.jpg' : 'weixin-286.jpg';
+    document.querySelector( '.popup-alipay-payment img' ).src = tax ? 'alipay-296.jpg' : 'alipay-286.jpg';
     document.querySelector( '.invoice-page' ).style.display = tax ? '' : 'none';
 }
 
