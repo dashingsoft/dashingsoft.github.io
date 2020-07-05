@@ -101,10 +101,10 @@ function setOrderInfo( order ) {
     document.querySelector( 'input[name="reg_name"]' ).value = order.customer.name;
     document.querySelector( 'input[name="email"]' ).value = order.customer.email;
     document.querySelector( 'select[name="license_type"]' ).value = order.license_type;
-    if ( order.price > 268 ) {
-        document.querySelector( 'input[name="tax"]' ).checked = true;
-        setProductTax();
-    }
+    // if ( order.price > 329 ) {
+    //     document.querySelector( 'input[name="tax"]' ).checked = true;
+    //     setProductTax();
+    // }
     setOrderState( order );
 }
 
