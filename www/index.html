@@ -242,7 +242,7 @@ python foo.py</code></pre>
             <h5 class="card-title"><strong>Generate Different Licenses</strong></h5>
             <p class="card-text">First get hardware information by command <code>hdinfo</code></p>
             <p class="card-text">Then generate a new license with command <code>licenses</code></p>
-            <p class="card-text">Next overwrite default license <code>dist/license.lic</code></p>
+            <p class="card-text">Next obfuscate the scripts with this license</p>
             <p class="card-text">Finally run obfuscated script <code>queens.py</code> with new license</p>
           </div>
         </div>
@@ -259,9 +259,9 @@ python foo.py</code></pre>
         --bind-disk "100304PBN2081SF3NJ5T" \
         --bind-mac "70:f1:a1:23:f0:94" \
         --bind-ipv4 "202.10.2.52" \
-        product-001</code></pre>
+        r001</code></pre>
             <hr/>
-            <pre class="p-2"><code>cp licenses/product-001/license.lic dist/pytransform/</code></pre>
+            <pre class="p-2"><code>pyarmor obfuscate --with-license licenses/product-001/license.lic foo.py</code></pre>
             <hr/>
             <pre class="p-2"><code>cd dist
 python foo.py

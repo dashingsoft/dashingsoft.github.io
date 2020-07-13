@@ -241,8 +241,7 @@ python foo.py</code></pre>
             <h5 class="card-title"><strong>生成不同许可文件</strong></h5>
             <p class="card-text">首先使用命令 <code>hdinfo</code> 查看目标机器的硬件设备信息</p>
             <p class="card-text">然后使用命令 <code>licenses</code>, 创建新的许可文件</p>
-            <p class="card-text">接着使用新生成的许可文件替换默认许可文件 <code>dist/license.lic</code></p>
-            <p class="card-text d-none">（默认许可文件是在加密脚本的时候自动生成的，允许加密后的脚本运行在任何电脑上，并且永不过期）</p>
+            <p class="card-text">接着使用新生成的许可文件加密脚本</p>
             <p class="card-text">最后再次运行加密脚本 <code>foo.py</code>，测试一下新的许可证</p>
           </div>
         </div>
@@ -259,9 +258,9 @@ python foo.py</code></pre>
         --bind-disk "100304PBN2081SF3NJ5T" \
         --bind-mac "70:f1:a1:23:f0:94" \
         --bind-ipv4 "202.10.2.52" \
-        product-001</code></pre>
+        r001</code></pre>
             <hr/>
-            <pre class="p-2"><code>cp licenses/product-001/license.lic dist/pytransform/</code></pre>
+            <pre class="p-2"><code>pyarmor obfuscate --with-license licenses/r001/license.lic foo.py</code></pre>
             <hr/>
             <pre class="p-2"><code>cd dist
 python foo.py
