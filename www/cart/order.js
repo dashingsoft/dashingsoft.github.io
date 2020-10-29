@@ -1,6 +1,7 @@
 var server_url = ( location.protocol === 'file:' ) ? 'http://test-api.dashingsoft.com' : 'https://api.dashingsoft.com';
 var order_id = null;
 var invoice_id = null;
+var old_order_id = null;
 
 function showMessage( msg ) {
     document.querySelector( '.popup-message .modal-body p' ).innerHTML = msg;
@@ -167,6 +168,7 @@ function newOrder() {
     var url = server_url + '/product/order/add';
     var purchase_no = makePurchaseNo();
     var data =  [
+        'REFORDER_ID=' + (old_order_id ? old_order_id : ''),
         'PURCHASE_ID=' + purchase_no ,
         'RUNNING_NO=1',
         'PRODUCT_ID=300871197',
@@ -255,6 +257,8 @@ function setOrderState( order ) {
 }
 
 function renewOrder() {
+    old_order_id = order_id;
+
     setOrderState();
     document.querySelector( '.new-invoice' ).style.display = '';
     document.querySelector( '.update-invoice' ).style.display = 'none';
