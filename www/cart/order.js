@@ -279,6 +279,14 @@ function refreshOrder() {
     }
 }
 
+function checkOrder( e ) {
+    if ( order_id === null ) {
+        alert( '当前订单还没有提交，请点击提交订单按钮，然后在进行支付' )
+        e.preventDefault()
+        e.stopPropagation()
+    }
+}
+
 function setProductTax() {
     var tax = document.querySelector( 'input[name="tax"]' ).checked;
     document.querySelector( '.product-tax' ).innerHTML = tax ? '30.00 元' : '0 元';
@@ -376,6 +384,8 @@ window.addEventListener( 'load', function () {
     document.querySelector( 'input[name="tax"]' ).addEventListener( 'change', setProductTax, false );
     document.querySelector( '.new-invoice' ).addEventListener( 'click', submitInvoice, false );
     document.querySelector( '.update-invoice' ).addEventListener( 'click', submitInvoice, false );
+    document.querySelector( '.weixin-payment-link' ).addEventListener( 'click', checkOrder, false );
+    document.querySelector( '.alipay-payment-link' ).addEventListener( 'click', checkOrder, false );
 
     Array.prototype.forEach.call( document.querySelectorAll( 'input[name="inlineRadioOptions"]' ), function ( radio ) {
         radio.addEventListener( 'click', function ( e ) {
@@ -388,7 +398,9 @@ window.addEventListener( 'load', function () {
 
     order_id = window.localStorage.getItem( 'CACHED_ORDER_ID' );
     if ( order_id ) {
-        queryOrder( order_id, setOrderInfo );
+        queryOrder( order_id, setOrderInfo, function () {
+            order_id = null;
+        } );
     }
 
     invoice_id = window.localStorage.getItem( 'CACHED_INVOICE_ID' );
