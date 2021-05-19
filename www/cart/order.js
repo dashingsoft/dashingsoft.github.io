@@ -102,6 +102,7 @@ function setOrderInfo( order ) {
     document.querySelector( 'input[name="reg_name"]' ).value = order.customer.name;
     document.querySelector( 'input[name="email"]' ).value = order.customer.email;
     document.querySelector( 'select[name="license_type"]' ).value = order.license_type;
+    document.querySelector( 'select[name="license_product"]' ).value = order.license_product;
     // if ( order.price > 329 ) {
     //     document.querySelector( 'input[name="tax"]' ).checked = true;
     //     setProductTax();
@@ -165,6 +166,13 @@ function newOrder() {
         return false;
     }
 
+    element = document.querySelector( 'input[name="license_product"]' );
+    var license_product = element.value;
+    if ( ! license_product ) {
+        element.focus();
+        return false;
+    }
+
     var url = server_url + '/product/order/add';
     var purchase_no = makePurchaseNo();
     var data =  [
@@ -173,13 +181,14 @@ function newOrder() {
         'RUNNING_NO=1',
         'PRODUCT_ID=300871197',
         'CURRENCY=CNY',
-        'PRICE=' + (document.querySelector( 'input[name="tax"]' ).checked ? '296.00' : '286.00'),
+        'PRICE=' + (document.querySelector( 'input[name="tax"]' ).checked ? '296.00' : '298.00'),
         'QUANTITY=1',
         'REG_NAME='+ encodeURIComponent( name ),
         'EMAIL=' + encodeURIComponent( email ),
         'COUNTRY=China',
         'LANGUAGE_ID=15',
         'ADD[LICENSE_TYPE]=' + document.querySelector( 'select[name="license_type"]' ).value,
+        'ADD[LICENSE_PRODUCT]=' + document.querySelector( 'select[name="license_product"]' ).value,
     ].join( '&' );
 
     var request = new XMLHttpRequest();
@@ -290,9 +299,9 @@ function checkOrder( e ) {
 function setProductTax() {
     var tax = document.querySelector( 'input[name="tax"]' ).checked;
     document.querySelector( '.product-tax' ).innerHTML = tax ? '30.00 元' : '0 元';
-    document.querySelector( '.product-amount' ).innerHTML = tax ? '296.00 元' : '286.00 元';
-    document.querySelector( '.popup-weixin-payment img' ).src = tax ? 'weixin-296.jpg' : 'weixin-286.jpg';
-    document.querySelector( '.popup-alipay-payment img' ).src = tax ? 'alipay-296.jpg' : 'alipay-286.jpg';
+    document.querySelector( '.product-amount' ).innerHTML = tax ? '296.00 元' : '298.00 元';
+    document.querySelector( '.popup-weixin-payment img' ).src = tax ? 'weixin-296.jpg' : 'weixin-298.jpg';
+    document.querySelector( '.popup-alipay-payment img' ).src = tax ? 'alipay-296.jpg' : 'alipay-298.jpg';
     document.querySelector( '.invoice-page' ).style.display = tax ? '' : 'none';
 }
 
