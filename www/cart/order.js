@@ -102,7 +102,7 @@ function setOrderInfo( order ) {
     document.querySelector( 'input[name="reg_name"]' ).value = order.customer.name;
     document.querySelector( 'input[name="email"]' ).value = order.customer.email;
     document.querySelector( 'select[name="license_type"]' ).value = order.license_type;
-    document.querySelector( 'select[name="license_product"]' ).value = order.license_product;
+    document.querySelector( 'input[name="license_product"]' ).value = order.license_product;
     // if ( order.price > 329 ) {
     //     document.querySelector( 'input[name="tax"]' ).checked = true;
     //     setProductTax();
@@ -188,7 +188,7 @@ function newOrder() {
         'COUNTRY=China',
         'LANGUAGE_ID=15',
         'ADD[LICENSE_TYPE]=' + document.querySelector( 'select[name="license_type"]' ).value,
-        'ADD[LICENSE_PRODUCT]=' + document.querySelector( 'select[name="license_product"]' ).value,
+        'ADD[LICENSE_PRODUCT]=' + document.querySelector( 'input[name="license_product"]' ).value,
     ].join( '&' );
 
     var request = new XMLHttpRequest();
