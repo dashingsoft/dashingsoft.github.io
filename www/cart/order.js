@@ -152,6 +152,7 @@ function makePurchaseNo() {
 }
 
 function newOrder() {
+    var license_type = document.querySelector( 'select[name="license_type"]' ).value;
     var element = document.querySelector( 'input[name="reg_name"]' );
     var name = element.value;
     if ( ! name ) {
@@ -168,7 +169,7 @@ function newOrder() {
 
     element = document.querySelector( 'input[name="license_product"]' );
     var license_product = element.value;
-    if ( ! license_product ) {
+    if ( license_type === 'B' && ! license_product ) {
         element.focus();
         return false;
     }
@@ -187,7 +188,7 @@ function newOrder() {
         'EMAIL=' + encodeURIComponent( email ),
         'COUNTRY=China',
         'LANGUAGE_ID=15',
-        'ADD[LICENSE_TYPE]=' + document.querySelector( 'select[name="license_type"]' ).value,
+        'ADD[LICENSE_TYPE]=' + license_type,
         'ADD[LICENSE_PRODUCT]=' + document.querySelector( 'input[name="license_product"]' ).value,
     ].join( '&' );
 
