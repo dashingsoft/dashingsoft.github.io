@@ -123,18 +123,42 @@
               <label class="radio-inline">
                 <input type="radio" name="inlineRadioOptions" id="radio-alipay" value="alipay"/>支付宝
               </label>
+              <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="radio-bank" value="bank"/>银行转账
+              </label>
               <div class="panel panel-default" style="margin-top: 1em; border: 0;">
                 <div class="">
                   <div class="payment-way" id="payment-weixin">
                     <button type="button" class="btn btn-success weixin-payment-link" data-toggle="modal" data-target=".popup-weixin-payment">微信扫码支付</button>
+                    <p class="help-block">如果需要收款人姓名校验二维码，请填写<strong>赵俊德</strong></p>
                   </div>
                   <div class="payment-way" id="payment-alipay" style="display: none;">
                     <button type="button" class="btn btn-success alipay-payment-link" data-toggle="modal" data-target=".popup-alipay-payment">支付宝扫码支付</button>
                   </div>
+                  <div class="payment-way" id="payment-bank" style="display: none;">
+                    <div class="panel panel-default">
+                      <div class="panel-body">
+                        <dl class="dl-horizontal">
+                          <dt>开户行</dt>
+                          <dd>陕西省西安市高新区锦业路支行</dd>
+                        </dl>
+                        <dl class="dl-horizontal">
+                          <dt>账号</dt>
+                          <dd> 6217853600012174701</dd>
+                        </dl>
+                        <dl class="dl-horizontal">
+                          <dt>姓名</dt>
+                          <dd>赵俊德</dd>
+                        </dl>
+                        <p class="help-block">转账成功之后请发送如下短信
+                          <strong style="color: #67C23A">pyarmor 注册姓名 银行转账完成</strong>
+                          到手机<strong>1391280625</strong> </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </form>
-            <p class="help-block">如果需要收款人姓名校验二维码，请填写<strong>赵俊德</strong></p>
           </div>
         </div>
         <div class="panel panel-default order-info">
