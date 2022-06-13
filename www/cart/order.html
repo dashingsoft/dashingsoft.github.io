@@ -62,13 +62,13 @@
 
       <div class="panel-body">
       <p><strong>在当前网页提交的电子订单不提供任何发票和纸质收据</strong></p>
-      <p class="help-block">如果需要国内的增值税发票，请通过国内共享软件网站<a role="button" class="btn btn-link" href="http://www.sharebank.com.cn/soft/softbuy.php?soid=52382">
+      <p class="help-block" style="display: none">如果需要国内的增值税发票，请通过国内共享软件网站<a role="button" class="btn btn-link" href="http://www.sharebank.com.cn/soft/softbuy.php?soid=52382">
           <img src="btn_buynow_b1.gif" alt="软行天下" border="0">
           </a>进行购买，开好的增值税发票会通过 EMS 寄出。<strong style="display: none">2021-07-01（不含）之前在软行天下网站购买，下单时输入优惠券代码“PYAR79611611”可以优惠30元</strong></p>
       <p class="help-block">如果需要非增值税发票，可以通过电子商务网站 <a role="button" class="btn btn-link" href="https://order.shareit.com/cart/add?vendorid=200089125&PRODUCT[300871197]=1">
         <img height="40" src="logo_mycommerce.svg" alt="Digital River" />
         </a> 进行购买，在购物车下单就能邮件方式收到电子发票，点击查看<a target="_blank" href="INV_598150533_200226880_201905091015.pdf">发票样例</a></p>
-      <p class="help-block" style="display: none">目前还不提供国内增值税发票</p>
+      <p class="help-block">目前还不提供国内增值税发票</p>
       </div>
     </div>
 
@@ -85,18 +85,18 @@
                   <option value="B">企业用户许可</option>
                 </select>
                 <p class="help-block">请仔细阅读产品许可信息
-                  <a href="https://pyarmor.readthedocs.io/zh/latest/license.html" target="_blank">PyArmor 软件许可</a>
+                  <a href="https://pyarmor.readthedocs.io/zh/latest/license.html" target="_blank">PyArmor 软件许可</a>，注意<strong>个人用户许可不能用于加密产权不属于自己的企业产品</strong>。
                 </p>
               </div>
               <div class="form-group">
                 <label for="input-name">注册名称</label>
                 <input type="text" class="form-control order-field" name="reg_name" required />
-                <p class="help-block">注册名称必须是个人真实姓名或者企业全称，<strong>pyarmor 只授权于注册名称对应的个人或者产品，例如，个人用户填写 “asdf”，那么只有姓名为 ”asdf“ 的用户被授权可以合法的使用该许可。</strong></p>
+                <p class="help-block">注册名称必须是个人身份证姓名或者企业全称，注册名称只应用于用户和pyarmor的订单，不会提供给任何第三方。包括在加密后的脚本中也只是包含购买的许可证的序号，不会包含注册名称和其它用户信息。<strong>pyarmor 只授权于注册名称对应的个人或者企业，订单是明显不正确的注册名称不会进行处理，已经支付的订单会直接退款。</strong></p>
                   </div>
               <div class="form-group">
                 <label for="license_product">被授权产品名称</label>
                 <input type="text" class="form-control order-field" name="license_product" />
-                <p class="help-block">个人用户不用填写，企业用户填写使用本许可的产品名称。<strong>请企业用户务必输入正确的产品名称，pyarmor 只授权于相应的一个产品系列，错误的产品名称意味着没有任何产品得到授权。</strong></p>
+                <p class="help-block">个人用户不用填写，企业用户填写使用本许可的产品名称。<strong>请企业用户务必输入正确的产品名称，pyarmor 只授权于相应的一个产品系列，错误的产品名称意味着没有任何产品得到授权。订单是明显不正确的产品名称不会进行处理，已经支付的订单会直接退款</strong>。关于许可详情参阅<a href="https://pyarmor.readthedocs.io/zh/latest/license.html" target="_blank">PyArmor 软件许可</a></p>
               </div>
               <div class="form-group">
                 <label for="input-email">电子邮件</label>
