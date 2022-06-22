@@ -103,10 +103,10 @@ function setOrderInfo( order ) {
     document.querySelector( 'input[name="email"]' ).value = order.customer.email;
     document.querySelector( 'select[name="license_type"]' ).value = order.license_type;
     document.querySelector( 'input[name="license_product"]' ).value = order.license_product;
-    // if ( order.price > 329 ) {
-    //     document.querySelector( 'input[name="tax"]' ).checked = true;
-    //     setProductTax();
-    // }
+    if ( order.price > 329.0 ) {
+        document.querySelector( 'input[name="tax"]' ).checked = true;
+        setProductTax();
+    }
     setOrderState( order );
 }
 
@@ -182,7 +182,7 @@ function newOrder() {
         'RUNNING_NO=1',
         'PRODUCT_ID=300871197',
         'CURRENCY=CNY',
-        'PRICE=' + (document.querySelector( 'input[name="tax"]' ).checked ? '296.00' : '298.00'),
+        'PRICE=' + (document.querySelector( 'input[name="tax"]' ).checked ? '359.00' : '298.00'),
         'QUANTITY=1',
         'REG_NAME='+ encodeURIComponent( name ),
         'EMAIL=' + encodeURIComponent( email ),
@@ -253,13 +253,13 @@ function setOrderState( order ) {
         }
     );
     if ( order_id === null ) {
-        // document.querySelector( 'input[name="tax"]' ).removeAttribute("disabled");
+        document.querySelector( 'input[name="tax"]' ).removeAttribute("disabled");
         document.querySelector( '.new-order' ).style.display = '';
         document.querySelector( '.renew-order' ).style.display = 'none';
         document.querySelector( '.refresh-order' ).style.display = 'none';
     }
     else {
-        // document.querySelector( 'input[name="tax"]' ).setAttribute("disabled", true);
+        document.querySelector( 'input[name="tax"]' ).setAttribute("disabled", true);
         document.querySelector( '.new-order' ).style.display = 'none';
         document.querySelector( '.renew-order' ).style.display = '';
         document.querySelector( '.refresh-order' ).style.display = '';
@@ -299,10 +299,12 @@ function checkOrder( e ) {
 
 function setProductTax() {
     var tax = document.querySelector( 'input[name="tax"]' ).checked;
-    document.querySelector( '.product-tax' ).innerHTML = tax ? '30.00 元' : '0 元';
-    document.querySelector( '.product-amount' ).innerHTML = tax ? '296.00 元' : '298.00 元';
-    document.querySelector( '.popup-weixin-payment img' ).src = tax ? 'weixin-296.jpg' : 'weixin-298.jpg';
-    document.querySelector( '.popup-alipay-payment img' ).src = tax ? 'alipay-296.jpg' : 'alipay-298.jpg';
+    document.querySelector( '.price-label' ).innerHTML = tax ? '价格（含税）' : '价格（不含税）';
+    document.querySelector( '.product-price' ).innerHTML = tax ? '359.00 元' : '298.00 元';
+    document.querySelector( '.product-amount' ).innerHTML = tax ? '359.00 元' : '298.00 元';
+    document.querySelector( '.popup-weixin-payment img' ).src = tax ? 'weixin-359.jpg' : 'weixin-298.jpg';
+    document.querySelector( '.popup-alipay-payment img' ).src = tax ? 'alipay-359.jpg' : 'alipay-298.jpg';
+    document.querySelector( '.invoice-button' ).innerHTML = tax ? '(有电子发票)' : '(无发票)';
     document.querySelector( '.invoice-page' ).style.display = tax ? '' : 'none';
 }
 

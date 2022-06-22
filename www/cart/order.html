@@ -40,8 +40,7 @@
         <tr>
           <th>产品名称</th>
           <th>描述</th>
-          <th>价格（不含税）</th>
-          <th style="display: none"><input name="tax" type="checkbox"> 增值税服务</th>
+          <th class="price-label">价格（不含税）</th>
           <th>数量</th>
           <th>总金额</th>
         </tr>
@@ -50,8 +49,7 @@
         <tr>
           <td><img src="logo.png" width="20">PyArmor</td>
           <td>用于加密和保护 Python 脚本的工具软件</td>
-          <td>298.00元</td>
-          <td class="product-tax" style="display: none">0 元</td>
+          <td class="product-price">298.00元</td>
           <td>1</td>
           <td><strong class="product-amount">298.00 元</strong></td>
         </tr>
@@ -61,14 +59,15 @@
     <div class="panel">
 
       <div class="panel-body">
-      <p><strong>在当前网页提交的电子订单不提供任何发票和纸质收据</strong></p>
+      <p style="display: none"><strong>在当前网页提交的电子订单不提供任何发票和纸质收据</strong></p>
       <p class="help-block" style="display: none">如果需要国内的增值税发票，请通过国内共享软件网站<a role="button" class="btn btn-link" href="http://www.sharebank.com.cn/soft/softbuy.php?soid=52382">
           <img src="btn_buynow_b1.gif" alt="软行天下" border="0">
           </a>进行购买，开好的增值税发票会通过 EMS 寄出。<strong style="display: none">2021-07-01（不含）之前在软行天下网站购买，下单时输入优惠券代码“PYAR79611611”可以优惠30元</strong></p>
-      <p class="help-block">如果需要非增值税发票，可以通过电子商务网站 <a role="button" class="btn btn-link" href="https://order.shareit.com/cart/add?vendorid=200089125&PRODUCT[300871197]=1">
+      <p class="help-block" style="display: none">如果需要非增值税发票，可以通过电子商务网站 <a role="button" class="btn btn-link" href="https://order.shareit.com/cart/add?vendorid=200089125&PRODUCT[300871197]=1">
         <img height="40" src="logo_mycommerce.svg" alt="Digital River" />
         </a> 进行购买，在购物车下单就能邮件方式收到电子发票，点击查看<a target="_blank" href="INV_598150533_200226880_201905091015.pdf">发票样例</a></p>
-      <p class="help-block">目前还不提供国内增值税发票</p>
+      <p><input name="tax" type="checkbox"> <strong>需要电子发票</strong></p>
+      <p class="help-block">如果需要电子发票，请点击选中上方行首的的方框，目前不提供纸质增值税发票</p>
       </div>
     </div>
 
@@ -91,12 +90,12 @@
               <div class="form-group">
                 <label for="input-name">注册名称</label>
                 <input type="text" class="form-control order-field" name="reg_name" required />
-                <p class="help-block">注册名称必须是个人身份证姓名或者企业全称，注册名称只应用于pyarmor的订单，不会提供给任何第三方。在加密后的脚本中也只是包含购买的许可证的序号，不会包含注册名称和其它用户信息。<strong>pyarmor 只授权于注册名称对应的个人或者企业，订单是明显不正确的注册名称不会进行处理，已经支付的订单会直接退款。</strong></p>
+                <p class="help-block">注册名称必须是个人身份证姓名或者企业全称，注册名称只应用于pyarmor的订单，不会提供给任何第三方。在加密后的脚本中也只是包含购买的许可证的序号，不会包含注册名称和其它用户信息。<strong>pyarmor 只授权于注册名称对应的个人或者企业，注册名称明显不正确的订单不会进行处理，已经支付的订单会直接退款。</strong></p>
                   </div>
               <div class="form-group">
                 <label for="license_product">被授权产品名称</label>
                 <input type="text" class="form-control order-field" name="license_product" />
-                <p class="help-block">个人用户不用填写，企业用户填写使用本许可的产品名称。<strong>请企业用户务必输入正确的产品名称，pyarmor 只授权于相应的一个产品系列，错误的产品名称意味着没有任何产品得到授权。订单是明显不正确的产品名称不会进行处理，已经支付的订单会直接退款</strong>。关于许可详情参阅<a href="https://pyarmor.readthedocs.io/zh/latest/license.html" target="_blank">PyArmor 软件许可</a></p>
+                <p class="help-block">个人用户不用填写，企业用户填写使用本许可的产品名称。<strong>请企业用户务必输入正确的产品名称，pyarmor 只授权于相应的一个产品系列，错误的产品名称意味着没有任何产品得到授权。产品名称明显不正确的订单不会进行处理，已经支付的订单会直接退款</strong>。关于许可详情参阅<a href="https://pyarmor.readthedocs.io/zh/latest/license.html" target="_blank">PyArmor 软件许可</a></p>
               </div>
               <div class="form-group">
                 <label for="input-email">电子邮件</label>
@@ -107,7 +106,7 @@
             <p class="help-block">注意：提交的订单如果在 <strong>2</strong> 小时之内没有进行支付将会被取消</p>
           </div>
           <div class="panel-footer">
-            <button type="button" class="btn btn-primary new-order">提交订单 <b>(无发票)</b></button>
+            <button type="button" class="btn btn-primary new-order">提交订单 <b class="invoice-button">(无发票)</b></button>
             <button type="button" class="btn btn-danger renew-order" style="display: none;">重新下单</button>
           </div>
         </div>
@@ -234,27 +233,27 @@
 
           <div class="col-md-6">
             <div class="panel panel-default">
-              <div class="panel-heading">接收发票的邮寄地址</div>
+              <div class="panel-heading">联系信息</div>
               <div class="panel-body">
                 <form>
                   <div class="form-group">
-                    <label for="post_name">收件人</label>
+                    <label for="post_name">联系人</label>
                     <input type="text" class="form-control" name="post_name" required />
-                    <p class="help-block">填写接受发票的收件人姓名</p>
+                    <p class="help-block">填写接受发票的联系人姓名</p>
                   </div>
                   <div class="form-group">
                     <label for="post_phone">联系电话</label>
                     <input type="text" class="form-control" name="post_phone" required />
-                    <p class="help-block">重要！请务必填写正确，无法联系到收件人可能导致挂号信被退回</p>
+                    <p class="help-block">填写接受发票的联系人电话，以便出现问题的时候进行沟通</p>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group" style="display: none">
                     <label for="post_code">邮政编码</label>
-                    <input type="text" class="form-control" name="post_code" required />
+                    <input type="text" class="form-control" value="未填写" name="post_code"/>
                     <p class="help-block"></p>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group" style="display: none">
                     <label for="post_address">详细地址</label>
-                    <input type="text" class="form-control" name="post_address" required />
+                    <input type="text" class="form-control" value="未填写" name="post_address"/>
                     <p class="help-block"></p>
                   </div>
                 </form>
@@ -270,7 +269,7 @@
                   <dt>备注信息</dt>
                   <dd class="invoice-remark"></dd>
                 </dl>
-                <p class="help-block">刷新当前页面或者再次打开电子订单可以查看发票的最新状态，发票一般会在 1~2 天内开出，并在一周之内寄出，寄出后会有短信通知，同时这里的备注信息里面也会显示挂号信的编号</p>
+                <p class="help-block">刷新当前页面或者再次打开电子订单可以查看发票的最新状态，电子发票一般会在一周之内开出并发送到接受注册文件的<strong>电子邮件</strong></p>
 
               </div>
             </div>
