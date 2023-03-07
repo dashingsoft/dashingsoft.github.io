@@ -37,49 +37,49 @@
     <div class="panel">
       <div class="panel-body">
         <h4>Pyarmor 马上有一个重大升级，预计在 2023年3月8号 之前发布，
-        新版本提高了安全性并提供了更丰富的功能。<h4>
-            <p>点击查看新的
-        <a href="https://pyarmor.readthedocs.io/zh/latest/licenses.html">许可模式和价格</a></p>
+          新版本提高了安全性并提供了更丰富的功能。</h4>
+        <p>点击查看新的
+          <a href="https://pyarmor.readthedocs.io/zh/latest/licenses.html">许可模式和价格</a></p>
       </div>
     </div>
 
-    <table class="table table-no-border">
-      <caption>我的购物车</caption>
-      <thead>
-        <tr>
-          <th>产品名称</th>
-          <th>描述</th>
-          <th class="price-label">价格（不含税）</th>
-          <th>数量</th>
-          <th>总金额</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><img src="logo.png" width="20">Pyarmor</td>
-          <td>用于加密和保护 Python 脚本的工具软件</td>
-          <td class="product-price">298.00元</td>
-          <td>1</td>
-          <td><strong class="product-amount">298.00 元</strong></td>
-        </tr>
-      </tbody>
-    </table>
-
     <div class="panel">
-
       <div class="panel-body">
-        <!--
-      <p style="display: none"><strong>在当前网页提交的电子订单不提供任何发票和纸质收据</strong></p>
-      <p class="help-block" style="display: none">如果需要国内的增值税发票，请通过国内共享软件网站<a role="button" class="btn btn-link" href="http://www.sharebank.com.cn/soft/softbuy.php?soid=52382">
-          <img src="btn_buynow_b1.gif" alt="软行天下" border="0">
-          </a>进行购买，开好的增值税发票会通过 EMS 寄出。<strong style="display: none">2021-07-01（不含）之前在软行天下网站购买，下单时输入优惠券代码“PYAR79611611”可以优惠30元</strong></p>
-        -->
-      <p><input name="tax" type="checkbox"> <strong>需要电子发票</strong>，点击查看<a target="_blank" href="CN_INV_PYARMOR.pdf">增值税发票样例</a></p>
-      <p class="help-block">如果需要国内增值税发票，请点击选中<b>需要电子发票</b>前面的方框。在提交订单之后，填写发票相关信息，并点击<b>提交发票信息</b>按钮提交</p>
-      <p class="help-block">目前不提供纸质增值税发票</p>
-      <p class="help-block">如果需要国外电子发票，可以通过国外电子商务网站 <a role="button" class="btn btn-link" href="https://order.shareit.com/cart/add?vendorid=200089125&PRODUCT[300871197]=1">
-        <img height="40" src="logo_mycommerce.svg" alt="Digital River" />
-        </a> 进行购买，在购物车下单就能邮件方式收到电子发票，点击查看<a target="_blank" href="INV_598150533_200226880_201905091015.pdf">发票样例</a></p>
+        <table class="table table-no-border">
+          <thead>
+            <tr>
+              <th>许可证类型</th>
+              <th>描述</th>
+              <th class="price-label">价格（不含税）</th>
+              <th class="price-label">价格（含税）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="" id="row_basic">
+              <td><img src="logo.png" width="20"/> Pyarmor 基础版</td>
+              <td>基础版许可证，解锁试用版的大脚本限制和混淆字符串的功能</td>
+              <td class="basic-price">298.00元</td>
+              <td class="basic-price">359.00元</td>
+            </tr>
+            <tr class="" id="row_product">
+              <td><img src="logo.png" width="20"/> Pyarmor 专家版</td>
+              <td>专家版许可证，增加了二种不可逆的加密模式 RFT 模式和 BCC 模式</td>
+              <td class="product-price">512.00元</td>
+              <td class="product-price">562.00元</td>
+            </tr>
+            <tr class="" id="row_upgrade">
+              <td><img src="logo.png" width="20"/> 升级到专家版</td>
+              <td>用于将老版本的许可证升级到 Pyarmor 专家版</td>
+              <td class="upgrade-price">300.00元</td>
+              <td class="upgrade-price">360.00元</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="help-block">产品许可证详细信息请查看
+          <a href="https://pyarmor.readthedocs.io/zh/latest/licenses.html" target="_blank">Pyarmor 软件许可协议</a>
+        </p>
+        <p class="help-block">请在填写注册信息的时候选择一种许可证类型</p>
+        <p class="help-block">不含税价格不提供发票，含税价格提供电子发票</p>
       </div>
     </div>
 
@@ -92,19 +92,22 @@
               <div class="form-group">
                 <label for="license_type">选择许可类型</label>
                 <select class="form-control order-field" name="license_type">
-                  <option value="P">个人用户许可</option>
-                  <option value="B">企业用户许可</option>
+                  <option value="J">基础版许可证</option>
+                  <option value="Z">专家版许可证</option>
+                  <option value="S">升级到专家版</option>
+                  <option value="P">个人用户许可（老版本）</option>
+                  <option value="B">企业用户许可（老版本）</option>
                 </select>
-                <p class="help-block">请仔细阅读产品许可信息
-                  <a href="https://pyarmor.readthedocs.io/zh/latest/license.html" target="_blank">Pyarmor 软件许可</a>，其中常见问题部分列出了用户经常提问的一些问题，另外需要注意的是<strong> 个人用户许可 不能用于加密产权不属于自己的企业产品</strong>。
+                <p class="help-block">请仔细阅读
+                  <a href="https://pyarmor.readthedocs.io/zh/latest/licenses.html" target="_blank">Pyarmor 软件许可协议</a>，提交订单即认为是接受许可协议</strong>。
                 </p>
               </div>
               <div class="form-group">
                 <label for="input-name">注册名称</label>
                 <input type="text" class="form-control order-field" name="reg_name" required />
-                <p class="help-block">注册名称必须是个人身份证姓名或者企业全称，注册名称只应用于pyarmor的订单，不会提供给任何第三方。在加密后的脚本中也只是包含购买的许可证的序号，不会包含注册名称和其它用户信息。<strong>pyarmor 只授权于注册名称对应的个人或者企业，注册名称明显不正确的订单不会进行处理，已经支付的订单会直接退款。</strong></p>
+                <p class="help-block">注册名称是个人姓名或者组织机构名称。<strong>Pyarmor 只授权于注册名称对应的个人或者组织机构，注册名称不正确意味着没有得到授权。</strong></p>
                   </div>
-              <div class="form-group">
+              <div class="form-group hidden">
                 <label for="license_product">被授权产品名称</label>
                 <input type="text" class="form-control order-field" name="license_product" />
                 <p class="help-block">个人用户不用填写，企业用户填写使用本许可的产品名称。<strong>请企业用户务必输入正确的产品名称，pyarmor 只授权于相应的一个产品系列，错误的产品名称意味着没有任何产品得到授权。产品名称明显不正确的订单不会进行处理，已经支付的订单会直接退款</strong>。关于许可详情参阅<a href="https://pyarmor.readthedocs.io/zh/latest/license.html" target="_blank">Pyarmor 软件许可</a></p>
@@ -115,7 +118,8 @@
                 <p class="help-block">接受注册文件的电子邮箱，请务必填写<strong>正确有效的电子邮件</strong>，否则无法收到注册文件</p>
               </div>
             </form>
-            <p class="help-block">注意：提交的订单如果在 <strong>2</strong> 小时之内没有进行支付将会被取消</p>
+          <p><input name="tax" type="checkbox"> <strong>需要电子发票</strong>，点击查看<a target="_blank" href="CN_INV_PYARMOR.pdf">增值税发票样例</a> (目前不提供纸质增值税发票)</p>
+          <p class="help-block">如果需要电子发票，请务必点击选中 <b>需要电子发票</b> 前面的方框，选中之后页面最后面会有填写发票信息的表单，提交订单之后还需要填写下面的发票相关信息并点击 <b>提交发票信息</b> 按钮提交</p>
           </div>
           <div class="panel-footer">
             <button type="button" class="btn btn-primary new-order">提交订单 <b class="invoice-button">(无发票)</b></button>
@@ -141,11 +145,11 @@
               <div class="panel panel-default" style="margin-top: 1em; border: 0;">
                 <div class="">
                   <div class="payment-way" id="payment-weixin">
-                    <button type="button" class="btn btn-success weixin-payment-link" data-toggle="modal" data-target=".popup-weixin-payment">微信扫码支付</button>
+                    <button type="button" class="btn btn-success weixin-payment-link" data-toggle="modal" data-target=".popup-weixin-payment">微信扫码支付 298元</button>
                     <p class="help-block">如果需要收款人姓名校验二维码，请填写<strong>赵俊德</strong></p>
                   </div>
                   <div class="payment-way" id="payment-alipay" style="display: none;">
-                    <button type="button" class="btn btn-success alipay-payment-link" data-toggle="modal" data-target=".popup-alipay-payment">支付宝扫码支付</button>
+                    <button type="button" class="btn btn-success alipay-payment-link" data-toggle="modal" data-target=".popup-alipay-payment">支付宝扫码支付 298元</button>
                   </div>
                   <div class="payment-way" id="payment-bank" style="display: none;">
                     <div class="panel panel-default">
@@ -161,6 +165,10 @@
                         <dl class="dl-horizontal">
                           <dt>姓名</dt>
                           <dd>赵俊德</dd>
+                        </dl>
+                        <dl class="dl-horizontal">
+                          <dt>金额</dt>
+                          <dd><strong id="transfer-amount">298元<strong></dd>
                         </dl>
                         <p class="help-block">转账成功之后请发送如下内容的短信
                           <strong style="color: #67C23A">pyarmor 银行转账支付</strong>

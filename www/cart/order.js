@@ -99,11 +99,12 @@ function queryOrder( orderid, callback, onerror ) {
 }
 
 function setOrderInfo( order ) {
+    var price = order.price.toFixed();
     document.querySelector( 'input[name="reg_name"]' ).value = order.customer.name;
     document.querySelector( 'input[name="email"]' ).value = order.customer.email;
     document.querySelector( 'select[name="license_type"]' ).value = order.license_type;
     document.querySelector( 'input[name="license_product"]' ).value = order.license_product;
-    if ( order.price > 329.0 ) {
+    if (price == 359 ||  price == 360 || price == 562) {
         document.querySelector( 'input[name="tax"]' ).checked = true;
         setProductTax();
     }
@@ -169,20 +170,26 @@ function newOrder() {
 
     element = document.querySelector( 'input[name="license_product"]' );
     var license_product = element.value;
-    if ( license_type === 'B' && ! license_product ) {
-        element.focus();
-        return false;
-    }
+    // if ( license_type === 'B' && ! license_product ) {
+    //     element.focus();
+    //     return false;
+    // }
 
     var url = server_url + '/product/order/add';
     var purchase_no = makePurchaseNo();
+    var price = document.querySelector( 'input[name="tax"]' ).checked
+        ? ( license_type == 'S' ? '360.00' : license_type == 'Z' ? '562.00' : '359.00')
+        : ( license_type == 'S' ? '300.00' : license_type == 'Z' ? '512.00' : '298.00');
+    var product_id = license_type == 'J' ? '301044049' :
+        license_type == 'Z' ? '301044050' : license_type == 'S' ? '301044055' : '300871197';
+
     var data =  [
         'REFORDER_ID=' + (old_order_id ? old_order_id : ''),
         'PURCHASE_ID=' + purchase_no ,
         'RUNNING_NO=1',
-        'PRODUCT_ID=300871197',
+        'PRODUCT_ID=' + product_id,
         'CURRENCY=CNY',
-        'PRICE=' + (document.querySelector( 'input[name="tax"]' ).checked ? '359.00' : '298.00'),
+        'PRICE=' + price,
         'QUANTITY=1',
         'REG_NAME='+ encodeURIComponent( name ),
         'EMAIL=' + encodeURIComponent( email ),
@@ -253,12 +260,14 @@ function setOrderState( order ) {
         }
     );
     if ( order_id === null ) {
+        document.querySelector( 'select[name="license_type"]' ).removeAttribute("disabled");
         document.querySelector( 'input[name="tax"]' ).removeAttribute("disabled");
         document.querySelector( '.new-order' ).style.display = '';
         document.querySelector( '.renew-order' ).style.display = 'none';
         document.querySelector( '.refresh-order' ).style.display = 'none';
     }
     else {
+        document.querySelector( 'select[name="license_type"]' ).setAttribute("disabled", true);
         document.querySelector( 'input[name="tax"]' ).setAttribute("disabled", true);
         document.querySelector( '.new-order' ).style.display = 'none';
         document.querySelector( '.renew-order' ).style.display = '';
@@ -297,15 +306,23 @@ function checkOrder( e ) {
     }
 }
 
+function setPaymentAmount() {
+    var lic = document.querySelector( 'select[name="license_type"]' ).value;
+    var tax = document.querySelector( 'input[name="tax"]' ).checked;
+    var price = tax ? (lic == 'Z' ? '562' : '359') : (lic == 'Z' ? '512' : '298');
+
+    document.querySelector( '.popup-weixin-payment img' ).src = 'weixin-' + price + '.jpg';
+    document.querySelector( '.popup-alipay-payment img' ).src = 'alipay-' + price + '.jpg';
+    document.getElementById('transfer-amount').innerHTML = price + '元';
+    document.querySelector( '.weixin-payment-link' ).innerHTML = '微信扫码支付 ' + price + '元';
+    document.querySelector( '.alipay-payment-link' ).innerHTML = '支付宝扫码支付 ' + price + '元'
+}
+
 function setProductTax() {
     var tax = document.querySelector( 'input[name="tax"]' ).checked;
-    document.querySelector( '.price-label' ).innerHTML = tax ? '价格（含税）' : '价格（不含税）';
-    document.querySelector( '.product-price' ).innerHTML = tax ? '359.00 元' : '298.00 元';
-    document.querySelector( '.product-amount' ).innerHTML = tax ? '359.00 元' : '298.00 元';
-    document.querySelector( '.popup-weixin-payment img' ).src = tax ? 'weixin-359.jpg' : 'weixin-298.jpg';
-    document.querySelector( '.popup-alipay-payment img' ).src = tax ? 'alipay-359.jpg' : 'alipay-298.jpg';
     document.querySelector( '.invoice-button' ).innerHTML = tax ? '(有电子发票)' : '(无发票)';
     document.querySelector( '.invoice-page' ).style.display = tax ? '' : 'none';
+    setPaymentAmount();
 }
 
 function submitInvoice() {
@@ -393,11 +410,12 @@ window.addEventListener( 'load', function () {
     document.querySelector( '.new-order' ).addEventListener( 'click', newOrder, false );
     document.querySelector( '.renew-order' ).addEventListener( 'click', renewOrder, false );
     document.querySelector( '.refresh-order' ).addEventListener( 'click', refreshOrder, false );
-    document.querySelector( 'input[name="tax"]' ).addEventListener( 'change', setProductTax, false );
     document.querySelector( '.new-invoice' ).addEventListener( 'click', submitInvoice, false );
     document.querySelector( '.update-invoice' ).addEventListener( 'click', submitInvoice, false );
     document.querySelector( '.weixin-payment-link' ).addEventListener( 'click', checkOrder, false );
     document.querySelector( '.alipay-payment-link' ).addEventListener( 'click', checkOrder, false );
+    document.querySelector( 'input[name="tax"]' ).addEventListener( 'change', setProductTax, false );
+    document.querySelector( 'select[name="license_type"]' ).addEventListener( 'change', setPaymentAmount, false );
 
     Array.prototype.forEach.call( document.querySelectorAll( 'input[name="inlineRadioOptions"]' ), function ( radio ) {
         radio.addEventListener( 'click', function ( e ) {
