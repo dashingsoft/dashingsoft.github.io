@@ -434,7 +434,7 @@ window.addEventListener( 'load', function () {
     }
 
     invoice_id = window.localStorage.getItem( 'CACHED_INVOICE_ID' );
-    if ( invoice_id ) {
+    if ( order_id && invoice_id ) {
         queryInvoice( invoice_id );
     }
 
