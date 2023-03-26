@@ -104,7 +104,7 @@ function setOrderInfo( order ) {
     document.querySelector( 'input[name="email"]' ).value = order.customer.email;
     document.querySelector( 'select[name="license_type"]' ).value = order.license_type;
     document.querySelector( 'input[name="license_product"]' ).value = order.license_product;
-    if (price == 359 ||  price == 360 || price == 562) {
+    if (price == 359 ||  price == 360 || price == 562 || price == 918) {
         document.querySelector( 'input[name="tax"]' ).checked = true;
         setProductTax();
     }
@@ -178,10 +178,11 @@ function newOrder() {
     var url = server_url + '/product/order/add';
     var purchase_no = makePurchaseNo();
     var price = document.querySelector( 'input[name="tax"]' ).checked
-        ? ( license_type == 'S' ? '360.00' : license_type == 'Z' ? '562.00' : '359.00')
-        : ( license_type == 'S' ? '300.00' : license_type == 'Z' ? '512.00' : '298.00');
+        ? ( license_type == 'S' ? '360.00' : license_type == 'Z' ? '562.00' : license_type == 'G' ? '918.00' : '359.00')
+        : ( license_type == 'S' ? '300.00' : license_type == 'Z' ? '512.00' : license_type == 'G' ? '868.00' : '298.00');
     var product_id = license_type == 'J' ? '301044049' :
-        license_type == 'Z' ? '301044050' : license_type == 'S' ? '301044055' : '300871197';
+        license_type == 'Z' ? '301044050' : license_type == 'S' ? '301044055' :
+        license_type == 'G' ? '301056000' : '300871197';
 
     var data =  [
         'REFORDER_ID=' + (old_order_id ? old_order_id : ''),
@@ -309,7 +310,8 @@ function checkOrder( e ) {
 function setPaymentAmount() {
     var lic = document.querySelector( 'select[name="license_type"]' ).value;
     var tax = document.querySelector( 'input[name="tax"]' ).checked;
-    var price = tax ? (lic == 'Z' ? '562' : '359') : (lic == 'Z' ? '512' : '298');
+    var price = tax ? (lic == 'Z' ? '562' : lic == 'G' ? '918' : '359') :
+        (lic == 'Z' ? '512' : lic == 'G' ? '868' : '298');
 
     document.querySelector( '.popup-weixin-payment img' ).src = 'weixin-' + price + '.jpg';
     document.querySelector( '.popup-alipay-payment img' ).src = 'alipay-' + price + '.jpg';
