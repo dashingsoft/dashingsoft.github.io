@@ -6,7 +6,7 @@
   <meta name="description" content="A tool used to obfuscate python scripts." />
   <meta name="Keywords" content="python, obfuscate, obfuscation, obfuscator" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>PyArmor - Obfuscating Python Scripts</title>
+  <title>Pyarmor - Obfuscating Python Scripts</title>
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all" />
 </head>
 
@@ -15,8 +15,8 @@
   <nav role="navigation" class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="">
-        <img src="images/logo.png" width="32" height="32" alt="PyArmor"/>
-        PyArmor
+        <img src="images/logo.png" width="32" height="32" alt="Pyarmor"/>
+        Pyarmor
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-tab"
               aria-controls="navbar-main-tab" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,9 +26,10 @@
       <div class="navbar-collapse collapse" id="navbar-main-tab">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item active"><a class="nav-link" href="">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://pyarmor.readthedocs.io/en/latest/platforms.html" target="_blank">Platforms</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://pyarmor.readthedocs.io/en/latest/" target="_blank">Documentation</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://pyarmor.readthedocs.io/en/latest/license.html" target="_blank">License &amp; Purchase</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://pyarmor.readthedocs.io/en/stable/reference/environments.html" target="_blank">Platforms</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://pyarmor.readthedocs.io/en/stable/" target="_blank">Documentation</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://pyarmor.readthedocs.io/en/stable/licenses.html" target="_blank">License Types</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://order.mycommerce.com/product?vendorid=200089125&productid=301044051" target="_blank">Purchase</a></li>
           <li class="nav-item"><a class="nav-link" href="https://github.com/dashingsoft/pyarmor-webui" target="_blank">WebUI</a></li>
           <li class="nav-item d-md-none mt-5"><a class="nav-link" href="index-zh.html">简体中文</a></li>
         </ul>
@@ -43,12 +44,9 @@
 
   <div class="jumbotron jumbotron-fluid bg-light">
     <div class="container">
-      <h1 class="display-4">PyArmor</h1>
+      <h1 class="display-4">Pyarmor</h1>
       <p class="lead col-lg-6">A command line tool used to obfuscate python scripts, bind obfuscated scripts to fixed machine or expire obfuscated scripts.</p>
       <p class="lead">
-        <a class="btn btn-info btn-lg"
-           href="https://pyarmor.readthedocs.io/en/latest/how-to-do.html"
-           role="button" title="How to protect Python scripts by PyArmor">How to Do</a>
         <a class="btn btn-info btn-lg mx-3 mx-md-5" href="#quick-start" role="button">Quick Start</a>
       </p>
     </div>
@@ -62,7 +60,7 @@
       <div class="col-lg-5 order-1 order-lg-2">
         <h2 class="mb-2 text-bold w-100">Seamless Replacement</h2>
         <p class="fs-16 text-secondary">The obfuscated script is a normal python script. With an extra extension module <code>pytransform</code>, the plain Python scripts can be replaced with obfuscated ones seamlessly</p>
-        <p class="fs-16 text-secondary d-none">And PyArmor works well with <strong>py2exe</strong>, <strong>py2app</strong>, <strong>PyInstaller</strong>, <strong>cx_Freeze</strong> etc.</p>
+        <p class="fs-16 text-secondary d-none">And Pyarmor works well with <strong>py2exe</strong>, <strong>py2app</strong>, <strong>PyInstaller</strong>, <strong>cx_Freeze</strong> etc.</p>
       </div>
     </div>
 
@@ -79,7 +77,7 @@
     <div class="row align-items-center justify-content-between">
       <div class="col-12 mt-5 text-center">
         <h2 class="text-center">Pack Obfuscated Scripts</h2>
-        <p class="fs-16 text-secondary">PyArmor could pack obfuscated scripts into one bundle with <strong><a href="http://pyinstaller.readthedocs.io/">PyInstaller</a></strong></p>
+        <p class="fs-16 text-secondary">Pyarmor could pack obfuscated scripts into one bundle with <strong><a href="http://pyinstaller.readthedocs.io/">PyInstaller</a></strong></p>
       </div>
       <div class="col-12 mb-5">
         <img class="img-fluid mx-auto d-block" src="images/packer.png" alt="" />
@@ -95,7 +93,7 @@
         <div class="card border-0">
           <div class="card-body">
             <h5 class="card-title"><strong>Expire obfuscated scripts</strong></h5>
-            <p class="card-text">PyArmor can set expired date for obfuscated scripts. After that, obfuscated scripts can not be run</p>
+            <p class="card-text">Pyarmor can set expired date for obfuscated scripts. After that, obfuscated scripts can not be run</p>
           </div>
         </div>
       </div>
@@ -103,7 +101,7 @@
         <div class="card border-0">
           <div class="card-body">
             <h5 class="card-title"><strong>Bind to fixed machine</strong></h5>
-            <p class="card-text">PyArmor can bind obfuscated scripts to serial number of harddisk, mac address of network card, ip address etc..</p>
+            <p class="card-text">Pyarmor can bind obfuscated scripts to serial number of harddisk, mac address of network card, ip address etc..</p>
           </div>
         </div>
       </div>
@@ -141,42 +139,6 @@
     </div>
   </div>
 
-  <div class="container-fluid mt-3 mb-3">
-    <div class="text-center p-3">
-      <h3 class="text-info">PyArmor Provides High Security by JIT and Cross Protection Technicals<a class="btn btn-outline-info m-3"
-           href="https://pyarmor.readthedocs.io/en/latest/security.html"
-           role="button" title="The Security of PyArmor">Learn More</a>
-      </h3>
-    </div>
-  </div>
-
-  <!-- <h2 class="w-100 text-center p-3 mb-0 bg-light">Our Customers</h2> -->
-  <!-- <div class="container-fluid bg-secondary" style="position: relative"> -->
-  <!--   <div class="d-flex flex-nowrap align-items-center w-100 p-5" style="overflow-y: auto"> -->
-  <!--     <span class="mx-3"><h5 style="color: #333">Tencent</h5></span> -->
-  <!--     <span class="mx-3"><img height="60px" src="images/3dprinteros_logo.svg"/></span> -->
-  <!--     <span class="mx-3"><img src="images/fujitsu.png"/></span> -->
-  <!--     <span class="mx-3"><img height="60px" src="images/maya-2017-lockup.png"/></span> -->
-  <!--     <span class="mx-3"><img src="images/ahana-logo.png"/></span> -->
-  <!--     <span class="mx-3"><img src="images/suichuang.png"/></span> -->
-  <!--     <span class="m-3"><img src="images/cortexica_ai_solutions_logo_final1_2017_web.png"/></span> -->
-  <!--     <span class="m-3 p-1 bg-info"><img src="images/logo-hnp.png"/></span> -->
-  <!--     <span class="m-3 p-1 bg-secondary"><img src="images/sparkcogntion-logo.svg"/></span> -->
-  <!--     <span class="m-3 p-2 bg-info"><img src="images/neteera-logo.svg"/></span> -->
-  <!--     <span class="m-3 bg-secondary"><img src="images/TrafficCast-Logo.png"/></span> -->
-  <!--     <span class="m-3"><img width="200px" src="images/sutelinco-logo.svg"/></span> -->
-  <!--     <span class="m-3"><img src="images/joonis-logo.png"/></span> -->
-  <!--   </div> -->
-  <!--   <a class="carousel-control-prev" role="button" data-slide="prev" style="width: 32px;"> -->
-  <!--     <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
-  <!--     <span class="sr-only">Previous</span> -->
-  <!--   </a> -->
-  <!--   <a class="carousel-control-next" role="button" data-slide="next" style="width: 32px;"> -->
-  <!--     <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
-  <!--     <span class="sr-only">Next</span> -->
-  <!--   </a> -->
-  <!-- </div> -->
-
   <h2 id="quick-start" class="w-100 text-center p-3 mt-5 bg-light">Quick Start</h2>
   <div class="container p-3">
     <div class="row">
@@ -184,7 +146,7 @@
       <div class="col-lg-6 pb-3">
         <div class="card border-0">
           <div class="card-body pt-0">
-            <h5 class="card-title"><strong>Install PyArmor</strong></h5>
+            <h5 class="card-title"><strong>Install Pyarmor</strong></h5>
             <p class="card-text">The easy way is by <strong>pip</strong></p>
           </div>
         </div>
@@ -211,7 +173,7 @@
       <div class="col-lg-6 pb-3">
         <div class="card bg-light">
           <div class="card-body">
-            <pre class="p-2"><code>pyarmor obfuscate foo.py</code></pre>
+            <pre class="p-2"><code>pyarmor gen foo.py</code></pre>
             <button class="btn btn-outline-secondary float-right d-none">Copy</button>
           </div>
         </div>
@@ -239,58 +201,6 @@ python foo.py</code></pre>
       <div class="col-lg-6 pb-3">
         <div class="card border-0">
           <div class="card-body pt-0">
-            <h5 class="card-title"><strong>Generate Different Licenses</strong></h5>
-            <p class="card-text">First get hardware information by command <code>hdinfo</code></p>
-            <p class="card-text">Then generate a new license with command <code>licenses</code></p>
-            <p class="card-text">Next obfuscate the scripts with new license</p>
-            <p class="card-text">Finally run obfuscated script with new license</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-6 pb-3">
-        <div class="card bg-light">
-          <div class="card-body">
-            <pre class="p-2"><code>pyarmor hdinfo</code></pre>
-            <button class="btn btn-outline-secondary float-right d-none">Copy</button>
-            <hr/>
-            <pre class="p-2"><code>pyarmor licenses \
-        --expired "2018-12-31" \
-        --bind-disk "100304PBN2081SF3NJ5T" \
-        --bind-mac "70:f1:a1:23:f0:94" \
-        --bind-ipv4 "202.10.2.52" \
-        r001</code></pre>
-            <hr/>
-            <pre class="p-2"><code>pyarmor obfuscate --with-license licenses/r001/license.lic foo.py</code></pre>
-            <hr/>
-            <pre class="p-2"><code>cd dist
-python foo.py
-            </code></pre>
-            <button class="btn btn-outline-secondary float-right d-none">Copy</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-6 pb-3">
-        <div class="card border-0">
-          <div class="card-body pt-0">
-            <h5 class="card-title"><strong>Pack Obfuscated Scripts</strong></h5>
-            <p class="card-text">Obfuscate the script <code>foo.py</code> , then bundle all the required files into one folder with an executable file <code>dist/foo/foo.exe</code></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-6 pb-3">
-        <div class="card bg-light">
-          <div class="card-body">
-            <pre class="p-2"><code>pyarmor pack foo.py</code></pre>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-6 pb-3">
-        <div class="card border-0">
-          <div class="card-body pt-0">
             <h5 class="card-title"><strong>WebUI</strong></h5>
             <p class="card-text">It will start a light weight web server in localhost, and open a page in web browser(<a href="https://github.com/dashingsoft/pyarmor-webui/tree/master/snapshots" target="_blank">snapshots</a>).</p>
           </div>
@@ -309,18 +219,26 @@ pyarmor-webui</code></pre>
     </div>
   </div>
 
+  <div class="container-fluid mt-3 mb-3">
+    <div class="text-center p-3">
+      <h3 class="text-info">Learn more <a class="btn btn-outline-info m-3"
+           href="https://pyarmor.readthedocs.io/en/stable/tutorial/getting-started.html"
+           role="button" title="Pyarmor tutorial"> enter tutorial</a>
+      </h3>
+    </div>
+  </div>
+
   <div class="w-100 p-3 bg-light">
     <div class="container">
       <div class="row">
         <div class="col-12 col-md-6 col-lg-4">
           <h2 class="text-info">More Resources</h2>
           <div class="list-group list-group-flush border-bottom mt-3">
-            <a href="https://pyarmor.readthedocs.io/en/latest/" class="list-group-item list-group-item-action text-info bg-light">Documentation</a>
+            <a href="https://pyarmor.readthedocs.io/en/stable/tutorial/getting-started.html" class="list-group-item list-group-item-action text-info bg-light">Tutorial</a>
+            <a href="https://pyarmor.readthedocs.io/" class="list-group-item list-group-item-action text-info bg-light">Documentation</a>
             <a href="https://github.com/dashingsoft/pyarmor-webui" target="_blank" class="list-group-item list-group-item-action text-info bg-light">WebUI</a>
-            <a href="https://github.com/dashingsoft/pyarmor/blob/master/src/examples/README.md" class="list-group-item list-group-item-action text-info bg-light">Examples</a>
             <a href="https://github.com/dashingsoft/pyarmor/issues" class="list-group-item list-group-item-action text-info bg-light">Report Issues</a>
-            <a href="https://github.com/dashingsoft/pyarmor" class="list-group-item list-group-item-action text-info bg-light">Source Code</a>
-            <a href="https://order.shareit.com/cart/add?vendorid=200089125&PRODUCT[300871197]=1" class="list-group-item list-group-item-action text-info bg-light">Purchase</a>
+            <a href="https://github.com/dashingsoft/pyarmor" class="list-group-item list-group-item-action text-info bg-light">Project Home</a>
           </div>
         </div>
       </div>
@@ -328,7 +246,7 @@ pyarmor-webui</code></pre>
       <div class="row align-left mt-5 mb-3">
         <div class="col">
           <ul class="list-inline">
-            <li class="list-inline-item mt-3"><small class="text-muted">Copyright @ 2008-2022 Dashingsoft Corp.</small></li>
+            <li class="list-inline-item mt-3"><small class="text-muted">Copyright @ 2008-2023 Dashingsoft Corp.</small></li>
             <li class="list-inline-item mt-3"><a href="mailto:jondy.zhao@gmail.com"><small class="text-muted">Contact: pyarmor@163.com</small></a></li>
           </ul>
         </div>
