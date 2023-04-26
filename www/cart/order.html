@@ -69,7 +69,7 @@
             </tr>
             <tr class="" id="row_group">
               <td><img src="logo.png" width="20"/> Pyarmor 集团版</td>
-              <td>集团版许可证，允许离线使用 Pyarmor（大约在 2023-05 可用）</td>
+              <td>集团版许可证，只有企业用户可用，允许离线使用 Pyarmor</td>
               <td class="group-price">868.00元</td>
               <td class="group-tax-price">918.00元</td>
             </tr>
@@ -205,10 +205,18 @@
       </div>
     </div>
 
-    <div class="panel invoice-page" style="display: none;">
+    <div class="panel invoice-page" style="display:;">
       <div class="panel-body">
         <div class="page-header">
-          <h3>填写发票信息</h3>
+          <h3>填写公司信息</h3>
+          <p class="help-block">下面两种情况需要需要填写公司信息，其他情况不需要填写
+            <ul class="help-block">
+              <li>购买集团版许可证</li>
+              <li>需要电子发票</li>
+            </ul>
+          </p>
+          <p class="help-block">请务必准确填写相关信息，电子发票只能开一次，不支持因为信息填写错误而重开发票</p>
+
         </div>
 
         <div class="row">
@@ -304,8 +312,8 @@
         </div> <!-- end of .row -->
 
         <div class="">
-          <button type="button" class="btn btn-primary new-invoice">提交发票信息</button>
-          <button type="button" class="btn btn-success update-invoice" style="display: none;">更新发票信息</button>
+          <button type="button" class="btn btn-primary new-invoice">提交公司信息</button>
+          <button type="button" class="btn btn-success update-invoice" style="display: none;">更新公司信息</button>
         </div>
       </div>
     </div>

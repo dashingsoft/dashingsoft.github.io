@@ -99,15 +99,15 @@ function queryOrder( orderid, callback, onerror ) {
 }
 
 function setOrderInfo( order ) {
-    var price = order.price.toFixed();
+    var price = parseInt(order.price);
     document.querySelector( 'input[name="reg_name"]' ).value = order.customer.name;
     document.querySelector( 'input[name="email"]' ).value = order.customer.email;
     document.querySelector( 'select[name="license_type"]' ).value = order.license_type;
     document.querySelector( 'input[name="license_product"]' ).value = order.license_product;
     if (price == 359 ||  price == 360 || price == 562 || price == 918) {
         document.querySelector( 'input[name="tax"]' ).checked = true;
-        setProductTax();
     }
+    setProductTax();
     setOrderState( order );
 }
 
@@ -300,10 +300,19 @@ function refreshOrder() {
 }
 
 function checkOrder( e ) {
+    var lic = document.querySelector( 'select[name="license_type"]' ).value;
+    var tax = document.querySelector( 'input[name="tax"]' ).checked;
+
     if ( order_id === null ) {
-        alert( '当前订单还没有提交，请点击提交订单按钮，然后在进行支付' )
-        e.preventDefault()
-        e.stopPropagation()
+        alert( '当前订单还没有提交，请点击提交订单按钮，然后在进行支付' );
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    else if ((lic == 'G' || tax) && ! invoice_id) {
+        alert( '公司信息还没有提交，请填写公司信息并点击提交公司信息按钮，然后在进行支付' );
+        e.preventDefault();
+        e.stopPropagation();
     }
 }
 
@@ -323,7 +332,7 @@ function setPaymentAmount() {
 function setProductTax() {
     var tax = document.querySelector( 'input[name="tax"]' ).checked;
     document.querySelector( '.invoice-button' ).innerHTML = tax ? '(有电子发票)' : '(无发票)';
-    document.querySelector( '.invoice-page' ).style.display = tax ? '' : 'none';
+    // document.querySelector( '.invoice-page' ).style.display = tax ? '' : 'none';
     setPaymentAmount();
 }
 
@@ -365,7 +374,7 @@ function submitInvoice() {
     data = data.join( '&' );
 
     var request = new XMLHttpRequest();
-    var prompt = invoice_id ? '修改发票信息失败' : '提交发票信息失败';
+    var prompt = invoice_id ? '修改公司信息失败' : '提交公司信息失败';
 
     request.onerror = function () {
         hideLoader();
@@ -386,7 +395,7 @@ function submitInvoice() {
                 document.querySelector( '.update-invoice' ).style.display = '';
             }
             else
-                showMessage( '发票信息已经成功更新' );
+                showMessage( '公司信息已经成功更新' );
         }
         else {
             showMessage( prompt + ': ' + request.responseText );
