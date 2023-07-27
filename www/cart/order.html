@@ -242,21 +242,23 @@
                   <div class="form-group">
                     <label for="tax_name">公司名称</label>
                     <input type="text" class="form-control" name="tax_name" required />
-                    <p class="help-block"></p>
+                    <p class="help-block">以上信息请和营业执照的内容保持一致</p>
+                    <p class="help-block">以下信息如果不需要出现在发票中，可以直接填写 <strong>*</strong></p>
+                    <p class="help-block">如果需要，请务必按照贵单位财务部门的要求正确填写</p>
+
                   </div>
                   <div class="form-group">
                     <label for="tax_phone">公司电话</label>
-                    <input type="text" class="form-control" name="tax_phone" required />
+                    <input type="text" class="form-control" name="tax_phone" placeholder="*" required />
                     <p class="help-block"></p>
                   </div>
                   <div class="form-group">
                     <label for="tax_address">公司地址</label>
-                    <input type="text" class="form-control" name="tax_address" required />
-                    <p class="help-block">以上信息请和营业执照的内容保持一致</p>
+                    <input type="text" class="form-control" name="tax_address" placeholder="*" required />
                   </div>
                   <div class="form-group">
                     <label for="bank_account">银行基本户账号</label>
-                    <input type="text" class="form-control" name="bank_account" required />
+                    <input type="text" class="form-control" name="bank_account" placeholder="*" required />
                     <p class="help-block"></p>
                   </div>
                   <div class="form-group" style="display: none">
@@ -266,7 +268,7 @@
                   </div>
                   <div class="form-group">
                     <label for="bank_site">开户银行全称</label>
-                    <input type="text" class="form-control" name="bank_site" placeholder="例如，西安招商银行钟楼支行" required />
+                    <input type="text" class="form-control" name="bank_site" placeholder="*" required />
                     <p class="help-block"></p>
                   </div>
                 </form>
