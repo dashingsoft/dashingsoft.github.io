@@ -69,7 +69,7 @@
             </tr>
             <tr class="" id="row_group">
               <td><img src="logo.png" width="20"/> Pyarmor 集团版</td>
-              <td>集团版许可证，只有企业用户可用，允许离线使用 Pyarmor</td>
+              <td>集团版许可证，允许离线使用 Pyarmor，只适用于企业用户</td>
               <td class="group-price">868.00元</td>
               <td class="group-tax-price">918.00元</td>
             </tr>
@@ -82,7 +82,7 @@
           </tbody>
         </table>
         <p class="help-block">产品许可证详细信息请查看
-          <a href="https://pyarmor.readthedocs.io/zh/latest/licenses.html" target="_blank">Pyarmor 软件许可协议</a>
+          <a href="https://pyarmor.readthedocs.io/zh/latest/licenses.html" target="_blank">Pyarmor 软件许可模式</a>以及<a href="https://pyarmor.readthedocs.io/zh/latest/how-to/register.html" target="_blank">如何使用许可证</a>
         </p>
         <p class="help-block">请在填写注册信息的时候选择一种许可证类型</p>
         <p class="help-block">不含税价格不提供发票，含税价格提供电子发票</p>
@@ -243,8 +243,8 @@
                     <label for="tax_name">公司名称</label>
                     <input type="text" class="form-control" name="tax_name" required />
                     <p class="help-block">以上信息请和营业执照的内容保持一致</p>
-                    <p class="help-block">以下信息如果不需要出现在发票中，可以直接填写 <strong>*</strong></p>
-                    <p class="help-block">如果需要，请务必按照贵单位财务部门的要求正确填写</p>
+                    <p class="help-block">以下信息请务必按照贵单位财务部门的要求正确填写</p>
+                    <p class="help-block">如果不需要出现在发票中，可以直接填写 <strong>*</strong></p>
 
                   </div>
                   <div class="form-group">
@@ -257,6 +257,11 @@
                     <input type="text" class="form-control" name="tax_address" placeholder="*" required />
                   </div>
                   <div class="form-group">
+                    <label for="bank_site">开户银行全称</label>
+                    <input type="text" class="form-control" name="bank_site" placeholder="*" required />
+                    <p class="help-block"></p>
+                  </div>
+                  <div class="form-group">
                     <label for="bank_account">银行基本户账号</label>
                     <input type="text" class="form-control" name="bank_account" placeholder="*" required />
                     <p class="help-block"></p>
@@ -264,11 +269,6 @@
                   <div class="form-group" style="display: none">
                     <label for="bank_name">开户银行名称</label>
                     <input type="text" class="form-control" name="bank_name" value="N/A" />
-                    <p class="help-block"></p>
-                  </div>
-                  <div class="form-group">
-                    <label for="bank_site">开户银行全称</label>
-                    <input type="text" class="form-control" name="bank_site" placeholder="*" required />
                     <p class="help-block"></p>
                   </div>
                 </form>
