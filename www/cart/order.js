@@ -16,11 +16,12 @@ function hideLoader() {
     document.querySelector( 'div.loader' ).style.display = 'none';
 }
 
-function queryInvoice( invoice_id ) {
-    var url = server_url + '/product/invoices/' + invoice_id + '/';
+function queryInvoice( invoice ) {
+    var url = server_url + '/product/invoices/' + invoice + '/';
     var request = new XMLHttpRequest();
     request.onload = function() {
         if ( request.status != 200 ) {
+            invoice_id = null;
             console.log( 'Query invoice failed: ' + request.status );
         }
         else {
@@ -448,5 +449,7 @@ window.addEventListener( 'load', function () {
     if ( order_id && invoice_id ) {
         queryInvoice( invoice_id );
     }
+    else
+        invoice_id = null;
 
 }, false );
