@@ -169,6 +169,12 @@ function newOrder() {
         return false;
     }
 
+    if ( email === 'pyarmor@163.com' ) {
+        element.value = '';
+        element.focus();
+        return false;
+    }
+
     element = document.querySelector( 'input[name="license_product"]' );
     var license_product = element.value;
     // if ( license_type === 'B' && ! license_product ) {
