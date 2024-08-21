@@ -191,8 +191,9 @@ function newOrder() {
         license_type == 'Z' ? '301044050' : license_type == 'S' ? '301044055' :
         license_type == 'G' ? '301056000' : '300871197';
 
+    var cached_id = window.localStorage.getItem( 'CACHED_ORDER_ID' );
     var data =  [
-        'REFORDER_ID=' + (old_order_id ? old_order_id : ''),
+        'REFORDER_ID=' + (old_order_id ? old_order_id : (cached_id ? cached_id : '')),
         'PURCHASE_ID=' + purchase_no ,
         'RUNNING_NO=1',
         'PRODUCT_ID=' + product_id,
