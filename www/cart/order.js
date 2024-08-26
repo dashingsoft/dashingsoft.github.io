@@ -190,7 +190,8 @@ function newOrder() {
     var product_id = license_type == 'J' ? '301044049' :
         license_type == 'Z' ? '301044050' : license_type == 'S' ? '301044055' :
         license_type == 'G' ? '301056000' : '300871197';
-
+    var license_product = product_id === '300871197' ? document.querySelector( 'input[name="license_product"]' ).value : '';
+ 
     var cached_id = window.localStorage.getItem( 'CACHED_ORDER_ID' );
     var data =  [
         'REFORDER_ID=' + (old_order_id ? old_order_id : (cached_id ? cached_id : '')),
@@ -205,7 +206,7 @@ function newOrder() {
         'COUNTRY=China',
         'LANGUAGE_ID=15',
         'ADD[LICENSE_TYPE]=' + license_type,
-        'ADD[LICENSE_PRODUCT]=' + document.querySelector( 'input[name="license_product"]' ).value,
+        'ADD[LICENSE_PRODUCT]=' + license_product, 
     ].join( '&' );
 
     var request = new XMLHttpRequest();
