@@ -38,8 +38,6 @@
       <div class="panel-body">
         <h4>Pyarmor 马上有一个重大升级，预计在 2023年3月8号 之前发布，
           新版本提高了安全性并提供了更丰富的功能。</h4>
-        <p>点击查看新的
-          <a href="https://pyarmor.readthedocs.io/zh/latest/licenses.html">许可模式和价格</a></p>
       </div>
     </div>
 
@@ -73,6 +71,12 @@
               <td class="group-price">868.00元</td>
               <td class="group-tax-price">918.00元</td>
             </tr>
+            <tr class="" id="row_ci">
+              <td><img src="logo.png" width="20"/> Pyarmor CI</td>
+              <td>CI 许可证，允许在 CI/CD 持续集成环境使用 Pyarmor 专家版功能</td>
+              <td class="ci-price">892.00元</td>
+              <td class="ci-tax-price">968.00元</td>
+            </tr>
             <!-- <tr class="" id="row_upgrade"> -->
             <!--   <td><img src="logo.png" width="20"/> 升级到专家版</td> -->
             <!--   <td>用于将老版本的许可证升级到 Pyarmor 专家版</td> -->
@@ -81,36 +85,168 @@
             <!-- </tr> -->
           </tbody>
         </table>
-        <p class="help-block">产品许可证详细信息请查看
-          <a href="https://pyarmor.readthedocs.io/zh/latest/licenses.html" target="_pyarmordoc">Pyarmor 软件许可模式</a>以及<a href="https://pyarmor.readthedocs.io/zh/latest/how-to/register.html" target="_pyarmordoc">如何使用许可证</a>
-        </p>
-        <p class="help-block">请在填写注册信息的时候选择一种许可证类型</p>
-        <p class="help-block">不含税价格不提供发票，含税价格提供增值税普通电子发票，目前不提供增值税专票（如果选择不含税价格，不支持随后补差价开电子发票）</p>
-        <p class="help-block">选择许可证类型的基本原则
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-heading"><h4>功能对比</h4></div>
+      <div class="panel-body table-responsive">
+        <table class="table text-center">
+          <thead>
+            <tr>
+              <th style="width: 40%;"></th>
+              <th style="width: 12%;" class="text-center">试用版</th>
+              <th style="width: 12%;" class="text-center">基础版</th>
+              <th style="width: 12%;" class="text-center">专家版</th>
+              <th style="width: 12%;" class="text-center">集团版</th>
+              <th style="width: 12%;" class="text-center">CI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-start">
+                加密大脚本和混淆字符串
+              </th>
+              <td></td>
+              <td>Y</td>
+              <td>Y</td>
+              <td>Y</td>
+              <td>Y</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">
+                不可逆加密模式 BCC / RFT
+              </th>
+              <td></td>
+              <td></td>
+              <td>Y</td>
+              <td>Y</td>
+              <td>Y</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">
+                构建设备离线加密
+              </th>
+              <td>Y</td>
+              <td></td>
+              <td></td>
+              <td>Y</td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">
+                可安装的构建设备数目
+              </th>
+              <td>*</td>
+              <td>*</td>
+              <td><small>&lt;= 100</small></td>
+              <td><small>&lt;= 200</small></td>
+              <td>*</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">在本地设备运行不受限制的 Docker **</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>Y</td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">在 CI/CD 集成环境使用</th>
+              <td>Y</td>
+              <td>Y</td>
+              <td></td>
+              <td></td>
+              <td>Y</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel-footer">
+        <h6>备注</h6>
+        <p class="help-block"><b>[*]:</b> 试用版，基础版和 CI 许可证没有设备数目限制，集团版和专家许可证只能用于硬件信息固定的设备，例如笔记本，台式机，云服务器，但是不可以用于 Docker 容器等</p>
+        <p class="help-block"><b>[**]:</b> 集团版许可证可以使用一种特殊的方式在本地设备上运行不受数目限制的 Docker 容器（无需联网）</p>
+        <p class="help-block">重要说明
           <ul class="help-block">
+            <li>所有的 Pyarmor 许可证都是被安装在生成加密脚本的构建设备上，而不是运行加密脚本的设备上</li>
+            <li>运行加密脚本的设备不需要安装 Pyarmor，运行加密脚本的时候也不会去验证 Pyarmor 许可证</li>
+            <li>虽然加密脚本是被 Pyarmor 生成，但是生成的加密脚本完全独立于 Pyarmor</li>
+            <li>你可以像使用正常脚本一样使用加密脚本，它的行为由你而不是由 Pyarmor 来决定</li>
             <li>如果产品使用的是 Python 2.7 和 Python 3.6 以及之前的任何版本，只能使用老版本的许可证，新版本许可证只支持 Python 3.7+</li>
-            <li>如果需要在没有互联网的设备上对脚本进行加密，只能选择集团版许可证或者老版本许可证</li>
-            <li>基础版和专家版许可证加密的时候需要联网验证许可证，<strong>在1天（24小时）之内</strong>，同一个许可证至多可以在 100 个不同设备使用 Pyarmor 进行加密操作</li>
-            <li>如果<strong>在1天（24小时）之内</strong>需要运行超过 100 次 Docker 容器去加密产品，只能选择集团版许可证或者老版本的许可证</li>
-            <li>不是所有的设备都可以使用集团版许可证，如果选择集团版许可证，请首先查看<a href="https://pyarmor.readthedocs.io/zh/latest/licenses.html">适用集团版许可证的设备</a></li>
-            <li>运行加密脚本的设备不需要安装 Pyarmor，也不需要任何许可证</li>
           </ul>
         </p>
       </div>
     </div>
 
     <div class="panel">
-      <div class="panel-heading">技术支持的重要说明</div>
+      <div class="panel-heading"><h4>主要使用条款</h4></div>
       <div class="panel-body">
-        <ul>
-          <li>Pyarmor 是一个命令行工具，所有的功能都通过选项实现，所有的选项都有<a href="https://pyarmor.readthedocs.io/zh/latest/reference/man.html" target="_pyarmordoc">完整的文档</a>，开发组不提供使用方法的培训，用户需要通过文档学习基本使用方法</li>
-          <li>Pyarmor 开发组正在开发新的教程，以动画的方式直观的帮助用户学习和使用 Pyarmor，并且快速解决使用过程中遇到的问题（大约在2024年10月能够完善）</li>
-          <li>用户使用过程中出现的问题，请参考在线文档<a href="https://pyarmor.readthedocs.io/zh/latest/questions.html" target="_pyarmordoc">常见问题中列出的解决方案</a>，可以解决大部分使用方法上的问题</li>
-          <li>对于 Pyarmor 存在的缺陷和错误，可以通过<a href="https://github.com/dashingsoft/pyarmor/issues" target="_pyarmordoc">Github</a> 和命令 pyarmor man 两种方式提交</li>
-          <li>Pyarmor 开发组对提交问题的响应时间一般为 24 小时之内，节假日或者特殊情况可能会延长</li>
-          <li>Pyarmor 开发组不提供微信，电话等其他形式的技术支持</li>
-          <li>Pyarmor 开发组按照<a href="https://pyarmor.readthedocs.io/zh/latest/licenses.html" target="_pyarmordoc">Pyarmor 软件许可协议</a>向用户提供服务和支持</li>
+        <p class="help-block">
+          <b>只能自己使用</b> Pyarmor 只能用来加密产权属于自己的脚本，不可以任何形式去加密别人的脚本，例如在自己的程序中调用 Pyarmor 的功能去加密你的客户的脚本，或者通过网站提供基于 Pyarmor 的加密服务等等
+        </p>
+        <p class="help-block">
+          <b>无收益无需许可</b> 如果你的脚本不能为你带来大的收入，那么不需要购买 Pyarmor 的许可证，就可以使用 Pyarmor 试用版来加密你的脚本。但是如果你通过销售加密脚本得到收益，那么就需要购买 Pyarmor 许可证
+        </p>
+        <p class="help-block">
+          <b>一次性收费</b> Pyarmor 许可证是一次性收费，可以在购买 Pyarmor 时候对应的版本中永久使用，<b>但是不保证可以在未来的 Pyarmor 版本中可以使用</b>
+        </p>
+        <p class="help-block">
+          <b>一个产品一个许可证</b> 因为是一次性收费，所以 Pyarmor 的许可策略是每一个产品都需要购买一个许可证。一个产品是指一种产品，而不是一个产品的拷贝。例如，微软的Excel是一个产品，但是却被装在无数的设备上
+        </p>
+        <p class="help-block">
+          <b>允许合理使用</b> 如果你为一个产品购买了许可证，但是你的另外一个产品还没有销售收入，那么在其销售收入还不大于 Pyarmor 许可证费用的 100 倍的时候，可以借用第一个产品的许可证
+        </p>
+        <p class="help-block">产品许可详细信息请查看
+          <a href="https://github.com/dashingsoft/pyarmor/blob/master/LICENSE-ZH" target="_pyarmordoc">Pyarmor 软件许可协议</a>以及<a href="https://pyarmor.readthedocs.io/zh/latest/how-to/register.html" target="_pyarmordoc">如何使用许可证</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-heading"><h4>退款条款</h4></div>
+      <div class="panel-body">
+        <p class="help-block">满足下列所有条件，可以进行退款</p>
+        <ul class="help-block">
+          <li>购买日期在30天之内</li>
+          <li>该许可激活文件还没有在命令 <i>pyarmor reg</i> 中使用</li>
         </ul>
+        <p class="help-block">退款请求请直接发送请求到 <strong>pyarmor@163.com</strong></p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-heading"><h4>技术支持</h4></div>
+      <div class="panel-body">
+        <p class="help-block">
+          许可费用仅为解锁功能，不包含技术支持
+        </p>
+        <p class="help-block">
+          Pyarmor 是一个命令行工具，所有的功能都通过选项实现，所有的选项都有<a href="https://pyarmor.readthedocs.io/zh/latest/reference/man.html" target="_pyarmordoc">完整的文档</a>。用户需要自己学习和了解 Pyarmor 的各个选项以及使用方法，并根据自己的需求选择正确的选项，Pyarmor 开发组不会去了解用户的项目结构和加密需求，然后告诉用户需要使用什么选项
+        </p>
+        <p class="help-block">
+          Pyarmor 提供了完备的<a href="https://pyarmor.readthedocs.io/zh/latest" target="_pyarmordoc">在线文档系统</a>
+        </p>
+        <p class="help-block">
+          用户通过<a href="https://pyarmor.readthedocs.io/zh/latest/reference/solutions.html" target="_pyarmordoc">常见问题的解决方案</a>以及<a href="https://pyarmor.readthedocs.io/zh/latest/questions.html" target="_pyarmordoc">FAQs</a>，可以解决大部分使用方法上的问题
+        </p>
+        <p class="help-block">
+          帮助命令 <i>pyarmor man （很快实现）</i> 可以为每一个选项提供丰富的示例，并且为常用的使用场景提供示例
+        </p>
+        <p class="help-block">
+          Pyarmor 开发组正在开发新的教程，以动画的方式直观的帮助用户学习和使用 Pyarmor，并且快速解决使用过程中遇到的问题（大约在2024年10月能够完善）
+        </p>
+        <p class="help-block">
+          罗马不是一天建成的，Pyarmor 开发组会根据用户反馈，持续改进学习系统，让用户可以快速有效的解决使用过程中遇到的问题
+        </p>
+        <p class="help-block">
+          用户在<a href="https://github.com/dashingsoft/pyarmor/issues" target="_pyarmordoc">Github 上的 Pyarmor 项目</a>中报告缺陷和请求新功能，也可以通过命令 <i>pyarmor man （很快实现）</i>快速提交。邮件 <b>pyarmor.com</b> 仅用于处理安全或者不适合公开方面的问题，其他技术问题一般不会回复
+        </p>
+        <p class="help-block">
+          Pyarmor 开发组对提交问题的响应时间一般为 24 小时之内，节假日或者特殊情况可能会延长
+        </p>
+        <p class="help-block">
+          Pyarmor 开发组不提供微信，电话等其他形式的技术支持
+        </p>
       </div>
     </div>
 
@@ -126,19 +262,17 @@
                   <option value="J">基础版许可证</option>
                   <option value="Z">专家版许可证</option>
                   <option value="G">集团版许可证</option>
+                  <option value="C" disabled>CI 许可证</option>
                   <!-- <option value="S">升级到专家版</option> -->
                   <option value="P">个人用户许可（老版本）</option>
                   <option value="B">企业用户许可（老版本）</option>
                 </select>
-                <p class="help-block">请仔细阅读
-                  <a href="https://pyarmor.readthedocs.io/zh/latest/licenses.html" target="_pyarmordoc">Pyarmor 软件许可协议</a>，提交订单即认为是接受许可协议</strong>。
-                </p>
               </div>
               <div class="form-group">
                 <label for="input-name">注册名称</label>
-                <input type="text" class="form-control order-field" name="reg_name" required />
-                <p class="help-block">注册名称是个人姓名或者组织机构名称。<strong>Pyarmor 只授权于注册名称对应的个人或者组织机构，注册名称不正确意味着没有得到授权。</strong></p>
-                  </div>
+                <input type="text" class="form-control order-field" name="reg_name" placeholder="请填写使用 Pyarmor 的个人姓名或者公司机构名称" required />
+                <p class="help-block"></p>
+              </div>
               <div class="form-group hidden">
                 <label for="license_product">被授权产品名称</label>
                 <input type="text" class="form-control order-field" name="license_product" />
@@ -146,13 +280,18 @@
               </div>
               <div class="form-group">
                 <label for="input-email">电子邮件</label>
-                <input type="email" class="form-control order-field" name="email" required />
-                <p class="help-block">接受注册文件的电子邮箱，请务必填写<strong>正确有效的电子邮件</strong>，<strong>并且不会拒收来自 pyarmor@163.com 且带附件的邮件</strong></p>
+                <input type="email" class="form-control order-field" name="email" placeholder="请填写接受注册文件的电子邮箱" required />
+                <!-- <p class="help-block">请务必填写<strong>正确有效的电子邮件</strong>，<strong>并且不会拒收来自 pyarmor@163.com 且带附件的邮件</strong></p> -->
               </div>
             </form>
-          <p><input name="tax" type="checkbox"> <strong>需要电子发票</strong>，点击查看<a target="_pyarmordoc" href="CN_INV_PYARMOR.png">增值税发票样例</a> (目前不提供纸质增值税发票)</p>
-          <p class="help-block">如果需要电子发票，请务必点击选中 <b>需要电子发票</b> 前面的方框，选中之后页面最后面会有填写发票信息的表单，提交订单之后还需要填写下面的发票相关信息并点击 <b>提交发票信息</b> 按钮提交</p>
-          </div>
+            <p><input name="tax" type="checkbox"> <strong>需要电子发票</strong>，点击查看<a target="_pyarmordoc" href="CN_INV_PYARMOR.png">增值税发票样例</a> (目前不提供纸质增值税发票)</p>
+            <p class="help-block">
+              如果需要电子发票，请务必点击选中 <b>需要电子发票</b> 前面的方框，选中之后页面最后面会有填写发票信息的表单，提交订单之后还需要填写下面的发票相关信息并点击 <b>提交发票信息</b> 按钮提交（不支持随后补差价开电子发票）
+            </p>
+            <p class="help-block">
+              提交订单即认为是接受<a href="https://github.com/dashingsoft/pyarmor/blob/master/LICENSE-ZH" target="_pyarmordoc">Pyarmor 软件许可协议</a>，以及知道<a href="https://pyarmor.readthedocs.io/zh/latest/how-to/register.html" target="_pyarmordoc">如何使用许可证</a>
+            </p>
+            </div>
           <div class="panel-footer">
             <button type="button" class="btn btn-primary new-order">提交订单 <b class="invoice-button">(无发票)</b></button>
             <button type="button" class="btn btn-danger renew-order" style="display: none;">重新下单</button>
@@ -236,7 +375,7 @@
           <h3>填写公司信息</h3>
           <p class="help-block">下面两种情况需要需要填写公司信息，其他情况不需要填写
             <ul class="help-block">
-              <li>购买集团版许可证</li>
+              <li>购买集团版许可证或者CI许可证</li>
               <li>需要电子发票</li>
             </ul>
           </p>
