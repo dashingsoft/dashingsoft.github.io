@@ -185,8 +185,8 @@ function newOrder() {
     var url = server_url + '/product/order/add';
     var purchase_no = makePurchaseNo();
     var price = document.querySelector( 'input[name="tax"]' ).checked
-        ? ( license_type == 'S' ? '360.00' : license_type == 'Z' ? '562.00' : license_type == 'G' ? '918.00' : license_type == 'C' ? '968.00' : '359.00')
-        : ( license_type == 'S' ? '300.00' : license_type == 'Z' ? '512.00' : license_type == 'G' ? '868.00' : license_type == 'C' ? '892.00' : '298.00');
+        ? ( license_type == 'S' ? '360.00' : license_type == 'Z' ? '562.00' : license_type == 'G' ? '918.00' : license_type == 'C' ? '569.00' : '359.00')
+        : ( license_type == 'S' ? '300.00' : license_type == 'Z' ? '512.00' : license_type == 'G' ? '868.00' : license_type == 'C' ? '520.00' : '298.00');
     var product_id = license_type == 'J' ? '301044049' :
         license_type == 'Z' ? '301044050' : license_type == 'S' ? '301044055' :
         license_type == 'G' ? '301056000' : license_type == 'C' ? '301134677' : '300871197';
@@ -328,8 +328,8 @@ function checkOrder( e ) {
 function setPaymentAmount() {
     var lic = document.querySelector( 'select[name="license_type"]' ).value;
     var tax = document.querySelector( 'input[name="tax"]' ).checked;
-    var price = tax ? (lic == 'Z' ? '562' : lic == 'G' ? '918' : lic == 'C' ? '968' : '359') :
-        (lic == 'Z' ? '512' : lic == 'G' ? '868' : lic == 'C' ? '892' : '298');
+    var price = tax ? (lic == 'Z' ? '562' : lic == 'G' ? '918' : lic == 'C' ? '569' : '359') :
+        (lic == 'Z' ? '512' : lic == 'G' ? '868' : lic == 'C' ? '520' : '298');
 
     document.querySelector( '.popup-weixin-payment img' ).src = 'weixin-' + price + '.jpg';
     document.querySelector( '.popup-alipay-payment img' ).src = 'alipay-' + price + '.jpg';
