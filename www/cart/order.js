@@ -318,7 +318,7 @@ function checkOrder( e ) {
         e.stopPropagation();
     }
 
-    else if ((lic == 'G' || tax) && ! invoice_id) {
+    else if ((lic == 'G' || lic == 'C' || tax) && ! invoice_id) {
         alert( '公司信息还没有提交，请填写公司信息并点击提交公司信息按钮，然后在进行支付' );
         e.preventDefault();
         e.stopPropagation();

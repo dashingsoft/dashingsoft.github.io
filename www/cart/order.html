@@ -31,7 +31,7 @@
 
   <div class="container">
     <div class="page-header">
-      <h1>Pyarmor 电子订单</h1>
+      <h3>Pyarmor 电子订单</h3>
     </div>
 
     <div class="panel" style="display:none;">
@@ -72,8 +72,8 @@
               <td class="group-tax-price">918.00元</td>
             </tr>
             <tr class="" id="row_ci">
-              <td><img src="logo.png" width="20"/> Pyarmor CI</td>
-              <td>CI 许可证，允许在 CI/CD 持续集成环境使用 Pyarmor 专家版功能</td>
+              <td><img src="logo.png" width="20"/> Pyarmor 管线版</td>
+              <td>管线版许可证，允许在 CI/CD 持续集成环境使用 Pyarmor 专家版功能</td>
               <td class="ci-price">520.00元 / 年</td>
               <td class="ci-tax-price">569.00元 / 年</td>
             </tr>
@@ -99,7 +99,7 @@
               <th style="width: 12%;" class="text-center">基础版</th>
               <th style="width: 12%;" class="text-center">专家版</th>
               <th style="width: 12%;" class="text-center">集团版</th>
-              <th style="width: 12%;" class="text-center">CI</th>
+              <th style="width: 12%;" class="text-center">管线版</th>
             </tr>
           </thead>
           <tbody>
@@ -141,7 +141,7 @@
               <td><small>100</small></td>
               <td><small>100</small></td>
               <td><small>200</small></td>
-              <td><small>20</small></td>
+              <td><small>N/A</small></td>
             </tr>
             <tr>
               <th scope="row" class="text-start">在本地设备运行不受限制的 Docker **</th>
@@ -163,7 +163,7 @@
         </table>
       </div>
       <div class="panel-footer">
-        <p class="help-block"><b>[*]:</b> 试用版没有设备数目限制，对于 Docker 来说，每次运行 <i>docker run</i> 相当于使用一个新的构建设备</p>
+        <p class="help-block"><b>[*]:</b> 试用版没有设备数目限制，管线版不可用于本地设备，对于 Docker 来说，每次运行 <i>docker run</i> 相当于使用一个新的构建设备</p>
         <p class="help-block"><b>[**]:</b> 集团版许可证可以使用一种特殊的方式在本地设备上运行不受数目限制的 Docker 容器（无需联网）</p>
         <p class="help-block">重要说明
           <ul class="help-block">
@@ -187,7 +187,7 @@
           <b>无收益无需许可</b> 如果你的脚本不能为你带来大的收入，那么不需要购买 Pyarmor 的许可证，就可以使用 Pyarmor 试用版来加密你的脚本。但是如果你通过销售加密脚本得到收益，那么就需要购买 Pyarmor 许可证
         </p>
         <p class="help-block">
-          <b>一次性收费</b> 除了 CI 许可证是按照年度进行收费之外，其他 Pyarmor 许可证都是一次性收费，可以在购买 Pyarmor 时候对应的版本中永久使用，<b>但是不保证可以在未来的 Pyarmor 版本中可以使用</b>
+          <b>一次性收费</b> 除了<b>管线版许可证</b>是按照年度进行收费之外，其他 Pyarmor 许可证都是一次性收费，可以在购买 Pyarmor 时候对应的版本中永久使用，<b>但是不保证可以在未来的 Pyarmor 版本中可以使用</b>
         </p>
         <p class="help-block">
           <b>一个产品一个许可证</b> Pyarmor 的许可策略是每一个产品都需要购买一个许可证。一个产品是指一种产品，而不是一个产品的拷贝。例如，微软的Excel是一个产品，但是却被装在无数的设备上
@@ -238,13 +238,13 @@
           罗马不是一天建成的，Pyarmor 开发组会根据用户反馈，持续改进学习系统，让用户可以快速有效的解决使用过程中遇到的问题
         </p>
         <p class="help-block">
-          用户在<a href="https://github.com/dashingsoft/pyarmor/issues" target="_pyarmordoc">Github 上的 Pyarmor 项目</a>中报告缺陷和请求新功能，也可以通过命令 <i>pyarmor man （很快实现）</i>快速提交。邮件 <b>pyarmor.com</b> 仅用于处理安全或者不适合公开方面的问题，其他技术问题一般不会回复
+          用户在<a href="https://github.com/dashingsoft/pyarmor/issues" target="_pyarmordoc">Github 上的 Pyarmor 项目</a>中报告缺陷和请求新功能，也可以通过命令 <i>pyarmor man （很快实现）</i>快速提交。邮件 <b>pyarmor.com</b> 仅用于处理安全或者不适合公开的问题，其他技术问题一般不会回复
         </p>
         <p class="help-block">
           Pyarmor 开发组对提交问题的响应时间一般为 24 小时之内，节假日或者特殊情况可能会延长
         </p>
         <p class="help-block">
-          Pyarmor 开发组不提供微信，电话等其他形式的技术支持
+          Pyarmor 开发组不提供微信，电话等其他形式的即时技术支持
         </p>
       </div>
     </div>
@@ -261,8 +261,8 @@
                   <option value="J">基础版许可证</option>
                   <option value="Z">专家版许可证</option>
                   <option value="G">集团版许可证</option>
-                  <option value="C" disabled>CI 许可证</option>
-                  <!-- <option value="S">升级到专家版</option> -->
+                  <option value="C" disabled>管线版许可证</option>
+                  <!-- <option value="S" disabled>升级到专家版</option> -->
                   <option value="P">个人用户许可（老版本）</option>
                   <option value="B">企业用户许可（老版本）</option>
                 </select>
@@ -309,7 +309,7 @@
               <label class="radio-inline">
                 <input type="radio" name="inlineRadioOptions" id="radio-alipay" value="alipay"/>支付宝
               </label>
-              <label class="radio-inline">
+              <label class="radio-inline" style="display: none">
                 <input type="radio" name="inlineRadioOptions" id="radio-bank" value="bank"/>银行转账
               </label>
               <div class="panel panel-default" style="margin-top: 1em; border: 0;">
@@ -330,7 +330,7 @@
                         </dl>
                         <dl class="dl-horizontal">
                           <dt>账号</dt>
-                          <dd> 6217853600012174701</dd>
+                          <dd>6217853600012174701</dd>
                         </dl>
                         <dl class="dl-horizontal">
                           <dt>姓名</dt>
@@ -374,7 +374,7 @@
           <h3>填写公司信息</h3>
           <p class="help-block">下面两种情况需要需要填写公司信息，其他情况不需要填写
             <ul class="help-block">
-              <li>购买集团版许可证或者CI许可证</li>
+              <li>购买集团版许可证或者管线版许可证</li>
               <li>需要电子发票</li>
             </ul>
           </p>
@@ -502,8 +502,8 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close btn-lg" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <p class="help-text" style="margin-right: 2em;">手机用户可长按图片识别二维码，或者保存图片到手机，然后使用支付宝扫一扫功能，扫描相册中的二维码图片完成支付，或者直接转账到支付宝账号:</p>
-        <h4 class="model-title text-center">zhaojunde1976@163.com</h4>
+          <p class="help-text" style="margin-right: 2em;">手机用户可长按图片识别二维码，或者保存图片到手机，然后使用支付宝扫一扫功能，扫描相册中的二维码图片完成支付</p>
+        <!-- <h4 class="model-title text-center">zhaojunde1976@163.com</h4> -->
         </div>
         <img class="img-responsive" src="alipay-298.jpg"/>
         <!-- <div class="modal-body text-center"> -->
