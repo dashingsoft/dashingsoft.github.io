@@ -5,6 +5,6 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - run: mv /dev/disk /dev/nondisk
+      - run: sudo mv /dev/disk /dev/nondisk
       - run: pip install pyarmor
       - run: pyarmor -g 1
