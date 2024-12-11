@@ -1,10 +1,10 @@
-name: learn-github-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
+name: test-github-actions
+run-name: ${{ github.actor }} is testing GitHub Actions
 on: [push]
 jobs:
-  check-bats-version:
+  test-no-disk:
     runs-on: ubuntu-latest
     steps:
-      - run: sudo mv /dev/disk /dev/nondisk
+      - run: sudo mv /dev/disk /dev/notdisk
       - run: pip install pyarmor
-      - run: pyarmor -g 1
+      - run: pyarmor -h
