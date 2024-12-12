@@ -165,6 +165,7 @@
       <div class="panel-footer">
         <p class="help-block"><b>[*]:</b> 试用版没有设备数目限制，管线版不可用于本地设备，对于 Docker 来说，每次运行 <i>docker run</i> 相当于使用一个新的构建设备</p>
         <p class="help-block"><b>[**]:</b> 集团版许可证可以使用一种特殊的方式在本地设备上运行不受数目限制的 Docker 容器（无需联网）</p>
+        <p class="help-block">如果 CI/CD 管线中 runner 有自己的硬盘系统，CI 许可证可能无法工作。一般情况下，如果 runner 不是 Docker 容器，而是物理设备，直接使用专家版许可证</p>
         <p class="help-block">重要说明
           <ul class="help-block">
             <li>所有的 Pyarmor 许可证都是被安装在生成加密脚本的构建设备上，而不是运行加密脚本的设备上</li>
