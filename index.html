@@ -3,96 +3,12 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="description" content="A tool used to obfuscate python scripts." />
-  <meta name="Keywords" content="python, obfuscate, obfuscation, obfuscator" />
-  <title>Pyarmor - Obfuscate Python Scripts</title>
+  <title>Dashingsoft</title>
 </head>
 <body>
 <h1 id="pyarmor">Pyarmor</h1>
 <p>Pyarmor is a command line tool used to import or run obfuscated python scripts. Only by a few extra files, pyarmor can run and imported obfuscated files as normal python scripts.</p>
-<p>Pyarmor just likes an enhancement which let python could run or import obfuscated files.</p>
-<h2 id="main-features">Main Features</h2>
-<ul>
-<li>Run obfuscated script or import obfuscated module</li>
-<li>Expire obfuscated files</li>
-<li>Bind obfuscated files to harddisk, mac address, ip address etc.</li>
-</ul>
-<h2 id="obfuscation-mechanism">Obfuscation Mechanism</h2>
-<p>Pyarmor obfuscates python scripts by 2 ways:</p>
-<ul>
-<li><p>First obfuscate byte code of each code object</p></li>
-<li><p>Then obfuscate whole code object of python script</p></li>
-</ul>
-<p>More information refer to <a href="https://github.com/dashingsoft/pyarmor/blob/master/src/mechanism.md">How to obfuscate python scripts</a></p>
-<h2 id="support-platforms">Support Platforms</h2>
-<ul>
-<li><p>Python 2.5, 2.6, 2.7 and Python3</p></li>
-<li><p>Prebuilt Platform: win32, win_amd64, linux_i386, linux_x86_64, macosx_intel</p></li>
-<li><p>Embeded Platform: Raspberry Pi, Banana Pi, TS-4600 / TS-7600</p></li>
-</ul>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="installation">Installation</h3>
-<p>The simple way is pip</p>
-<pre><code>    pip install pyarmor</code></pre>
-<p>Or get source package from <a href="https://pypi.python.org/pypi/pyarmor">pypi/pyarmor</a></p>
-<p>Pyarmor is a command line tool, main script is pyarmor.py. After you get source package, unpack it to any path, then run paramor.py as common python script</p>
-<pre><code>    python pyarmor.py</code></pre>
-<p>If Pyarmor is installed by pip, there is a command will be avaiable in Python script path</p>
-<pre><code>    pyarmor</code></pre>
-<h3 id="basic-usage">Basic Usage</h3>
-<p>The following examples show how to obfuscate a python package <strong>pybench</strong>, which locates in the <strong>examples/pybench</strong> in the source of pyarmor.</p>
-<p>Obfuscate package <strong>pybench</strong> directly:</p>
-<pre><code>    python pyarmor.py obfuscate --src examples/pybench --entry pybench.py \
-                                &quot;*.py&quot; &quot;package/*.py&quot;
-
-    # Note that quotation mark is required for file patterns, otherwise
-    # it will be expanded base on current path by shell.
-    #
-    # This command will create an extra file .pyarmor_capsule.zip in the
-    # --src path, and save all the obfuscated scripts to default output
-    # path &quot;dist&quot; in the current path
-    #
-    cd dist
-
-    # Check obfuscated script
-    cat pybench.py
-
-    # Run obfuscated script
-    python pybench.py</code></pre>
-<p>Use project to manage obfuscated scripts:</p>
-<pre><code>    mkdir projects
-    python pyarmor.py init --src examples/pybench --entry pybench.py \
-                           projects/pybench
-
-    # This command will create 2 files: .pyarmor_config, .pyarmor_capsule.zip
-    # in the project path &quot;projects/pybench&quot;
-    cd projects/pybench
-
-    # And there is a shell script &quot;pyarmor&quot; is created at the same time.
-    # (In windows, the name is &quot;pyarmor.bat&quot;)
-    #
-    # Now run command &quot;build&quot; to obfuscated all the scripts
-    #
-    ./pyarmor build
-
-    # Check obfuscated script
-    cd dist
-    cat pybench.py
-
-    # Run obfuscated script
-    python pybench.py</code></pre>
-<p>There is a webui used to manage project easily. Start it</p>
-<pre><code>    # For windows
-    src/webui/manager.bat
-
-    # For linux
-    src/webui/manager.sh
-    
-    # If Pyarmor is installed by pip
-    pyarmor-webui</code></pre>
-<p>Here is online demo <a href="http://pyarmor.dashingsoft.com">http://pyarmor.dashingsoft.com</a></p>
-<p>More information, refer to <a href="https://github.com/dashingsoft/pyarmor">https://github.com/dashingsoft/pyarmor</a></p>
-<p>Any question feel free email to <a href="mailto:jondy.zhao@gmail.com">jondy.zhao@gmail.com</a></p>
-
+<h1 id="eke">Eke</h1>
+<p>Eke is knowledge systems to manage knowledges, let people learn knowledge and use knowledges.</p>
 </body>
 </html>
