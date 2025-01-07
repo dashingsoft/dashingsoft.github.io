@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Pyarmor'
-copyright = '2024, Jondy Zhao'
+copyright = '2025, Jondy Zhao'
 author = 'Jondy Zhao'
 
 # The full version, including alpha/beta/rc tags
