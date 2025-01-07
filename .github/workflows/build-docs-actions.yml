@@ -21,10 +21,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install sphinx
+      - name: Install graphviz and sphinx
         run: |
+            sudo apt install graphviz
             pip install sphinx
             pip install sphinx-rtd-theme
+            pip install linuxdoc
       - name: Build static files
         id: build
         run: |
