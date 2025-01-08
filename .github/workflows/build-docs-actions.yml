@@ -27,15 +27,20 @@ jobs:
             pip install sphinx
             pip install sphinx-rtd-theme
             pip install linuxdoc
+      - name: Prepare _site
+        run: |
+            mkdir -p _site/pyarmor/docs/
+            cp index.html _site/
       - name: Build static files
         id: build
         run: |
             make html
+            mv _build/html/ ../../../_site/pyarmor/docs/zh
         working-directory: ./pyarmor/docs/zh
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./pyarmor/docs/zh/_build/html/
+          path: _site/
 
   # Deployment job
   deploy:
