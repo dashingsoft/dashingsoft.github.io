@@ -37,6 +37,7 @@ jobs:
             mv _build/html/ ../../../_site/pyarmor/docs
         working-directory: ./pyarmor/docs
       - name: Build static files for zh
+        id: build
         run: |
             make html
             mv _build/html/ ../../../_site/pyarmor/docs/zh
