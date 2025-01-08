@@ -32,13 +32,11 @@ jobs:
             mkdir -p _site/pyarmor/
             cp index.html _site/
       - name: Build static files for en
-        id: build
         run: |
             make html
             mv _build/html/ ../../../_site/pyarmor/docs
         working-directory: ./pyarmor/docs
       - name: Build static files for zh
-        id: build
         run: |
             make html
             mv _build/html/ ../../../_site/pyarmor/docs/zh
