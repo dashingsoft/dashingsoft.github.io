@@ -3,12 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Pyarmor |version| 文档
-======================
+Pyarmor |version| Documentation
+===============================
 
 .. toctree::
    :maxdepth: 2
-   :caption: 目录
+   :caption: Content
 
    user/features
    user/concepts
@@ -17,8 +17,8 @@ Pyarmor |version| 文档
    user/configuration
    user/examples
 
-索引表
-======
+Indices and tables
+==================
 
 * :ref:`genindex`
 * :ref:`modindex`

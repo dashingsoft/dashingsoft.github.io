@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Pyarmor'
-copyright = '2025, 德新科技'
-author = '赵俊德'
+copyright = '2025, Dashingsoft Corp.'
+author = 'Jondy Zhao'
 
 # The full version, including alpha/beta/rc tags
 release = '9.1.0'
@@ -44,7 +44,7 @@ templates_path = ['_templates']
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = 'zh_CN'
+language = 'en_US'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
