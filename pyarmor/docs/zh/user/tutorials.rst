@@ -158,43 +158,46 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
   $ pyarmor env -p rft_option:rft_exclude_args fibo:show
 
-使用自动生成的配置脚本
-----------------------
+..
+  使用自动生成的配置脚本
+  ----------------------
 
-在重构过程中会自动生成配置脚本 `.pyarmor/project/rft_extra_config.sh` 。在上例中，它的内容如下:
+  在重构过程中会自动生成配置脚本 `.pyarmor/project/rft_extra_config.sh`
 
-.. code-block:: bash
+  在上例中，它的内容如下:
 
-   # The following variables type are unknown
-   # Please replace "?" with variable type or "<any>"
-   # "<any>" means not rename any attribute of this variable
-   pyarmor env -p rft_option:var_type_table "fibo:fib.obj ?"
+  .. code-block:: bash
+
+     # The following variables type are unknown
+     # Please replace "?" with variable type or "<any>"
+     # "<any>" means not rename any attribute of this variable
+     pyarmor env -p rft_option:var_type_table "fibo:fib.obj ?"
 
 
-   # The following function arguments could not be renamed
-   pyarmor env -p rft_option:rft_exclude_args fibo:show
+     # The following function arguments could not be renamed
+     pyarmor env -p rft_option:rft_exclude_args fibo:show
 
-这个脚本包含了解决两种警告所需要的额外配置，只需要替换 "?" 为变量的真实类型。
+  这个脚本包含了解决两种警告所需要的额外配置，只需要替换 "?" 为变量的真实类型。
 
-例如，修改第四行的内容为::
+  例如，修改第四行的内容为::
 
-  pyarmor env -p rft_option:var_type_table "fibo:fib.obj QuickFibo"
+    pyarmor env -p rft_option:var_type_table "fibo:fib.obj QuickFibo"
 
-然后直接运行配置脚本，就可以完成额外的配置::
+  然后直接运行配置脚本，就可以完成额外的配置::
 
-  $ bash .pyarmor/project/rft_extra_config.sh
+    $ bash .pyarmor/project/rft_extra_config.sh
 
-最后重新生成加密脚本::
+  最后重新生成加密脚本::
 
-  $ pyarmor build --rft
+    $ pyarmor build --rft
 
-查看加密脚本::
+  查看加密脚本::
 
-  $ cat dist/fibo.py
+    $ cat dist/fibo.py
 
-运行加密后的脚本::
+  运行加密后的脚本::
 
-  $ python dist/fibo.py
+    $ python dist/fibo.py
 
 生成迷你型脚本
 ==============
@@ -236,9 +239,7 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
 迷你型脚本支持 Freethreading (Python 3.13+) 特性
 
-在支持 Freethreading 的 Python 环境，使用 `pip >=24.1` 安装依赖包 :term:`pyarmor.mini` ，这样安装的就是支持 Freethreading 的扩展模块
-
-支持 Freethreading 的 wheel 标签为 `cp313t` ，扩展模块的名称包含后缀 `t`
+在支持 Freethreading 的 Python 环境，使用 `pip >=24.1` 安装依赖包 :term:`pyarmor.mini` ，这样安装的就是支持 Freethreading 的扩展模块 `pyarmor_minit` ， 扩展模块的名称包含后缀 `t` ，支持 Freethreading 的 wheel 标签为 `cp313t`
 
 重构包
 ======
@@ -349,11 +350,13 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
   $ pyarmor build --rft --auto-fix
 
+如果有警告提示，那么重复执行该命令，直到没有警告提示::
+
+  $ pyarmor build --rft --auto-fix
+
 自动重构模式虽然无需复杂的配置，但是可能会导致某些属性和参数不会进行重命名
 
 其基本的工作原理是
 
+- 固定配置 rft_argument = 1
 - 如果发现某一个属性无法确定其类型，那么这个属性不进行重命名
-- 如果发现某一个函数调用使用了字典参数
-  - 如果能确定函数原型，那么对应函数原型的参数不进行重命名
-  - 如果不能确定函数原型，那么配置 rft_argument = 1

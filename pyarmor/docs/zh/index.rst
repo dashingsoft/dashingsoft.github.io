@@ -7,8 +7,8 @@ Pyarmor |version| 文档
 ======================
 
 .. toctree::
+   :numbered:
    :maxdepth: 2
-   :caption: 目录
 
    user/features
    user/concepts
