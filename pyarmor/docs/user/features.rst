@@ -1,29 +1,27 @@
-======
- 简介
-======
+==============
+ Introduction
+==============
 
-为了提高运行加密脚本的性能，在 Pyarmor 9.1 中增加的两种新的加密脚本类型
+In order to get high performance after the scripts are obfuscated, Pyarmor 9.1 introduces 2 new scripts:
 
-1. :term:`迷你型脚本` (mini)
+- :term:`Mini Script`
 
-   以提高执行性能为主要目的，设计目的是用于加密提供 Web 服务的脚本
+   The main purpose is to improve performance, and the obfuscated scripts is designed to provide web services
 
-   和以前的加密脚本相比
+   Compared to previous obfuscated scripts
 
-   - 使用简化版的运行辅助扩展模块，对执行性能进行了优化
-   - 不直接支持设置加密脚本有效期和绑定加密脚本到固定设备等运行时刻辅助功能
-   - 支持 Freethreading 特性（Python 3.13+）
+   - Using a simplified extension :term:`pyarmor_mini`
+   - So no features like expired scripts, binding scripts to devices
+   - Support freethreading in Python 3.13+
 
-2. :term:`重构型脚本` (rft)
+- :term:`RFT Script`
 
-   重构型加密脚本就是仅对脚本中函数，类，属性和方法等进行重命名，还保持原来的脚本结构
+   RFT Scripts simply rename functions, variables, classes, and methods within the script while keep the original script structure
 
-   迷你加密脚本仍然需要预编译的扩展模块，所以限制了其应用范围
+   :term:`Mini Script` still need binary extension which make running obfuscated scripts more complex
 
-   重构型加密脚本不需要扩展模块，凡是 Python 正常脚本可以使用的地方，重构型脚本都可以使用
+   But RFT scripts need not binary extension, they can be used wherever normal Python scripts can be used
 
-   例如在 WASM 中使用重构型加密脚本，也可以使用 Nuitka，CPython，甚至 Pyarmor 对重构型加密脚本继续进行处理
+   For example, use it in WASM, pass it to Nuitka, CPython, even Pyarmor to continue processing
 
-因为两种新的加密类型主要是通过重构方式来保证安全性，而为了对脚本进行重构，需要正确处理模块之间的导入关系
-
-在 Pyarmor 9.1 中使用了 :term:`工程` 来管理需要加密的模块和包，正是为了解决此问题
+Pyarmor 9.1 uses :term:`Project` to manage all the scripts to handle the complex relations between modules and packages, so that the scripts could be reformed correctly. Because new scripts need refactor to prevent scripts from be restored. If no refactor, the security level is almost same as .pyc file

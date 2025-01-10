@@ -1,63 +1,75 @@
-==========
- 配置选项
-==========
+=======================
+ Configuration Options
+=======================
 
-.. contents:: 目录
+.. contents:: Content
    :depth: 2
    :local:
    :backlinks: top
 
 .. highlight:: console
 
-布尔类型的值为 0, 1
+Bool value is 0, 1
 
-工程域
-======
+Project Domain
+==============
 
-.. flat-table:: 表-3. 工程选项表
+List all the options and values in this domain::
+
+  $ pyarmor env -p info
+
+Get only one option value. For example::
+
+  $ pyarmor env -p get src
+
+Set option value. For example::
+
+  $ pyarmor env -p set src "workspace/project/src"
+
+.. flat-table:: Table-3. Project Options
    :widths: 10 30 60
    :header-rows: 1
 
-   * - 选项
-     - 类型
-     - 说明
+   * - Option
+     - Type
+     - Remark
    * - src
-     - 路径
-     - 绝对路径，工程搜索模块和包的路径
+     - Path
+     - Absolute path, where to search project modules and packages
    * - scripts
-     - 文件列表
-     - 工程的脚本，可以为空，也可以是一个或者多个文件
+     - List
+     - List all scripts, may be empty, one or many files
 
-       文件是相对于 src 的路径或者绝对路径，可以包含通配符，例如::
+       Each file is relative to src, wildcard is possible. For example::
 
          foo.py
          fib*.py
    * - modules
-     - 文件列表
-     - 工程的模块，可以为空，也可以是一个或者多个文件
+     - List
+     - List all modules, may be empty, one or many files
 
-       文件是相对于 src 的路径或者绝对路径，可以包含通配符，例如::
+       Each file is relative to src, wildcard is possible. For example::
 
          joker.py
          card*.py
    * - packages
-     - 路径列表
-     - 工程的包，相对于 src 的路径或者绝对路径，可以有通配符
+     - List
+     - List all packages, each package is one path
 
-       包的名称默认为最后一级的目录名称
+       Each path is relative to src, or absolute path, wildcard is possible
 
-       如果不一致的话，使用后缀 `@pkgname` 指定包的名称
+       The package name is last path name, use suffix `@pkgname` if they're different
 
-       例如::
+       For example::
 
          lib/mypkg1
          ../tools/mypkg2
          src@mypkg
    * - excludes
-     - 模式列表
-     - 搜索模块和包的时候排除列表中指定的文件或者路径
+     - List
+     - Exclude patterns in this list when search modules and packages
 
-       模式是 fnmatch 格式的字符串
+       Each pattern is fnmatch 格式的字符串
 
        默认情况下是匹配搜索目录下面的名称，不会匹配多级目录
 
@@ -73,13 +85,25 @@
          joker:data
          :find.py
    * - recursive
-     - 布尔
-     - 是否递归搜索工程源路径
+     - Bool
+     - Recursively search modules and packages in project src
 
-rft_option
-----------
+Section: rft_option
+-------------------
 
-.. flat-table:: 表-4. 节 rft_option 选项表
+List all the options and values in this section::
+
+  $ pyarmor env -p info rft_option
+
+Get only one option value. For example, `rft_argument`::
+
+  $ pyarmor env -p get rft_option:rft_argument
+
+Set option value. For example::
+
+  $ pyarmor env -p set rft_option:rft_argument 0
+
+.. flat-table:: Table-4. Section `rft_option` Options
    :widths: 20 10 10 60
    :header-rows: 1
 
@@ -203,162 +227,3 @@ rft_option
        - "yes" 直接重命名
        - "no"  不重名，也不记录到日志
        - "err" 报错退出
-
-高级选项
-~~~~~~~~
-
-- rft_str_keywords
-
-  这种类型的规则可以重命名指定范围（模块，函数，工程）中的字符串常量，包括字典常量中的 Key，以及下标 Subscript 的 Key
-
-  默认情况下，函数参数会全部重命名。例如:
-
-  .. code:: python
-
-    def show(a, b, /, c, d=2, *args, **kwargs):
-        ...
-
-    # 重构之后
-    def pyarmor__1(pyarmor__2, pyarmor__3, pyarmor__4, pyarmor__5=2, *pyarmor__6, **pyarmor__7):
-        ...
-
-  但是这样可能会导致调用函数的时候出现参数找不到的错误
-
-  因为函数调用的时候可能通过多种形式指定参数名称，例如
-
-  .. code:: python
-
-     # case 1: 这种情况会自动识别和处理
-     show(2, 5, c=2, d=8)
-
-     # case 2: 参数名称在 dict 常量中
-     kwarg = { 'c': 1, 'd': 3 }
-     show(1, 9, **kwarg)
-
-     # case 3: 参数名称在 subscript 中的字符串常量
-     kwarg['c'] = 8
-     show(1, 10, **kwarg)
-
-     # case 4: 参数是 dict 函数的关键字参数
-     kwarg = dict(d=6)
-     show(1, 10, 5, **kwarg)
-
-  默认情况下不会对字符串进行重命名，所以除了第一种情况外，其他情况都不会进行自动处理。重构后的代码如下:
-
-  .. code:: python
-
-     # case 1: 这种情况会自动识别和处理
-     pyarmor__1(2, 5, pyarmor__4=2, pyarmor__5=8)
-
-     # case 2: 字符串参数不会重构
-     pyarmor__10 = { 'c': 1, 'd': 3 }
-     pyarmor__1(1, 9, **pyarmor__10)
-
-     # case 3: 参数名称在 subscript 中的字符串常量
-     pyarmor__10['c'] = 8
-     pyarmor__1(1, 10, **pyarmor__10)
-
-     # case 4: 参数是 dict 函数的关键字参数
-     pyarmor__10 = dict(d=6)
-     pyarmor__1(1, 10, 5, **pyarmor__10)
-
-  为了修改字符串中的关键字参数名称 `c` 和 `d` ， 需要使用下面的命令增加规则::
-
-    $ pyarmor env push rft_option:rft_str_keywords "fibo:show c d"
-
-  这样重构之后会修改字符串和字典常量中关键字字符串，例如:
-
-  .. code:: python
-
-     # case 1: 这种情况会自动识别和处理
-     pyarmor__1(2, 5, pyarmor__4=2, pyarmor__5=8)
-
-     # case 2: 字符串参数名称进行了重命名
-     pyarmor__10 = { 'pyarmor__4': 1, 'pyarmor__5': 3 }
-     pyarmor__1(1, 9, **pyarmor__10)
-
-     # case 3: 字符串参数名称进行了重命名
-     pyarmor__10['pyarmor__4'] = 8
-     pyarmor__1(1, 10, **pyarmor__10)
-
-     # case 4: dict 函数的关键字参数没有进行重命名
-     pyarmor__10 = dict(d=6)
-     pyarmor__1(1, 10, 5, **pyarmor__10)
-
-  对于第四种情况，有两种处理方案
-
-  一是人工把原来的代码替换成为字典常量 `{ "key": value }` ，例如:
-
-  .. code:: python
-
-     # case 4: 参数是 dict 函数的关键字参数，需要替换成为字典常量
-     kwarg = {'d': 6}         # kwarg = dict(d=6)
-     show(1, 10, 5, **kwarg)
-
-  二是不修改代码，而是使用下面的配置，不重名函数 show 的参数，例如::
-
-    $ pyarmor env rft_option:rft_exclude_args fibo::show
-
-  使用第二种方案重构之后，函数 show 仅 posonly, stararg 和 kwarg 会进行重命名，其他参数都保持不变，例如:
-
-  .. code:: python
-
-     # case 1:
-     pyarmor__1(2, 5, c=2, d=8)
-
-     # case 2:
-     pyarmor__10 = { 'c': 1, 'd': 3 }
-     pyarmor__1(1, 9, **pyarmor__10)
-
-     # case 3:
-     pyarmor__10['c'] = 8
-     pyarmor__1(1, 10, **pyarmor__10)
-
-     # case 4:
-     pyarmor__10 = dict(d=6)
-     pyarmor__1(1, 10, 5, **pyarmor__10)
-
-- rft_get_setattr
-
-  是否重命名属性表达式 obj.attr 中属性名称是个难题，主要有两种情况
-
-  - obj 的类型未知
-  - obj 的类型已知，但是 attr 不存在于 obj 类型的属性表中
-
-  因为 obj 的类型可能是动态变化的，所以到底是否重命名 attr 是个难题
-
-  还包括 setattr(obj, 'attr', value) 和 getattr(obj, 'attr') 等形式
-
-  一种解决方案是在脚本中使用 annotation 指定该变量的属性
-
-  另外一种解决方案是设置为遇到无法处理的情况下提示用户进行处理::
-
-    $ pyarmor env set rft_option:on_unknown_attr ?
-
-  这样在遇到不可识别的对象类型时候，Pyarmor 提示用户进行处理
-
-  - 指定变量的类型
-  - 不进行命名，所有该对象的其他属性也不进行重命名
-  - 进行重命名，所有该对象的其他属性也重命名
-
-- rft_call_rulers
-
-  列表，应用于函数调用语句，匹配模式的函数，调用中关键字参数均进行重命名::
-
-      module:scope:attrs
-
-  其中 attrs 可以是如下的格式使用 "." 进行连接:
-
-  - name
-  - name()
-  - name[]
-
-  例如::
-
-     joker.card:Fibo.start:self.runner[].run()
-
-- rft_attr_rulers
-
-  属性重命名规则，满足模式的属性链表进行重命名，模式的格式和 rft_call_rulers 相同::
-
-      module:scope:attrs

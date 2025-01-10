@@ -2,6 +2,6 @@
  Platforms
 ===========
 
-支持的 Python 版本，操作系统，CPU 架构
+Python 3.7~3.13
 
-支持的 Python 解释器，CPython, IPython, WASM 等等
+Windows, Linux, Darwin, FreeBSD etc.

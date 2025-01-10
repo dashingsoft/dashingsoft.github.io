@@ -1,8 +1,8 @@
-==========
- 命令手册
-==========
+=====
+ Man
+=====
 
-.. contents:: 目录
+.. contents:: Content
    :depth: 2
    :local:
    :backlinks: top
@@ -419,7 +419,7 @@ pyarmor build
 
    [#]_ pyarmor build -h
 
-   [#]_ pyarmor build [--mini | --rft]
+   [#]_ pyarmor build [--mini | --rft] [--auto-fix]
 
    .. rubric:: 说明
 
@@ -437,3 +437,19 @@ pyarmor build
    构建工程，工程中的所有脚本都生成相应的重构型加密脚本::
 
      $ pyarmor build --rft
+
+.. option:: --auto-fix
+
+   该选项可自动处理重构过程中无法识别的属性，简化重构脚本需要的额外配置
+
+   一般需要运行包含该选项的命令两次:
+
+   - 第一次发现无法处理的属性，并自动生成配置规则
+   - 第二次应用这些自动规则来重构脚本
+
+   例如::
+
+     $ pyarmor build --rft --auto-fix
+     $ pyarmor build --rft --auto-fix
+
+   第一次执行会显示警告，如果配置正确，第二次应该不会显示警告

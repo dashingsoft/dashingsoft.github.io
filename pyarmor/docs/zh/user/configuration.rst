@@ -14,6 +14,18 @@
 工程域
 ======
 
+查看工程域的所有选项和节，以及选项的当前值::
+
+  $ pyarmor env -p info
+
+查看单个选项的值，例如::
+
+  $ pyarmor env -p get src
+
+设置选项的值，例如::
+
+  $ pyarmor env -p set src "workspace/project/src"
+
 .. flat-table:: 表-3. 工程选项表
    :widths: 10 30 60
    :header-rows: 1
@@ -78,6 +90,18 @@
 
 rft_option
 ----------
+
+显示节 rft_option 中所有选项和选项的设置::
+
+  $ pyarmor env -p info rft_option
+
+查看单个选项的值，例如::
+
+  $ pyarmor env -p get rft_option:rft_argument
+
+设置选项的值，例如::
+
+  $ pyarmor env -p set rft_option:rft_argument 1
 
 .. flat-table:: 表-4. 节 rft_option 选项表
    :widths: 20 10 10 60

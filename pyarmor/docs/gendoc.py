@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 
-"""根据设计文档生成用户手册"""
+"""Generate user doc"""
 
 import argparse
 import logging
