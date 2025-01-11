@@ -22,7 +22,7 @@ pyarmor init
 
    [#]_ pyarmor init [-s PATH] [-x PATTERN]
 
-   [#]_ pyarmor init [-s PATH] [-e SCRIPT] [-m SCRIPT] [-p PATH]
+   [#]_ pyarmor init [-s PATH] [-e FILE] [-m FILE] [-p PATH]
 
    [#]_ pyarmor init [-C]
 
@@ -61,7 +61,7 @@ pyarmor init
        pkgname:test_*.py
        pkgname:config
 
-.. option:: -e SCRIPT, --entry SCRIPT
+.. option:: -e FILE, --entry FILE
 
    指定工程脚本，相对路径或者绝对路径的文件，可以使用多次指定多个脚本
 
@@ -75,7 +75,7 @@ pyarmor init
 
    脚本是不会被工程中其他任何其他模块导入的模块
 
-.. option:: -m SCRIPT, --module SCRIPT
+.. option:: -m FILE, --module FILE
 
    指定工程模块，相对路径或者绝对路径的文件，可以使用多次指定多个模块
 

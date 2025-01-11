@@ -211,11 +211,11 @@ rft_option
 
        指定已知属性的返回类型::
 
-          modname:cls (method1):typename (method2):typename
+          modname:cls method1():typename method2():typename
 
        指定已知属性的子元素类型，例如::
 
-          modname:cls [attrname1]:typename1,typename2
+          modname:cls attrname1[]:typename1,typename2
 
    * - on_unknown_attr
      - 枚举
@@ -379,7 +379,7 @@ rft_option
 
   例如::
 
-     joker.card:Fibo.start:self.runner[].run()
+     joker.card:Fibo.start:self.runner.run
 
 - rft_attr_rulers
 
