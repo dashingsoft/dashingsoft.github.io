@@ -69,15 +69,15 @@ Set option value. For example::
      - List
      - Exclude patterns in this list when search modules and packages
 
-       Each pattern is fnmatch 格式的字符串
+       Each pattern is matched by `fnmatch.fnmatchcase`
 
-       默认情况下是匹配搜索目录下面的名称，不会匹配多级目录
+       Each pattern only matches one level path by default
 
-       如果仅在某一个包中排除，使用包名称前缀模式 `pkgname:pattern`
+       If only match files in one package, use prefix pattern `pkgname:pattern`
 
-       使用 `:` 开始的模式仅用于排除工程路径下面的文件和目录
+       If pattern starts with `:`, only match paths and files in project src
 
-       例如，常见的排除模式::
+       For example::
 
          venv
          __pycache__
@@ -107,123 +107,86 @@ Set option value. For example::
    :widths: 20 10 10 60
    :header-rows: 1
 
-   * - 选项
-     - 类型
-     - 默认值
-     - 说明
+   * - Option
+     - Type
+     - Default
+     - Remark
    * - rft_remove_assert
-     - 布尔
+     - Bool
      - 0
-     - 是否删除脚本中 assert 语句
+     - Remove `assert` statement in the script
    * - rft_remove_docstr
-     - 布尔
+     - Bool
      - 0
-     - 是否删除脚本中所有 docstring
+     - Remove all the docstring in the script
    * - rft_builtin
-     - 布尔
+     - Bool
      - 0
-     - 是否重命名内置名称，例如 print 等
+     - Rename builtin names such as `print` etc.
    * - rft_argument
-     - 枚举
-     - all
-     - 重命名参数的方式，可用值
+     - Enum
+     - 3
+     - How to rename arguments in the function
 
-       - 0: "no", 不重名所有函数的参数
-       - 1: "pos", 仅重命名 posonly 参数
-       - 2: "!kw"，仅保留 kwonly 的参数名称，其他都重命名
-       - 3: "all", 重命名所有函数的参数（默认值）
+       - 0: no touch arguments
+       - 1: only rename position-only arguments
+       - 2: rename all the arguments except keyword-only arguments
+       - 3: rename all the arguments
    * - rft_auto_export
-     - 布尔
+     - Bool
      - 0
-     - 是否输出模块属性 `__all__` 中列出的名称
+     - Export all the names list in the module attribute `__all__`
 
-       输出的名称在重构过程中不会被重命名
-
-       如果输出的名称是类，那么类的方法和属性也不会重命名
-
-       如果输出的名称是函数，那么函数的参数也不会重命名
-
-       模块 ``__all__`` 的名称可能是模块内部定义的，也可能是导入的名称
-
-       如果是导入的名称，在被导入的模块中也不会重命名该名称
+       Exported names won't be renamed
    * - rft_exclude_names
-     - 模式列表
+     - List
      -
-     - 列出不能重命名的模块，函数，类，方法，属性
+     - List all exported function, class, attributes
 
-       支持的格式如下::
+       No rename them when reforming the scripts
 
-          "name"               所有模块中的函数，方法，类，属性
-          "cls.name"           所有模块中指定类的方法和属性
+       The support formats::
 
-          "modname:name"       限制在指定模块内部
+          "name"
+          "cls.name"
+
+          "modname:name"
           "modname:cls.name"
 
-          "modname:*"          不重命名指定模块的所有类和方法
-          "^name"              限定名称在模块层
+          "modname:*"
+          "^name"
 
-       这里面列出的名称仅对模块内部定义的名称有效，对于导入的名称无效
-
-       参数和局部变量总是会被重命名，这里列出的名称对参数和局部变量不起作用
+       Note that arguments and local variables are always renamed
    * - rft_exclude_args
-     - 模式列表
+     - List
      -
-     - 这里面列出的函数名称，对应的参数都不进行重命名::
+     - List all the functions which arguments can't be reformed
+
+       The support formats::
 
           "func"
           "modname:func"
           "modname:cls.method"
-
-       以 "!" 开头的模式表示该函数的参数依旧会进行重命名，例如::
-
-          "!func"
-          "!modname:func"
-          "!modname:cls.method"
-
-       主要是为了不在警告信息中显示该函数，否则总是在日志中显示警告
    * - extra_builtins
-     - 名称列表
+     - List
      -
-     - 除了 builtins 模块之外，需要作为内置名称进行处理的额外名称
+     - Extra builtin name
    * - var_type_table
-     - 列表
+     - List
      -
-     - 多行列表，每一行对应一个变量类型，支持的格式如下::
+     - Define type for variable
+
+       The support formats::
 
           modname:func.var typename
           modname:cls.method.var typename
 
-       如果变量是属于 For/With/Except/Comprehension 中的变量，那么::
+       If this variable is defined in For/With/Except/Comprehension, then use this format::
 
           {modname:func.var} typename
 
-       typename 支持的格式:
+       The formats of typename:
 
-       - "cls" 当前模块中定义的类名称
-       - "modname:cls" 在其它模块中定义的类名称
-       - "<any>" 内置类型名称，该变量的所有属性都不会进行重命名
-   * - extra_type_info
-     - 列表
-     -
-     - 较少使用，用来指定已知类型的额外属性信息，包括额外的属性::
-
-          modname:cls attrname1:typename attrname2:typename
-
-       指定已知属性的返回类型::
-
-          modname:cls (method1):typename (method2):typename
-
-       指定已知属性的子元素类型，例如::
-
-          modname:cls [attrname1]:typename1,typename2
-
-   * - on_unknown_attr
-     - 枚举
-     - log
-     - 遇到不知道如何处理的属性链的处理方式:
-
-       - "ask" 询问用户进行处理
-       - "log" 记录到日志（默认选项）
-       - "yes" 直接重命名
-       - "no"  不重名，也不记录到日志
-       - "err" 报错退出
+       - "cls":          The class name in same module
+       - "modname:cls":  The module name and class name
+       - "<any>":        Any builtin type
