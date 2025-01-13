@@ -93,7 +93,7 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
   WARNING There are variables of unknown type
   WARNING There are function calls which may use unknown arguments
-  WARNING Please check file ".pyarmor/project/rft_extra_config.sh"
+  WARNING Please check file ".pyarmor/project/rft_unknowns.json"
 
 第一个警告::
 
@@ -153,6 +153,40 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 解决方案之一是配置函数 `show` 的参数不能进行重命名，执行下面的命令进行配置::
 
   $ pyarmor env -p rft_option:rft_exclude_args fibo:show
+
+配置好之后，在重新构建工程::
+
+  $ pyarmor build --rft
+  $ cat dist/fibo.py
+  $ python dist/fibo.py
+
+自动重构模式
+============
+
+在上面的工程中，我们如果不想去进行额外的配置，可以使用自动重构模式
+
+自动重构模式可以省去人工的配置，自动进行配置以生成正确的脚本。
+
+首先使用下面的命令自动创建规则::
+
+  $ pyarmor build --autofix 1
+
+然后在执行相应的构建命令::
+
+  $ pyarmor build --rft
+
+其基本的工作原理是
+
+- 固定配置 rft_argument = 1
+- 如果发现某一个属性无法确定其类型，那么这个属性不进行重命名
+
+如果不需要使用自动重构模式，那么使用下面的命令::
+
+  $ pyarmor build --autofix 0
+
+然后在重新进行构建::
+
+  $ pyarmor build --rft
 
 ..
   使用自动生成的配置脚本
@@ -340,29 +374,3 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
   $ pyarmor env -p set rft_option:rft_argument 1
 
 然后在重新加密脚本，这样可以简化配置，但是大部分参数可能没有被重命名
-
-自动重构模式
-============
-
-自动重构模式可以省去人工的配置，自动进行配置以生成正确的脚本。
-
-首先使用下面的命令自动创建规则::
-
-  $ pyarmor build --autofix 1
-
-然后在执行相应的构建命令::
-
-  $ pyarmor build --rft
-
-其基本的工作原理是
-
-- 固定配置 rft_argument = 1
-- 如果发现某一个属性无法确定其类型，那么这个属性不进行重命名
-
-如果不需要使用自动重构模式，那么使用下面的命令::
-
-  $ pyarmor build --autofix 0
-
-然后在重新进行构建::
-
-  $ pyarmor build --rft

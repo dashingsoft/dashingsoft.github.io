@@ -24,4 +24,6 @@ In order to get high performance after the scripts are obfuscated, Pyarmor 9.1 i
 
    For example, use it in WASM, pass it to Nuitka, CPython, even Pyarmor to continue processing
 
-Pyarmor 9.1 uses :term:`Project` to manage all the scripts to handle the complex relations between modules and packages, so that the scripts could be reformed correctly. Because new scripts need refactor to prevent scripts from be restored. If no refactor, the security level is almost same as .pyc file
+New scripts need refactor to prevent scripts from be reversed. If no refactor, the security level is almost same as .pyc file
+
+Pyarmor 9.1 uses :term:`Project` to manage all the scripts to handle the complex relations between modules and packages, so that the scripts could be reformed correctly.

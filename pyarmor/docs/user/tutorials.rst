@@ -93,7 +93,7 @@ When building the project, there are warnings::
 
   WARNING There are variables of unknown type
   WARNING There are function calls which may use unknown arguments
-  WARNING Please check file ".pyarmor/project/rft_extra_config.sh"
+  WARNING Please check file ".pyarmor/project/rft_unknowns.json"
 
 In the script `fibo.py`, there are the following lines:
 
@@ -151,6 +151,27 @@ Now build project again::
 
   $ pyarmor build --rft
   $ cat dist/fibo.py
+  $ python dist/fibo.py
+
+Solve Refactor Issues Automatically
+===================================
+
+In above example, if you don't want to take these extra configurations, Pyarmor also supports auto-fix mode to make it works by simple and rough way::
+
+  $ pyarmor build --autofix 1
+
+After that, build the project and test it again::
+
+  $ pyarmor build --rft
+  $ python dist/fibo.py
+
+If need disable auto-fix mode, run this command::
+
+  $ pyarmor build --autofix 0
+
+Then build project again::
+
+  $ pyarmor build --rft
 
 Generate Mini Script
 ====================
@@ -243,29 +264,3 @@ Refactor this project::
 Run the final script::
 
   $ python dist/jsontool.py
-
-Solve Refactor Issues
-=====================
-
-For complex scripts, it need some extra configuration to make it works.
-
-Pyarmor supports auto-fix mode to take these configurations by simple and rough way::
-
-  $ pyarmor build --autofix 1
-
-This command will implicitly run the following command::
-
-  $ pyarmor env -p set rft_option:rft_argument 1
-
-It means only position-only arguments are renamed (the default value `3` means all the arguments are renamed)
-
-This command also searchs all unknown attributes, and append them to option `rft_exclude_names`::
-
-  $ pyarmor env -p set rft_option:rft_exclude_names xxxx
-
-So all the names like `xxxx` in any place won't be renamed.
-
-After that, build the project and test it again::
-
-  $ pyarmor build --rft
-  $ python dist/fibo.py

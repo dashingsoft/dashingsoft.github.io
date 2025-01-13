@@ -20,17 +20,17 @@ In current path create project, update project and show project information
 
    [#]_ pyarmor init -h
 
-   [#]_ pyarmor init [-s PATH] [-x PATTERN]
+   [#]_ pyarmor init [-C] [-s PATH] [-x PATTERN]
 
-   [#]_ pyarmor init [-s PATH] [-e FILE] [-m FILE] [-p PATH]
+   [#]_ pyarmor init [-e FILE] [-m FILE] [-p PATH]
 
-   [#]_ pyarmor init [-C]
+   [#]_ pyarmor init
 
    .. rubric:: Description
 
    .. [#] Show help
    .. [#] Create project, set project src, add contents in the src to project
-   .. [#] Create or update project, add specified items to project
+   .. [#] Add specified items to project
    .. [#] Show project information
 
 .. describe:: Option
@@ -476,7 +476,7 @@ Generate obfuscated scripts for project
      pyarmor__1 = 1
      pyarmor__2 = 'a'
 
-   If this option is enabled, the suffix will be random name. For exampl::
+   If this option is enabled, the suffix will be random name. For example::
 
      $ pyarmor build --randname 1
      $ pyarmor build --rft
@@ -485,7 +485,10 @@ Generate obfuscated scripts for project
      pyarmor20af2cdf6a = 1
      pyarmor5688af382c = 'a'
 
-    If need disable random name, run this command::
+   If need disable random name mode, run this command::
 
       $ pyarmor build --randname 0
+
+   Then build project again::
+
       $ pyarmor build --rft

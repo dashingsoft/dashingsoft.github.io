@@ -20,17 +20,17 @@ pyarmor init
 
    [#]_ pyarmor init -h
 
-   [#]_ pyarmor init [-s PATH] [-x PATTERN]
+   [#]_ pyarmor init [-C] [-s PATH] [-x PATTERN]
 
-   [#]_ pyarmor init [-s PATH] [-e FILE] [-m FILE] [-p PATH]
+   [#]_ pyarmor init [-e FILE] [-m FILE] [-p PATH]
 
-   [#]_ pyarmor init [-C]
+   [#]_ pyarmor init
 
    .. rubric:: 说明
 
    .. [#] 显示命令帮助
    .. [#] 创建工程，指定工程源路径，并把该路径下的模块和包增加到工程
-   .. [#] 创建或者修改工程，增加指定的脚本，模块和包到工程
+   .. [#] 增加指定的脚本，模块和包到工程
    .. [#] 显示当前目录的工程信息
 
 .. describe:: 选项
@@ -485,7 +485,10 @@ pyarmor build
      pyarmor20af2cdf6a = 1
      pyarmor5688af382c = 'a'
 
-    如果需要禁用随机名称，那么::
+   如果需要禁用随机名称，那么::
 
       $ pyarmor build --randname 0
+
+   然后重构工程::
+
       $ pyarmor build --rft
