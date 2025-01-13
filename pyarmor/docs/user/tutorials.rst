@@ -249,22 +249,23 @@ Solve Refactor Issues
 
 For complex scripts, it need some extra configuration to make it works.
 
-Pyarmor also provides one option to fix these issues by simple and rough way, run the following command repeatly, until there is no warning::
+Pyarmor supports auto-fix mode to take these configurations by simple and rough way::
 
-  $ pyarmor build --rft --auto-fix
+  $ pyarmor build --autofix 1
 
-Generally twice is enough.
-
-How it works?
-
-First in auto-fix mode, it always set argument refactor to `1`::
+This command will implicitly run the following command::
 
   $ pyarmor env -p set rft_option:rft_argument 1
 
 It means only position-only arguments are renamed (the default value `3` means all the arguments are renamed)
 
-Second, in each refactor processing, it will log all unknown attributes, and append them to option `rft_exclude_names` before next round::
+This command also searchs all unknown attributes, and append them to option `rft_exclude_names`::
 
   $ pyarmor env -p set rft_option:rft_exclude_names xxxx
 
-By this way, all the names like `xxxx` in any place won't be renamed.
+So all the names like `xxxx` in any place won't be renamed.
+
+After that, build the project and test it again::
+
+  $ pyarmor build --rft
+  $ python dist/fibo.py

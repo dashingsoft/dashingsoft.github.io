@@ -346,17 +346,23 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
 自动重构模式可以省去人工的配置，自动进行配置以生成正确的脚本。
 
-其使用方法如下::
+首先使用下面的命令自动创建规则::
 
-  $ pyarmor build --rft --auto-fix
+  $ pyarmor build --autofix 1
 
-如果有警告提示，那么重复执行该命令，直到没有警告提示::
+然后在执行相应的构建命令::
 
-  $ pyarmor build --rft --auto-fix
-
-自动重构模式虽然无需复杂的配置，但是可能会导致某些属性和参数不会进行重命名
+  $ pyarmor build --rft
 
 其基本的工作原理是
 
 - 固定配置 rft_argument = 1
 - 如果发现某一个属性无法确定其类型，那么这个属性不进行重命名
+
+如果不需要使用自动重构模式，那么使用下面的命令::
+
+  $ pyarmor build --autofix 0
+
+然后在重新进行构建::
+
+  $ pyarmor build --rft

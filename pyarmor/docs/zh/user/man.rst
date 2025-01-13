@@ -419,12 +419,18 @@ pyarmor build
 
    [#]_ pyarmor build -h
 
-   [#]_ pyarmor build [--mini | --rft] [--auto-fix]
+   [#]_ pyarmor build [--mini | --rft]
+
+   [#]_ pyarmor build [--autofix {0,1}]
+
+   [#]_ pyarmor build [--randname {0,1}]
 
    .. rubric:: 说明
 
    .. [#] 显示命令帮助
    .. [#] 加密工程中所有脚本
+   .. [#] 启用或者禁用自动重构模式
+   .. [#] 启用随机名称重命名脚本
 
 .. option:: --mini
 
@@ -438,18 +444,48 @@ pyarmor build
 
      $ pyarmor build --rft
 
-.. option:: --auto-fix
+.. option:: --autofix {0,1}
 
    该选项可自动处理重构过程中无法识别的属性，简化重构脚本需要的额外配置
 
-   一般需要运行包含该选项的命令两次:
+   首先使用下面的命令启动自动重构模式::
 
-   - 第一次发现无法处理的属性，并自动生成配置规则
-   - 第二次应用这些自动规则来重构脚本
+     $ pyarmor build --autofix 1
 
-   例如::
+   然后在执行相应的构建命令::
 
-     $ pyarmor build --rft --auto-fix
-     $ pyarmor build --rft --auto-fix
+     $ pyarmor build --rft
 
-   第一次执行会显示警告，如果配置正确，第二次应该不会显示警告
+   其基本的工作原理是
+
+   - 固定配置 rft_argument = 1
+   - 如果发现某一个属性无法确定其类型，那么这个属性不进行重命名
+
+   如果不需要使用自动重构模式，那么使用下面的命令::
+
+     $ pyarmor build --autofix 0
+
+   然后在重新进行构建::
+
+     $ pyarmor build --rft
+
+.. option:: --randname {0,1}
+
+   默认情况下，重构后脚本中的名称是固定前缀和顺序号，例如::
+
+     pyarmor__1 = 1
+     pyarmor__2 = 'a'
+
+   如果启用随机名称，那么顺序号会替换成为随机名称，例如::
+
+     $ pyarmor build --randname 1
+     $ pyarmor build --rft
+     $ cat dist/foo.py
+
+     pyarmor20af2cdf6a = 1
+     pyarmor5688af382c = 'a'
+
+    如果需要禁用随机名称，那么::
+
+      $ pyarmor build --randname 0
+      $ pyarmor build --rft

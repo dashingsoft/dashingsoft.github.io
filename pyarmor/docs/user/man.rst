@@ -419,12 +419,18 @@ Generate obfuscated scripts for project
 
    [#]_ pyarmor build -h
 
-   [#]_ pyarmor build [--mini | --rft] [--auto-fix]
+   [#]_ pyarmor build [--mini | --rft]
+
+   [#]_ pyarmor build [--autofix {0,1}]
+
+   [#]_ pyarmor build [--randname {0,1}]
 
    .. rubric:: Describition
 
    .. [#] Show help
    .. [#] Generate obfuscated scripts for project
+   .. [#] Enable or disable auto-fix mode
+   .. [#] Enable or disable random name mode
 
 .. option:: --mini
 
@@ -438,16 +444,48 @@ Generate obfuscated scripts for project
 
      $ pyarmor build --rft
 
-.. option:: --auto-fix
+.. option:: --autofix {0,1}
 
    This option can simplifying the configuration for refactoring scripts.
 
-   Generally, run the command with this option twice:
+   First enable auto-fix mode by this way::
 
-   - In first, find unknown attributes and automatically generate configuration rules
-   - In second, apply these rules to refactor scripts
+     $ pyarmor build --autofix 1
 
-   For example::
+   When auto-fix mode is enabled
 
-     $ pyarmor build --rft --auto-fix
-     $ pyarmor build --rft --auto-fix
+   - Always `rft_argument = 1`
+   - Search all unknown attributes and add them to exclude table
+
+   Then build the project::
+
+     $ pyarmor build --rft
+
+   If need disable auto-fix mode, run this command::
+
+     $ pyarmor build --autofix 0
+
+   Then build project again::
+
+     $ pyarmor build --rft
+
+.. option:: --randname {0,1}
+
+   By default, the names in refactor script are prefix `pyarmor__` with one serial number. For example::
+
+     pyarmor__1 = 1
+     pyarmor__2 = 'a'
+
+   If this option is enabled, the suffix will be random name. For exampl::
+
+     $ pyarmor build --randname 1
+     $ pyarmor build --rft
+     $ cat dist/foo.py
+
+     pyarmor20af2cdf6a = 1
+     pyarmor5688af382c = 'a'
+
+    If need disable random name, run this command::
+
+      $ pyarmor build --randname 0
+      $ pyarmor build --rft
