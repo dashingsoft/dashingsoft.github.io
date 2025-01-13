@@ -39,6 +39,7 @@ jobs:
       - name: Build static files for zh
         run: |
             make html
+            rm -rf ../../../_site/pyarmor/docs/zh
             mv _build/html/ ../../../_site/pyarmor/docs/zh
         working-directory: ./pyarmor/docs/zh
       - name: Upload artifact
