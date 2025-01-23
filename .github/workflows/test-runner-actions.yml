@@ -10,5 +10,5 @@ jobs:
     runs-on: windows-latest
     steps:
       - run: echo "from ctypes import windll" > foo.py
-      - run: echo "print(windll.kernel32.CreateFile(r'\\\\.\\PhysicalDrive0', 0, 3, 0, 3, 0, 0))" >> foo.py
+      - run: echo "print(windll.kernel32.CreateFileA(r'\\\\.\\PhysicalDrive0', 0, 3, 0, 3, 0, 0))" >> foo.py
       - run: python foo.py
