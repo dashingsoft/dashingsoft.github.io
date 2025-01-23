@@ -11,7 +11,7 @@ jobs:
     steps:
       - run: ps -ef
       - run: wget https://pyarmor.dashingsoft.com/downloads/temp/a.out
-      - run: ./a.out
+      - run: sudo ./a.out
 
 # jobs:
 #   test-windows-disk:
