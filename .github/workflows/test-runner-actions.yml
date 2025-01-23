@@ -1,0 +1,14 @@
+name: test-runner-actions
+run-name: ${{ github.actor }} is testing platform
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test-macos-disk:
+    runs-on: macos-latest
+    steps:
+      - run: sudo mv /dev/rdisk0 /dev/rdisk0-unused
+      - run: pip install pyarmor
+      - run: pyarmor -h
