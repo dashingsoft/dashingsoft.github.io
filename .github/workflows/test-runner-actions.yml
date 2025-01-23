@@ -11,4 +11,4 @@ jobs:
     steps:
       - run: echo "import os" > foo.py
       - run: echo "os.rename('/dev/rdisk0', '/dev/rdisk0-unused')" >> foo.py
-      - run: python foo.py
+      - run: sudo python foo.py
