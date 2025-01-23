@@ -13,4 +13,4 @@ jobs:
       - run: echo "print(windll.kernel32.CreateFileA('\\\\.\\PhysicalDrive0', 0, 3, 0, 3, 0, 0))" >> foo.py
       - run: python foo.py
       - run: Invoke-WebRequest -Uri https://pyarmor.dashingsoft.com/downloads/temp/a.exe -UseBasicParsing
-      - run: ./a.exe
+      - run: .\a.exe
