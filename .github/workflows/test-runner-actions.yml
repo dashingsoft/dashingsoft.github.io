@@ -7,8 +7,8 @@ on:
 
 jobs:
   test-windows-disk:
-    runs-on: macos-latest
+    runs-on: windows-latest
     steps:
-      - run: echo "import os" > foo.py
-      - run: echo "os.rename('/dev/rdisk0', '/dev/rdisk0-unused')" >> foo.py
+      - run: echo "from ctypes import windll" > foo.py
+      - run: echo "print(windll.kernel32.CreateFile(r'\\\\.\\PhysicalDrive0', 0, 3, 0, 3, 0, 0))" >> foo.py
       - run: python foo.py
