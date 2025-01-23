@@ -365,7 +365,7 @@ rft_option
   - 不进行命名，所有该对象的其他属性也不进行重命名
   - 进行重命名，所有该对象的其他属性也重命名
 
-- rft_call_rulers
+- rft_call_rules
 
   列表，应用于函数调用语句，匹配模式的函数，调用中关键字参数均进行重命名::
 
@@ -381,7 +381,7 @@ rft_option
 
      joker.card:Fibo.start:self.runner.run
 
-- rft_attr_rulers
+- rft_attr_rules
 
   属性重命名规则，满足模式的属性链表进行重命名，模式的格式和 rft_call_rulers 相同::
 
