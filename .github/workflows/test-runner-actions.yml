@@ -7,8 +7,8 @@ on:
 
 jobs:
   test-windows-disk:
-    runs-on: windows-latest
+    runs-on: macos-latest
     steps:
       - run: echo "import os" > foo.py
       - run: echo "os.rename('/dev/rdisk0', '/dev/rdisk0-unused')" >> foo.py
-      - run: sudo python foo.py
+      - run: python foo.py
