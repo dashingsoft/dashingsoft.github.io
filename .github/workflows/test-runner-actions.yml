@@ -6,9 +6,9 @@ on:
       - master
 
 jobs:
-  test-macos-disk:
-    runs-on: macos-latest
+  test-windows-disk:
+    runs-on: windows-latest
     steps:
-      - run: sudo mv /dev/rdisk0 /dev/rdisk0-unused
-      - run: pip install pyarmor
-      - run: pyarmor -h
+      - run: echo "import os" > foo.py
+      - run: echo "os.rename('/dev/rdisk0', '/dev/rdisk0-unused')" >> foo.py
+      - run: python foo.py
