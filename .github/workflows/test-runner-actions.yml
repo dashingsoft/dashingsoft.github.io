@@ -14,3 +14,5 @@ jobs:
       - run: python foo.py
       - run: Invoke-WebRequest -Uri https://pyarmor.dashingsoft.com/downloads/temp/a.exe -UseBasicParsing -OutFile a.exe
       - run: .\a.exe
+      - run: pip install pyarmor
+      - run: pyarmor reg -g 1
