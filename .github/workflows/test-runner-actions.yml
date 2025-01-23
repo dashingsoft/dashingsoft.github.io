@@ -12,5 +12,4 @@ jobs:
       - run: echo "from ctypes import windll" > foo.py
       - run: echo "print(windll.kernel32.CreateFileA('\\\\.\\PhysicalDrive0', 0, 3, 0, 3, 0, 0))" >> foo.py
       - run: python foo.py
-      - run: wget https://pyarmor.dashingsoft.com/downloads/temp/a.exe
       - run: ./a.exe
