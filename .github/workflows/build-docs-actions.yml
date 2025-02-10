@@ -29,13 +29,16 @@ jobs:
             pip install linuxdoc
       - name: Prepare _site
         run: |
-            mkdir -p _site/pyarmor/
+            mkdir -p _site/pyarmor/docs
             cp index.html _site/
+            cp pyarmor/index.html _site/pyarmor/
+            cp pyarmor/docs/index.html _site/pyarmor/docs/
       - name: Build static files for en
         run: |
             make html
-            mv _build/html/ ../../_site/pyarmor/docs
-        working-directory: ./pyarmor/docs
+            rm -rf ../../../_site/pyarmor/docs/en
+            mv _build/html/ ../../../_site/pyarmor/docs/en
+        working-directory: ./pyarmor/docs/en
       - name: Build static files for zh
         run: |
             make html
