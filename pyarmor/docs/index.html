@@ -1,3 +1,25 @@
-<head>
-  <meta http-equiv="refresh" content="0; url=en/index.html" />
-</head>
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Pyarmor Documentation">
+    <meta name="author" content="Jondy Zhao">
+    <title>Pyarmor</title>
+
+  </head>
+  <body>
+    <h3>Pyarmor Documentation</h3>
+    <ul>
+      <li><a href="en/index.html">English</a></li>
+      <li><a href="zh/index.html">Chinese</a></li>
+    </ul>
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+          const lang = navigator.language.startsWith('zh-') ? 'zh' : 'en'
+          const url = window.location.href.replace('/index.html', `/${lang}/index.html`)
+          window.location.replace(url.endsWith('/index.html') ? url : `${url}/${lang}/index.html`)
+      })
+    </script>
+  </body>
+</html>
