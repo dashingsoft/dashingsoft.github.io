@@ -3,7 +3,16 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-学习 Pyarmor
+目录
+====
+
+.. toctree::
+   :caption: 学习 Pyarmor
+   :name: learndoc
+   :numbered:
+   :maxdepth: 3
+
+   how-to
 
 索引表
 ======
