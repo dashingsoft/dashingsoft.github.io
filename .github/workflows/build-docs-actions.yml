@@ -39,14 +39,26 @@ jobs:
         run: |
             make html
             rm -rf ../../../_site/pyarmor/docs/en
-            mv _build/html/ ../../../_site/pyarmor/docs/en
+            mv _build/html ../../../_site/pyarmor/docs/en
         working-directory: ./pyarmor/docs/en
       - name: Build static files for zh
         run: |
             make html
             rm -rf ../../../_site/pyarmor/docs/zh
-            mv _build/html/ ../../../_site/pyarmor/docs/zh
+            mv _build/html ../../../_site/pyarmor/docs/zh
         working-directory: ./pyarmor/docs/zh
+      - name: Build learing files for en
+        run: |
+            make html
+            rm -rf ../../../_site/pyarmor/learn/en
+            mv _build/html ../../../_site/pyarmor/learn/en
+        working-directory: ./pyarmor/learn/en
+      - name: Build learing files for zh
+        run: |
+            make html
+            rm -rf ../../../_site/pyarmor/learn/zh
+            mv _build/html ../../../_site/pyarmor/learn/zh
+        working-directory: ./pyarmor/learn/zh
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
