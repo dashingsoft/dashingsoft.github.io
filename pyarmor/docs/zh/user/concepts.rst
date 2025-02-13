@@ -75,6 +75,9 @@ pyarmor 命令
 ==============
 
 .. graphviz::
+   :align: center
+   :caption: 子命令
+   :name: command-graph
 
    graph pyarmor {
      node [shape=rect]
@@ -84,10 +87,10 @@ pyarmor 命令
      C3 [label="pyarmor build"]
    }
 
-功能结构图
-==========
-
 .. graphviz::
+   :align: center
+   :caption: 功能关系图
+   :name: command-relation-graph
 
    digraph Structure {
 
