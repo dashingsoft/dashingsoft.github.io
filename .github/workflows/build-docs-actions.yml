@@ -32,7 +32,9 @@ jobs:
             mkdir -p _site/pyarmor/docs
             cp index.html _site/
             cp pyarmor/index.html _site/pyarmor/
+            cp -a pyarmor/assets/ _site/pyarmor/assets
             cp pyarmor/docs/index.html _site/pyarmor/docs/
+            cp -a pyarmor/try/ _site/pyarmor/try
       - name: Build static files for en
         run: |
             make html
