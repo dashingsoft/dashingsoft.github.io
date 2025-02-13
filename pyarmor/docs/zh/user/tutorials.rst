@@ -81,153 +81,23 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 重构复杂脚本
 ============
 
-对于简单脚本，使用默认选项可以正确重构脚本。但是对于复杂脚本，则需要额外的配置。
+默认选项可以重构简单脚本，对于复杂脚本，重构之后脚本可能无法正确运行。例如::
 
-我们以脚本 `fibo.py` 为例，首先创建仅包含该脚本的工程::
-
-  $ pyarmor init --clean -m fibo.py
-
-当使用下面的命令生成重构型脚本的时候，最后会出现如下警告::
-
+  $ pyarmor init --clean -e fibo.py
   $ pyarmor build --rft
-
-  WARNING There are variables of unknown type
-  WARNING There are function calls which may use unknown arguments
-  WARNING Please check file ".pyarmor/project/rft_unknowns.json"
-
-第一个警告::
-
-  WARNING There are variables of unknown type
-
-是因为在脚本 `fibo.py` 中，有如下的代码块:
-
-.. code-block:: python
-
-   def fib(obj, n):
-       obj.name = 'fibo'
-       obj.value = n
-       obj.run()
-       return obj.result
-
-因为参数 `obj` 的类型不确定，所以默认情况是不会对其属性进行重命名，这样可能会导致问题。
-
-解决方案有两种，
-
-一是使用 annotation 指定变量类型，例如:
-
-.. code-block:: python
-
-   def fib(obj: QuickFibo, n):
-       obj.name = 'fibo'
-       obj.value = n
-       obj.run()
-       return obj.result
-
-一是不修改脚本，使用规则指定变量类型。例如，执行下面的命令配置规则::
-
-  $ pyarmor env -p push rft_option:var_type_table "fibo:fib.obj QuickFibo"
-
-其中，后者特别适用于类型定义不在当前模块，而是在其他模块，例如::
-
-  $ pyarmor env -p push rft_option:var_type_table "fibo:fib.obj foo:QuickFibo"
-
-第二个警告::
-
-  WARNING There are function calls which may use unknown arguments
-
-是因为在脚本 `fibo.py` 中，有如下的代码块:
-
-.. code-block:: python
-
-   def show(rlist, n, delta=2):
-       print('fibo', n, 'is', rlist)
-       return n + delta
-
-   if __name__ == '__main__':
-       ...
-       kwarg = {'n': n, 'delta': 3}
-       show(result, **kwarg)
-
-调用函数 `show` 的时候使用了参数 `kwarg` ，而字典的键值重构之后不会改变，而函数的参数名称都进行了重命名，所以运行重构后的脚本会导致出现参数不存在错误
-
-解决方案之一是配置函数 `show` 的参数不能进行重命名，执行下面的命令进行配置::
-
-  $ pyarmor env -p rft_option:rft_exclude_args fibo:show
-
-配置好之后，在重新构建工程::
-
-  $ pyarmor build --rft
-  $ cat dist/fibo.py
   $ python dist/fibo.py
 
-自动重构模式
-============
-
-在上面的工程中，我们如果不想去进行额外的配置，可以使用自动重构模式
-
-自动重构模式可以省去人工的配置，自动进行配置以生成正确的脚本。
-
-首先使用下面的命令自动创建规则::
+这时候可以使用下面的命令自动生成额外的重构规则::
 
   $ pyarmor build --autofix 1
 
-然后在执行相应的构建命令::
+然后再次执行重构命令::
 
-  $ pyarmor build --rft
+  $ pyarmor build --rst
 
-其基本的工作原理是
+运行重构后的脚本::
 
-- 固定配置 rft_argument = 1
-- 如果发现某一个属性无法确定其类型，那么这个属性不进行重命名
-
-如果不需要使用自动重构模式，那么使用下面的命令::
-
-  $ pyarmor build --autofix 0
-
-然后在重新进行构建::
-
-  $ pyarmor build --rft
-
-..
-  使用自动生成的配置脚本
-  ----------------------
-
-  在重构过程中会自动生成配置脚本 `.pyarmor/project/rft_extra_config.sh`
-
-  在上例中，它的内容如下:
-
-  .. code-block:: bash
-
-     # The following variables type are unknown
-     # Please replace "?" with variable type or "<any>"
-     # "<any>" means not rename any attribute of this variable
-     pyarmor env -p rft_option:var_type_table "fibo:fib.obj ?"
-
-
-     # The following function arguments could not be renamed
-     pyarmor env -p rft_option:rft_exclude_args fibo:show
-
-  这个脚本包含了解决两种警告所需要的额外配置，只需要替换 "?" 为变量的真实类型。
-
-  例如，修改第四行的内容为::
-
-    pyarmor env -p rft_option:var_type_table "fibo:fib.obj QuickFibo"
-
-  然后直接运行配置脚本，就可以完成额外的配置::
-
-    $ bash .pyarmor/project/rft_extra_config.sh
-
-  最后重新生成加密脚本::
-
-    $ pyarmor build --rft
-
-  查看加密脚本::
-
-    $ cat dist/fibo.py
-
-  运行加密后的脚本::
-
-    $ python dist/fibo.py
+  $ python dist/fibo.py
 
 生成迷你型脚本
 ==============
@@ -374,3 +244,123 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
   $ pyarmor env -p set rft_option:rft_argument 1
 
 然后在重新加密脚本，这样可以简化配置，但是大部分参数可能没有被重命名
+
+重构规则的使用示例
+------------------
+
+我们以脚本 `fibo.py` 为例，首先创建仅包含该脚本的工程::
+
+  $ pyarmor init --clean -m fibo.py
+
+当使用下面的命令生成重构型脚本的时候，最后会出现如下警告::
+
+  $ pyarmor build --rft
+
+  WARNING There are variables of unknown type
+  WARNING There are function calls which may use unknown arguments
+  WARNING Please check file ".pyarmor/project/rft_unknowns.json"
+
+第一个警告::
+
+  WARNING There are variables of unknown type
+
+是因为在脚本 `fibo.py` 中，有如下的代码块:
+
+.. code-block:: python
+
+   def fib(obj, n):
+       obj.name = 'fibo'
+       obj.value = n
+       obj.run()
+       return obj.result
+
+因为参数 `obj` 的类型不确定，所以默认情况是不会对其属性进行重命名，这样可能会导致问题。
+
+解决方案有两种，
+
+一是使用 annotation 指定变量类型，例如:
+
+.. code-block:: python
+
+   def fib(obj: QuickFibo, n):
+       obj.name = 'fibo'
+       obj.value = n
+       obj.run()
+       return obj.result
+
+一是不修改脚本，使用规则指定变量类型。例如，执行下面的命令配置规则::
+
+  $ pyarmor env -p push rft_option:var_type_table "fibo:fib.obj QuickFibo"
+
+其中，后者特别适用于类型定义不在当前模块，而是在其他模块，例如::
+
+  $ pyarmor env -p push rft_option:var_type_table "fibo:fib.obj foo:QuickFibo"
+
+第二个警告::
+
+  WARNING There are function calls which may use unknown arguments
+
+是因为在脚本 `fibo.py` 中，有如下的代码块:
+
+.. code-block:: python
+
+   def show(rlist, n, delta=2):
+       print('fibo', n, 'is', rlist)
+       return n + delta
+
+   if __name__ == '__main__':
+       ...
+       kwarg = {'n': n, 'delta': 3}
+       show(result, **kwarg)
+
+调用函数 `show` 的时候使用了参数 `kwarg` ，而字典的键值重构之后不会改变，而函数的参数名称都进行了重命名，所以运行重构后的脚本会导致出现参数不存在错误
+
+解决方案之一是配置函数 `show` 的参数不能进行重命名，执行下面的命令进行配置::
+
+  $ pyarmor env -p rft_option:rft_exclude_args fibo:show
+
+配置好之后，在重新构建工程::
+
+  $ pyarmor build --rft
+  $ cat dist/fibo.py
+  $ python dist/fibo.py
+
+高级重构模式
+------------
+
+禁用自动重构模式以清除原来生成的规则::
+
+  $ pyarmor build --autofix 0
+
+并再次生成重构规则::
+
+  $ pyarmor build --autofix 2
+
+这条命令会自动生成一个配置文件 `.pyarmor/project/rft_autofix_rules.json`
+
+这个配置里面包含了发生冲突的属性名称，需要人工修正配置
+
+在上例中，它的内容如下:
+
+.. code-block:: bash
+
+   # The following variables type are unknown
+   # Please replace "?" with variable type or "<any>"
+   # "<any>" means not rename any attribute of this variable
+   # pyarmor env -p rft_option:rft_attr_rules modname:scope:var.attr,*.?
+
+如果某一个属性需要修改名称，那么，只需要把命令行前面的注释去掉，例如::
+
+  pyarmor env -p rft_option:rft_attr_rules modname:scope:var.attr,*.?
+
+最后重新生成加密脚本::
+
+  $ pyarmor build --rft
+
+查看加密脚本::
+
+  $ cat dist/fibo.py
+
+运行加密后的脚本::
+
+  $ python dist/fibo.py
