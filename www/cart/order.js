@@ -169,11 +169,36 @@ function newOrder() {
         return false;
     }
 
+    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if ( ! emailPattern.test( email ) ) {
+        element.focus();
+        return false;
+    }
+
     if ( email === 'pyarmor@163.com' ) {
         element.value = '';
         element.focus();
         return false;
     }
+
+    if ( license_type === 'G' ) {
+        if ( email.indexOf('@gmail.') > 0
+             || email.indexOf('@qq.') > 0
+             || email.indexOf('@163.') > 0
+             || email.indexOf('@sohu.') > 0
+             || email.indexOf('@foxmail.') > 0
+             || email.indexOf('@outlook.') > 0
+             || email.indexOf('@icloud.') > 0
+             || email.indexOf('@yahoo.') > 0
+             || email.indexOf('@proton.me') > 0
+             || email.indexOf('@protonmail.com') > 0
+             || email.indexOf('@hotmail.') > 0 ) {
+            element.value = '必须是公司邮箱';
+            element.focus();
+            return false;
+        }
+    }
+
 
     element = document.querySelector( 'input[name="license_product"]' );
     var license_product = element.value;
