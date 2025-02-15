@@ -421,7 +421,7 @@ pyarmor build
 
    [#]_ pyarmor build [--mini | --rft]
 
-   [#]_ pyarmor build [--autofix {0,1,2}]
+   [#]_ pyarmor build [--autofix {0,1}]
 
    [#]_ pyarmor build [--randname {0,1}]
 
@@ -444,11 +444,9 @@ pyarmor build
 
      $ pyarmor build --rft
 
-.. option:: --autofix {0,1,2}
+.. option:: --autofix {0,1}
 
    该选项可自动生成重构规则，解决重构之后导致的脚本无法运行问题
-
-   目前共支持两种不同的方式来自动生成重构规则
 
    首先使用下面的命令启动自动重构模式::
 
