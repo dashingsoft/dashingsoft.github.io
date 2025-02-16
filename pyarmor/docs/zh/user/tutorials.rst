@@ -162,7 +162,7 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
 因为外部模块需要导入包中的类和函数，所以这些输出的名称不能进行重命名
 
-一种方式是启用自动输出 `rft_auto_export`::
+这就需要启用自动输出选项 `rft_auto_export`::
 
   $ pyarmor env -p set rft_option:rft_auto_export 1
 
@@ -170,17 +170,6 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
 - 如果该名称是一个类，那么类的属性和方法，都不会进行重命名
 - 如果该名称是一个函数，那么函数的参数也不会进行重命名
-
-另外一种方式是直接指定需要输出类和函数::
-
-  $ pyarmor env -p set rft_option:rft_auto_export tomjson.decoder:JSONDecoder
-  $ pyarmor env -p push rft_option:rft_auto_export \
-          tomjson:load tomjson:loads tomjson:dump tomjson:dumps
-
-需要注意的是，`rft_auto_export` 中的名称必须是模块内部定义的名称，而不能是导入的名称，例如::
-
-  # 错误，JSONDecoder 并没有在 tomjson/__init__.py 中被定义，只是被导入进来使用
-  $ pyarmor env -p set rft_option:rft_auto_export tomjson:JSONDecoder
 
 然后重构整个包::
 
@@ -301,7 +290,7 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 使用下面的命令配置函数 `show` 的参数不能进行重命名::
 
   $ pyarmor env -p set rft_option:rft_argument 3
-  $ pyarmor env -p push rft_option:rft_exclude_calls fibo:show
+  $ pyarmor env -p push rft_option:rft_exclude_funcs fibo:show
 
 配置修改之后，需要重新构建脚本::
 

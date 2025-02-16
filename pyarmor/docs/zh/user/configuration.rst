@@ -165,7 +165,7 @@ rft_option
        这里面列出的名称仅对模块内部定义的名称有效，对于导入的名称无效
 
        参数和局部变量总是会被重命名，这里列出的名称对参数和局部变量不起作用
-   * - rft_exclude_calls
+   * - rft_exclude_funcs
      - 模式列表
      -
      - 这里面列出的函数名称，对应的参数都不进行重命名::
@@ -228,161 +228,163 @@ rft_option
        - "no"  不重名，也不记录到日志
        - "err" 报错退出
 
-高级选项
-~~~~~~~~
+       该选项功能尚未实现
 
-- rft_str_keywords
+..
+  下列选项为内部选项，
 
-  这种类型的规则可以重命名指定范围（模块，函数，工程）中的字符串常量，包括字典常量中的 Key，以及下标 Subscript 的 Key
+  - rft_str_keywords
 
-  默认情况下，函数参数会全部重命名。例如:
+    这种类型的规则可以重命名指定范围（模块，函数，工程）中的字符串常量，包括字典常量中的 Key，以及下标 Subscript 的 Key
 
-  .. code:: python
+    默认情况下，函数参数会全部重命名。例如:
 
-    def show(a, b, /, c, d=2, *args, **kwargs):
-        ...
+    .. code:: python
 
-    # 重构之后
-    def pyarmor__1(pyarmor__2, pyarmor__3, pyarmor__4, pyarmor__5=2, *pyarmor__6, **pyarmor__7):
-        ...
+      def show(a, b, /, c, d=2, *args, **kwargs):
+          ...
 
-  但是这样可能会导致调用函数的时候出现参数找不到的错误
+      # 重构之后
+      def pyarmor__1(pyarmor__2, pyarmor__3, pyarmor__4, pyarmor__5=2, *pyarmor__6, **pyarmor__7):
+          ...
 
-  因为函数调用的时候可能通过多种形式指定参数名称，例如
+    但是这样可能会导致调用函数的时候出现参数找不到的错误
 
-  .. code:: python
+    因为函数调用的时候可能通过多种形式指定参数名称，例如
 
-     # case 1: 这种情况会自动识别和处理
-     show(2, 5, c=2, d=8)
+    .. code:: python
 
-     # case 2: 参数名称在 dict 常量中
-     kwarg = { 'c': 1, 'd': 3 }
-     show(1, 9, **kwarg)
+       # case 1: 这种情况会自动识别和处理
+       show(2, 5, c=2, d=8)
 
-     # case 3: 参数名称在 subscript 中的字符串常量
-     kwarg['c'] = 8
-     show(1, 10, **kwarg)
+       # case 2: 参数名称在 dict 常量中
+       kwarg = { 'c': 1, 'd': 3 }
+       show(1, 9, **kwarg)
 
-     # case 4: 参数是 dict 函数的关键字参数
-     kwarg = dict(d=6)
-     show(1, 10, 5, **kwarg)
+       # case 3: 参数名称在 subscript 中的字符串常量
+       kwarg['c'] = 8
+       show(1, 10, **kwarg)
 
-  默认情况下不会对字符串进行重命名，所以除了第一种情况外，其他情况都不会进行自动处理。重构后的代码如下:
+       # case 4: 参数是 dict 函数的关键字参数
+       kwarg = dict(d=6)
+       show(1, 10, 5, **kwarg)
 
-  .. code:: python
+    默认情况下不会对字符串进行重命名，所以除了第一种情况外，其他情况都不会进行自动处理。重构后的代码如下:
 
-     # case 1: 这种情况会自动识别和处理
-     pyarmor__1(2, 5, pyarmor__4=2, pyarmor__5=8)
+    .. code:: python
 
-     # case 2: 字符串参数不会重构
-     pyarmor__10 = { 'c': 1, 'd': 3 }
-     pyarmor__1(1, 9, **pyarmor__10)
+       # case 1: 这种情况会自动识别和处理
+       pyarmor__1(2, 5, pyarmor__4=2, pyarmor__5=8)
 
-     # case 3: 参数名称在 subscript 中的字符串常量
-     pyarmor__10['c'] = 8
-     pyarmor__1(1, 10, **pyarmor__10)
+       # case 2: 字符串参数不会重构
+       pyarmor__10 = { 'c': 1, 'd': 3 }
+       pyarmor__1(1, 9, **pyarmor__10)
 
-     # case 4: 参数是 dict 函数的关键字参数
-     pyarmor__10 = dict(d=6)
-     pyarmor__1(1, 10, 5, **pyarmor__10)
+       # case 3: 参数名称在 subscript 中的字符串常量
+       pyarmor__10['c'] = 8
+       pyarmor__1(1, 10, **pyarmor__10)
 
-  为了修改字符串中的关键字参数名称 `c` 和 `d` ， 需要使用下面的命令增加规则::
+       # case 4: 参数是 dict 函数的关键字参数
+       pyarmor__10 = dict(d=6)
+       pyarmor__1(1, 10, 5, **pyarmor__10)
 
-    $ pyarmor env push rft_option:rft_str_keywords "fibo:show c d"
+    为了修改字符串中的关键字参数名称 `c` 和 `d` ， 需要使用下面的命令增加规则::
 
-  这样重构之后会修改字符串和字典常量中关键字字符串，例如:
+      $ pyarmor env push rft_option:rft_str_keywords "fibo:show c d"
 
-  .. code:: python
+    这样重构之后会修改字符串和字典常量中关键字字符串，例如:
 
-     # case 1: 这种情况会自动识别和处理
-     pyarmor__1(2, 5, pyarmor__4=2, pyarmor__5=8)
+    .. code:: python
 
-     # case 2: 字符串参数名称进行了重命名
-     pyarmor__10 = { 'pyarmor__4': 1, 'pyarmor__5': 3 }
-     pyarmor__1(1, 9, **pyarmor__10)
+       # case 1: 这种情况会自动识别和处理
+       pyarmor__1(2, 5, pyarmor__4=2, pyarmor__5=8)
 
-     # case 3: 字符串参数名称进行了重命名
-     pyarmor__10['pyarmor__4'] = 8
-     pyarmor__1(1, 10, **pyarmor__10)
+       # case 2: 字符串参数名称进行了重命名
+       pyarmor__10 = { 'pyarmor__4': 1, 'pyarmor__5': 3 }
+       pyarmor__1(1, 9, **pyarmor__10)
 
-     # case 4: dict 函数的关键字参数没有进行重命名
-     pyarmor__10 = dict(d=6)
-     pyarmor__1(1, 10, 5, **pyarmor__10)
+       # case 3: 字符串参数名称进行了重命名
+       pyarmor__10['pyarmor__4'] = 8
+       pyarmor__1(1, 10, **pyarmor__10)
 
-  对于第四种情况，有两种处理方案
+       # case 4: dict 函数的关键字参数没有进行重命名
+       pyarmor__10 = dict(d=6)
+       pyarmor__1(1, 10, 5, **pyarmor__10)
 
-  一是人工把原来的代码替换成为字典常量 `{ "key": value }` ，例如:
+    对于第四种情况，有两种处理方案
 
-  .. code:: python
+    一是人工把原来的代码替换成为字典常量 `{ "key": value }` ，例如:
 
-     # case 4: 参数是 dict 函数的关键字参数，需要替换成为字典常量
-     kwarg = {'d': 6}         # kwarg = dict(d=6)
-     show(1, 10, 5, **kwarg)
+    .. code:: python
 
-  二是不修改代码，而是使用下面的配置，不重名函数 show 的参数，例如::
+       # case 4: 参数是 dict 函数的关键字参数，需要替换成为字典常量
+       kwarg = {'d': 6}         # kwarg = dict(d=6)
+       show(1, 10, 5, **kwarg)
 
-    $ pyarmor env rft_option:rft_exclude_args fibo::show
+    二是不修改代码，而是使用下面的配置，不重名函数 show 的参数，例如::
 
-  使用第二种方案重构之后，函数 show 仅 posonly, stararg 和 kwarg 会进行重命名，其他参数都保持不变，例如:
+      $ pyarmor env rft_option:rft_exclude_args fibo::show
 
-  .. code:: python
+    使用第二种方案重构之后，函数 show 仅 posonly, stararg 和 kwarg 会进行重命名，其他参数都保持不变，例如:
 
-     # case 1:
-     pyarmor__1(2, 5, c=2, d=8)
+    .. code:: python
 
-     # case 2:
-     pyarmor__10 = { 'c': 1, 'd': 3 }
-     pyarmor__1(1, 9, **pyarmor__10)
+       # case 1:
+       pyarmor__1(2, 5, c=2, d=8)
 
-     # case 3:
-     pyarmor__10['c'] = 8
-     pyarmor__1(1, 10, **pyarmor__10)
+       # case 2:
+       pyarmor__10 = { 'c': 1, 'd': 3 }
+       pyarmor__1(1, 9, **pyarmor__10)
 
-     # case 4:
-     pyarmor__10 = dict(d=6)
-     pyarmor__1(1, 10, 5, **pyarmor__10)
+       # case 3:
+       pyarmor__10['c'] = 8
+       pyarmor__1(1, 10, **pyarmor__10)
 
-- rft_get_setattr
+       # case 4:
+       pyarmor__10 = dict(d=6)
+       pyarmor__1(1, 10, 5, **pyarmor__10)
 
-  是否重命名属性表达式 obj.attr 中属性名称是个难题，主要有两种情况
+  - rft_get_setattr
 
-  - obj 的类型未知
-  - obj 的类型已知，但是 attr 不存在于 obj 类型的属性表中
+    是否重命名属性表达式 obj.attr 中属性名称是个难题，主要有两种情况
 
-  因为 obj 的类型可能是动态变化的，所以到底是否重命名 attr 是个难题
+    - obj 的类型未知
+    - obj 的类型已知，但是 attr 不存在于 obj 类型的属性表中
 
-  还包括 setattr(obj, 'attr', value) 和 getattr(obj, 'attr') 等形式
+    因为 obj 的类型可能是动态变化的，所以到底是否重命名 attr 是个难题
 
-  一种解决方案是在脚本中使用 annotation 指定该变量的属性
+    还包括 setattr(obj, 'attr', value) 和 getattr(obj, 'attr') 等形式
 
-  另外一种解决方案是设置为遇到无法处理的情况下提示用户进行处理::
+    一种解决方案是在脚本中使用 annotation 指定该变量的属性
 
-    $ pyarmor env set rft_option:on_unknown_attr ?
+    另外一种解决方案是设置为遇到无法处理的情况下提示用户进行处理::
 
-  这样在遇到不可识别的对象类型时候，Pyarmor 提示用户进行处理
+      $ pyarmor env set rft_option:on_unknown_attr ?
 
-  - 指定变量的类型
-  - 不进行命名，所有该对象的其他属性也不进行重命名
-  - 进行重命名，所有该对象的其他属性也重命名
+    这样在遇到不可识别的对象类型时候，Pyarmor 提示用户进行处理
 
-- rft_call_rules
+    - 指定变量的类型
+    - 不进行命名，所有该对象的其他属性也不进行重命名
+    - 进行重命名，所有该对象的其他属性也重命名
 
-  列表，应用于函数调用语句，匹配模式的函数，调用中关键字参数均进行重命名::
+  - rft_call_rules
 
-      module:scope:attrs
+    列表，应用于函数调用语句，匹配模式的函数，调用中关键字参数均进行重命名::
 
-  其中 attrs 可以是如下的格式使用 "." 进行连接:
+        module:scope:attrs
 
-  - name
-  - name()
-  - name[]
+    其中 attrs 可以是如下的格式使用 "." 进行连接:
 
-  例如::
+    - name
+    - name()
+    - name[]
 
-     joker.card:Fibo.start:self.runner.run
+    例如::
 
-- rft_attr_rules
+       joker.card:Fibo.start:self.runner.run
 
-  属性重命名规则，满足模式的属性链表进行重命名，模式的格式和 rft_call_rulers 相同::
+  - rft_attr_rules
 
-      module:scope:attrs
+    属性重命名规则，满足模式的属性链表进行重命名，模式的格式和 rft_call_rulers 相同::
+
+        module:scope:attrs
