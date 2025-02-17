@@ -182,20 +182,14 @@ function newOrder() {
     }
 
     if ( license_type === 'G' ) {
-        if ( email.indexOf('@gmail.') > 0
-             || email.indexOf('@qq.') > 0
-             || email.indexOf('@163.') > 0
-             || email.indexOf('@126.') > 0
-             || email.indexOf('@139.') > 0
-             || email.indexOf('@sohu.') > 0
-             || email.indexOf('@sina.') > 0
-             || email.indexOf('@foxmail.') > 0
-             || email.indexOf('@outlook.') > 0
-             || email.indexOf('@icloud.') > 0
-             || email.indexOf('@yahoo.') > 0
-             || email.indexOf('@proton.me') > 0
-             || email.indexOf('@protonmail.com') > 0
-             || email.indexOf('@hotmail.') > 0 ) {
+        var pubemails = [
+            '@qq.', '@163.', '@126.', '@139.',
+            '@sohu.', '@sina.', '@foxmail.',
+            '@gmail.', '@outlook.', '@hotmail.',
+            '@icloud.', '@yahoo.',
+            '@proton.me', '@protonmail.com',
+        ]
+        if (pubemails.some((x) => email.indexOf(x) > 0)) {
             element.value = '必须是公司邮箱';
             element.focus();
             return false;
