@@ -185,7 +185,10 @@ function newOrder() {
         if ( email.indexOf('@gmail.') > 0
              || email.indexOf('@qq.') > 0
              || email.indexOf('@163.') > 0
+             || email.indexOf('@126.') > 0
+             || email.indexOf('@139.') > 0
              || email.indexOf('@sohu.') > 0
+             || email.indexOf('@sina.') > 0
              || email.indexOf('@foxmail.') > 0
              || email.indexOf('@outlook.') > 0
              || email.indexOf('@icloud.') > 0
