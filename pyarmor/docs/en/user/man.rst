@@ -252,7 +252,7 @@ Refer to :doc:`configuration` for all available options
      $ pyarmor env -p info
 
      Sections:
-     rft_option
+     rft
 
      Options:
      src  scripts  modules  packages  excludes  recursive
@@ -263,13 +263,13 @@ Refer to :doc:`configuration` for all available options
 
      $ pyarmor env -p info excludes
 
-   Show all the options in section `rft_option`::
+   Show all the options in section `rft`::
 
-     $ pyarmor env -p info rft_option
+     $ pyarmor env -p info rft
 
-   Show the usage of option `rft_argument` in the section `rft_option`::
+   Show the usage of option `enable_argument` in the section `rft`::
 
-     $ pyarmor env -p info rft_option:rft_argument
+     $ pyarmor env -p info rft:enable_argument
 
 .. describe:: get
 
@@ -279,17 +279,17 @@ Refer to :doc:`configuration` for all available options
 
    OPTION may be format like `SECTION:OPTION`. For example::
 
-     $ pyarmor env -p get rft_option:rft_argument
+     $ pyarmor env -p get rft:enable_argument
 
 .. describe:: set, reset
 
    Change option value or restore default value. For example::
 
      $ pyarmor env -p set recursive 1
-     $ pyarmor env -p set rft_option:rft_argument 0
+     $ pyarmor env -p set rft:enable_argument 0
 
      $ pyarmor env -p reset recursive
-     $ pyarmor env -p reset rft_option:rft_argument
+     $ pyarmor env -p reset rft:enable_argument
 
 .. describe:: push, pop
 
@@ -349,16 +349,16 @@ Refer to :doc:`configuration` for all available options
 
             (project) ls
             Sections:
-            rft_option
+            rft
 
             Options:
             src  scripts  modules  packages  excludes  recursive
       * - cd
         - Switch section
-        - Enter section `rft_option`, then back to parent::
+        - Enter section `rft`, then back to parent::
 
-            (project) cd rft_option
-            (project)[rft_option] cd ..
+            (project) cd rft
+            (project)[rft] cd ..
             (project)
       * - get
         - Show option value
@@ -399,14 +399,14 @@ Refer to :doc:`configuration` for all available options
 
             (project) info
 
-          List all options in section `rft_option`::
+          List all options in section `rft`::
 
-            (project) info rft_option
+            (project) info rft
 
-          Show option `rft_argument` usage::
+          Show option `enable_argument` usage::
 
-            (project) cd rft_option
-            (project)[rft_option] info rft_argument
+            (project) cd rft
+            (project)[rft] info enable_argument
 
 pyarmor build
 =============
@@ -419,7 +419,7 @@ Generate obfuscated scripts for project
 
    [#]_ pyarmor build -h
 
-   [#]_ pyarmor build [--mini | --rft]
+   [#]_ pyarmor build [--mini | --rft | --mini-rft]
 
    [#]_ pyarmor build [--autofix {0,1}]
 
@@ -444,6 +444,12 @@ Generate obfuscated scripts for project
 
      $ pyarmor build --rft
 
+.. option:: --mini-rft
+
+   First refactor the scripts as :term:`RFT Script`, then generate :term:`Mini Script` for this project::
+
+     $ pyarmor build --mini-rft
+
 .. option:: --autofix {0,1}
 
    This option can simplifying the configuration for refactoring scripts.
@@ -454,7 +460,7 @@ Generate obfuscated scripts for project
 
    When auto-fix mode is enabled
 
-   - Always `rft_argument = 1`
+   - Always `enable_argument = 1`
    - Search all unknown attributes and add them to exclude table
 
    Then build the project::

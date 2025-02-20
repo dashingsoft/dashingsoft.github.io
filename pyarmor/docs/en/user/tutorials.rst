@@ -32,28 +32,7 @@ Pyarmor is published in PyPI, install it by pip::
 
   $ pip install pyarmor.cli
 
-The new features are highly dependent on RFT mode, so it need purchase one Pyarmor license which could unlock RFT mode. For example::
-
-  $ pyarmor reg pyarmor-regfile-5068.zip
-
-  ...
-
-  INFO     Python 3.11.0
-  INFO     Pyarmor 9.1.0 (pro), 005068, btarmor
-  INFO     Platform darwin.x86_64
-  INFO     Current license information:
-
-  License Type    : pyarmor-pro
-  License No.     : pyarmor-vax-005068
-  License To      : Tester
-  License Product : btarmor
-
-  BCC Mode        : Yes
-  RFT Mode        : Yes
-  CI/CD Mode      : No
-
-  Notes
-  * Need verify license online when obfuscating scripts
+Some features need purchase Pyarmor license which could unlock RFT mode
 
 Generate RFT Script
 ===================
@@ -85,7 +64,7 @@ For simple script, it's enough by default options. But for complex scripts, it n
 
 Let's take another script `fibo.py`. First create one project for it also::
 
-  $ pyarmor init --clean -m fibo.py
+  $ pyarmor init --clean -e fibo.py
 
 When building the project, there are warnings::
 
@@ -93,70 +72,14 @@ When building the project, there are warnings::
 
   WARNING There are variables of unknown type
   WARNING There are function calls which may use unknown arguments
-  WARNING Please check file ".pyarmor/project/rft_unknowns.json"
 
-In the script `fibo.py`, there are the following lines:
+It will raise exception when executing the output script::
 
-.. code-block:: python
-
-   def fib(obj, n):
-       obj.name = 'fibo'
-       obj.value = n
-       obj.run()
-       return obj.result
-
-Because Pyarmor couldn't decide the argument `obj` type, so it prints the first warning::
-
-  WARNING There are variables of unknown type
-
-There are 2 solutions to fix it, one is annotation by updating script. For example:
-
-.. code-block:: python
-
-   def fib(obj: QuickFibo, n):
-       obj.name = 'fibo'
-       obj.value = n
-       obj.run()
-       return obj.result
-
-Another is to set variable type by pyarmor option, no touch script. For example::
-
-  $ pyarmor env -p push rft_option:var_type_table "fibo:fib.obj QuickFibo"
-
-The second warning::
-
-  WARNING There are function calls which may use unknown arguments
-
-is caused by the following code in the `fibo.py`:
-
-.. code-block:: python
-   :linenos:
-
-   def show(rlist, n, delta=2):
-       print('fibo', n, 'is', rlist)
-       return n + delta
-
-   if __name__ == '__main__':
-       ...
-       kwarg = {'n': n, 'delta': 3}
-       show(result, **kwarg)
-
-In the line 8, it uses dict `kwarg` to call `show`, but the key in the dict won't be renamed by default
-
-In order to solve this problem, one solution is to tell Pyarmor doesn't rename all the argument of function `show`. For example::
-
-  $ pyarmor env -p rft_option:rft_exclude_args fibo:show
-
-Now build project again::
-
-  $ pyarmor build --rft
-  $ cat dist/fibo.py
   $ python dist/fibo.py
 
-Solve Refactor Issues Automatically
-===================================
+  AttributeError: 'pyarmor__7' object has no attribute 'run'
 
-In above example, if you don't want to take these extra configurations, Pyarmor also supports auto-fix mode to make it works by simple and rough way::
+Pyarmor also supports auto-fix mode to make it works by simple and rough way::
 
   $ pyarmor build --autofix 1
 
@@ -192,7 +115,11 @@ Run it::
 
   $ python dist/fibo.py
 
-Generally, if something is wrong with :term:`Mini Script`, try to generate :term:`RFT Script` and make sure it works, then generate :term:`Mini Script` with same configuration
+:term:`Mini Script` is almost same as .pyc file in irreversibility. So usually it's better to combine :term:`Mini Script` and :term:`RFT Script` by the following command::
+
+  $ pyarmor build --mini-rft
+
+Generally, first generate :term:`RFT Script` and make it works, then call above command to generate combined script.
 
 Publish Mini Script
 ===================
@@ -228,19 +155,14 @@ First create one project with package `tomjson`::
 
 Because the package will be imported by outer scripts, the exported classes and functions can't be renamed
 
-In order to keep these names, one way is to enable option `rft_auto_export`::
+In order to keep these names, one way is to enable option `enable_auto_export`::
 
-  $ pyarmor env -p set rft_option:rft_auto_export 1
+  $ pyarmor env -p set rft:enable_auto_export 1
 
 Thus all the names list in the module attribute ``__all__`` aren't changed, and
 
 - If this is one class, no rename all the attributes and methods
 - If this is one function, no rename function arguments
-
-Another way is to export names by option `rft_exclude_names`. For example::
-
-  $ pyarmor env -p push rft_option:rft_exclude_names \
-          tomjson:load tomjson:loads tomjson:dump tomjson:dumps
 
 Then build this package::
 
@@ -257,6 +179,10 @@ Let's create one comple project, include one script `jsontool.py` and package `t
 
 Because there is no :option:`--entry`, :option:`--module` and :option:`--package`, so pyarmor will search all the files and paths in the :option:`--src`, all of them except in the excludes will be added into the project.
 
+Check the project items::
+
+  $ pyarmor build --list
+
 Refactor this project::
 
   $ pyarmor build --rft
@@ -264,3 +190,71 @@ Refactor this project::
 Run the final script::
 
   $ python dist/jsontool.py
+
+Advanced Refactor
+=================
+
+The major problem for complex scripts is to raise `AttributeError`. For example::
+
+  AttributeError: 'pyarmor__7' object has no attribute 'run'
+
+Let's look at one example script `fibo.py`, there are the following lines:
+
+.. code-block:: python
+
+   def fib(obj, n):
+       obj.name = 'fibo'
+       obj.value = n
+       obj.run()
+       return obj.result
+
+The problem is that the argument `obj` type is unknown.
+
+The simple way to fix this issue is to exclude these attributes. For example::
+
+  $ pyarmor env -p push rft:exclude_names name value run
+
+The second way is annotation by updating script. For example:
+
+.. code-block:: python
+
+   def fib(obj: QuickFibo, n):
+       obj.name = 'fibo'
+       obj.value = n
+       obj.run()
+       return obj.result
+
+The third way is to set rules to rename the attributes. For examle, this rule tell Pyarmor to rename all the attributes of `obj` which in the module `fibo` and function `fib`::
+
+  $ pyarmor env -p push rft:attr_rules "fibo::fib:obj.*"
+
+..
+  The second warning::
+
+    WARNING There are function calls which may use unknown arguments
+
+  is caused by the following code in the `fibo.py`:
+
+  .. code-block:: python
+     :linenos:
+
+     def show(rlist, n, delta=2):
+         print('fibo', n, 'is', rlist)
+         return n + delta
+
+     if __name__ == '__main__':
+         ...
+         kwarg = {'n': n, 'delta': 3}
+         show(result, **kwarg)
+
+  In the line 8, it uses dict `kwarg` to call `show`, but the key in the dict won't be renamed by default
+
+  In order to solve this problem, one solution is to tell Pyarmor doesn't rename all the argument of function `show`. For example::
+
+    $ pyarmor env -p rft:exclude_funcs fibo::show
+
+  Now build project again::
+
+    $ pyarmor build --rft
+    $ cat dist/fibo.py
+    $ python dist/fibo.py

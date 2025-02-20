@@ -254,7 +254,7 @@ Pyarmor 的配置有三个域:
      $ pyarmor env -p info
 
      Sections:
-     rft_option
+     rft
 
      Options:
      src  scripts  modules  packages  excludes  recursive
@@ -265,13 +265,13 @@ Pyarmor 的配置有三个域:
 
      $ pyarmor env -p info excludes
 
-   显示工程域中的节 rft_option 中所有选项和选项的设置::
+   显示工程域中的节 rft 中所有选项和选项的设置::
 
-     $ pyarmor env -p info rft_option
+     $ pyarmor env -p info rft
 
-   显示工程域中的节 rft_option 中选项 rft_argument 的设置和使用方法::
+   显示工程域中的节 rft 中选项 enable_argument 的设置和使用方法::
 
-     $ pyarmor env -p info rft_option:rft_argument
+     $ pyarmor env -p info rft:enable_argument
 
 .. describe:: get
 
@@ -281,17 +281,17 @@ Pyarmor 的配置有三个域:
 
    OPTION 也可以使用 SECTION:OPTION 的格式，例如::
 
-     $ pyarmor env -p get rft_option:rft_argument
+     $ pyarmor env -p get rft:enable_argument
 
 .. describe:: set 和 reset
 
    set 用于设置选项的值，reset 用于恢复选项的默认值，例如::
 
      $ pyarmor env -p set recursive 1
-     $ pyarmor env -p set rft_option:rft_argument 0
+     $ pyarmor env -p set rft:enable_argument 0
 
      $ pyarmor env -p reset recursive
-     $ pyarmor env -p reset rft_option:rft_argument
+     $ pyarmor env -p reset rft:enable_argument
 
 .. describe:: push 和 pop
 
@@ -351,16 +351,16 @@ Pyarmor 的配置有三个域:
 
             (project) ls
             Sections:
-            rft_option
+            rft
 
             Options:
             src  scripts  modules  packages  excludes  recursive
       * - cd
         - 切换到不同的组
-        - 进入到组 rft_option，然后在返回上一级::
+        - 进入到组 rft，然后在返回上一级::
 
-            (project) cd rft_option
-            (project)[rft_option] cd ..
+            (project) cd rft
+            (project)[rft] cd ..
             (project)
       * - get
         - 显示选项的值
@@ -399,14 +399,14 @@ Pyarmor 的配置有三个域:
 
             (project) info
 
-          显示节 `rft_option` 的所有选项::
+          显示节 `rft` 的所有选项::
 
-            (project) info rft_option
+            (project) info rft
 
-          显示选项 `rft_argument` 的使用方法::
+          显示选项 `enable_argument` 的使用方法::
 
-            (project) cd rft_option
-            (project)[rft_option] info rft_argument
+            (project) cd rft
+            (project)[rft] info enable_argument
 
 pyarmor build
 =============
@@ -419,7 +419,7 @@ pyarmor build
 
    [#]_ pyarmor build -h
 
-   [#]_ pyarmor build [--mini | --rft]
+   [#]_ pyarmor build [--mini | --rft | --mini-rft]
 
    [#]_ pyarmor build [--autofix {0,1}]
 
@@ -444,6 +444,12 @@ pyarmor build
 
      $ pyarmor build --rft
 
+.. option:: --mini-rft
+
+   构建工程，工程中的所有脚本首先进行重构，然后在生成相应的迷你型加密脚本::
+
+     $ pyarmor build --mini-rft
+
 .. option:: --autofix {0,1}
 
    该选项可自动生成重构规则，解决重构之后导致的脚本无法运行问题
@@ -458,7 +464,7 @@ pyarmor build
 
    其基本的工作原理是
 
-   - 固定配置 rft_argument = 1
+   - 固定配置 enable_argument = 1
    - 如果发现某一个属性无法确定其类型，那么这个属性不进行重命名
 
    如果不需要使用自动重构模式，那么使用下面的命令::

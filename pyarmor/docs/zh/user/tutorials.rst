@@ -36,8 +36,6 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
 重构功能需要购买相应的许可证并进行注册
 
-试用版和基础版许可证不包含重构功能，所以仅可以使用其中的部分功能
-
 生成重构型脚本
 ==============
 
@@ -76,7 +74,6 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
   ...
   WARNING There are variables of unknown type
   WARNING There are function calls which may use unknown arguments
-  WARNING Please check file ".pyarmor/project/rft_unknowns.json"
   ...
 
 运行重构脚本会报错::
@@ -124,11 +121,11 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
   $ python dist/fibo.py
 
-一般情况下，首先生成重构型脚本进行调试，调试通过之后直接使用相同配置生成迷你型脚本
+迷你型脚本的不可逆程度基本和 .pyc 文件相当，所以一般会首先对脚本进行重构，增加其不可逆程度，然后在生成迷你型脚本。使用下面的命令可以直接生成迷你型重构脚本::
 
-.. note::
+  $ pyarmor build --mini-rft
 
-   试用版和基础版许可证可以生成迷你型脚本，但是不会对脚本进行重构，其加密的不可逆程度略大于 .pyc 文件
+一般情况下，首先单独生成重构型脚本进行调试，调试通过之后直接使用相同配置生成迷你型脚本
 
 发布迷你型脚本
 ==============
@@ -162,9 +159,9 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
 因为外部模块需要导入包中的类和函数，所以这些输出的名称不能进行重命名
 
-这就需要启用自动输出选项 `rft_auto_export`::
+这就需要启用自动输出选项 `enable_auto_export`::
 
-  $ pyarmor env -p set rft_option:rft_auto_export 1
+  $ pyarmor env -p set rft:enable_auto_export 1
 
 这样的话，模块属性 ``__all__`` 中列出的名称不会被重命名
 
@@ -177,7 +174,7 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
 也可以根据需要生成迷你型加密包::
 
-  $ pyarmor build --mini
+  $ pyarmor build --mini-rft
 
 发布迷你型加密包需要把包 :term:`pyarmor.mini` 作为依赖先进行安装
 
@@ -223,7 +220,7 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
 如果提示属性名称 ``xxxx`` 不存在，最简单的方式是直接增加排除规则，不重命名该属性::
 
-  $ pyarmor env -p set rft_option:rft_exclude_names xxxx
+  $ pyarmor env -p set rft:exclude_names xxxx
 
 这样可以简化配置，但是可能造成更多的名称没有被重命名
 
@@ -251,9 +248,9 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
        obj.run()
        return obj.result
 
-另外一种解决方案是不修改脚本，使用规则指定变量类型。例如::
+另外一种解决方案是不修改脚本，使用规则指定需要修改的属性。例如，下面的规则指定模块 `fibo` 中的函数 `fib` 中变量 `obj` 的所有属性都进行重命名::
 
-  $ pyarmor env -p push rft_option:var_type_table "fibo:fib.obj QuickFibo"
+  $ pyarmor env -p push rft:attr_rules "fibo::fib:obj.*"
 
 配置新规则之后，需要重新构建工程::
 
@@ -264,11 +261,11 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
 如果错误提示是参数名称不存在，那么可以直接禁用重命名参数::
 
-  $ pyarmor env -p set rft_option:rft_argument 0
+  $ pyarmor env -p set rft:enable_argument 0
 
 或者也可以仅重命名 posonly 参数和 vararg 和 kwarg 参数::
 
-  $ pyarmor env -p set rft_option:rft_argument 1
+  $ pyarmor env -p set rft:enable_argument 1
 
 这样可以简化配置，但是大部分参数可能没有被重命名
 
@@ -289,8 +286,8 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
 使用下面的命令配置函数 `show` 的参数不能进行重命名::
 
-  $ pyarmor env -p set rft_option:rft_argument 3
-  $ pyarmor env -p push rft_option:rft_exclude_funcs fibo:show
+  $ pyarmor env -p set rft:enable_argument 3
+  $ pyarmor env -p push rft:exclude_funcs fibo::show
 
 配置修改之后，需要重新构建脚本::
 

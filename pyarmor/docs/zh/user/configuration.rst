@@ -88,22 +88,22 @@
      - 布尔
      - 是否递归搜索工程源路径
 
-rft_option
-----------
+rft
+---
 
-显示节 rft_option 中所有选项和选项的设置::
+显示节 rft 中所有选项和选项的设置::
 
-  $ pyarmor env -p info rft_option
+  $ pyarmor env -p info rft
 
 查看单个选项的值，例如::
 
-  $ pyarmor env -p get rft_option:rft_argument
+  $ pyarmor env -p get rft:enable_argument
 
 设置选项的值，例如::
 
-  $ pyarmor env -p set rft_option:rft_argument 1
+  $ pyarmor env -p set rft:enable_argument 1
 
-.. flat-table:: 表-4. 节 rft_option 选项表
+.. flat-table:: 表-4. 节 rft 选项表
    :widths: 20 10 10 60
    :header-rows: 1
 
@@ -111,28 +111,28 @@ rft_option
      - 类型
      - 默认值
      - 说明
-   * - rft_remove_assert
+   * - remove_assert
      - 布尔
      - 0
      - 是否删除脚本中 assert 语句
-   * - rft_remove_docstr
+   * - remove_docstr
      - 布尔
      - 0
      - 是否删除脚本中所有 docstring
-   * - rft_builtin
+   * - enable_builtin
      - 布尔
      - 0
      - 是否重命名内置名称，例如 print 等
-   * - rft_argument
+   * - enable_argument
      - 枚举
      - all
      - 重命名参数的方式，可用值
 
-       - 0: "no", 不重名所有函数的参数
-       - 1: "pos", 仅重命名 posonly 参数
-       - 2: "!kw"，仅保留 kwonly 的参数名称，其他都重命名
-       - 3: "all", 重命名所有函数的参数（默认值）
-   * - rft_auto_export
+       - 0: 不重名所有函数的参数
+       - 1: 仅重命名 posonly 参数
+       - 2: 仅保留 kwonly 的参数名称，其他都重命名
+       - 3: 重命名所有函数的参数（默认值）
+   * - enable_auto_export
      - 布尔
      - 0
      - 是否输出模块属性 `__all__` 中列出的名称
@@ -146,7 +146,7 @@ rft_option
        模块 ``__all__`` 的名称可能是模块内部定义的，也可能是导入的名称
 
        如果是导入的名称，在被导入的模块中也不会重命名该名称
-   * - rft_exclude_names
+   * - exclude_names
      - 模式列表
      -
      - 列出不能重命名的模块，函数，类，方法，属性
@@ -156,35 +156,30 @@ rft_option
           "name"               所有模块中的函数，方法，类，属性
           "cls.name"           所有模块中指定类的方法和属性
 
-          "modname:name"       限制在指定模块内部
-          "modname:cls.name"
+          "modname::name"      限制在指定模块内部
+          "modname::cls.name"
 
-          "modname:*"          不重命名指定模块的所有类和方法
-          "^name"              限定名称在模块层
+          "modname::*"         不重命名指定模块的所有类和方法
+          ":name"              限定名称在模块层
 
        这里面列出的名称仅对模块内部定义的名称有效，对于导入的名称无效
 
        参数和局部变量总是会被重命名，这里列出的名称对参数和局部变量不起作用
-   * - rft_exclude_funcs
+   * - exclude_funcs
      - 模式列表
      -
      - 这里面列出的函数名称，对应的参数都不进行重命名::
 
           "func"
-          "modname:func"
-          "modname:cls.method"
+          "modname::func"
+          "modname::cls.method"
 
-       以 "!" 开头的模式表示该函数的参数依旧会进行重命名，例如::
-
-          "!func"
-          "!modname:func"
-          "!modname:cls.method"
-
-       主要是为了不在警告信息中显示该函数，否则总是在日志中显示警告
    * - extra_builtins
      - 名称列表
      -
      - 除了 builtins 模块之外，需要作为内置名称进行处理的额外名称
+
+..
    * - var_type_table
      - 列表
      -
@@ -290,7 +285,7 @@ rft_option
 
     为了修改字符串中的关键字参数名称 `c` 和 `d` ， 需要使用下面的命令增加规则::
 
-      $ pyarmor env push rft_option:rft_str_keywords "fibo:show c d"
+      $ pyarmor env push rft:rft_str_keywords "fibo:show c d"
 
     这样重构之后会修改字符串和字典常量中关键字字符串，例如:
 
@@ -323,7 +318,7 @@ rft_option
 
     二是不修改代码，而是使用下面的配置，不重名函数 show 的参数，例如::
 
-      $ pyarmor env rft_option:rft_exclude_args fibo::show
+      $ pyarmor env rft:rft_exclude_args fibo::show
 
     使用第二种方案重构之后，函数 show 仅 posonly, stararg 和 kwarg 会进行重命名，其他参数都保持不变，例如:
 
@@ -359,7 +354,7 @@ rft_option
 
     另外一种解决方案是设置为遇到无法处理的情况下提示用户进行处理::
 
-      $ pyarmor env set rft_option:on_unknown_attr ?
+      $ pyarmor env set rft:on_unknown_attr ?
 
     这样在遇到不可识别的对象类型时候，Pyarmor 提示用户进行处理
 

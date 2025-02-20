@@ -88,22 +88,22 @@ Set option value. For example::
      - Bool
      - Recursively search modules and packages in project src
 
-Section: rft_option
--------------------
+Section: rft
+------------
 
 List all the options and values in this section::
 
-  $ pyarmor env -p info rft_option
+  $ pyarmor env -p info rft
 
-Get only one option value. For example, `rft_argument`::
+Get only one option value. For example, `enable_argument`::
 
-  $ pyarmor env -p get rft_option:rft_argument
+  $ pyarmor env -p get rft:enable_argument
 
 Set option value. For example::
 
-  $ pyarmor env -p set rft_option:rft_argument 0
+  $ pyarmor env -p set rft:enable_argument 0
 
-.. flat-table:: Table-4. Section `rft_option` Options
+.. flat-table:: Table-4. Section `rft` Options
    :widths: 20 10 10 60
    :header-rows: 1
 
@@ -111,19 +111,19 @@ Set option value. For example::
      - Type
      - Default
      - Remark
-   * - rft_remove_assert
+   * - remove_assert
      - Bool
      - 0
      - Remove `assert` statement in the script
-   * - rft_remove_docstr
+   * - remove_docstr
      - Bool
      - 0
      - Remove all the docstring in the script
-   * - rft_builtin
+   * - enable_builtin
      - Bool
      - 0
      - Rename builtin names such as `print` etc.
-   * - rft_argument
+   * - enable_argument
      - Enum
      - 3
      - How to rename arguments in the function
@@ -132,13 +132,13 @@ Set option value. For example::
        - 1: only rename position-only arguments
        - 2: rename all the arguments except keyword-only arguments
        - 3: rename all the arguments
-   * - rft_auto_export
+   * - enable_auto_export
      - Bool
      - 0
      - Export all the names list in the module attribute `__all__`
 
        Exported names won't be renamed
-   * - rft_exclude_names
+   * - exclude_names
      - List
      -
      - List all exported function, class, attributes
@@ -150,14 +150,14 @@ Set option value. For example::
           "name"
           "cls.name"
 
-          "modname:name"
-          "modname:cls.name"
+          "modname::name"
+          "modname::cls.name"
 
-          "modname:*"
-          "^name"
+          "modname::*"
+          ":name"
 
        Note that arguments and local variables are always renamed
-   * - rft_exclude_args
+   * - exclude_funcs
      - List
      -
      - List all the functions which arguments can't be reformed
@@ -165,28 +165,9 @@ Set option value. For example::
        The support formats::
 
           "func"
-          "modname:func"
-          "modname:cls.method"
+          "modname::func"
+          "modname::cls.method"
    * - extra_builtins
      - List
      -
      - Extra builtin name
-   * - var_type_table
-     - List
-     -
-     - Define type for variable
-
-       The support formats::
-
-          modname:func.var typename
-          modname:cls.method.var typename
-
-       If this variable is defined in For/With/Except/Comprehension, then use this format::
-
-          {modname:func.var} typename
-
-       The formats of typename:
-
-       - "cls":          The class name in same module
-       - "modname:cls":  The module name and class name
-       - "<any>":        Any builtin type
