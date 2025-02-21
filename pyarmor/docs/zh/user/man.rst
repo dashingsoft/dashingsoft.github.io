@@ -269,9 +269,9 @@ Pyarmor 的配置有三个域:
 
      $ pyarmor env -p info rft
 
-   显示工程域中的节 rft 中选项 enable_argument 的设置和使用方法::
+   显示工程域中的节 rft 中选项 argument_mode 的设置和使用方法::
 
-     $ pyarmor env -p info rft:enable_argument
+     $ pyarmor env -p info rft:argument_mode
 
 .. describe:: get
 
@@ -281,17 +281,17 @@ Pyarmor 的配置有三个域:
 
    OPTION 也可以使用 SECTION:OPTION 的格式，例如::
 
-     $ pyarmor env -p get rft:enable_argument
+     $ pyarmor env -p get rft:argument_mode
 
 .. describe:: set 和 reset
 
    set 用于设置选项的值，reset 用于恢复选项的默认值，例如::
 
      $ pyarmor env -p set recursive 1
-     $ pyarmor env -p set rft:enable_argument 0
+     $ pyarmor env -p set rft:argument_mode 0
 
      $ pyarmor env -p reset recursive
-     $ pyarmor env -p reset rft:enable_argument
+     $ pyarmor env -p reset rft:argument_mode
 
 .. describe:: push 和 pop
 
@@ -403,10 +403,10 @@ Pyarmor 的配置有三个域:
 
             (project) info rft
 
-          显示选项 `enable_argument` 的使用方法::
+          显示选项 `argument_mode` 的使用方法::
 
             (project) cd rft
-            (project)[rft] info enable_argument
+            (project)[rft] info argument_mode
 
 pyarmor build
 =============
@@ -464,7 +464,7 @@ pyarmor build
 
    其基本的工作原理是
 
-   - 固定配置 enable_argument = 1
+   - 固定配置 argument_mode = 1
    - 如果发现某一个属性无法确定其类型，那么这个属性不进行重命名
 
    如果不需要使用自动重构模式，那么使用下面的命令::

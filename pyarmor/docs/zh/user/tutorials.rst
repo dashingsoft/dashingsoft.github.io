@@ -261,11 +261,11 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
 如果错误提示是参数名称不存在，那么可以直接禁用重命名参数::
 
-  $ pyarmor env -p set rft:enable_argument 0
+  $ pyarmor env -p set rft:argument_mode 0
 
 或者也可以仅重命名 posonly 参数和 vararg 和 kwarg 参数::
 
-  $ pyarmor env -p set rft:enable_argument 1
+  $ pyarmor env -p set rft:argument_mode 1
 
 这样可以简化配置，但是大部分参数可能没有被重命名
 
@@ -286,7 +286,7 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
 使用下面的命令配置函数 `show` 的参数不能进行重命名::
 
-  $ pyarmor env -p set rft:enable_argument 3
+  $ pyarmor env -p set rft:argument_mode 3
   $ pyarmor env -p push rft:exclude_funcs fibo::show
 
 配置修改之后，需要重新构建脚本::

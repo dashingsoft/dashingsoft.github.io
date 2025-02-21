@@ -97,11 +97,11 @@ rft
 
 查看单个选项的值，例如::
 
-  $ pyarmor env -p get rft:enable_argument
+  $ pyarmor env -p get rft:argument_mode
 
 设置选项的值，例如::
 
-  $ pyarmor env -p set rft:enable_argument 1
+  $ pyarmor env -p set rft:argument_mode 1
 
 .. flat-table:: 表-4. 节 rft 选项表
    :widths: 20 10 10 60
@@ -119,13 +119,13 @@ rft
      - 布尔
      - 0
      - 是否删除脚本中所有 docstring
-   * - enable_builtin
+   * - builtin_mode
      - 布尔
      - 0
      - 是否重命名内置名称，例如 print 等
-   * - enable_argument
+   * - argument_mode
      - 枚举
-     - all
+     - 3
      - 重命名参数的方式，可用值
 
        - 0: 不重名所有函数的参数
@@ -174,10 +174,18 @@ rft
           "modname::func"
           "modname::cls.method"
 
+   * - attr_rules
+     - 模式列表
+     -
+     - 处理未知类型的属性的时候，自定义重命名规则
    * - extra_builtins
      - 名称列表
      -
      - 除了 builtins 模块之外，需要作为内置名称进行处理的额外名称
+   * - external_types
+     - 外部类列表
+     -
+     - 处理未知类型的属性的时候，自动排除外部类的属性
 
 ..
    * - var_type_table

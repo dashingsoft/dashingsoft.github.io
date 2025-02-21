@@ -95,13 +95,13 @@ List all the options and values in this section::
 
   $ pyarmor env -p info rft
 
-Get only one option value. For example, `enable_argument`::
+Get only one option value. For example, `argument_mode`::
 
-  $ pyarmor env -p get rft:enable_argument
+  $ pyarmor env -p get rft:argument_mode
 
 Set option value. For example::
 
-  $ pyarmor env -p set rft:enable_argument 0
+  $ pyarmor env -p set rft:argument_mode 0
 
 .. flat-table:: Table-4. Section `rft` Options
    :widths: 20 10 10 60
@@ -119,11 +119,11 @@ Set option value. For example::
      - Bool
      - 0
      - Remove all the docstring in the script
-   * - enable_builtin
+   * - builtin_mode
      - Bool
      - 0
      - Rename builtin names such as `print` etc.
-   * - enable_argument
+   * - argument_mode
      - Enum
      - 3
      - How to rename arguments in the function
@@ -167,7 +167,15 @@ Set option value. For example::
           "func"
           "modname::func"
           "modname::cls.method"
+   * - attr_rules
+     - List
+     -
+     - Define how to rename unknown attributes
    * - extra_builtins
      - List
      -
      - Extra builtin name
+   * - external_types
+     - List
+     -
+     - Classes aren't defined in the project

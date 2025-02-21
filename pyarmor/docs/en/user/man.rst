@@ -267,9 +267,9 @@ Refer to :doc:`configuration` for all available options
 
      $ pyarmor env -p info rft
 
-   Show the usage of option `enable_argument` in the section `rft`::
+   Show the usage of option `argument_mode` in the section `rft`::
 
-     $ pyarmor env -p info rft:enable_argument
+     $ pyarmor env -p info rft:argument_mode
 
 .. describe:: get
 
@@ -279,17 +279,17 @@ Refer to :doc:`configuration` for all available options
 
    OPTION may be format like `SECTION:OPTION`. For example::
 
-     $ pyarmor env -p get rft:enable_argument
+     $ pyarmor env -p get rft:argument_mode
 
 .. describe:: set, reset
 
    Change option value or restore default value. For example::
 
      $ pyarmor env -p set recursive 1
-     $ pyarmor env -p set rft:enable_argument 0
+     $ pyarmor env -p set rft:argument_mode 0
 
      $ pyarmor env -p reset recursive
-     $ pyarmor env -p reset rft:enable_argument
+     $ pyarmor env -p reset rft:argument_mode
 
 .. describe:: push, pop
 
@@ -403,10 +403,10 @@ Refer to :doc:`configuration` for all available options
 
             (project) info rft
 
-          Show option `enable_argument` usage::
+          Show option `argument_mode` usage::
 
             (project) cd rft
-            (project)[rft] info enable_argument
+            (project)[rft] info argument_mode
 
 pyarmor build
 =============
@@ -460,7 +460,7 @@ Generate obfuscated scripts for project
 
    When auto-fix mode is enabled
 
-   - Always `enable_argument = 1`
+   - Always `argument_mode = 1`
    - Search all unknown attributes and add them to exclude table
 
    Then build the project::
