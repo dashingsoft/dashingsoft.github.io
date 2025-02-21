@@ -19,7 +19,6 @@
    user/tutorials
    user/man
    user/configuration
-   user/examples
 
 索引表
 ======

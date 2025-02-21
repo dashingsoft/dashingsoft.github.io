@@ -10,4 +10,3 @@
    tutorials
    man
    configuration
-   examples

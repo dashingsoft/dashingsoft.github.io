@@ -19,7 +19,6 @@ Table of Contents
    user/tutorials
    user/man
    user/configuration
-   user/examples
 
 Indices and tables
 ==================
