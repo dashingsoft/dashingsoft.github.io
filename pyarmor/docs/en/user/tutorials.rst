@@ -155,9 +155,9 @@ First create one project with package `tomjson`::
 
 Because the package will be imported by outer scripts, the exported classes and functions can't be renamed
 
-In order to keep these names, one way is to enable option `enable_auto_export`::
+In order to keep these names, one way is to enable option `auto_export_mode`::
 
-  $ pyarmor env -p set rft:enable_auto_export 1
+  $ pyarmor env -p set rft:auto_export_mode 1
 
 Thus all the names list in the module attribute ``__all__`` aren't changed, and
 

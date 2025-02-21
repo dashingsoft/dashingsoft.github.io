@@ -132,7 +132,7 @@ rft
        - 1: 仅重命名 posonly 参数
        - 2: 仅保留 kwonly 的参数名称，其他都重命名
        - 3: 重命名所有函数的参数（默认值）
-   * - enable_auto_export
+   * - auto_export_mode
      - 布尔
      - 0
      - 是否输出模块属性 `__all__` 中列出的名称

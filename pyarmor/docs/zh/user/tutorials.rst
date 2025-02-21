@@ -159,9 +159,9 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
 因为外部模块需要导入包中的类和函数，所以这些输出的名称不能进行重命名
 
-这就需要启用自动输出选项 `enable_auto_export`::
+这就需要启用自动输出选项 `auto_export_mode`::
 
-  $ pyarmor env -p set rft:enable_auto_export 1
+  $ pyarmor env -p set rft:auto_export_mode 1
 
 这样的话，模块属性 ``__all__`` 中列出的名称不会被重命名
 

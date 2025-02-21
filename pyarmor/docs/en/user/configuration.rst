@@ -132,7 +132,7 @@ Set option value. For example::
        - 1: only rename position-only arguments
        - 2: rename all the arguments except keyword-only arguments
        - 3: rename all the arguments
-   * - enable_auto_export
+   * - auto_export_mode
      - Bool
      - 0
      - Export all the names list in the module attribute `__all__`
