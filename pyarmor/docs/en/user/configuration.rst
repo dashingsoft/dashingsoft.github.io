@@ -141,20 +141,12 @@ Set option value. For example::
    * - exclude_names
      - List
      -
-     - List all exported function, class, attributes
+     - No rename these classes, functions, attributes when reforming the scripts
 
-       No rename them when reforming the scripts
+       The support format is fnmatch pattern. For example::
 
-       The support formats::
-
-          "name"
-          "cls.name"
-
-          "modname::name"
-          "modname::cls.name"
-
-          "modname::*"
-          ":name"
+          "inc"
+          "dir*"
 
        Note that arguments and local variables are always renamed
    * - exclude_funcs
