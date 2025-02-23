@@ -1,0 +1,24 @@
+name: pyarmor-smoke-test
+run-name: ${{ github.actor }} is testing Pyarmor
+on:
+  push
+  # create
+
+jobs:
+  # test-free-threading:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: wget https://pyarmor.dashingsoft.com/downloads/temp/pyarmor-smoke-test.tar.gz
+  #     - run: tar xzf pyarmor-smoke-test.tar.gz
+  #     - run: pip install test/pyarmor.cli.core.tar.gz
+  #     - run: pip install test/pyarmor.cli.tar.gz
+  #     - run: pip install test/pyarmor.mini.tar.gz
+  #     - run: pyarmor init test/foo.py
+  #     - run: pyarmor build --mini
+  #     - run: python3 dist/foo.py
+  test-free-threading-macos:
+    runs-on: macos-13
+    steps:
+      - run: curl -O https://www.python.org/ftp/python/3.13.1/python-3.13.1-macos11.pkg
+      - run: sudo installer -pkg ./python-3.13.1-macos11.pkg --target /
+      - run: python3.13t -v
