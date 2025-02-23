@@ -5,9 +5,13 @@ on:
   # create
 
 jobs:
-  # test-free-threading:
-  #   runs-on: ubuntu-latest
-  #   steps:
+  test-free-threading:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo add-apt-repository ppa:deadsnakes
+      - run: sudo apt-get update
+      - run: sudo apt-get install python3.13-nogil
+      - run: python3.13t -h
   #     - run: wget https://pyarmor.dashingsoft.com/downloads/temp/pyarmor-smoke-test.tar.gz
   #     - run: tar xzf pyarmor-smoke-test.tar.gz
   #     - run: pip install test/pyarmor.cli.core.tar.gz
@@ -19,5 +23,5 @@ jobs:
   test-free-threading-macos:
     runs-on: macos-13
     steps:
-      - run: sudo brew install python-freethreading
+      - run: brew install python-freethreading
       - run: $(brew --prefix)/bin/python3.13t -h
