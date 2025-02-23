@@ -13,7 +13,7 @@ jobs:
       - run: sudo apt-get install python3.13-nogil
       - run: wget https://pyarmor.dashingsoft.com/downloads/temp/pyarmor_mini.tar.gz
       - run: tar xzf pyarmor_mini.tar.gz
-      - run: cp linux.x86_64/libs/cp3.13t/pyarmor_minit.so .
+      - run: cp -a linux.x86_64/libs/cp3.13t/pyarmor_minit.so pyarmor_mini.so
       - run: python3.13t -c "import pyarmor_minit"
   #     - run: wget https://pyarmor.dashingsoft.com/downloads/temp/pyarmor-smoke-test.tar.gz
   #     - run: tar xzf pyarmor-smoke-test.tar.gz
@@ -29,5 +29,5 @@ jobs:
       - run: brew install python-freethreading
       - run: curl -O https://pyarmor.dashingsoft.com/downloads/temp/pyarmor_mini.tar.gz
       - run: tar xzf pyarmor_mini.tar.gz
-      - run: cp darwin.x86_64/libs/cp3.13t/pyarmor_minit.so .
-      - run: $(brew --prefix)/bin/python3.13t -c "import pyarmor_minit"
+      - run: cp -a darwin.x86_64/libs/cp3.13t/pyarmor_minit.so pyarmor_mini.so
+      - run: $(brew --prefix)/bin/python3.13t -c "import pyarmor_mini"
