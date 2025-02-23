@@ -11,7 +11,8 @@ jobs:
       - run: sudo add-apt-repository ppa:deadsnakes
       - run: sudo apt-get update
       - run: sudo apt-get install python3.13-nogil
-      - run: python3.13t -h
+      - run: python3.13t -m pip install https://pyarmor.dashingsoft.com/downloads/temp/pyarmor.mini-1.0-cp313t-none-manylinux1_x86_64.whl
+      - run: python3.13t -c "import pyarmor_mini"
   #     - run: wget https://pyarmor.dashingsoft.com/downloads/temp/pyarmor-smoke-test.tar.gz
   #     - run: tar xzf pyarmor-smoke-test.tar.gz
   #     - run: pip install test/pyarmor.cli.core.tar.gz
@@ -24,4 +25,5 @@ jobs:
     runs-on: macos-13
     steps:
       - run: brew install python-freethreading
-      - run: $(brew --prefix)/bin/python3.13t -h
+      - run: $(brew --prefix)/bin/python3.13t -m pip install https://pyarmor.dashingsoft.com/downloads/temp/pyarmor.mini-1.0-cp313t-none-macosx_10_14_x86_64.whl
+      - run: $(brew --prefix)/bin/python3.13t -c "import pyarmor_mini"
