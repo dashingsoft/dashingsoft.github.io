@@ -33,7 +33,7 @@ jobs:
             cp index.html _site/
             cp pyarmor/index.html _site/pyarmor/
             cp -a pyarmor/assets/ _site/pyarmor/assets
-            cp -a pyarmor/ask/ _size/pyarmor/ask
+            cp -a pyarmor/ask/ _site/pyarmor/ask
             cp -a pyarmor/try/ _site/pyarmor/try
             cp pyarmor/docs/index.html _site/pyarmor/docs/
             cp pyarmor/learn/index.html _site/pyarmor/learn/
