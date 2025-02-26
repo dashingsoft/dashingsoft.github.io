@@ -14,25 +14,11 @@
 许可证相关
 ==========
 
-.. _how-select-pyarmor-license:
-
-怎么选择许可证类型
-------------------
-
-.. _how-many-pyarmor-licenses:
-
-需要购买几个许可证
-------------------
-
-.. _how-to-register-license:
-
-如何注册和使用许可证
---------------------
-
-.. _how-to-fix-register-issues:
-
-如何解决注册许可证中遇到的问题
-------------------------------
+- `如何选择许可证类型？ <https://pyarmor.readthedocs.io/zh/latest/licenses.html#select-license-type>`_
+- `需要购买几个许可证？ <https://pyarmor.readthedocs.io/zh/latest/licenses.html#how-many-licenses-required>`_
+- `如何在本地设备/云服务器/虚拟机等中注册和使用 Pyarmor 许可证? <https://pyarmor.readthedocs.io/zh/latest/how-to/register.html#using-pyarmor-license>`_
+- `如何在 CI/CD 管线或者 Docker 容器中使用 Pyarmor 许可证? <https://pyarmor.readthedocs.io/zh/latest/how-to/register.html#using-pyarmor-license>`_
+- `如何解决注册 Pyarmor 许可证遇到的问题？ <https://pyarmor.readthedocs.io/zh/latest/reference/solutions.html#fix-register-issue>`_
 
 .. _how-fix-build-issue:
 
