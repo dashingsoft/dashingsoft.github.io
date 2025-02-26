@@ -75,12 +75,13 @@ graphviz_output_format = 'svg'
 js_switch_lang = '''
 window.addEventListener("DOMContentLoaded", () => {
     // View page source
-    const elment = document.querySelector("ul.wy-breadcrumbs > li.wy-breadcrumbs-aside > a")
+    const element = document.querySelector("ul.wy-breadcrumbs > li.wy-breadcrumbs-aside > a")
     element.innerHTML = "中文"
     element.addEventListener("click", (e) => {
         e.preventDefault()
-        window.location.replace(window.location.href.replace("/en/", "/zh/"))
+        window.location.assign(window.location.href.replace("/en/", "/zh/"))
     })
+})
 '''
 
 html_js_files = [
