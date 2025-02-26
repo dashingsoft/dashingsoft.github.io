@@ -12,7 +12,7 @@
       <div class="card border-light mx-5 my-2">
         <div class="card-body">
           <h5 class="card-title">Ask Pyarmor</h5>
-          <a href="#" class="btn btn-light btn-sm">中文</a>
+          <button class="btn btn-light btn-sm zh">中文</button>
         </div>
       </div>
 
@@ -21,11 +21,11 @@
           Purchasing License
         </div>
         <div class="list-group list-group-flush">
-          <a href="#"
+          <a href="../../learn/en/how-to.html#how-select-pyarmor-license"
              class="list-group-item list-group-item-action">
             Which Pyarmor License is right for me?
           </a>
-          <a href="#"
+          <a href="../../learn/en/how-to.html#how-many-pyarmor-licenses"
              class="list-group-item list-group-item-action">
             How many Pyarmor Licenses I need purchase?
           </a>
@@ -36,15 +36,15 @@
           How to fix registering issues?
         </div>
         <div class="list-group list-group-flush">
-          <a href="#"
+          <a href="../../learn/en/how-to.html#register-basic-pro-license-issue"
              class="list-group-item list-group-item-action">
             Basic or Pro License
           </a>
-          <a href="#"
+          <a href="../../learn/en/how-to.html#register-group-license-issue"
              class="list-group-item list-group-item-action">
             Group License
           </a>
-          <a href="#"
+          <a href="../../learn/en/how-to.html#register-ci-license-issue"
              class="list-group-item list-group-item-action">
             CI License
           </a>
@@ -55,11 +55,11 @@
           How to fix build Issues?
         </div>
         <div class="list-group list-group-flush">
-          <a href="#"
+          <a href="../../learn/en/how-to.html#generate-script-issue"
              class="list-group-item list-group-item-action">
             Generating obfuscated scripts
           </a>
-          <a href="#"
+          <a href="../../learn/en/how-to.html#pack-script-issue"
              class="list-group-item list-group-item-action">
             Packing obfuscated scripts
           </a>
@@ -70,11 +70,11 @@
           How to fix runtime issues?
         </div>
         <div class="list-group list-group-flush">
-          <a href="#"
+          <a href="../../learn/en/how-to.html#run-obfuscated-script-issue"
              class="list-group-item list-group-item-action">
             Executing obfuscated script by Python interpreter
           </a>
-          <a href="#"
+          <a href="../../learn/en/how-to.html#run-packed-script-issue"
              class="list-group-item list-group-item-action">
             Executing the packed bundle directly
           </a>
@@ -85,6 +85,9 @@
     <script src="../../assets/bootstrap-5.3.3/bootstrap.bundle.min.js"></script>
     <script>
       window.addEventListener('DOMContentLoaded', () => {
+          document.querySelector('button.zh').addEventListener("click", (e) => {
+              window.location.replace(window.location.href.replace('/en/', `/zh/`))
+          })
       })
     </script>
   </body>
