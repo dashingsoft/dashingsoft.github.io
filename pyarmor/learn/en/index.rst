@@ -1,9 +1,30 @@
-.. Pyarmor documentation master file, created by
-   sphinx-quickstart on Thu Dec  5 18:30:56 2024.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+==================
+ Learning Pyarmor
+==================
 
-Learn Pyarmor
+:Version: 1.0
+:Homepage: https://github.com/dashingsoft/pyarmor
+
+How the documentation is organized
+==================================
+
+- Concept
+- Usage
+- Specification
+- Instances
+- How to do
+- Faq
+
+目录
+====
+
+.. toctree::
+   :caption: Learning Pyarmor
+   :name: learndoc
+   :numbered:
+   :maxdepth: 3
+
+   how-to
 
 Indices and tables
 ==================
