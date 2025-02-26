@@ -1,8 +1,7 @@
 name: pyarmor-smoke-test
 run-name: ${{ github.actor }} is testing Pyarmor
 on:
-  push
-  # create
+  create
 
 jobs:
   test-free-threading:
