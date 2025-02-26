@@ -70,3 +70,19 @@ html_static_path = ['_static']
 # order to make the URL links work properly, an appropriate target
 # attribute must be set, such as "_top" and "_blank".
 graphviz_output_format = 'svg'
+
+# Change language by modify `view page source`
+js_switch_lang = '''
+window.addEventListener("DOMContentLoaded", () => {
+    // View page source
+    const elment = document.querySelector("ul.wy-breadcrumbs > li.wy-breadcrumbs-aside > a")
+    element.innerHTML = "English"
+    element.addEventListener("click", (e) => {
+        e.preventDefault()
+        window.location.replace(window.location.href.replace("/zh/", "/en/"))
+    })
+'''
+
+html_js_files = [
+    (None, {'body': js_switch_lang}),
+]
