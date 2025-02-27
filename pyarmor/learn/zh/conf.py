@@ -74,12 +74,13 @@ graphviz_output_format = 'svg'
 js_switch_lang = '''
 window.addEventListener("DOMContentLoaded", () => {
     // View page source
-    const element = document.querySelector("ul.wy-breadcrumbs > li.wy-breadcrumbs-aside > a")
+    const element = document.querySelector("ul.this-page-menu > li > a")
     element.innerHTML = "English"
     element.addEventListener("click", (e) => {
         e.preventDefault()
         window.location.assign(window.location.href.replace("/zh/", "/en/"))
     })
+    document.querySelector('div.sphinxsidebarwrapper > div[aria-label="source link"] > h3').innerHTML = "Language"
 })
 '''
 

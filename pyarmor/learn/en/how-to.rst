@@ -2,11 +2,6 @@
  How to
 ========
 
-.. contents:: Content
-   :depth: 2
-   :local:
-   :backlinks: top
-
 .. highlight:: console
 
 .. _how-to-license:
