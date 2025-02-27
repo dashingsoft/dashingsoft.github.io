@@ -12,11 +12,10 @@ How the documentation is organized
 - Usage
 - Specification
 - Instances
-- How to do
-- Faq
+- How to
 
-目录
-====
+Table of content
+================
 
 .. toctree::
    :caption: Learning Pyarmor
