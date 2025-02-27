@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Learn Pyarmor'
+project = 'Pyarmor Learning System'
 copyright = '2025, Dashingsoft Corp.'
 author = 'Jondy Zhao'
 

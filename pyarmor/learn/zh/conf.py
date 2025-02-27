@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = '学习 Pyarmor'
+project = 'Pyarmor 学习系统'
 copyright = '2025, 德新科技'
 author = '赵俊德'
 
