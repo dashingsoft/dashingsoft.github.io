@@ -18,7 +18,7 @@
       window.addEventListener('DOMContentLoaded', () => {
           const lang = navigator.language.startsWith('zh-') ? 'zh' : 'en'
           const url = window.location.href.replace('/index.html', `/${lang}/index.html`)
-          window.location.replace(url.endsWith('/index.html') ? url : `${url}/${lang}/index.html`)
+          window.location.replace(url.endsWith('/index.html') ? url : `${url}${lang}/index.html`)
       })
     </script>
   </body>
