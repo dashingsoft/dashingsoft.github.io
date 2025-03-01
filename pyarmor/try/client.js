@@ -29,6 +29,10 @@ const start_build = (target) => {
     const scriptName = document.getElementById('scriptName').value
     const pyver = document.getElementById('pythonVersion').value
     const content = document.getElementById('scriptContent').value
+    if (!content) {
+        on_task_error(msgdata.empty_script)
+        return
+    }
 
     const paras = {
         script: scriptName,
@@ -114,7 +118,6 @@ const enable_download_link = (data) => {
     resultModal.querySelector('.modal-body > div.alert:nth-child(1)').classList.add('d-none')
     resultModal.querySelector('.modal-body > div.alert:nth-child(2)').classList.add('d-none')
     resultModal.querySelector('.modal-body > div.alert:nth-child(3)').classList.remove('d-none')
-    console.log(data)
 }
 
 const query_task = () => {
@@ -164,7 +167,7 @@ if (resultModal) {
     })
 
     resultModal.addEventListener('hidden.bs.modal', event => {
-        if (taskStatus == 2) {
+        if (taskStatus < 10) {
             const modal = new bootstrap.Modal(confirmModal)
             modal.show()
         }

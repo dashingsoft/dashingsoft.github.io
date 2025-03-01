@@ -8,13 +8,14 @@
   </head>
   <body>
     <h3 class="m-3">Pyarmor Sandbox</h3>
+    <button class="btn btn-light btn-sm mx-3 zh">中文</button>
 
     <div class="p-3">
       <div class="form-floating mb-3">
         <input type="text"
                class="form-control"
                id="scriptName"
-               placeholder="foo.py">
+               value="foo.py">
         <label for="scriptName">Script Name</label>
       </div>
       <div class="form-floating mb-3">
@@ -41,29 +42,144 @@
           Enable Freethreading
         </label>
       </div>
-      <div class="mb-3" role="group">
+      <div class="build-action-group mb-3" role="group">
         <button type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#resultModal"
+                data-bs-whatever="rft"
                 class="btn btn-light">
           Build RFT Script
         </button>
         <button type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#resultModal"
+                data-bs-whatever="mini"
                 class="btn btn-light">
           Build Mini Script
         </button>
         <button type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#resultModal"
+                data-bs-whatever="mini-rft"
                 class="btn btn-light">
           Build Mini+RFT Script
         </button>
       </div>
       <div class="form-floating mb-3">
         <textarea class="form-control"
-                  placeholder="Leave a comment here"
                   id="scriptContent"
-                  style="height: 30rem"></textarea>
+                  max-length="8096"
+                  min-length="1"
+                  style="height: 30rem">print('Hello world!')</textarea>
         <label for="scriptContent">Script(maximum 8K)</label>
       </div>
     </div>
 
+    <div class="modal fade"
+         id="resultModal"
+         tabindex="-1"
+         aria-labelledby="resultModalLabel"
+         aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5"
+                id="resultModalLabel">Building</h1>
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-primary d-flex align-items-center"
+                 role="alert">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Running ...</span>
+              </div>
+              <div class="px-3">
+                It's building, please waiting for
+                <span id="worktime" class="px-2">0</span>seconds
+              </div>
+            </div>
+            <div class="alert alert-primary d-flex align-items-center d-none"
+                 role="alert">
+              Failed to generate the obfuscated scripts:
+              <span id="errmsg" class="px-2"></span>
+            </div>
+            <div class="alert alert-primary d-none"
+                 role="alert">
+              <p>The obfuscated script has been generated successfully
+              <a href="#"
+                 download="foo.py"
+                 class="btn btn-info">click here to download</a>
+              </p>
+              <hr>
+              <p>
+                Before run mini-script, please install this prerequsite <pre>pip install pyarmor.mini</pre>
+              </p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button"
+                    class="btn btn-outline-secondary"
+                    data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade"
+         id="confirmModal"
+         aria-hidden="true"
+         aria-labelledby="comfirmModalToggleLabel"
+         tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5"
+                id="confirmModalToggleLabel">Confirmation</h1>
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-primary d-flex align-items-center"
+                 role="alert">
+              It's generating obfuscated scripts now, are you sure to abort?
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-light"
+                    data-bs-target="#resultModal"
+                    data-bs-toggle="modal">
+              Still waiting
+            </button>
+            <button type="button"
+                    class="btn btn-light"
+                    data-bs-dismiss="modal"
+                    aria-label="Close">
+              Abort and quit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="../../assets/bootstrap-5.3.3/bootstrap.bundle.min.js"></script>
+    <script>
+      const msgdata = {
+          empty_script: "no content in script ",
+      }
+      window.addEventListener("DOMContentLoaded", () => {
+          document.querySelector("button.zh").addEventListener("click", (e) => {
+              window.location.replace(window.location.href.replace("/en/", "/zh/"))
+          })
+      })
+    </script>
+    <script src="../client.js"></script>
+
   </body>
 </html>
