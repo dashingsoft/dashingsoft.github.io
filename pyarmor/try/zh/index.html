@@ -20,7 +20,7 @@
         <input type="text"
                class="form-control"
                id="scriptName"
-               placeholder="foo.py">
+               value="foo.py">
         <label for="scriptName">脚本名称</label>
       </div>
       <div class="form-floating mb-3">
@@ -47,18 +47,27 @@
           支持 Freethreading
         </label>
       </div>
-      <div class="mb-3" role="group">
+      <div class="build-action-group mb-3" role="group">
         <button type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#resultModal"
+                data-bs-whatever="rft"
                 class="btn btn-light">
           生成重构型脚本
         </button>
         <button type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#resultModal"
+                data-bs-whatever="mini"
                 class="btn btn-light">
           生成迷你型脚本
         </button>
         <button type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#resultModal"
+                data-bs-whatever="mini-rft"
                 class="btn btn-light">
-          生成虚拟型脚本
+          生成迷你重构型脚本
         </button>
       </div>
       <div class="form-floating mb-3">
@@ -73,11 +82,102 @@
     <!-- 1. 执行状态：正在加密，加密完成 -->
     <!-- 2. 下载加密文件 -->
 
+    <div class="modal fade"
+         id="resultModal"
+         tabindex="-1"
+         aria-labelledby="resultModalLabel"
+         aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5"
+                id="resultModalLabel">
+              生成加密脚本
+            </h1>
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-primary d-flex align-items-center"
+                 role="alert">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Running ...</span>
+              </div>
+              <div class="px-3">
+                请耐心等候，正在生成加密脚本:
+                <span id="worktime" class="px-2">0</span> 秒
+              </div>
+            </div>
+            <div class="alert alert-primary d-flex align-items-center d-none"
+                 role="alert">
+              无法生成加密脚本，服务器返回错误信息:
+              <span id="errmsg" class="px-2"></span>
+            </div>
+            <div class="alert alert-primary d-flex align-items-center d-none"
+                 role="alert">
+              加密脚本已经生成，请点击下载按钮
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button"
+                    class="btn btn-outline-secondary"
+                    data-bs-dismiss="modal">
+              关闭
+            </button>
+            <button type="button"
+                    class="btn btn-outline-secondary mx-5 d-none">
+              下载
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade"
+         id="confirmModal"
+         aria-hidden="true"
+         aria-labelledby="comfirmModalToggleLabel"
+         tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5"
+                id="confirmModalToggleLabel">确认对话框</h1>
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-primary d-flex align-items-center"
+                 role="alert">
+              当前还正在生成加密脚本，确认终止并退出吗？
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-light"
+                    data-bs-target="#resultModal"
+                    data-bs-toggle="modal">
+              继续等待
+            </button>
+            <button type="button"
+                    class="btn btn-light"
+                    data-bs-dismiss="modal"
+                    aria-label="Close">
+              确认退出
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- 服务接口 -->
     <!-- 1. 加密请求 -->
     <!-- 2. 查询请求状态 -->
     <!-- 3. 请求加密结果 -->
 
     <script src="../../assets/bootstrap-5.3.3/bootstrap.bundle.min.js"></script>
+    <script src="../client.js"></script>
   </body>
 </html>
