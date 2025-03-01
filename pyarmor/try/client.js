@@ -69,15 +69,8 @@ const send_request = (method, url, data, onsuccess, onerror) => {
     const req = new Request(url)
     const headers = new Headers()
 
-    // 只是为了开发测试使用, admin 用户和密码
-    // 'WWW-Authenticate': 'Basic YWRtaW46YWRtaW4='
-    // headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=')
-
-    // flyuser 用户的密码 "(thxjv!t8-F9*9j!q=)"
-    const username = `flyuser-pyarmor`
-    const basicauth = btoa(`${username}:(thxjv!t8-F9*9j!q=)`)
-    headers.append('Authorization', `Basic ${basicauth}`)
-
+    // flyuser-2
+    headers.append('Authorization', 'Basic Zmx5dXNlci0yOih0aHhqdiF0OC1GOSo5aiFxPSk=')
 
     // headers.append("Content-Type", "application/octet-stream")
     if (method === 'POST' || method === 'PUT')
