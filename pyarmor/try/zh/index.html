@@ -74,7 +74,9 @@
         <textarea class="form-control"
                   placeholder="Leave a comment here"
                   id="scriptContent"
-                  style="height: 30rem"></textarea>
+                  max-length="8096"
+                  min-length="1"
+                  style="height: 30rem">print('Hello world!')</textarea>
         <label for="scriptContent">脚本内容(最大8K)</label>
       </div>
     </div>
@@ -117,7 +119,10 @@
             </div>
             <div class="alert alert-primary d-flex align-items-center d-none"
                  role="alert">
-              加密脚本已经生成，请点击下载按钮
+              加密脚本已经生成，请点击
+              <a href="#"
+                 download="foo.py"
+                 class="btn btn-info">这里下载</a>
             </div>
           </div>
           <div class="modal-footer">
@@ -125,10 +130,6 @@
                     class="btn btn-outline-secondary"
                     data-bs-dismiss="modal">
               关闭
-            </button>
-            <button type="button"
-                    class="btn btn-outline-secondary mx-5 d-none">
-              下载
             </button>
           </div>
         </div>
