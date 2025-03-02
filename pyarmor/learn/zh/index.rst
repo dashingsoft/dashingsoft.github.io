@@ -17,14 +17,18 @@
           node [shape=box, style=rounded]
 
           c1 [label="Pyarmor 命令行工具"
-              href="concepts.html#pyarmor-cli"]
+              href="concepts.html#pyarmor-cli"
+              target="_top"]
           c2 [label="Pyarmor 许可证"
-              href="https://pyarmor.readthedocs.io/zh/latest/licenses.html"]
+              href="https://pyarmor.readthedocs.io/zh/latest/licenses.html"
+              target="_top"]
           c3 [label="Pyarmor 工程"
-              href="concepts.html#project"]
+              href="concepts.html#project"
+              target="_top"]
           c4 [label="Python 脚本", shape=plaintext]
           c5 [label="加密脚本"
-              href="concepts.html#obf-scripts"]
+              href="concepts.html#obf-scripts"
+              target="_top"]
 
           c4 -> c3 [arrowhead=tee, label="组成"]
           rank=same {c3 -> c1}

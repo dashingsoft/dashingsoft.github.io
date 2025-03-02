@@ -157,7 +157,7 @@ Pyarmor 工程
      - 需要
      - 不可逆程度较低，但是执行速度较高，适用于 Web 服务等类型
    * - 重构型
-     - 最低
+     - 较高
      - 最高
      - 不需要
      - 和普通 Python 脚本完全一样，主要是对 Python 语句进行了重构，所以不需要额外的扩展模块，适用范围更广，包括用于 WASM，也可以继续使用任意工具，例如 Nuitka，Cython 等进一步处理
@@ -178,13 +178,13 @@ Pyarmor 工程
 
 例如，一个 Python 脚本 `foo.py`
 
-.. code:: python
+.. code-block:: python
 
    print('Hello')
 
 使用 Pyarmor 生成迷你型加密脚本之后，输出的 `dist/foo.py` 内容如下
 
-.. code:: python
+.. code-block:: python
 
    from pyarmor_mini import __pyarmor__
    __pyarmor__(__name__, b'xxxx')
@@ -204,7 +204,7 @@ Pyarmor 工程
 
 例如，一个 Python 脚本 `foo.py`
 
-.. code:: python
+.. code-block:: python
    :linenos:
 
    msg = 'Hello'
@@ -212,7 +212,7 @@ Pyarmor 工程
 
 使用 Pyarmor 生成重构型加密脚本之后，输出的 `dist/foo.py` 内容如下
 
-.. code:: python
+.. code-block:: python
    :linenos:
 
    pyarmor__1 = 'Hello'
