@@ -1,17 +1,116 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<!doctype html>
+<html data-bs-theme="auto">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pyarmor Learning System</title>
+    <link href="assets/bootstrap-5.3.3/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <h3>Pyarmor Learning System</h3>
-    <ul>
-      <li><a href="learn/index.html">Learn</a></li>
-      <li><a href="try/index.html">Try</a></li>
-      <li><a href="ask/index.html">Ask</a></li>
-      <li><a href="docs/index.html">Docs</a></li>
-    </ul>
+    <div class="part-en">
+      <h3 class="m-3">Pyarmor Learning System</h3>
+      <button class="btn btn-light btn-sm zh mx-3">中文</button>
+      <div class="row row-cols-1 row-cols-md-4 g-4 my-3 mx-2">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">Learn</h5>
+              <a href="learn/en/index.html" class="btn btn-light">
+                Learn Pyarmor concepts, how to use Pyarmor and how to fix issues
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">Try</h5>
+              <a href="try/en/index.html" class="btn btn-light">
+                Try some features which not in trial version
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">Ask</h5>
+              <a href="learn/en/index.html" class="btn btn-light">
+                Something is wrong, or something is not ure, ask Pyarmor
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">Docs</h5>
+              <a href="learn/en/index.html" class="btn btn-light">
+                Pyarmor 9.1 new features online documentation
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="part-zh d-none">
+      <h3 class="m-3">Pyarmor 学习系统</h3>
+      <button class="btn btn-light btn-sm en mx-3">English</button>
+      <div class="row row-cols-1 row-cols-md-4 g-4 my-3 mx-2">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">学习</h5>
+              <a href="learn/zh/index.html" class="btn btn-light">
+                学习 Pyarmor 的概念，以及如何使用 Pyarmor 和解决常见问题
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">在线试用</h5>
+              <a href="try/zh/index.html" class="btn btn-light">
+                在线使用 Pyarmor 的加密功能，特别是某些在试用版本中没有的功能
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">答疑解惑</h5>
+              <a href="learn/zh/index.html" class="btn btn-light">
+                当出现问题需要解决的时候，或者对某些功能有疑惑，在这里答疑解惑
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">文档</h5>
+              <a href="learn/zh/index.html" class="btn btn-light">
+                Pyarmor 9.1 新功能的在线文档
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    window.addEventListener("DOMContentLoaded", () => {
+        document.querySelector("button.zh").addEventListener("click", (e) => {
+            document.querySelector("div.part-zh").classList.remove('d-none')
+            document.querySelector("div.part-en").classList.add('d-none')
+        })
+        document.querySelector("button.en").addEventListener("click", (e) => {
+            document.querySelector("div.part-zh").classList.add('d-none')
+            document.querySelector("div.part-en").classList.remove('d-none')
+        })
+    })
+    </script>
   </body>
 </html>
