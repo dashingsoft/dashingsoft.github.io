@@ -128,8 +128,8 @@ Pyarmor 工程
           style="setlinewidth(0)"
 
           std [label="标准型", target="_top", href="https://pyarmor.readthedocs.io/zh/latest/tutorial/getting-started.html"]
-          rft [label="重构型", target="_top", href="#rft-script"]
-          mini [label="迷你型", target="_top", href="#mini-script"]
+          rft [label="重构型", target="_top", href="concepts.rst#rft-script"]
+          mini [label="迷你型", target="_top", href="./#mini-script"]
       }
 
       edge [style=invis]
