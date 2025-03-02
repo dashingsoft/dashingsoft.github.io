@@ -31,7 +31,7 @@ How to fix issues when generating obfuscated scripts
    :name: graph-generate-script-issue
 
    digraph G {
-      node [shape=box, style=rounded]
+      node [shape=box, style=rounded, target="_top"]
 
       start [shape="doublecircle", label="",
              style="filled", fillcolor="wheat"]
@@ -90,7 +90,7 @@ How to fix issues when packing obfuscated scripts
    :name: graph-pack-script-issue
 
    digraph G {
-      node [shape=box, style=rounded]
+      node [shape=box, style=rounded, target="_top"]
 
       start [shape="doublecircle", label="",
              style="filled", fillcolor="wheat"]
@@ -121,7 +121,7 @@ How to fix issues when executing obfuscated script
    :name: graph-run-obfuscated-script-issue
 
    digraph G {
-      node [shape=box, style=rounded]
+      node [shape=box, style=rounded, target="_top"]
 
       start [shape="doublecircle", label="",
              style="filled", fillcolor="wheat"]
@@ -199,7 +199,7 @@ How to fix issues when executing obfuscated script
    :name: graph-fix-runtime-crash-issue
 
    digraph G {
-      node [shape=box, style=rounded]
+      node [shape=box, style=rounded, target="_top"]
 
       start [shape="doublecircle", label="",
              style="filled", fillcolor="wheat"]
@@ -242,7 +242,7 @@ How to fix issues when executing packed bundle
    :name: graph-run-packed-script-issue
 
    digraph G {
-      node [shape=box, style=rounded]
+      node [shape=box, style=rounded, target="_top"]
 
       start [shape="doublecircle", label="",
              style="filled", fillcolor="wheat"]

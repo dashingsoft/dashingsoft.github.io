@@ -56,16 +56,22 @@
              ]
 
           n1 [href="https://pyarmor.readthedocs.io/zh/latest/reference/solutions.html#fix-register-issue"
+              target="_top"
               label="请查看注册失败问题的解决方案"]
           n2 [href="https://pyarmor.readthedocs.io/zh/latest/licenses.html"
+              target="_top"
               label="使用了未解锁的功能\n请查看 Pyarmor 许可证类型说明文档"]
           n3 [href="https://github.com/dashingsoft/pyarmor/issues"
+              target="_top"
               label="提交报告问题\n能够重现问题的最少加密选项\n出现问题的代码片段\n错误堆栈的详细信息"]
           n4 [href="https://pyarmor.readthedocs.io/zh/latest/reference/man.html#pyarmor-gen"
+              target="_top"
               label="请查看 Pyarmor 的命令手册\n了解各个选项的正确用法"]
           n5 [href="https://pyarmor.readthedocs.io/zh/latest/reference/solutions.html#fix-bootstrap-issue"
+              target="_top"
               label="请参考Pyarmor启动失败的解决方案"]
           nr [href="https://github.com/dashingsoft/pyarmor/issues"
+              target="_top"
               label="提交报告问题，包含\n加密脚本使用的最少选项\n未使用第三方库的测试脚本"]
       }
 
@@ -97,9 +103,9 @@
 
       s1 [label="确保直接使用 PyInstaller 打包没有加密的脚本\n可以成功打包并执行"]
       s2 [label="确保不使用 --pack 选项，仅仅加密脚本\n可以成功生成加密脚本"]
-      s3 [style="filled,rounded",
-          fillcolor="burlywood",
+      s3 [style="filled,rounded", fillcolor="burlywood",
           href="https://pyarmor.readthedocs.io/zh/latest/topic/repack.html"
+          target="_top"
           label="参考关于打包的详细说明文档"]
 
       start -> s1 -> s2 -> s3
@@ -150,29 +156,34 @@
              style="filled,rounded",
              fillcolor="burlywood",
              ]
-          n1 [
+          n1 [target="_top"
               href="https://pyarmor.readthedocs.io/zh/latest/tutorial/advanced.html#generating-cross-platform-scripts"
               label="请参考跨平台发布的解决方案"]
-          n2 [
+          n2 [target="_top"
               href="https://pyarmor.readthedocs.io/zh/latest/tutorial/advanced.html#support-multiple-python-versions"
               label="请使用相同版本的 Python 加密脚本\n如果需要支持不同版本的 Python\n请参考跨版本发布问题的解决方案"]
           n3 [href="https://pyarmor.readthedocs.io/zh/latest/reference/errors.html"
+              target="_top"
               label="请参考错误信息表查找相应的解决方案"]
           n4 [style=rounded
               label="请尝试在脚本中增加 print 语句\n找到导致问题出现的语句"]
           n5 [href="#graph-fix-runtime-crash-issue"
+              target="_top"
               label="请参考运行加密脚本崩溃解决方案"]
-          n6 [
+          n6 [target="_top"
               href="https://pyarmor.readthedocs.io/zh/latest/topic/rftmode.html"
               label="请参考 RFT 专题文档"]
-          n7 [
+          n7 [target="_top"
               href="https://pyarmor.readthedocs.io/zh/latest/topic/bccmode.html"
               label="请参考 BCC 专题文档"]
           n8 [href="https://pyarmor.readthedocs.io/zh/latest/reference/man.html#pyarmor-gen"
+              target="_top"
               label="详细了解相关选项的使用方法\n使用正确的约束选项\n或者修改脚本满足约束要求"]
           n9 [href="https://pyarmor.readthedocs.io/zh/latest/how-to/third-party.html"
+              target="_top"
               label="请参考常用第三方库解决方案"]
           n10 [href="https://github.com/dashingsoft/pyarmor/issues"
+               target="_top"
                label="提交报告问题，包含\n加密脚本使用的最少选项\n未使用第三方库的测试脚本"]
       }
 
@@ -216,6 +227,7 @@
           node [
              style="filled,rounded",
              fillcolor="burlywood",
+             target="_top"
              ]
           n1 [label="使用 codesign 命令检查\n加密脚本扩展模块 pyarmor_runtime.so 的签名是否正确\n如果不正确，请使用 codesign 对其重新签名"]
           n2 [href="https://pyarmor.readthedocs.io/zh/latest/topic/obfuscated-script.html"
@@ -242,7 +254,7 @@
    :name: graph-run-packed-script-issue
 
    digraph G {
-      node [shape=box, style=rounded]
+      node [shape=box, style=rounded, target="_top"]
 
       start [shape="doublecircle", label="",
              style="filled", fillcolor="wheat"]

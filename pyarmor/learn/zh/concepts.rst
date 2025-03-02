@@ -65,7 +65,7 @@ Pyarmor 命令行工具是提供了命令行操作方式的一个应用程序
       project [label="工程"]
       miniscript [label="迷你型加密脚本"]
       rftscript [label="重构型加密脚本"]
-      license [shape=component, label="Pyarmor 许可证", href="https://pyarmor.readthedocs.io/zh/latest/licenses.html"]
+      license [shape=component, label="Pyarmor 许可证", target="_top", href="https://pyarmor.readthedocs.io/zh/latest/licenses.html"]
       joint [shape=point]
 
       init -> project [label="创建"]
@@ -127,9 +127,9 @@ Pyarmor 工程
           label="加密脚本类型"
           style="setlinewidth(0)"
 
-          std [label="标准型", href="https://pyarmor.readthedocs.io/zh/latest/tutorial/getting-started.html"]
-          rft [label="重构型", href="#rft-script"]
-          mini [label="迷你型", href="#mini-script"]
+          std [label="标准型", target="_top", href="https://pyarmor.readthedocs.io/zh/latest/tutorial/getting-started.html"]
+          rft [label="重构型", target="_top", href="#rft-script"]
+          mini [label="迷你型", target="_top", href="#mini-script"]
       }
 
       edge [style=invis]
