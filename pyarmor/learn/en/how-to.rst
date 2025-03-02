@@ -72,12 +72,11 @@ How to fix issues when generating obfuscated scripts
       start -> s1 -> s2 -> s3 -> s4 -> s5 -> nr
       s31 -> n3
 
-      edge [tailport=se]
-      s1 -> n1 [label="Yes"]
-      s2 -> n2 [label="Yes"]
-      s3 -> s31 [label="Works"]
-      s4 -> n4 [label="Works"]
-      s5 -> n5 [label="Error"]
+      rank=same { s1 -> n1 [label="Yes"] }
+      rank=same { s2 -> n2 [label="Yes"] }
+      rank=same { s3 -> s31 [label="Works"] }
+      rank=same { s4 -> n4 [label="Works"] }
+      rank=same { s5 -> n5 [label="Error"] }
    }
 
 .. _pack-script-issue:
@@ -186,13 +185,12 @@ How to fix issues when executing obfuscated script
       n4 -> s4
       n5 -> s4
 
-      edge [tailport=se]
-      s1 -> n1 [label="No"]
-      s2 -> n2 [label="No"]
-      s4 -> n6 [label="Yes"]
-      s5 -> n7 [label="Yes"]
-      s6 -> n8 [label="Yes"]
-      s7 -> n9 [label="Yes"]
+      rank=same { s1 -> n1 [label="No"] }
+      rank=same { s2 -> n2 [label="No"] }
+      rank=same { s4 -> n6 [label="Yes"] }
+      rank=same { s5 -> n7 [label="Yes"] }
+      rank=same { s6 -> n8 [label="Yes"] }
+      rank=same { s7 -> n9 [label="Yes"] }
    }
 
 .. graphviz::
@@ -229,9 +227,8 @@ How to fix issues when executing obfuscated script
       start -> s1
       s1 -> s2 -> n3
 
-      edge [tailport=se]
-      s1 -> n1 [label="Yes"]
-      s2 -> n2 [label="Not CPython"]
+      rank=same { s1 -> n1 [label="Yes"] }
+      rank=same { s2 -> n2 [label="Not CPython"] }
    }
 
 .. _run-packed-script-issue:
@@ -290,9 +287,7 @@ How to fix issues when executing packed bundle
       start -> s2
       s6 -> n3
 
-      edge [tailport=se]
-
-      s2 -> n1 [label="Error"]
-      s3 -> n2 [label="Error"]
-      s6 -> n4 [label="Error" tailport=e]
+      rank=same { s2 -> n1 [label="Error"] }
+      rank=same { s3 -> n2 [label="Error"] }
+      rank=same { s6 -> n4 [label="Error"] }
    }

@@ -72,12 +72,11 @@
       start -> s1 -> s2 -> s3 -> s4 -> s5 -> nr
       s31 -> n3
 
-      edge [tailport=se]
-      s1 -> n1 [label="是"]
-      s2 -> n2 [label="是"]
-      s3 -> s31 [label="成功"]
-      s4 -> n4 [label="成功"]
-      s5 -> n5 [label="出错了"]
+      rank=same { s1 -> n1 [label="是"] }
+      rank=same { s2 -> n2 [label="是"] }
+      rank=same { s3 -> s31 [label="成功"] }
+      rank=same { s4 -> n4 [label="成功"] }
+      rank=same { s5 -> n5 [label="出错了"] }
    }
 
 .. _pack-script-issue:
@@ -186,13 +185,12 @@
       n4 -> s4
       n5 -> s4
 
-      edge [tailport=se]
-      s1 -> n1 [label="不相同"]
-      s2 -> n2 [label="不相同"]
-      s4 -> n6 [label="RFT 模式错误"]
-      s5 -> n7 [label="BCC 模式错误"]
-      s6 -> n8 [label="约束模式错误"]
-      s7 -> n9 [label="第三方库错误"]
+      rank=same { s1 -> n1 [label="不相同"] }
+      rank=same { s2 -> n2 [label="不相同"] }
+      rank=same { s4 -> n6 [label="RFT 模式错误"] }
+      rank=same { s5 -> n7 [label="BCC 模式错误"] }
+      rank=same { s6 -> n8 [label="约束模式错误"] }
+      rank=same { s7 -> n9 [label="第三方库错误"] }
    }
 
 .. graphviz::
@@ -229,9 +227,8 @@
       start -> s1
       s1 -> s2 -> n3
 
-      edge [tailport=se]
-      s1 -> n1 [label="是"]
-      s2 -> n2 [label="不是 CPython 解释器"]
+      rank=same { s1 -> n1 [label="是"] }
+      rank=same { s2 -> n2 [label="不是 CPython 解释器"] }
    }
 
 .. _run-packed-script-issue:
@@ -290,9 +287,7 @@
       start -> s2
       s6 -> n3
 
-      edge [tailport=se]
-
-      s2 -> n1 [label="出错了"]
-      s3 -> n2 [label="出错了"]
-      s6 -> n4 [label="出错了" tailport=e]
+      rank=same { s2 -> n1 [label="出错了"] }
+      rank=same { s3 -> n2 [label="出错了"] }
+      rank=same { s6 -> n4 [label="出错了"] }
    }
