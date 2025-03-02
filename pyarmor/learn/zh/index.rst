@@ -5,28 +5,39 @@
 :版本: 1.0
 :项目: https://github.com/dashingsoft/pyarmor
 
-文档组织结构
-============
+这里重点介绍的是 Pyarmor 9.1 新增中的功能和特性，对于以前版本中已经具备的功能，请参阅 `Pyarmor 9.0 文档 <https://pyarmor.readthedocs.io/zh/latest>`_
 
-- 概念定义
-- 使用方法
-- 工作原理
-- 详细示例
-- 解决问题
+.. graphviz::
+   :caption: Pyarmor 组成和结构
+   :align: center
+   :name: master-graph
+
+   digraph G {
+
+          node [shape=box, style=rounded]
+
+          c1 [label="Pyarmor 命令行工具"
+              href="concept.html#pyarmor-cli"]
+          c2 [label="Pyarmor 许可证"
+              href="https://pyarmor.readthedocs.io/zh/latest/licenses.html"]
+          c3 [label="Pyarmor 工程"
+              href="concept.html#project"]
+          c4 [label="Python 脚本", shape=plaintext]
+          c5 [label="加密脚本"
+              href="concept.html#obfuscated-scripts"]
+
+          c4 -> c3 [arrowhead=tee, label="组成"]
+          c3 -> c1
+          c2 -> c1
+          c1 -> c5
+   }
 
 目录
 ====
 
 .. toctree::
    :caption: 学习 Pyarmor
-   :name: learndoc
-   :maxdepth: 2
+   :name: master-toc
+   :maxdepth: 1
 
    how-to
-
-索引表
-======
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
