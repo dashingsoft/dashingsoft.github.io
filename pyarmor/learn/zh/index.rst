@@ -17,17 +17,17 @@
           node [shape=box, style=rounded]
 
           c1 [label="Pyarmor 命令行工具"
-              href="concept.html#pyarmor-cli"]
+              href="concepts.html#pyarmor-cli"]
           c2 [label="Pyarmor 许可证"
               href="https://pyarmor.readthedocs.io/zh/latest/licenses.html"]
           c3 [label="Pyarmor 工程"
-              href="concept.html#project"]
+              href="concepts.html#project"]
           c4 [label="Python 脚本", shape=plaintext]
           c5 [label="加密脚本"
-              href="concept.html#obfuscated-scripts"]
+              href="concepts.html#obf-scripts"]
 
           c4 -> c3 [arrowhead=tee, label="组成"]
-          c3 -> c1
+          rank=same {c3 -> c1}
           c2 -> c1
           c1 -> c5
    }
@@ -38,6 +38,7 @@
 .. toctree::
    :caption: 学习 Pyarmor
    :name: master-toc
-   :maxdepth: 1
+   :maxdepth: 2
 
+   concepts
    how-to
