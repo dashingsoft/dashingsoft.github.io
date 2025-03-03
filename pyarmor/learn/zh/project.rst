@@ -39,6 +39,24 @@
 工程属性
 ========
 
+.. graphviz::
+   :caption: 工程属性
+   :align: center
+   :name: g-project-options
+
+   digraph G {
+      node [shape=box, style=rounded, target="_top"]
+      rankdir=LR
+
+      project [shape=record
+               label="src|scripts|modules|packages|search_mode|recursive"
+               href="../../docs/zh/user/configutation.html"]
+      rft [label="重构选项", href="project.html#rft-options"]
+
+      edge [style=invis]
+      project -> rft
+   }
+
 .. _rft-options:
 
 重构选项
@@ -50,14 +68,9 @@
 
    digraph G {
       node [shape=box, style=rounded, target="_top"]
+      rankdir=LR
 
-      subgraph C {
-          cluster=true
-          label="子命令"
-          style="setlinewidth(0)"
-
-          init [label="pyarmor init", href="commands.html#cmd-init"]
-          env [label="pyarmor env", href="commands.html#cmd-env"]
-          build [label="pyarmor build", href="commands.html#cmd-build"]
-      }
+      rft [shape=record
+           label="remove_assert|remove_docstr|builtin_mode|argument_mode|auto_export_mode|exclude_names|exclude_funcs|attr_rules|call_rules|extra_builtins|external_types|external_attrs"
+           href="../../docs/zh/user/configutation.html#rft-section"]
    }

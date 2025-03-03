@@ -18,3 +18,8 @@ pyarmor env
 
 pyarmor build
 =============
+
+.. _config-file:
+
+配置文件
+========
