@@ -160,7 +160,7 @@ How to fix issues when executing obfuscated script
               label="Please check error message table to find solution"]
           n4 [style=rounded
               label="Try to add print statement in scripts\nFind the problem lines"]
-          n5 [href="#graph-fix-runtime-crash-issue"
+          n5 [href="how-to.html#graph-fix-runtime-crash-issue"
               label="Please check how to fix crashing issue"]
           n6 [
               href="https://pyarmor.readthedocs.io/en/latest/topic/rftmode.html"
@@ -274,7 +274,7 @@ How to fix issues when executing packed bundle
               href="https://pyinstaller.org/en/stable/usage.html"
               label="Please refer to PyInstaller doc\nMake sure PyInstaller could pack the plain scripts\nAnd the final bundle works in target device"]
           n2 [
-            href="#run-obfuscated-script-issue"
+            href="how-to.html#run-obfuscated-script-issue"
             label="Please check how to fix running obfuscated script issues"]
           n3 [
             href="https://pyarmor.readthedocs.io/en/latest/how-to/third-party.html"

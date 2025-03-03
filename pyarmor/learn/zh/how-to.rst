@@ -167,7 +167,7 @@
               label="请参考错误信息表查找相应的解决方案"]
           n4 [style=rounded
               label="请尝试在脚本中增加 print 语句\n找到导致问题出现的语句"]
-          n5 [href="#graph-fix-runtime-crash-issue"
+          n5 [href="how-to.html#graph-fix-runtime-crash-issue"
               target="_top"
               label="请参考运行加密脚本崩溃解决方案"]
           n6 [target="_top"
@@ -286,7 +286,7 @@
               href="https://pyinstaller.org/en/stable/usage.html"
               label="请参阅 PyInstaller 文档\n确保没有加密的脚本能够正确打包"]
           n2 [
-            href="#run-obfuscated-script-issue"
+            href="how-to.html#run-obfuscated-script-issue"
             label="请使用加密脚本运行错误的解决方案"]
           n3 [
             href="https://pyarmor.readthedocs.io/zh/latest/how-to/third-party.html"
