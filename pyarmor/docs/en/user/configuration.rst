@@ -89,6 +89,7 @@ Set option value. For example::
    * - recursive
      - Enum
      - How to search items in project src
+
        - 0: no search
        - 1: only search modules
        - 2: search modules and packages
@@ -193,9 +194,9 @@ Set option value. For example::
          !modname::scope:a.b.c
          modname::scope:a.b.c *.?.?
 
-      The first line will rename all attributes `b.c`, on the contrary the second form won't
+       The first line will rename all attributes `b.c`, on the contrary the second form won't
 
-      The third form only renames attribute by action `?`
+       The third form only renames attribute by action `?`
    * - call_rules
      - List
      -
@@ -206,7 +207,6 @@ Set option value. For example::
          modname::foo
          modname:::foo*
          modname::Cls.meth:foo
-
    * - extra_builtins
      - List
      -
