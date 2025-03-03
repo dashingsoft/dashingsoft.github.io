@@ -64,8 +64,8 @@ Pyarmor 命令行工具是提供了命令行操作方式的一个应用程序
       build [label="pyarmor build", href="commands.html#cmd-build"]
 
       project [label="工程", href="concepts.html#project"]
-      miniscript [label="迷你型加密脚本", href="concepts.html#mini-script"]]
-      rftscript [label="重构型加密脚本", href="concepts.html#rft-script"]]
+      miniscript [label="迷你型加密脚本", href="concepts.html#mini-script"]
+      rftscript [label="重构型加密脚本", href="concepts.html#rft-script"]
       license [shape=component, label="Pyarmor 许可证", href="https://pyarmor.readthedocs.io/zh/latest/licenses.html"]
       joint [shape=point]
 
@@ -92,7 +92,7 @@ Pyarmor 工程
    :name: g-project-components
 
    digraph G {
-      node [shape=box, style=rounded, target="_top]
+      node [shape=box, style=rounded, target="_top"]
       rankdir="LR"
 
       subgraph C {
@@ -120,7 +120,7 @@ Pyarmor 工程
    :name: g-script-types
 
    digraph G {
-      node [shape=box, style=rounded, target="_top]
+      node [shape=box, style=rounded, target="_top"]
       rankdir="LR"
 
       subgraph C {
