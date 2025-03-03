@@ -20,7 +20,7 @@ pyarmor init
 
    [#]_ pyarmor init -h
 
-   [#]_ pyarmor init [-C] [-s PATH] [-x PATTERN]
+   [#]_ pyarmor init [-C] [-s PATH] [-x PATTERN] [-r {0,1,2,3}]
 
    [#]_ pyarmor init [-e FILE] [-m FILE] [-p PATH]
 
@@ -38,10 +38,6 @@ pyarmor init
 .. option:: -s PATH, --src PATH
 
    工程源路径，相对路径或者绝对路径，默认值是当前路径
-
-   如果工程没有使用选项 :option:`-e` ，:option:`-m` ，:option:`-p` 来指定工程的脚本，模块和包，那么该路径下面的模块和目录会自动增加到工程
-
-   否则，工程只包含指定的模块和包
 
 .. option:: -x PATTERN, --exclude PATTERN
 
@@ -95,6 +91,15 @@ pyarmor init
 
       $ pyarmor init -p lib/src@joker
 
+.. option:: -r, --recursive {0,1,2,3}
+
+   搜索工程目录下面的模块和包的模式
+
+   - 0: 不搜索
+   - 1: 仅搜索工程目录下面的模块
+   - 2: 搜索工程目录下面的模块和包
+   - 3: 递归搜索工程目录下面的子目录中模块和包
+
 .. option:: -C, --clean
 
    在创建工程之前，清空原来的工程设置，创建一个空白工程
@@ -103,15 +108,9 @@ pyarmor init
 
 .. describe:: 用法
 
-   创建一个新的工程，当前路径下面的所有脚本和目录会增加到工程中::
+   创建一个新的工程，增加当前路径下面的所有脚本和目录到工程中::
 
-      $ pyarmor init
-
-   这条命令等价于::
-
-    $ pyarmor init --src . -m "*.py" -p "*"
-
-   在命令行使用通配符需要使用引号，否则可能会出现语法错误
+      $ pyarmor init -r 2
 
    需要把文件或者目录排除在工程之外，使用下面的方式::
 
@@ -139,19 +138,19 @@ pyarmor init
 
 1. 创建一个工程，包含当前目录下面的所有脚本和所有子目录（递归）::
 
-    $ pyarmor init
+    $ pyarmor init -r 3
 
 2. 和上例类似，但是排除目录 venv 和所有 test 开头的脚本::
 
-    $ pyarmor init --exclude venv --exclude "test*.py"
+    $ pyarmor init -r 3 --exclude venv --exclude "test*.py"
 
 3. 修改当前工程的路径，需要使用选项 :option:`-C` 清除原来的工程路径::
 
-    $ pyarmor init -C --src another/src
+    $ pyarmor init -C --src another/src -r 3
 
 4. 创建一个工程，包含其他目录下面的所有脚本和目录::
 
-    $ pyarmor init -s eke/src
+    $ pyarmor init -s eke/src -r 2
 
 5. 创建包含单独一个脚本的工程::
 
@@ -421,7 +420,7 @@ pyarmor build
 
    [#]_ pyarmor build [--mini | --rft | --mini-rft]
 
-   [#]_ pyarmor build [--autofix {0,1}]
+   [#]_ pyarmor build [--autofix {0,1,2,3}]
 
    [#]_ pyarmor build [--randname {0,1}]
 
@@ -450,7 +449,7 @@ pyarmor build
 
      $ pyarmor build --mini-rft
 
-.. option:: --autofix {0,1}
+.. option:: --autofix {0,1,2,3}
 
    该选项可自动生成重构规则，解决重构之后导致的脚本无法运行问题
 
@@ -461,11 +460,6 @@ pyarmor build
    然后在执行相应的构建命令::
 
      $ pyarmor build --rft
-
-   其基本的工作原理是
-
-   - 固定配置 argument_mode = 1
-   - 如果发现某一个属性无法确定其类型，那么这个属性不进行重命名
 
    如果不需要使用自动重构模式，那么使用下面的命令::
 

@@ -71,6 +71,6 @@
       rankdir=LR
 
       rft [shape=record
-           label="remove_assert|remove_docstr|builtin_mode|argument_mode|auto_export_mode|exclude_names|exclude_funcs|attr_rules|call_rules|extra_builtins|external_types|external_attrs"
+           label="remove_assert|remove_docstr|builtin_mode|argument_mode|export_mode|exclude_names|exclude_funcs|attr_rules|call_rules|extra_builtins|external_types|external_attrs"
            href="../../docs/zh/user/configutation.html#rft-section"]
    }

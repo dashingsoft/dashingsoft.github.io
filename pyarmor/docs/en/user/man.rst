@@ -20,7 +20,7 @@ In current path create project, update project and show project information
 
    [#]_ pyarmor init -h
 
-   [#]_ pyarmor init [-C] [-s PATH] [-x PATTERN]
+   [#]_ pyarmor init [-C] [-s PATH] [-x PATTERN] [-r {0,1,2,3}]
 
    [#]_ pyarmor init [-e FILE] [-m FILE] [-p PATH]
 
@@ -37,11 +37,7 @@ In current path create project, update project and show project information
 
 .. option:: -s PATH, --src PATH
 
-   Project path, absolute path
-
-   If no :option:`-e`, :option:`-m`, :option:`-p`, all the modules and packages in this path will be added into this project
-
-   Otherwise, project only includes listed scripts, modules and packages
+   Specify project src, absolute path or relative path
 
 .. option:: -x PATTERN, --exclude PATTERN
 
@@ -95,6 +91,15 @@ In current path create project, update project and show project information
 
       $ pyarmor init -p lib/src@joker
 
+.. option:: -r, --recursive {0,1,2,3}
+
+   How to search items in project src
+
+   - 0: no search
+   - 1: only search modules
+   - 2: search modules and packages
+   - 3: recursively search all modules and packages
+
 .. option:: -C, --clean
 
    Remove all old project information before create new project
@@ -103,17 +108,11 @@ In current path create project, update project and show project information
 
    Create one project, add all scripts and packages in the current path to this project::
 
-      $ pyarmor init
-
-   This command is same as::
-
-    $ pyarmor init --src . -m "*.py" -p "*"
-
-   Quote wildcards in command line, otherwise may complain of syntax errors
+      $ pyarmor init -r 2
 
    If need exclude some files or paths::
 
-      $ pyarmor init --exclude venv --exclude "test*.py"
+      $ pyarmor init -r 2 --exclude venv --exclude "test*.py"
 
    If there has project in current path, this command could show project information::
 
@@ -137,19 +136,19 @@ All of these examples assume there is still no project in work path
 
 1. Create one project which include all the scripts and packages in current path::
 
-    $ pyarmor init
+    $ pyarmor init -r 3
 
 2. Same as above, but not include path `venv` and all scripts which start with `test`::
 
-    $ pyarmor init --exclude venv --exclude "test*.py"
+    $ pyarmor init -r 3 --exclude venv --exclude "test*.py"
 
 3. Update project src, :option:`-C` is required to clean old project::
 
-    $ pyarmor init -C --src another/src
+    $ pyarmor init -C --src another/src -r 3
 
 4. Create one project which src is not current path::
 
-    $ pyarmor init -s eke/src
+    $ pyarmor init -s eke/src -r 2
 
 5. Create one project with only one script::
 
@@ -421,7 +420,7 @@ Generate obfuscated scripts for project
 
    [#]_ pyarmor build [--mini | --rft | --mini-rft]
 
-   [#]_ pyarmor build [--autofix {0,1}]
+   [#]_ pyarmor build [--autofix {0,1,2,3}]
 
    [#]_ pyarmor build [--randname {0,1}]
 
@@ -450,18 +449,13 @@ Generate obfuscated scripts for project
 
      $ pyarmor build --mini-rft
 
-.. option:: --autofix {0,1}
+.. option:: --autofix {0,1,2,3}
 
    This option can simplifying the configuration for refactoring scripts.
 
    First enable auto-fix mode by this way::
 
      $ pyarmor build --autofix 1
-
-   When auto-fix mode is enabled
-
-   - Always `argument_mode = 1`
-   - Search all unknown attributes and add them to exclude table
 
    Then build the project::
 

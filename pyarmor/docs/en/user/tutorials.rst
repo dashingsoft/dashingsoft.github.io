@@ -155,9 +155,9 @@ First create one project with package `tomjson`::
 
 Because the package will be imported by outer scripts, the exported classes and functions can't be renamed
 
-In order to keep these names, one way is to enable option `auto_export_mode`::
+In order to keep these names, one way is to enable option `export_mode`::
 
-  $ pyarmor env -p set rft:auto_export_mode 1
+  $ pyarmor env -p set rft:export_mode 1
 
 Thus all the names list in the module attribute ``__all__`` aren't changed, and
 
@@ -175,9 +175,9 @@ Create Complex Project
 
 Let's create one comple project, include one script `jsontool.py` and package `tomjson`, but no `fibo.py` and path `venv`::
 
-  $ pyarmor init --clean --src . --exclude fibo.py --exclude venv
+  $ pyarmor init --clean --src . -r 2 --exclude fibo.py --exclude venv
 
-Because there is no :option:`--entry`, :option:`--module` and :option:`--package`, so pyarmor will search all the files and paths in the :option:`--src`, all of them except in the excludes will be added into the project.
+Pyarmor will search all the files and paths in the :option:`--src`, all of them except in the excludes will be added into the project.
 
 Check the project items::
 

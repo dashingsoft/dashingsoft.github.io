@@ -72,7 +72,7 @@ Pyarmor 命令行工具是提供了命令行操作方式的一个应用程序
       init -> project [label="创建"]
       env -> project [label="配置"]
 
-      project -> build [label="输入脚本和选项"]
+      project -> build [label="工程中的脚本和选项"]
       build -> miniscript [label="生成"]
       joint -> rftscript [label="生成"]
 

@@ -159,9 +159,9 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
 因为外部模块需要导入包中的类和函数，所以这些输出的名称不能进行重命名
 
-这就需要启用自动输出选项 `auto_export_mode`::
+这就需要启用自动输出选项 `export_mode`::
 
-  $ pyarmor env -p set rft:auto_export_mode 1
+  $ pyarmor env -p set rft:export_mode 1
 
 这样的话，模块属性 ``__all__`` 中列出的名称不会被重命名
 
@@ -185,7 +185,7 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
 下面我们来创建一个工程，包含当前目录下面的脚本 jsontool.py 以及内部包 tomjson，但是不包含 fibo.py 和 venv 目录::
 
-  $ pyarmor init --clean --src . --exclude fibo.py --exclude venv
+  $ pyarmor init --clean --src . -r 2 --exclude fibo.py --exclude venv
 
 该命令会自动搜索 :option:`--src` 下面的文件和目录，把发现的模块和包自动增加到工程中
 

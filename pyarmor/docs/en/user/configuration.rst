@@ -1,6 +1,6 @@
-=======================
- Configuration Options
-=======================
+===============
+ Configuration
+===============
 
 .. contents:: Content
    :depth: 2
@@ -10,6 +10,8 @@
 .. highlight:: console
 
 Bool value is 0, 1
+
+Project configuration is stored in the :file:`.pyarmor/config`
 
 Project Domain
 ==============
@@ -85,8 +87,27 @@ Set option value. For example::
          joker:data
          :find.py
    * - recursive
-     - Bool
-     - Recursively search modules and packages in project src
+     - Enum
+     - How to search items in project src
+       - 0: no search
+       - 1: only search modules
+       - 2: search modules and packages
+       - 3: recursively search all modules and packages
+   * - pypaths
+     - List
+     - Extra Python paths to import module on demand::
+
+         path
+         path,path
+         modname::path,path
+
+       Used by wildcard import or outer base classes. For examle::
+
+         import a
+         from b import *
+
+         class C(a.T):
+             pass
 
 Section: rft
 ------------
@@ -132,7 +153,7 @@ Set option value. For example::
        - 1: only rename position-only arguments
        - 2: rename all the arguments except keyword-only arguments
        - 3: rename all the arguments
-   * - auto_export_mode
+   * - export_mode
      - Bool
      - 0
      - Export all the names list in the module attribute `__all__`
@@ -147,6 +168,8 @@ Set option value. For example::
 
           "inc"
           "dir*"
+          "modname::generic_visit"
+          "modname::Cls.visit_*"
 
        Note that arguments and local variables are always renamed
    * - exclude_funcs
@@ -163,6 +186,27 @@ Set option value. For example::
      - List
      -
      - Define how to rename unknown attributes
+
+       One rule one line. For example::
+
+         modname::scope:a.b.c
+         !modname::scope:a.b.c
+         modname::scope:a.b.c *.?.?
+
+      The first line will rename all attributes `b.c`, on the contrary the second form won't
+
+      The third form only renames attribute by action `?`
+   * - call_rules
+     - List
+     -
+     - Define keywords in which function call should be renamed::
+
+         foo
+         visit*
+         modname::foo
+         modname:::foo*
+         modname::Cls.meth:foo
+
    * - extra_builtins
      - List
      -
@@ -171,3 +215,7 @@ Set option value. For example::
      - List
      -
      - Classes aren't defined in the project
+   * - external_attrs
+     - List
+     -
+     - Outer attributes should not be renamed

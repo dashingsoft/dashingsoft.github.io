@@ -9,6 +9,8 @@
 
 .. highlight:: console
 
+配置选项存放在文件 `.pyarmor/config` 中
+
 布尔类型的值为 0, 1
 
 工程域
@@ -39,6 +41,8 @@
    * - scripts
      - 文件列表
      - 工程的脚本，可以为空，也可以是一个或者多个文件
+
+       脚本一般是不会被工程中其他脚本和模块导入，是直接被执行的文件
 
        文件是相对于 src 的路径或者绝对路径，可以包含通配符，例如::
 
@@ -86,7 +90,26 @@
          :find.py
    * - recursive
      - 布尔
-     - 是否递归搜索工程源路径
+     - 搜索工程路径下的模块和包的模式
+       - 0 不搜索
+       - 1 只搜索工程目录下的模块
+       - 2 只搜索工程目录下的模块和包
+       - 3 递归搜索工程目录下面的所有的模块和包
+   * - pypaths
+     - 列表
+     - 指定动态导入模块时候的额外路径，支持的格式::
+
+         path
+         path,path
+         modname::path,path
+
+       主要用于重构的时候需要导入基类，以及获取 wildcard 导入的名称::
+
+         import a
+         from b import *
+
+         class C(a.T):
+             pass
 
 .. _rft-section:
 
@@ -134,7 +157,7 @@ rft
        - 1: 仅重命名 posonly 参数
        - 2: 仅保留 kwonly 的参数名称，其他都重命名
        - 3: 重命名所有函数的参数（默认值）
-   * - auto_export_mode
+   * - export_mode
      - 布尔
      - 0
      - 是否输出模块属性 `__all__` 中列出的名称
@@ -157,6 +180,8 @@ rft
 
           "inc"
           "dir*"
+          "modname::generic_visit"
+          "modname::Cls.visit_*"
 
        参数和局部变量总是会被重命名，这里列出的名称对参数和局部变量不起作用
    * - exclude_funcs
@@ -167,19 +192,58 @@ rft
           "func"
           "modname::func"
           "modname::cls.method"
-
    * - attr_rules
      - 模式列表
      -
      - 处理未知类型的属性的时候，自定义重命名规则
+
+       一个规则占一行，支持如下格式::
+
+         modname::scope:a.b.c
+         !modname::scope:a.b.c
+         modname::scope:a.b.c *.?.?
+
+      第一种格式所有的属性都重命名，第二种格式正好相反，所有的属性都不重命名
+
+      第三种格式是指定需要重命名的属性， `?` 对应的属性重命名
+   * - call_rules
+     - 模式列表
+     -
+     - 处理函数调用的时候，重命名匹配函数的关键字参数
+
+       支持的格式为函数名称，或者指定模块和范围，例如::
+
+         foo
+         visit*
+         modname::foo
+         modname:::foo*
+         modname::Cls.meth:foo
+
    * - extra_builtins
      - 名称列表
      -
      - 除了 builtins 模块之外，需要作为内置名称进行处理的额外名称
+
+       支持的格式为空格分开的名称，可以多行
    * - external_types
      - 外部类列表
      -
      - 处理未知类型的属性的时候，自动排除外部类的属性
+
+       支持的格式::
+         modname
+         modname::*
+         modname::Cls
+         modname::Cls*
+
+       只有模块名称则模块中所有的类的属性都会被排除
+   * - external_attrs
+     - 外部属性表
+     -
+     - 处理未知类型的属性的时候，自动排除这里列出的属性
+
+       支持的格式为空格分开的名称，可以多行，不支持通配符
+
 
 ..
    * - var_type_table
