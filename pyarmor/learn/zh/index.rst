@@ -45,4 +45,8 @@
    :maxdepth: 2
 
    concepts
+   project
+   commands
+   workflows
+   examples
    how-to

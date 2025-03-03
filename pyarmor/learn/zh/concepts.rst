@@ -17,9 +17,10 @@ Pyarmor 命令行工具是提供了命令行操作方式的一个应用程序
    :name: graph-pyarmor-cli-lifecycle
 
    digraph G {
-      node [shape=box, style=rounded]
+      node [shape=box, style=rounded, target="_top"]
 
-      package [label="Python 包 pyarmor.cli\n发布在 PyPI"]
+      package [label="Python 包 pyarmor.cli\n发布在 PyPI"
+               href="https://pypi.org/project/pyarmor.cli/"]
       install [label="在构建设备上面安装 pyarmor 命令\npip install pyarmor.cli"]
       pyarmor [label="执行命令 pyarmor\n实现 Pyarmor 的功能"]
 
@@ -34,16 +35,16 @@ Pyarmor 命令行工具是提供了命令行操作方式的一个应用程序
    :name: g-pyarmor-cli-components
 
    digraph G {
-      node [shape=box, style=rounded]
+      node [shape=box, style=rounded, target="_top"]
 
       subgraph C {
           cluster=true
           label="子命令"
           style="setlinewidth(0)"
 
-          init [label="pyarmor init"]
-          env [label="pyarmor env"]
-          build [label="pyarmor build"]
+          init [label="pyarmor init", href="commands.html#cmd-init"]
+          env [label="pyarmor env", href="commands.html#cmd-env"]
+          build [label="pyarmor build", href="commands.html#cmd-build"]
       }
    }
 
@@ -56,16 +57,16 @@ Pyarmor 命令行工具是提供了命令行操作方式的一个应用程序
    :name: g-pyarmor-cli-functions
 
    digraph G {
-      node [shape=box, style=rounded]
+      node [shape=box, style=rounded, target="_top"]
 
-      init [label="pyarmor init"]
-      env [label="pyarmor env"]
-      build [label="pyarmor build"]
+      init [label="pyarmor init", href="commands.html#cmd-init"]
+      env [label="pyarmor env", href="commands.html#cmd-env"]
+      build [label="pyarmor build", href="commands.html#cmd-build"]
 
-      project [label="工程"]
-      miniscript [label="迷你型加密脚本"]
-      rftscript [label="重构型加密脚本"]
-      license [shape=component, label="Pyarmor 许可证", target="_top", href="https://pyarmor.readthedocs.io/zh/latest/licenses.html"]
+      project [label="工程", href="concepts.html#project"]
+      miniscript [label="迷你型加密脚本", href="concepts.html#mini-script"]]
+      rftscript [label="重构型加密脚本", href="concepts.html#rft-script"]]
+      license [shape=component, label="Pyarmor 许可证", href="https://pyarmor.readthedocs.io/zh/latest/licenses.html"]
       joint [shape=point]
 
       init -> project [label="创建"]
@@ -91,18 +92,18 @@ Pyarmor 工程
    :name: g-project-components
 
    digraph G {
-      node [shape=box, style=rounded]
+      node [shape=box, style=rounded, target="_top]
       rankdir="LR"
 
       subgraph C {
           cluster=true
           label="工程"
 
-          scripts [label="脚本"]
-          modules [label="模块"]
-          package [label="包"]
+          scripts [label="脚本", href="project.html"]
+          modules [label="模块", href="project.html"]
+          package [label="包", href="project.html"]
 
-          rftoptions [label="重构选项", shape=diamond]
+          rftoptions [label="重构选项", shape=diamond, href="project.html#rft-options"]
       }
 
       edge [style=invis]
@@ -119,7 +120,7 @@ Pyarmor 工程
    :name: g-script-types
 
    digraph G {
-      node [shape=box, style=rounded]
+      node [shape=box, style=rounded, target="_top]
       rankdir="LR"
 
       subgraph C {
@@ -127,9 +128,9 @@ Pyarmor 工程
           label="加密脚本类型"
           style="setlinewidth(0)"
 
-          std [label="标准型", target="_top", href="https://pyarmor.readthedocs.io/zh/latest/tutorial/getting-started.html"]
-          rft [label="重构型", target="_top", href="concepts.html#rft-script"]
-          mini [label="迷你型", target="_top", href="concepts.html#mini-script"]
+          std [label="标准型", href="https://pyarmor.readthedocs.io/zh/latest/tutorial/getting-started.html"]
+          rft [label="重构型", href="concepts.html#rft-script"]
+          mini [label="迷你型", href="concepts.html#mini-script"]
       }
 
       edge [style=invis]
@@ -207,13 +208,28 @@ Pyarmor 工程
 .. code-block:: python
    :linenos:
 
-   msg = 'Hello'
-   print(msg)
+   def plusinc(m, n=1):
+           return m + n + 1
+   a = plusinc
+   b = a
+   n = b(1, n=2)
+
+   def hello():
+       return b(3, n=4)
+
+   print('result is', n + hello())
 
 使用 Pyarmor 生成重构型加密脚本之后，输出的 `dist/foo.py` 内容如下
 
 .. code-block:: python
    :linenos:
 
-   pyarmor__1 = 'Hello'
-   pyarmor__2(pyarmor__1)
+   def pyarmor__3(pyarmor__1, pyarmor__2=1):
+       return pyarmor__1 + pyarmor__2 + 1
+   pyarmor__4 = pyarmor__3
+   pyarmor__5 = pyarmor__4
+   pyarmor__2 = pyarmor__5(1, pyarmor__2=2)
+
+   def pyarmor__6():
+       return pyarmor__5(3, pyarmor__2=4)
+   print('result is', pyarmor__2 + pyarmor__6())
