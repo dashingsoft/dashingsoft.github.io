@@ -176,8 +176,6 @@ rft
 
           "inc"
           "dir*"
-          "modname::generic_visit"
-          "modname::Cls.visit_*"
 
        参数和局部变量总是会被重命名，这里列出的名称对参数和局部变量不起作用
    * - exclude_funcs
@@ -207,13 +205,12 @@ rft
      -
      - 处理函数调用的时候，重命名匹配函数的关键字参数
 
-       支持的格式为函数名称，或者指定模块和范围，例如::
+       支持的格式为函数名称，或者指定模块内的函数，支持通配符，例如::
 
          foo
          visit*
          modname::foo
-         modname:::foo*
-         modname::Cls.meth:foo
+         pkg.mod::foo*
 
    * - extra_builtins
      - 名称列表
@@ -238,7 +235,6 @@ rft
      - 处理未知类型的属性的时候，自动排除这里列出的属性
 
        支持的格式为空格分开的名称，可以多行，不支持通配符
-
 
 ..
    * - var_type_table

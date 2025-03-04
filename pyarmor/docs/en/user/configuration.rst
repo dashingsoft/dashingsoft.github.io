@@ -164,8 +164,6 @@ Set option value. For example::
 
           "inc"
           "dir*"
-          "modname::generic_visit"
-          "modname::Cls.visit_*"
 
        Note that arguments and local variables are always renamed
    * - exclude_funcs
@@ -200,8 +198,7 @@ Set option value. For example::
          foo
          visit*
          modname::foo
-         modname:::foo*
-         modname::Cls.meth:foo
+         pkg.mod::foo*
    * - extra_builtins
      - List
      -
