@@ -33,7 +33,7 @@ pyarmor init
       init [label="pyarmor init"]
       conf [label="配置文件 .pyarmor/config"]
 
-      init -> opts [label="使用选项" dir=back]
+      init -> opts [label="传入选项" dir=back arrowtail=curve]
       rank=same { init -> conf [label="写入"] }
    }
 
@@ -56,7 +56,7 @@ pyarmor init
       init [label="pyarmor init"]
       conf [label="配置文件 .pyarmor/config"]
 
-      init -> opts [label="使用选项" dir=back]
+      init -> opts [label="传入选项" dir=back arrowtail=curve]
       rank=same { init -> conf [label="写入"] }
    }
 
@@ -82,7 +82,7 @@ pyarmor env
       conf [label="配置文件 .pyarmor/config"]
       info [label="工程信息"]
 
-      rank=same { conf -> init [label="读取"] }
+      rank=same { conf -> init [label="读取配置" arrowhead=curve] }
       init -> info [label="显示"]
    }
 
@@ -105,7 +105,7 @@ pyarmor env
       env [label="pyarmor env -p set opt value"]
       conf [label="配置文件 .pyarmor/config"]
 
-      env -> opts [dir=none]
+      env -> opts [label="传入选项" dir=back arrowtail=curve]
       rank=same { env -> conf [label="写入"] }
    }
 
@@ -132,7 +132,7 @@ pyarmor build
       build [label="pyarmor build --list"]
       items [label="显示工程中包含的所有脚本名称"]
 
-      conf -> build [label="读取" dir=none]
+      conf -> build [label="读取配置" arrowhead=curve]
       build -> items [label="根据项目选项配置进行搜索和过滤"]
    }
 
