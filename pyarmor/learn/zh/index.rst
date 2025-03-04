@@ -47,6 +47,5 @@
    concepts
    project
    commands
-   workflows
    examples
    how-to
