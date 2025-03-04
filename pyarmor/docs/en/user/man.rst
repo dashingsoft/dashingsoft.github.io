@@ -91,14 +91,9 @@ In current path create project, update project and show project information
 
       $ pyarmor init -p lib/src@joker
 
-.. option:: -r, --recursive {0,1,2,3}
+.. option:: -r, --recursive
 
-   How to search items in project src
-
-   - 0: no search
-   - 1: only search modules
-   - 2: search modules and packages
-   - 3: recursively search all modules and packages
+   Enable to search modules and packages in project src
 
 .. option:: -C, --clean
 
@@ -108,11 +103,11 @@ In current path create project, update project and show project information
 
    Create one project, add all scripts and packages in the current path to this project::
 
-      $ pyarmor init -r 2
+      $ pyarmor init -r
 
    If need exclude some files or paths::
 
-      $ pyarmor init -r 2 --exclude venv --exclude "test*.py"
+      $ pyarmor init -r --exclude venv --exclude "test*.py"
 
    If there has project in current path, this command could show project information::
 
@@ -136,19 +131,19 @@ All of these examples assume there is still no project in work path
 
 1. Create one project which include all the scripts and packages in current path::
 
-    $ pyarmor init -r 3
+    $ pyarmor init -r
 
 2. Same as above, but not include path `venv` and all scripts which start with `test`::
 
-    $ pyarmor init -r 3 --exclude venv --exclude "test*.py"
+    $ pyarmor init -r --exclude venv --exclude "test*.py"
 
 3. Update project src, :option:`-C` is required to clean old project::
 
-    $ pyarmor init -C --src another/src -r 3
+    $ pyarmor init -C --src another/src -r
 
 4. Create one project which src is not current path::
 
-    $ pyarmor init -s eke/src -r 2
+    $ pyarmor init -s eke/src -r
 
 5. Create one project with only one script::
 

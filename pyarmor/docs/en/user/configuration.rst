@@ -87,13 +87,8 @@ Set option value. For example::
          joker:data
          :find.py
    * - recursive
-     - Enum
-     - How to search items in project src
-
-       - 0: no search
-       - 1: only search modules
-       - 2: search modules and packages
-       - 3: recursively search all modules and packages
+     - Bool
+     - Enable to search modules and packages in project src
    * - pypaths
      - List
      - Extra Python paths to import module on demand::

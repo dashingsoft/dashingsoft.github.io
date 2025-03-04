@@ -175,7 +175,7 @@ Create Complex Project
 
 Let's create one comple project, include one script `jsontool.py` and package `tomjson`, but no `fibo.py` and path `venv`::
 
-  $ pyarmor init --clean --src . -r 2 --exclude fibo.py --exclude venv
+  $ pyarmor init --clean --src . -r --exclude fibo.py --exclude venv
 
 Pyarmor will search all the files and paths in the :option:`--src`, all of them except in the excludes will be added into the project.
 

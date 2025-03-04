@@ -185,7 +185,7 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
 下面我们来创建一个工程，包含当前目录下面的脚本 jsontool.py 以及内部包 tomjson，但是不包含 fibo.py 和 venv 目录::
 
-  $ pyarmor init --clean --src . -r 2 --exclude fibo.py --exclude venv
+  $ pyarmor init --clean --src . -r --exclude fibo.py --exclude venv
 
 该命令会自动搜索 :option:`--src` 下面的文件和目录，把发现的模块和包自动增加到工程中
 

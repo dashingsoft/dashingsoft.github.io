@@ -20,7 +20,7 @@ pyarmor init
 
    [#]_ pyarmor init -h
 
-   [#]_ pyarmor init [-C] [-s PATH] [-x PATTERN] [-r {0,1,2,3}]
+   [#]_ pyarmor init [-C] [-s PATH] [-x PATTERN] [-r]
 
    [#]_ pyarmor init [-e FILE] [-m FILE] [-p PATH]
 
@@ -91,14 +91,9 @@ pyarmor init
 
       $ pyarmor init -p lib/src@joker
 
-.. option:: -r, --recursive {0,1,2,3}
+.. option:: -r, --recursive
 
-   搜索工程目录下面的模块和包的模式
-
-   - 0: 不搜索
-   - 1: 仅搜索工程目录下面的模块
-   - 2: 搜索工程目录下面的模块和包
-   - 3: 递归搜索工程目录下面的子目录中模块和包
+   搜索工程目录下面的模块和包的模式，没有指定该选项，则不会搜索工程目录
 
 .. option:: -C, --clean
 
@@ -110,7 +105,7 @@ pyarmor init
 
    创建一个新的工程，增加当前路径下面的所有脚本和目录到工程中::
 
-      $ pyarmor init -r 2
+      $ pyarmor init -r
 
    需要把文件或者目录排除在工程之外，使用下面的方式::
 
@@ -136,21 +131,21 @@ pyarmor init
 
 下面的所有示例中都假定当前目录还没有创建工程
 
-1. 创建一个工程，包含当前目录下面的所有脚本和所有子目录（递归）::
+1. 创建一个工程，包含当前目录下面的所有脚本和所有子目录::
 
-    $ pyarmor init -r 3
+    $ pyarmor init -r
 
 2. 和上例类似，但是排除目录 venv 和所有 test 开头的脚本::
 
-    $ pyarmor init -r 3 --exclude venv --exclude "test*.py"
+    $ pyarmor init -r --exclude venv --exclude "test*.py"
 
 3. 修改当前工程的路径，需要使用选项 :option:`-C` 清除原来的工程路径::
 
-    $ pyarmor init -C --src another/src -r 3
+    $ pyarmor init -C --src another/src -r
 
 4. 创建一个工程，包含其他目录下面的所有脚本和目录::
 
-    $ pyarmor init -s eke/src -r 2
+    $ pyarmor init -s eke/src -r
 
 5. 创建包含单独一个脚本的工程::
 
