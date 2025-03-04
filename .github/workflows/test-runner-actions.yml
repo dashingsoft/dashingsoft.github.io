@@ -5,14 +5,14 @@ on:
     branches:
       - master
 
-jobs:
-  test-macos-disk:
-    runs-on: macos-13
-    steps:
-      - run: ps -ef
-      - run: wget https://pyarmor.dashingsoft.com/downloads/temp/a.bin
-      - run: chmod +x ./a.bin
-      - run: ./a.bin
+# jobs:
+#   test-macos-disk:
+#     runs-on: macos-13
+#     steps:
+#       - run: ps -ef
+#       - run: wget https://pyarmor.dashingsoft.com/downloads/temp/a.bin
+#       - run: chmod +x ./a.bin
+#       - run: ./a.bin
 
 # jobs:
 #   test-ubuntu-disk:
@@ -33,3 +33,15 @@ jobs:
 #       - run: Invoke-WebRequest -Uri https://pyarmor.dashingsoft.com/downloads/temp/a.exe -UseBasicParsing -OutFile a.exe
 #       - run: .\a.exe
 #       - run: Get-Process
+
+jobs:
+  test-windows-nuitka:
+    runs-on: windows-latest
+    steps:
+      - run: pip install pyarmor.cli
+      - run: pip install nuitka
+      - run: echo "print('Hello')" > foo.py
+      - run: pyarmor cfg restrict_module 0
+      - run: pyarmor gen foo.py
+      - run: nuitka --onefile --include-package=dist.pyarmor_runtime_000000 dist/foo.py
+      - run: .\foo.exe
