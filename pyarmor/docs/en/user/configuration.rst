@@ -209,7 +209,14 @@ Set option value. For example::
    * - external_types
      - List
      -
-     - Classes aren't defined in the project
+     - Classes aren't defined in the project, supported formats::
+
+         modname
+         modname::*
+         modname::Cls
+         modname::Cls*
+
+       The first line is same as the second line, only modname means all the classes defined in the module.
    * - external_attrs
      - List
      -
