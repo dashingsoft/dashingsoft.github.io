@@ -82,7 +82,7 @@ pyarmor env
       conf [label="配置文件 .pyarmor/config"]
       info [label="工程信息"]
 
-      rank=same { conf -> init [label="读取配置" arrowhead=curve] }
+      rank=same { conf -> init [label="传入配置" arrowhead=curve] }
       init -> info [label="显示"]
    }
 
@@ -132,7 +132,7 @@ pyarmor build
       build [label="pyarmor build --list"]
       items [label="显示工程中包含的所有脚本名称"]
 
-      conf -> build [label="读取配置" arrowhead=curve]
+      conf -> build [label="传入配置" arrowhead=curve]
       build -> items [label="根据项目选项配置进行搜索和过滤"]
    }
 
