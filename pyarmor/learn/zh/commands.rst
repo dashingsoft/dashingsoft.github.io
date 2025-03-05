@@ -183,12 +183,12 @@ pyarmor build
 
 Pyarmor 目前实现三种自动修改模式
 
-- 模式 1 使用最简单，一般不需要人工增加规则，但是可能很多属性都没有重命名
-- 模式 2 使用较为复杂的方式，大部分的属性都会重命名，但是有时候需要人工修改规则
-- 模式 3 使用最麻烦，但是能够重命名绝大部分属性，一般必须要人工修改规则
+- :ref:`模式 1: 使用最简单，一般不需要人工增加规则，但是可能很多属性都没有重命名 <g-project-rft-autofix-1>`
+- :ref:`模式 2: 使用较为复杂的方式，大部分的属性都会重命名，但是有时候需要人工修改规则 <g-project-rft-autofix-2>`
+- :ref:`模式 3: 使用最麻烦，但是能够重命名绝大部分属性，一般必须要人工修改规则  <g-project-rft-autofix-3>`
 
 .. graphviz::
-   :caption: 使用模式一生成重构脚本自动修正规则
+   :caption: 自动修正模式一重构复杂脚本
    :align: center
    :name: g-project-rft-autofix-1
 
@@ -227,7 +227,7 @@ Pyarmor 目前实现三种自动修改模式
    }
 
 .. graphviz::
-   :caption: 使用模式二生成重构脚本自动修正规则
+   :caption: 自动修正模式二重构复杂脚本
    :align: center
    :name: g-project-rft-autofix-2
 
@@ -273,7 +273,7 @@ Pyarmor 目前实现三种自动修改模式
    }
 
 .. graphviz::
-   :caption: 使用模式三生成重构脚本自动修正规则
+   :caption: 自动修正模式三重构复杂脚本
    :align: center
    :name: g-project-rft-autofix-3
 

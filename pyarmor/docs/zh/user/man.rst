@@ -470,7 +470,7 @@ pyarmor build
 
    4. 从第二步可以重新构建并执行，循环修正直到脚本运行没有问题
 
-   详细过程请参阅功能手册中的 `使用自动修正模式重构复杂脚本 <../../learn/zh/commands.html#project-rft-autofix>`
+   详细过程请参阅功能手册中的 `使用自动修正模式重构复杂脚本 <../../learn/zh/commands.html#project-rft-autofix>`_
 
    如果不需要使用自动重构模式，那么使用下面的命令::
 
