@@ -22,7 +22,7 @@ copyright = '2025, 德新科技'
 author = '赵俊德'
 
 # The full version, including alpha/beta/rc tags
-release = '9.1.0'
+release = '9.1.1'
 
 
 # -- General configuration ---------------------------------------------------

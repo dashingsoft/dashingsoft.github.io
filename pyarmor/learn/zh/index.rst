@@ -47,5 +47,4 @@
    concepts
    project
    commands
-   examples
    how-to

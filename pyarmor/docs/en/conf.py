@@ -22,7 +22,7 @@ copyright = '2025, Dashingsoft Corp.'
 author = 'Jondy Zhao'
 
 # The full version, including alpha/beta/rc tags
-release = '9.1.0'
+release = '9.1.1'
 
 
 # -- General configuration ---------------------------------------------------
