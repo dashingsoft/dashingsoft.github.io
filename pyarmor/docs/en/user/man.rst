@@ -449,7 +449,7 @@ Generate obfuscated scripts for project
    This option can fix refactor issues for complex scripts, it support 3 modes
    - 1: simple way, but many attributes may not be renamed
    - 2: normal way, most attributes will be renamed, but sometimes need manually update the rules
-   - 3: difficut way, it could rename attributes as many as possible (more than mode 2), need manually add most of rules
+   - 3: difficult way, it could rename attributes as many as possible (more than mode 2), need manually add most of rules
 
    The basic steps are
 
