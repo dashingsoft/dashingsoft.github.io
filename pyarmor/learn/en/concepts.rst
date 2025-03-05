@@ -1,34 +1,34 @@
-============
- 概念和定义
-============
+==========
+ Concepts
+==========
 
 .. highlight:: console
 
 .. _pyarmor-cli:
 
-Pyarmor 命令行工具
-==================
+Pyarmor CLI
+===========
 
-Pyarmor 命令行工具是提供了命令行操作方式的一个应用程序
+Pyarmor CLI is command line tool to generate the obfuscated scripts
 
 .. graphviz::
-   :caption: 生命周期图
+   :caption: Pyarmor CLI Life Cycle
    :align: center
    :name: graph-pyarmor-cli-lifecycle
 
    digraph G {
       node [shape=box, style=rounded, target="_top"]
 
-      package [label="Python 包 pyarmor.cli\n发布在 PyPI"
+      package [label="Python package: pyarmor.cli\nPublished in the PyPI"
                href="https://pypi.org/project/pyarmor.cli/"]
-      install [label="在构建设备上面安装 pyarmor 命令\npip install pyarmor.cli"]
-      pyarmor [label="执行命令 pyarmor\n实现 Pyarmor 的功能"]
+      install [label="In build device installing command `pyarmor`\npip install pyarmor.cli"]
+      pyarmor [label="Execute command `pyarmor` to do everyting"]
 
       package -> install -> pyarmor
    }
 
-组成
-----
+Components
+----------
 
 .. graphviz::
    :align: center
@@ -39,7 +39,7 @@ Pyarmor 命令行工具是提供了命令行操作方式的一个应用程序
 
       subgraph C {
           cluster=true
-          label="子命令"
+          label="Sub-Commands"
           style="setlinewidth(0)"
 
           init [label="pyarmor init", href="commands.html#cmd-init"]
@@ -48,11 +48,11 @@ Pyarmor 命令行工具是提供了命令行操作方式的一个应用程序
       }
    }
 
-功能结构图
-----------
+Functional Relationship
+-----------------------
 
 .. graphviz::
-   :caption: 功能结构图
+   :caption: Functional Relationship
    :align: center
    :name: g-pyarmor-cli-functions
 
@@ -63,29 +63,29 @@ Pyarmor 命令行工具是提供了命令行操作方式的一个应用程序
       env [label="pyarmor env", href="commands.html#cmd-env"]
       build [label="pyarmor build", href="commands.html#cmd-build"]
 
-      project [label="工程", href="concepts.html#project"]
-      miniscript [label="迷你型加密脚本", href="concepts.html#mini-script"]
-      rftscript [label="重构型加密脚本", href="concepts.html#rft-script"]
-      license [shape=component, label="Pyarmor 许可证", href="https://pyarmor.readthedocs.io/zh/latest/licenses.html"]
+      project [label="Project", href="concepts.html#project"]
+      miniscript [label="Mini Script", href="concepts.html#mini-script"]
+      rftscript [label="RFT Script", href="concepts.html#rft-script"]
+      license [shape=component, label="Pyarmor License", href="https://pyarmor.readthedocs.io/en/latest/licenses.html"]
       joint [shape=point]
 
-      init -> project [label="创建"]
-      env -> project [label="配置"]
+      init -> project [label="Create"]
+      env -> project [label="Configure"]
 
-      project -> build [label="工程中的脚本和选项"]
-      build -> miniscript [label="生成"]
-      joint -> rftscript [label="生成"]
+      project -> build [label="Scripts and options"]
+      build -> miniscript [label="Generate"]
+      joint -> rftscript [label="Generate"]
 
       build -> joint [arrowhead=none, tailport=se]
-      license -> joint [label="解锁重构功能", arrowhead=none]
+      license -> joint [label="Unlock RFT feature", arrowhead=none]
    }
 
 .. _project:
 
-Pyarmor 工程
-============
+Project
+=======
 
-工程是脚本和选项的集合
+Project is set of scripts and options
 
 .. graphviz::
    :align: center
@@ -97,13 +97,13 @@ Pyarmor 工程
 
       subgraph C {
           cluster=true
-          label="工程"
+          label="Project"
 
-          scripts [label="脚本", href="project.html"]
-          modules [label="模块", href="project.html"]
-          package [label="包", href="project.html"]
+          scripts [label="Scripts", href="project.html"]
+          modules [label="Modules", href="project.html"]
+          package [label="Packages", href="project.html"]
 
-          rftoptions [label="重构选项", shape=oval, href="project.html#rft-options"]
+          rftoptions [label="Refactor Options", shape=oval, href="project.html#rft-options"]
       }
 
       edge [style=invis]
@@ -112,8 +112,8 @@ Pyarmor 工程
 
 .. _obf-scripts:
 
-加密脚本
-========
+Obfuscated Scripts
+==================
 
 .. graphviz::
    :align: center
@@ -125,39 +125,39 @@ Pyarmor 工程
 
       subgraph C {
           cluster=true
-          label="加密脚本类型"
+          label="Obfuscated Scripts"
           style="setlinewidth(0)"
 
-          std [label="标准型", href="https://pyarmor.readthedocs.io/zh/latest/tutorial/getting-started.html"]
-          rft [label="重构型", href="concepts.html#rft-script"]
-          mini [label="迷你型", href="concepts.html#mini-script"]
+          std [label="Std Script", href="https://pyarmor.readthedocs.io/en/latest/tutorial/getting-started.html"]
+          rft [label="RFT Script", href="concepts.html#rft-script"]
+          mini [label="Mini Script", href="concepts.html#mini-script"]
       }
 
       edge [style=invis]
       std -> rft -> mini
    }
 
-.. flat-table:: 表-1. 加密脚本类型比较表
+.. flat-table:: Table-1. Comparison of Different Scripts
    :widths: 10 10 10 10 60
    :header-rows: 1
    :stub-columns: 1
 
-   * - 加密类型
-     - 安全性 [#]_
-     - 运行速度 [#]_
-     - 扩展模块 [#]_
-     - 备注
-   * - 标准型
+   * - Script Type
+     - Sceurity [#]_
+     - Performance [#]_
+     - Need Extension [#]_
+     - Remark
+   * - Std Script
      - 正常
      - 正常
-     - 需要
+     - Yes
      - 能够设置加密脚本有效期和绑定加密脚本到固定设备，其他加密脚本类型都不具备此特性，适用于大多数的情况
-   * - 迷你型
+   * - Mini Script
      - 较低
      - 很高
      - 需要
      - 不可逆程度较低，但是执行速度较高，适用于 Web 服务等类型
-   * - 重构型
+   * - RFT Script
      - 较高
      - 最高
      - 不需要
