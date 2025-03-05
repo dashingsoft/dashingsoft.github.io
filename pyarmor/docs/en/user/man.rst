@@ -446,15 +446,30 @@ Generate obfuscated scripts for project
 
 .. option:: --autofix {0,1,2,3}
 
-   This option can simplifying the configuration for refactoring scripts.
+   This option can fix refactor issues for complex scripts, it support 3 modes
+   - 1: simple way, but many attributes may not be renamed
+   - 2: normal way, most attributes will be renamed, but sometimes need manually update the rules
+   - 3: difficut way, it could rename attributes as many as possible (more than mode 2), need manually add most of rules
 
-   First enable auto-fix mode by this way::
+   The basic steps are
 
-     $ pyarmor build --autofix 1
+   1. First start one autofix mode to generate rules. For example::
 
-   Then build the project::
+         $ pyarmor build --autofix 1
 
-     $ pyarmor build --rft
+   2. Next build the script based on these rules::
+
+         $ pyarmor build --rft
+
+   3. Then test the result script::
+
+         $ python dist/foo.py
+
+   3. Fix rules `.pyarmor/project/rft_autofix.rules` by errors
+
+   4. Loop from step 2, until no error
+
+   Refer to `Refactor complex script by autofix mode <../../learn/en/commands.html#project-rft-autofix>`
 
    If need disable auto-fix mode, run this command::
 
