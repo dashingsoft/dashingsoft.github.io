@@ -188,7 +188,7 @@ Pyarmor 目前实现三种自动修改模式
 - :ref:`模式 3: 使用最麻烦，但是能够重命名绝大部分属性，一般必须要人工修改规则  <g-project-rft-autofix-3>`
 
 .. graphviz::
-   :caption: 自动修正模式一重构复杂脚本
+   :caption: 重构复杂脚本自动修正模式一
    :align: center
    :name: g-project-rft-autofix-1
 
@@ -208,7 +208,7 @@ Pyarmor 目前实现三种自动修改模式
              label="工程的重构选项\n存放在 .pyarmor/config 中"]
       autofix [shape=component
                style="filled"
-               fillcolor="wheat"
+               fillcolor="tan"
                label="生成重构规则\n所有未知属性都不进行重命名\n保存规则到 .pyarmor/project/rft_autofix.rules"]
 
       p1 [label="应用重构规则"]
@@ -224,10 +224,22 @@ Pyarmor 目前实现三种自动修改模式
       p1 -> rules [arrowtail=curve dir=back]
 
       rft -> loop -> autofix
+
+      rebuild [style="filled,rounded"
+               fillcolor="wheat"
+               label="再次构建工程\npyarmor build --rft"]
+      test [label="运行重构后的脚本\npython dist/foo.py"]
+      fb [label="是否出现 AttributeError?"]
+      f2 [label="把该名称人工增加到排除列表\npyarmor env -p push rft:exclude_names xxxx"]
+
+      autofix -> rebuild -> test -> fb
+
+      fb -> f2 [label="提示名称 xxxx 错误"]
+      f2 -> rebuild [label="循环修正，直到没有错误" headport=3 tailport=e]
    }
 
 .. graphviz::
-   :caption: 自动修正模式二重构复杂脚本
+   :caption: 重构复杂脚本自动修正模式二
    :align: center
    :name: g-project-rft-autofix-2
 
@@ -248,15 +260,13 @@ Pyarmor 目前实现三种自动修改模式
       p1 [label="应用重构规则"]
       rft [label="尝试重构脚本\n记录不知道如何处理的属性\n生成未知属性表"]
 
-      u1 [label="读取所有内置类型\n例如 int, list 等的属性"]
-      u2 [label="读取重构选项 external_types\n得到所有外部导入类型的属性"]
+      u1 [label="读取所有内置类型\n例如 int, list 等的属性\n读取重构选项 external_types\n得到所有外部导入类型的属性"]
       un [label="合并内置和外部类型的属性\n生成外部属性表"]
       u1 -> un
-      u2 -> un
 
       autofix [shape=component
                style="filled"
-               fillcolor="wheat"
+               fillcolor="tan"
                label="生成重构规则\n未知属性和外部属性的交集都不进行重命名\n其他未知属性都进行重命名\n保存规则到 .pyarmor/project/rft_autofix.rules"]
       un -> autofix
 
@@ -264,16 +274,32 @@ Pyarmor 目前实现三种自动修改模式
       join1 -> conf [dir=none]
       join1 -> items [label="得到工程中的脚本列表"]
       items -> p1
-      rank=same { p1 -> rft }
+      rank=same { p1 -> rft [dir=normal] }
       p1 -> rules [arrowtail=curve dir=back]
-      rules -> u2 [arrowhead=curve]
       rft -> autofix
 
-      rank=same { rft -> un [style=invis] }
+      rebuild [style="filled,rounded"
+               fillcolor="wheat"
+               label="再次构建工程\npyarmor build --rft"]
+      test [label="运行重构后的脚本\npython dist/foo.py"]
+      fb [label="是否出现 AttributeError?"]
+      f1 [label="如果该名称是混淆后的名称\n在 .pyarmor/project/rft_autofix.rules 搜索该名称\n找到原来的名称"]
+      f2 [label="把原来的名称人工增加到排除列表\npyarmor env -p push rft:exclude_names xxxx"]
+      f3 [label="高级修正方法"]
+      f4 [label="查看日志文件（Emacs org-mode）\n.pyarmor/rft_autofix.2.org"]
+      f5 [label="浏览日志中已经重命名的属性名称\n如果该属性属于外部类型\n那么将该属性增加到配置文件中\npyarmor env -p push external_attrs XXXX"]
+      f6 [label="重新开始修正循环\npyarmor build --autofix 2"
+          style="filled,rounded"
+          fillcolor="wheat"]
+      autofix -> rebuild -> test -> fb
+      fb -> f1 [label="提示名称 xxxx 错误"]
+      f1 -> f2 [label="简单修正方法"]
+      f2 -> rebuild [label="循环修正，直到没有错误" tailport=e]
+      f1 -> f3 -> f4 -> f5 -> f6
    }
 
 .. graphviz::
-   :caption: 自动修正模式三重构复杂脚本
+   :caption: 重构复杂脚本自动修正模式三
    :align: center
    :name: g-project-rft-autofix-3
 
@@ -299,12 +325,12 @@ Pyarmor 目前实现三种自动修改模式
 
       autofix [shape=component
                style="filled"
-               fillcolor="wheat"
-               label="生成重构规则\n所有内部属性名称都会进行重命名\n保存规则到 .pyarmor/project/rft_autofix.rules"]
-      autolog [shape=component
-               style="filled"
-               fillcolor="wheat"
-               label="生成未知属性所在文件和行号\n保存到 .pyarmor/project/rft_autofix.log\n用户需要根据日志人工生成重构规则"]
+               fillcolor="tan"
+               label="生成重构规则，保存到\n.pyarmor/project/rft_autofix.rules\n所有内部属性名称都会进行重命名"]
+      autolog [shape=box
+               style="filled,rounded"
+               fillcolor="tan"
+               label="生成修正记录表\n.pyarmor/project/rft_autofix.3.org"]
 
       build -> join1
       join1 -> conf [dir=none]
@@ -313,8 +339,21 @@ Pyarmor 目前实现三种自动修改模式
       rank=same { p1 -> rft }
       p1 -> rules [arrowtail=curve dir=back]
       rft -> n1 -> autofix
-      rank=same { rft -> n2 }
+      rft -> n2 [tailport=e]
       n2 -> autolog
+
+      m1 [label="浏览修正记录表\n根据修正记录表的内容\n人工生成重构规则"]
+      autolog -> m1
+      m1 -> autofix [label="增加重构规则"]
+
+      rebuild [style="filled,rounded"
+               fillcolor="wheat"
+               label="再次构建工程\npyarmor build --rft"]
+      test [label="运行重构后的脚本\npython dist/foo.py"]
+      fb [label="是否出现 AttributeError?"]
+
+      autofix -> rebuild -> test -> fb
+      fb -> m1 [label="出现错误"]
    }
 
 .. _project-build-mini:
