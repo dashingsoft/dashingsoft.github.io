@@ -235,7 +235,7 @@ Pyarmor 目前实现三种自动修改模式
       autofix -> rebuild -> test -> fb
 
       fb -> f2 [label="提示名称 xxxx 错误"]
-      f2 -> rebuild [label="循环修正，直到没有错误" headport=3 tailport=e]
+      f2 -> rebuild [label="循环修正，直到没有错误" headport=e tailport=e]
    }
 
 .. graphviz::
@@ -342,8 +342,8 @@ Pyarmor 目前实现三种自动修改模式
       rft -> n2 [tailport=e]
       n2 -> autolog
 
-      m1 [label="浏览修正记录表\n根据修正记录表的内容\n人工生成重构规则"]
-      autolog -> m1
+      m1 [label="人工生成重构规则"]
+      autolog -> m1 [label="浏览修正记录表"]
       m1 -> autofix [label="增加重构规则"]
 
       rebuild [style="filled,rounded"
