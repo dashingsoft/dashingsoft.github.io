@@ -7,9 +7,9 @@ jobs:
   test-mini-windows:
     runs-on: windows-latest
     steps:
-      - run: pip install https://pyarmor.dashingsoft.com/downloads/temp/pyarmor.cli.core-dev-win_amd64.whl
-      - run: pip install https://pyarmor.dashingsoft.com/downloads/temp/pyarmor.cli-dev.tar.gz
-      - run: pip install https://pyarmor.dashingsoft.com/downloads/temp/pyarmor.mini-dev-win_amd64.whl
+      - run: pip install https://pyarmor.dashingsoft.com/downloads/temp/pyarmor.cli.core-7.6.5-cp39-none-win_amd64.whl
+      - run: pip install https://pyarmor.dashingsoft.com/downloads/temp/pyarmor.cli-9.1.1.tar.gz
+      - run: pip install https://pyarmor.dashingsoft.com/downloads/temp/pyarmor.mini-1.1-cp39-none-win_amd64.whl
       - run: echo "print('Hello')" > foo.py
       - run: pyarmor init -e foo.py
       - run: pyarmor build --mini
