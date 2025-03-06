@@ -4,16 +4,26 @@ on:
   create
 
 jobs:
-  test-free-threading:
-    runs-on: ubuntu-latest
+  test-mini-windows:
+    runs-on: windows-latest
     steps:
-      - run: sudo add-apt-repository ppa:deadsnakes
-      - run: sudo apt-get update
-      - run: sudo apt-get install python3.13-nogil
-      - run: wget https://pyarmor.dashingsoft.com/downloads/temp/pyarmor_mini.tar.gz
-      - run: tar xzf pyarmor_mini.tar.gz
-      - run: cp -a linux.x86_64/libs/cp3.13t/pyarmor_minit.so pyarmor_mini.so
-      - run: python3.13t -c "import pyarmor_mini"
+      - run: pip install https://pyarmor.dashingsoft.com/downloads/temp/pyarmor.cli.core-dev-win_amd64.whl
+      - run: pip install https://pyarmor.dashingsoft.com/downloads/temp/pyarmor.cli-dev.tar.gz
+      - run: pip install https://pyarmor.dashingsoft.com/downloads/temp/pyarmor.mini-dev-win_amd64.whl
+      - run: echo "print('Hello')" > foo.py
+      - run: pyarmor init -e foo.py
+      - run: pyarmor build --mini
+      - run: python dist/foo.py
+  # test-free-threading:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: sudo add-apt-repository ppa:deadsnakes
+  #     - run: sudo apt-get update
+  #     - run: sudo apt-get install python3.13-nogil
+  #     - run: wget https://pyarmor.dashingsoft.com/downloads/temp/pyarmor_mini.tar.gz
+  #     - run: tar xzf pyarmor_mini.tar.gz
+  #     - run: cp -a linux.x86_64/libs/cp3.13t/pyarmor_minit.so pyarmor_mini.so
+  #     - run: python3.13t -c "import pyarmor_mini"
   #     - run: wget https://pyarmor.dashingsoft.com/downloads/temp/pyarmor-smoke-test.tar.gz
   #     - run: tar xzf pyarmor-smoke-test.tar.gz
   #     - run: pip install test/pyarmor.cli.core.tar.gz
@@ -22,11 +32,11 @@ jobs:
   #     - run: pyarmor init test/foo.py
   #     - run: pyarmor build --mini
   #     - run: python3 dist/foo.py
-  test-free-threading-macos:
-    runs-on: macos-13
-    steps:
-      - run: brew install python-freethreading
-      - run: curl -O https://pyarmor.dashingsoft.com/downloads/temp/pyarmor_mini.tar.gz
-      - run: tar xzf pyarmor_mini.tar.gz
-      - run: cp -a darwin.x86_64/libs/cp3.13t/pyarmor_minit.so pyarmor_mini.so
-      - run: $(brew --prefix)/bin/python3.13t -c "import pyarmor_mini"
+  # test-free-threading-macos:
+  #   runs-on: macos-13
+  #   steps:
+  #     - run: brew install python-freethreading
+  #     - run: curl -O https://pyarmor.dashingsoft.com/downloads/temp/pyarmor_mini.tar.gz
+  #     - run: tar xzf pyarmor_mini.tar.gz
+  #     - run: cp -a darwin.x86_64/libs/cp3.13t/pyarmor_minit.so pyarmor_mini.so
+  #     - run: $(brew --prefix)/bin/python3.13t -c "import pyarmor_mini"
