@@ -469,7 +469,7 @@ Generate obfuscated scripts for project
 
    4. Loop from step 2, until no error
 
-   Refer to `Refactor complex script by autofix mode <../../learn/en/commands.html#project-rft-autofix>`
+   Refer to `Refactor complex script by autofix mode <../../learn/en/commands.html#project-rft-autofix>`_
 
    If need disable auto-fix mode, run this command::
 
