@@ -11,7 +11,8 @@ jobs:
       - run: pip install PyInstaller
       - run: echo "print('Hello')" > foo.py
       - run: pyarmor gen --pack onefile foo.py
-      - run: python dist/foo.py
+      - run: ls -lh dist
+      - run: dist/foo
   # test-mini-windows:
   #   runs-on: windows-latest
   #   steps:
