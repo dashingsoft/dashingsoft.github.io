@@ -1,19 +1,27 @@
 name: pyarmor-smoke-test
 run-name: ${{ github.actor }} is testing Pyarmor
 on:
-  create
+  push
 
 jobs:
-  test-mini-windows:
-    runs-on: windows-latest
+  test-pack:
+    runs-on: ubuntu-latest
     steps:
-      - run: pip install https://pyarmor.dashingsoft.com/downloads/temp/pyarmor.cli.core-7.6.5-cp39-none-win_amd64.whl
-      - run: pip install https://pyarmor.dashingsoft.com/downloads/temp/pyarmor.cli-9.1.1.tar.gz
-      - run: pip install https://pyarmor.dashingsoft.com/downloads/temp/pyarmor.mini-1.1-cp39-none-win_amd64.whl
+      - run: pip install pyarmor.cli
+      - run: pip install PyInstaller
       - run: echo "print('Hello')" > foo.py
-      - run: pyarmor init -e foo.py
-      - run: pyarmor build --mini
+      - run: pyarmor gen --pack onefile foo.py
       - run: python dist/foo.py
+  # test-mini-windows:
+  #   runs-on: windows-latest
+  #   steps:
+  #     - run: pip install https://pyarmor.dashingsoft.com/downloads/temp/pyarmor.cli.core-7.6.5-cp39-none-win_amd64.whl
+  #     - run: pip install https://pyarmor.dashingsoft.com/downloads/temp/pyarmor.cli-9.1.1.tar.gz
+  #     - run: pip install https://pyarmor.dashingsoft.com/downloads/temp/pyarmor.mini-1.1-cp39-none-win_amd64.whl
+  #     - run: echo "print('Hello')" > foo.py
+  #     - run: pyarmor init -e foo.py
+  #     - run: pyarmor build --mini
+  #     - run: python dist/foo.py
   # test-free-threading:
   #   runs-on: ubuntu-latest
   #   steps:
