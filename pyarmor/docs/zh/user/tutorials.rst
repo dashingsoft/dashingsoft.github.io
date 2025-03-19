@@ -47,7 +47,7 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
 然后构建工程，指定输出类型为重构型脚本::
 
-  $ pyarmor build --rst
+  $ pyarmor build --rft
 
 默认输出是在 `dist` ，查看输出脚本::
 
@@ -88,7 +88,7 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
 然后再次执行重构命令::
 
-  $ pyarmor build --rst
+  $ pyarmor build --rft
 
 运行重构后的脚本::
 

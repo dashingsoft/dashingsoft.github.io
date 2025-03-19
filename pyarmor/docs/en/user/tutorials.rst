@@ -47,7 +47,7 @@ First create one project which only include one script `foo.py`::
 
 Then build this project with target :option:`--rft`::
 
-  $ pyarmor build --rst
+  $ pyarmor build --rft
 
 It will generate final script in the default path `dist`, check it::
 
