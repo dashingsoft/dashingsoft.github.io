@@ -39,8 +39,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: pip install pyarmor.cli
-      - run: wget http://8.218.217.13/temp/pyarmor-regfile-5068-v9.zip
-      - run: wget http://8.218.217.13/temp/t2128.py
-      - run: pyarmor reg pyarmor-regfile-5068-v9.zip
-      - run: pyarmor gen --enable-bcc --obf-code 2 t2128.py
+      - run: pyarmor gen t2128.py
       - run: python dist/t2128.py
