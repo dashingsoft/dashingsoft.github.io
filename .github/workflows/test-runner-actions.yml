@@ -35,13 +35,12 @@ on:
 #       - run: Get-Process
 
 jobs:
-  test-windows-nuitka:
-    runs-on: windows-latest
+  test-bcc:
+    runs-on: ubuntu-latest
     steps:
       - run: pip install pyarmor.cli
-      - run: pip install nuitka
-      - run: echo "print('Hello')" > foo.py
-      - run: pyarmor cfg restrict_module 0
-      - run: pyarmor gen foo.py
-      - run: nuitka --onefile --include-package=dist.pyarmor_runtime_000000 dist/foo.py
-      - run: .\foo.exe
+      - run: wget https://8.218.217.13/temp/pyarmor-regfile-5068-v9.zip
+      - run: wget https://8.218.217.13/temp/t2128.py
+      - run: pyarmor reg pyarmor-regfile-5068-v9.zip
+      - run: pyarmor gen --enable-bcc --obf-code 2 t2128.py
+      - run: python dist/t2128.py
