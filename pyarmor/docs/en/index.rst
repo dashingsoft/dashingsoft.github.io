@@ -3,9 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. important::
-
-   Here only includes Pyarmor 9.1 new features, other functions please check `Pyarmor 9.0 Documentation <https://pyarmor.readthedocs.io/en/latest/>`_
+.. include:: _header_note.txt
 
 Table of Contents
 =================
