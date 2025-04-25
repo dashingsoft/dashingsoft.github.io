@@ -20,7 +20,7 @@ In current path create project, update project and show project information
 
    [#]_ pyarmor init -h
 
-   [#]_ pyarmor init [-C] [-s PATH] [-x PATTERN] [-r {0,1,2,3}]
+   [#]_ pyarmor init [-C] [-s PATH] [-x PATTERN] [-r]
 
    [#]_ pyarmor init [-e FILE] [-m FILE] [-p PATH]
 
