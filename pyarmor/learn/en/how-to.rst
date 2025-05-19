@@ -14,6 +14,8 @@ License Issues
 - `How to use Pyarmor License in local devices/cloud server/vm etc.? <https://pyarmor.readthedocs.io/en/latest/how-to/register.html#using-pyarmor-license>`_
 - `How to use Pyarmor License in CI/CD pipeline or docker container? <https://pyarmor.readthedocs.io/en/latest/how-to/register.html#using-pyarmor-license>`_
 - `How to fix registering Pyarmor License issues? <https://pyarmor.readthedocs.io/en/latest/reference/solutions.html#fix-register-issue>`_
+- `How to fix Pyarmor License doesn't work after upgrading Pyarmor to latest version? <https://pyarmor.readthedocs.io/en/latest/how-to/register.html#pyarmor>`_
+- `How to upgrade different Pyarmor Licenses? <https://pyarmor.readthedocs.io/en/latest/licenses.html#how-to-upgrade-license>`_
 
 .. _how-fix-build-issue:
 

@@ -14,6 +14,8 @@
 - `如何在本地设备/云服务器/虚拟机等中注册和使用 Pyarmor 许可证? <https://pyarmor.readthedocs.io/zh/latest/how-to/register.html#using-pyarmor-license>`_
 - `如何在 CI/CD 管线或者 Docker 容器中使用 Pyarmor 许可证? <https://pyarmor.readthedocs.io/zh/latest/how-to/register.html#using-pyarmor-license>`_
 - `如何解决注册 Pyarmor 许可证遇到的问题？ <https://pyarmor.readthedocs.io/zh/latest/reference/solutions.html#fix-register-issue>`_
+- `关于升级 Pyarmor 版本之后原来购买的许可证无法工作的问题？ <https://pyarmor.readthedocs.io/zh/latest/how-to/register.html#pyarmor>`_
+- `关于是否可以升级Pyarmor许可证的问题？ <https://pyarmor.readthedocs.io/zh/latest/licenses.html#how-to-upgrade-license>`_
 
 .. _how-fix-build-issue:
 
