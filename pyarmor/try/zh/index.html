@@ -76,7 +76,20 @@
                   id="scriptContent"
                   max-length="8096"
                   min-length="1"
-                  style="height: 30rem">print('Hello world!')</textarea>
+                  style="height: 30rem">import sys
+
+def sum2(a, b):
+    return a + b
+
+def main(msg):
+    a = 2
+    b = 6
+    c = sum2(a, b)
+    print('%s + %s = %d' % (a, b, c))
+
+if __name__ == '__main__':
+    main('pass: %s' % data)
+        </textarea>
         <label for="scriptContent">脚本内容(最大8K)</label>
       </div>
     </div>
