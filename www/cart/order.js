@@ -186,7 +186,7 @@ function newOrder() {
             '@qq.', '@163.', '@126.', '@139.',
             '@sohu.', '@sina.', '@foxmail.',
             '@gmail.', '@outlook.', '@hotmail.',
-            '@icloud.', '@yahoo.',
+            '@icloud.', '@yahoo.', '@google.',
             '@proton.me', '@protonmail.com',
         ]
         if (pubemails.some((x) => email.indexOf(x) > 0)) {
