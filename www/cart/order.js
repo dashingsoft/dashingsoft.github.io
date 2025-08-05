@@ -386,7 +386,7 @@ function submitInvoice() {
             element.focus();
             return false;
         }
-        if ( name === 'tax_name' && element.value.length < 10 ) {
+        if ( name === 'tax_name' && element.value.length < 4 ) {
             element.focus();
             return false;
         }
