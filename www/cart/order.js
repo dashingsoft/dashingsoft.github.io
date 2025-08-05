@@ -382,6 +382,14 @@ function submitInvoice() {
             element.focus();
             return false;
         }
+        if ( name === 'tax_no' && element.value.length < 10 ) {
+            element.focus();
+            return false;
+        }
+        if ( name === 'tax_name' && element.value.length < 10 ) {
+            element.focus();
+            return false;
+        }
     }
 
     var url = server_url + '/product/invoices/' + (invoice_id ? invoice_id + '/' : '');
