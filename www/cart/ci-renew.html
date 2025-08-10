@@ -1,0 +1,85 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="A tool used to obfuscate python scripts." />
+  <meta name="Keywords" content="Python, 加密, 源代码, 混淆, 保护" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Pyarmor 电子订单</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/loader.css" type="text/css" />
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <style>
+    body {
+        background-color: #f5f5f5;
+    }
+    .container {
+        padding: 2px 30px 30px 30px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        border: 1px #ccc solid;
+        background-color: #fff;
+    }
+  </style>
+</head>
+
+<body role="document">
+
+  <div class="container">
+    <div class="page-header">
+      <h3>Pyarmor 管道版许可证续约订单</h3>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <p>尊敬的用户，您购买的管道版许可证即将过期，如果需要继续使用该许可证，请在到期之前扫码续费，支付成功之后有效期将延长一年（365天）</p>
+            <p>如果到期没有续费，则该许可证将自动失效，无法使用</p>
+          </div>
+          <div class="panel-body">
+            <form>
+              <p><input id="checkbox-tax" type="checkbox" checked> <strong>需要电子发票</strong>，点击查看<a target="_pyarmordoc" href="CN_INV_PYARMOR.png">增值税普通发票样例</a> (目前不提供增值税专用发票)</p>
+              <p class="help-block">
+                发票信息将使用第一次购买管道版许可证时候提交的发票信息
+              </p>
+              <p>选择支付方式，并扫码支付</p>
+              <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="radio-weixin" value="weixin" checked/>微信
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="radio-alipay" value="alipay"/>支付宝
+              </label>
+              <div class="panel panel-default" style="margin: 1.6em; border: 0;">
+                <img class="img-responsive" id="payment-img" src="weixin-569.jpg"/>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+          const wxpay = document.getElementById('radio-weixin');
+          const alpay = document.getElementById('radio-alipay');
+          const taxflag = document.getElementById('checkbox-tax');
+          const reset_paylink = (e) => {
+              const price = taxflag.checked ? "569" : "520";
+              const method = wxpay.checked ? "weixin" : "alipay";
+              const href = `${method}-${price}.jpg`;
+              console.log(href);
+              document.getElementById('payment-img').src = href;
+          }
+          wxpay.addEventListener('click', reset_paylink);
+          alpay.addEventListener('click', reset_paylink);
+          taxflag.addEventListener('click', reset_paylink);
+      })
+    </script>
+
+</body>
+</html>
