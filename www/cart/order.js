@@ -272,7 +272,7 @@ function setOrderState( order ) {
     document.querySelector( '.order-info-state' ).innerHTML = state === null ? ''
         : state === 'FIN' ? '注册文件已经发送'
         : state === 'NEW' ? '正在处理'
-        : state === 'PAD' ? '已经支付'
+        : state === 'PAD' ? '注册文件已经发送'
         : state === 'UNF' ? '已经取消'
         : state;
 
