@@ -270,7 +270,7 @@ function setOrderState( order ) {
     order_id = order === undefined ? null : order.id;
     document.querySelector( '.order-info-no' ).innerHTML = order_no;
     document.querySelector( '.order-info-state' ).innerHTML = state === null ? ''
-        : state === 'FIN' ? '注册文件已经发送'
+        : state === 'FIN' ? '注册码已经被激活'
         : state === 'NEW' ? '正在处理'
         : state === 'PAD' ? '注册文件已经发送'
         : state === 'UNF' ? '已经取消'
