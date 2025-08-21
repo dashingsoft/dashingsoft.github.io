@@ -390,6 +390,14 @@ function submitInvoice() {
             element.focus();
             return false;
         }
+
+        if ( name === 'post_address' && element.value.length > 4) {
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if ( ! emailPattern.test( element.value ) ) {
+                element.focus();
+                return false;
+            }
+        }
     }
 
     var url = server_url + '/product/invoices/' + (invoice_id ? invoice_id + '/' : '');
