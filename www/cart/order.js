@@ -382,9 +382,13 @@ function submitInvoice() {
             element.focus();
             return false;
         }
-        if ( name === 'tax_no' && element.value.length < 10 ) {
-            element.focus();
-            return false;
+        if ( name === 'tax_no' ) {
+            var taxno = element.value.replaceAll(' ', '').replaceAll('-', '');
+            var taxPattern = /^[a-zA-Z0-9]{18}$/;
+            if (! taxPattern.test( taxno ) ) {
+                element.focus();
+                return false;
+            }
         }
         if ( name === 'tax_name' && element.value.length < 4 ) {
             element.focus();
