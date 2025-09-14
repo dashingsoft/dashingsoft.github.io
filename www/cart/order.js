@@ -352,12 +352,13 @@ function setPaymentAmount() {
     var tax = document.querySelector( 'input[name="tax"]' ).checked;
     var price = tax ? (lic == 'Z' ? '562' : lic == 'G' ? '918' : lic == 'C' ? '569' : '359') :
         (lic == 'Z' ? '512' : lic == 'G' ? '868' : lic == 'C' ? '520' : '298');
+    var unithint = tax ? '元（包含电子发票）' : '元（不包含电子发票）';
 
     document.querySelector( '.popup-weixin-payment img' ).src = 'weixin-' + price + '.jpg';
     document.querySelector( '.popup-alipay-payment img' ).src = 'alipay-' + price + '.jpg';
-    document.getElementById('transfer-amount').innerHTML = price + '元';
-    document.querySelector( '.weixin-payment-link' ).innerHTML = '微信扫码支付 ' + price + '元';
-    document.querySelector( '.alipay-payment-link' ).innerHTML = '支付宝扫码支付 ' + price + '元'
+    document.getElementById('transfer-amount').innerHTML = price + unithint;
+    document.querySelector( '.weixin-payment-link' ).innerHTML = '微信扫码支付 ' + price + unithint;
+    document.querySelector( '.alipay-payment-link' ).innerHTML = '支付宝扫码支付 ' + price + unithint;
 }
 
 function setProductTax() {
@@ -370,6 +371,10 @@ function setProductTax() {
 function submitInvoice() {
     if ( ! order_id ) {
         showMessage( '请首先提交订单，然后才能提交发票信息' );
+        return;
+    }
+    if ( ! document.querySelector( 'input[name="tax"]' ).checked ) {
+        showMessage( '该订单不包含电子发票，无法提交发票信息' );
         return;
     }
     var name_list = [ 'tax_no', 'tax_name', 'tax_phone', 'tax_address',
