@@ -352,7 +352,7 @@ function setPaymentAmount() {
     var tax = document.querySelector( 'input[name="tax"]' ).checked;
     var price = tax ? (lic == 'Z' ? '562' : lic == 'G' ? '918' : lic == 'C' ? '569' : '359') :
         (lic == 'Z' ? '512' : lic == 'G' ? '868' : lic == 'C' ? '520' : '298');
-    var unithint = tax ? '元（包含电子发票）' : '元（不包含电子发票）';
+    var unithint = tax ? '元（有电子发票）' : '元（无发票）';
 
     document.querySelector( '.popup-weixin-payment img' ).src = 'weixin-' + price + '.jpg';
     document.querySelector( '.popup-alipay-payment img' ).src = 'alipay-' + price + '.jpg';
