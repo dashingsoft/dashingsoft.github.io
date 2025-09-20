@@ -352,13 +352,13 @@ function setPaymentAmount() {
     var tax = document.querySelector( 'input[name="tax"]' ).checked;
     var price = tax ? (lic == 'Z' ? '562' : lic == 'G' ? '918' : lic == 'C' ? '569' : '359') :
         (lic == 'Z' ? '512' : lic == 'G' ? '868' : lic == 'C' ? '520' : '298');
-    var unithint = tax ? '元（有电子发票）' : '元（无发票）';
+    var suffix = tax ? '元（有电子发票）' : '元（无发票）';
 
     document.querySelector( '.popup-weixin-payment img' ).src = 'weixin-' + price + '.jpg';
     document.querySelector( '.popup-alipay-payment img' ).src = 'alipay-' + price + '.jpg';
-    document.getElementById('transfer-amount').innerHTML = price + unithint;
-    document.querySelector( '.weixin-payment-link' ).innerHTML = '微信扫码支付 ' + price + unithint;
-    document.querySelector( '.alipay-payment-link' ).innerHTML = '支付宝扫码支付 ' + price + unithint;
+    document.getElementById('transfer-amount').innerHTML = price + suffix;
+    document.querySelector( '.weixin-payment-link' ).innerHTML = '微信扫码支付 ' + price + suffix;
+    document.querySelector( '.alipay-payment-link' ).innerHTML = '支付宝扫码支付 ' + price + suffix;
 }
 
 function setProductTax() {
