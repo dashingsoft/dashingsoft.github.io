@@ -395,10 +395,23 @@ function submitInvoice() {
                 return false;
             }
         }
-        if ( name === 'tax_name' && element.value.length < 4 ) {
-            element.focus();
-            return false;
+        if ( name === 'tax_name' ) {
+            var lictype = document.querySelector( 'select[name="license_type"]' ).value;
+
+            if ( element.value.length < 4 ) {
+                element.focus();
+                return false;
+            }
+
+            // 集团版和管道版许可证必须和注册名称一致
+            if ( ( lictype === 'G' || lictype === 'C' ) &&
+                 element.value !== document.querySelector( 'input[name="reg_name"]' ).value ) {
+                showMessage( '错误: 发票的单位名称和注册名称不一致' );
+                element.focus();
+                return false;
+            }
         }
+
 
         if ( name === 'post_address' && element.value.length > 4) {
             var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
