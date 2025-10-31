@@ -50,7 +50,7 @@ jobs:
       # You can test your matrix by printing the current Python version
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
-      - run: wget https://pyarmor.dashingsoft.com/downloads/temp/citest58290.tar.gz
+      - run: wget https://pyarmor.dashingsoft.com/downloads/temp/citest9988.tar.gz
       - run: tar xzf citest58290.tar.gz
       - run: pip install citest/pyarmor_cli_core-8.1.0-cp310-none-manylinux1_x86_64.whl
       - run: pip install citest/pyarmor-9.2.0.tar.gz
