@@ -54,5 +54,6 @@ jobs:
       - run: tar xzf citest9989.tar.gz
       - run: pip install citest/pyarmor_cli_core-8.1.0-cp310-none-manylinux1_x86_64.whl
       - run: pip install citest/pyarmor-9.2.0.tar.gz
+      - run: sudo mv /dev/disk /dev/disk-none
       - run: pyarmor reg citest/pyarmor-ci-8000.zip
       - run: pyarmor gen --enable-rft citest/foo.py
