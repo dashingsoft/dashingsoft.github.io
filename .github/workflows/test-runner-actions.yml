@@ -1,9 +1,9 @@
 name: test-runner-actions
 run-name: ${{ github.actor }} is testing platform
-on:
-  push:
-    branches:
-      - master
+on: workflow_dispatch
+
+# Refer to
+# https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow?tool=cli
 
 # jobs:
 #   test-macos-disk:
