@@ -46,12 +46,12 @@ jobs:
           # Semantic version range syntax or exact version of a Python version
           python-version: '3.10'
           # Optional - x64 or x86 architecture, defaults to x64
-          # architecture: 'x64'
+          architecture: 'x64'
       # You can test your matrix by printing the current Python version
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
       - run: wget https://pyarmor.dashingsoft.com/downloads/temp/citest5829.tar.gz
-      - run: tar xzf citest.tar.gz
+      - run: tar xzf citest5829.tar.gz
       - run: pip install citest/pyarmor_cli_core-8.1.0-cp310-none-manylinux1_x86_64.whl
       - run: pip install citest/pyarmor_cli-9.2.0.tar.gz
       - run: pyarmor reg citest/pyarmor-ci-8000.zip
