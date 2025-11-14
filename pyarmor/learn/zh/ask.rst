@@ -7433,17 +7433,6 @@
     我这边部署统一使用docker镜像部署或者 k8s 容器管理平台，推荐购买哪个版本？
     针对几万行的python脚本加密会不会影响运行性能？
 
-  Here are the steps they followed and the error message they received:
-  1. They successfully activated the license with the following command:
-  pyarmor reg -p SmartSESAME_CloudPrint pyarmor-regcode-6506.txt
-  2. Then, they generated the device file:
-  pyarmor reg -g 1
-  3. Finally, they attempted to register the group license:
-  pyarmor reg -g 1 pyarmor-regfile-SmartSESAME_CloudPrint.zip
-  However, they received the following error:
-  ERROR    [Errno 2] No such file or directory: 'pyarmor-regfile-SmartSESAME_CloudPrint.zip'
-  It seems that the file name is incorrect, but they are unsure what the correct procedure should be.
-
   I am reaching out with an inquiry regarding the purchase of a Pro subscription for a significant number of devices. Specifically, I am interested in understanding if it is possible to acquire a Pro subscription for 10,000 devices simultaneously, rather than the standard 100 devices per transaction.
   Given the scale of this request, I would greatly appreciate it if you could provide further details or guidance on how this can be facilitated. Additionally, if there are any special processes, pricing structures, or bulk subscription options available, I would be grateful to learn more about them.
 
