@@ -60,7 +60,7 @@ Run it::
   $ python dist/foo.py
 
 Generate Complex RFT Script
-===========================
+---------------------------
 
 For simple script, it's enough by default options. But for complex scripts, it need extra options
 
@@ -124,7 +124,7 @@ Run it::
 Generally, first generate :term:`RFT Script` and make it works, then call above command to generate combined script.
 
 Publish MINI Script
-===================
+-------------------
 
 When publishing :term:`MINI Script`, it also need install package :term:`pyarmor.mini` in the target machine::
 
@@ -145,6 +145,77 @@ Just using free-threaded Python interpreter to install package :term:`pyarmor.mi
   $ python3.13t -m pip install pyarmor.mini
 
 Make sure `pip >=24.1`, it will install free-threaded extension `pyarmor_mini`, the installed wheel tag includes `cp3.13t`
+
+Generate VMC Script
+===================
+
+First install package :term:`pyarmor.mini`::
+
+  $ pip install pyarmor.mini
+
+We will still use the project created in the previous example and generate :term:`VMC Script` with the same configuration::
+
+  $ pyarmor build --vmc
+
+Check the result::
+
+  $ cat dist/fibo.py
+
+Run the final script::
+
+  $ python dist/fibo.py
+
+It's also possible to combine :term:`VMC Script` and :term:`RFT Script` by the following command::
+
+  $ pyarmor build --vmc-rft
+
+Generally, first generate :term:`RFT Script` and make it works, then call above command to generate combined script.
+
+Publish VMC Script
+------------------
+
+When publishing :term:`VMC Script`, it also need install package :term:`pyarmor.mini` in the target machine::
+
+  $ pip install pyarmor.mini
+
+Like :term:`MINI Script`, :term:`VMC Script` also supports Freethreading feature.
+
+Generate ECC Script
+=====================
+
+First configure C compiler, it's same as BCC mode
+
+Then install package :term:`pyarmor.mini`::
+
+  $ pip install pyarmor.mini
+
+We will still use the project created in the previous example and generate :term:`ECC Script` with the same configuration::
+
+
+  $ pyarmor build --ecc
+
+Check the result::
+
+  $ cat dist/fibo.py
+
+Run the final script::
+
+  $ python dist/fibo.py
+
+It's also possible to combine :term:`ECC Script` and :term:`RFT Script` by the following command::
+
+  $ pyarmor build --ecc-rft
+
+Generally, first generate :term:`RFT Script` and make it works, then call above command to generate combined script.
+
+Publish ECC Script
+------------------
+
+When publishing :term:`ECC Script`, it also need install package :term:`pyarmor.mini` in the target machine::
+
+  $ pip install pyarmor.mini
+
+Like :term:`MINI Script`, :term:`ECC Script` also supports Freethreading feature.
 
 Refactor Package
 ================
