@@ -415,7 +415,7 @@ Generate obfuscated scripts for project
 
    [#]_ pyarmor build -h
 
-   [#]_ pyarmor build [--mini | --rft | --mini-rft]
+   [#]_ pyarmor build [--mini | --rft | --mini-rft | --vmc | --vmc-rft | --ecc | --ecc-rft]
 
    [#]_ pyarmor build [--autofix {0,1,2,3}]
 
@@ -430,9 +430,21 @@ Generate obfuscated scripts for project
 
 .. option:: --mini
 
-   Generate :term:`Mini Script` for this project::
+   Generate :term:`MINI Script` for this project::
 
      $ pyarmor build --mini
+
+.. option:: --vmc
+
+   Generate :term:`VMC Script` for this project::
+
+     $ pyarmor build --vmc
+
+.. option:: --ecc
+
+   Generate :term:`ECC Script` for this project::
+
+     $ pyarmor build --ecc
 
 .. option:: --rft
 
@@ -442,9 +454,21 @@ Generate obfuscated scripts for project
 
 .. option:: --mini-rft
 
-   First refactor the scripts as :term:`RFT Script`, then generate :term:`Mini Script` for this project::
+   First refactor the scripts as :term:`RFT Script`, then generate :term:`MINI Script` for this project::
 
      $ pyarmor build --mini-rft
+
+.. option:: --vmc-rft
+
+   First refactor the scripts as :term:`RFT Script`, then generate :term:`VMC Script` for this project::
+
+     $ pyarmor build --vmc-rft
+
+.. option:: --ecc-rft
+
+   First refactor the scripts as :term:`RFT Script`, then generate :term:`ECC Script` for this project::
+
+     $ pyarmor build --ecc-rft
 
 .. option:: --autofix {0,1,2,3}
 

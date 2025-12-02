@@ -98,14 +98,14 @@ Then build project again::
 
   $ pyarmor build --rft
 
-Generate Mini Script
+Generate MINI Script
 ====================
 
 First install package :term:`pyarmor.mini`::
 
   $ pip install pyarmor.mini
 
-We will still use the project created in the previous example and generate :term:`Mini Script` with the same configuration::
+We will still use the project created in the previous example and generate :term:`MINI Script` with the same configuration::
 
   $ pyarmor build --mini
 
@@ -117,22 +117,20 @@ Run it::
 
   $ python dist/fibo.py
 
-:term:`Mini Script` is almost same as .pyc file in irreversibility. So usually it's better to combine :term:`Mini Script` and :term:`RFT Script` by the following command::
+:term:`MINI Script` is almost same as .pyc file in irreversibility. So usually it's better to combine :term:`MINI Script` and :term:`RFT Script` by the following command::
 
   $ pyarmor build --mini-rft
 
 Generally, first generate :term:`RFT Script` and make it works, then call above command to generate combined script.
 
-Publish Mini Script
+Publish MINI Script
 ===================
 
-When publishing :term:`Mini Script`, it need package :term:`pyarmor.mini` too.
-
-Or install package :term:`pyarmor.mini` in the target machine::
+When publishing :term:`MINI Script`, it also need install package :term:`pyarmor.mini` in the target machine::
 
   $ pip install pyarmor.mini
 
-Note that now only the following platforms support :term:`Mini Script`
+Note that now only the following platforms support :term:`MINI Script`
 
 - linux.x86_64, darwin.x86_64, windows.x86_64
 - linux.aarch64, darwin.arm64
@@ -140,13 +138,13 @@ Note that now only the following platforms support :term:`Mini Script`
 Support Freethreading
 ---------------------
 
-:term:`Mini Script` supports freethreading in Python 3.13+
+:term:`MINI Script` supports freethreading in Python 3.13+
 
 Just using free-threaded Python interpreter to install package :term:`pyarmor.mini`, for example::
 
   $ python3.13t -m pip install pyarmor.mini
 
-Make sure `pip >=24.1`, it will install free-threaded extension `pyarmor_minit` with suffix `t`, the installed wheel tag includes `cp3.13t`
+Make sure `pip >=24.1`, it will install free-threaded extension `pyarmor_mini`, the installed wheel tag includes `cp3.13t`
 
 Refactor Package
 ================

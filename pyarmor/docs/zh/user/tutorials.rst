@@ -148,7 +148,7 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
 迷你型脚本支持 Freethreading (Python 3.13+) 特性
 
-在支持 Freethreading 的 Python 环境，使用 `pip >=24.1` 安装依赖包 :term:`pyarmor.mini` ，这样安装的就是支持 Freethreading 的扩展模块 `pyarmor_minit` ， 扩展模块的名称包含后缀 `t` ，支持 Freethreading 的 wheel 标签为 `cp313t`
+在支持 Freethreading 的 Python 环境，使用 `pip >=24.1` 安装依赖包 :term:`pyarmor.mini` ，这样安装的就是支持 Freethreading 的扩展模块 `pyarmor_mini` ，支持 Freethreading 的 wheel 标签为 `cp313t`
 
 重构包
 ======

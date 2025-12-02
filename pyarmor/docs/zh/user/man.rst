@@ -415,7 +415,7 @@ pyarmor build
 
    [#]_ pyarmor build -h
 
-   [#]_ pyarmor build [--mini | --rft | --mini-rft]
+   [#]_ pyarmor build [--mini | --rft | --mini-rft | --vmc | --vmc-rft | --ecc | --ecc-rft]
 
    [#]_ pyarmor build [--autofix {0,1,2,3}]
 
@@ -434,6 +434,18 @@ pyarmor build
 
      $ pyarmor build --mini
 
+.. option:: --vmc
+
+   构建工程，工程中的所有脚本都生成相应的虚拟型加密脚本::
+
+     $ pyarmor build --vmc
+
+.. option:: --ecc
+
+   构建工程，工程中的所有脚本都生成相应的嵌入型加密脚本::
+
+     $ pyarmor build --ecc
+
 .. option:: --rft
 
    构建工程，工程中的所有脚本都生成相应的重构型加密脚本::
@@ -445,6 +457,18 @@ pyarmor build
    构建工程，工程中的所有脚本首先进行重构，然后在生成相应的迷你型加密脚本::
 
      $ pyarmor build --mini-rft
+
+.. option:: --vmc-rft
+
+   构建工程，工程中的所有脚本首先进行重构，然后在生成相应的虚拟嵌入型加密脚本::
+
+     $ pyarmor build --vmc-rft
+
+.. option:: --ecc-rft
+
+   构建工程，工程中的所有脚本首先进行重构，然后在生成相应的嵌入型加密脚本::
+
+     $ pyarmor build --vmc-rft
 
 .. option:: --autofix {0,1,2,3}
 
