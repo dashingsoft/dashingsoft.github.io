@@ -140,14 +140,20 @@ Support Freethreading
 
 :term:`MINI Script` supports freethreading in Python 3.13+
 
-Just using free-threaded Python interpreter to install package :term:`pyarmor.mini`, for example::
+But now Pyarmor still doesn't support free-threading Python, so it need build :term:`MINI Script` by normal Python.
+
+Then in target machine using free-threading Python to install package :term:`pyarmor.mini`.
+
+For example, build `MINI Script` with normal Python 3.13 in Apple Siliconin Linux.x86_64, then copy obfuscated scripts to Linux.x86_64, and install free-threaded extension `pyarmor_mini` in it::
 
   $ python3.13t -m pip install pyarmor.mini
 
-Make sure `pip >=24.1`, it will install free-threaded extension `pyarmor_mini`, the installed wheel tag includes `cp3.13t`
+Make sure `pip >=24.1`, the installed wheel tag should be `cp313-cp313t`
 
 Generate VMC Script
 ===================
+
+.. versionadded:: 9.2.2
 
 First install package :term:`pyarmor.mini`::
 
@@ -178,10 +184,12 @@ When publishing :term:`VMC Script`, it also need install package :term:`pyarmor.
 
   $ pip install pyarmor.mini
 
-Like :term:`MINI Script`, :term:`VMC Script` also supports Freethreading feature.
+Like :term:`MINI Script`, :term:`VMC Script` also supports Freethreading feature in runtime.
 
 Generate ECC Script
 =====================
+
+.. versionadded:: 9.2.2
 
 First configure C compiler, it's same as BCC mode
 
@@ -215,7 +223,7 @@ When publishing :term:`ECC Script`, it also need install package :term:`pyarmor.
 
   $ pip install pyarmor.mini
 
-Like :term:`MINI Script`, :term:`ECC Script` also supports Freethreading feature.
+Like :term:`MINI Script`, :term:`ECC Script` also supports Freethreading feature in runtime.
 
 Refactor Package
 ================

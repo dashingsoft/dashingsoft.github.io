@@ -146,12 +146,16 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 支持 Freethreading
 ------------------
 
-迷你型脚本支持 Freethreading (Python 3.13+) 特性
+迷你型脚本支持 Free-threading (Python 3.13+) 特性
 
-在支持 Freethreading 的 Python 环境，使用 `pip >=24.1` 安装依赖包 :term:`pyarmor.mini` ，这样安装的就是支持 Freethreading 的扩展模块 `pyarmor_mini` ，支持 Freethreading 的 wheel 标签为 `cp313t`
+但是 Pyarmor 还不支持使用 Free-threaded 的 Python 生成迷你加密脚本，需要使用正常的 Python 生成迷你加密脚本
+
+可以在任意平台使用大小版本号相同的 Python 生成迷你脚本，然后在支持 Free-threading 的 Python 环境，使用 `pip >=24.1` 安装依赖包 :term:`pyarmor.mini` 即可(这样安装的就是支持 Freethreading 的扩展模块 `pyarmor_mini` ，支持 Freethreading 的 wheel 标签为 `cp313-cp313t`)
 
 生成虚拟型脚本（VMC）
 =====================
+
+.. versionadded:: 9.2.2
 
 生成虚拟型加密脚本也需要首先安装包 :term:`pyarmor.mini`::
 
@@ -184,10 +188,12 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
   $ pip install pyarmor.mini
 
-虚拟型脚本也支持 Freethreading ，和发布迷你型脚本的操作是一样的
+虚拟型脚本也支持运行环境的 Free-threaded Python，和发布迷你型脚本的操作是一样的
 
 生成嵌入型脚本（ECC）
 =====================
+
+.. version-added:: 9.2.2
 
 生成嵌入型脚本需要配置 C 编译器，其配置方法和 BCC 模式完全一样
 
@@ -222,7 +228,7 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
   $ pip install pyarmor.mini
 
-嵌入型脚本也支持 Freethreading ，和发布迷你型脚本的操作是一样的
+嵌入型脚本也支持运行环境的 Free-threaded Python，和发布迷你型脚本的操作是一样的
 
 重构包
 ======
