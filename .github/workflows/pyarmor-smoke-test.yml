@@ -1,7 +1,6 @@
 name: pyarmor-smoke-test
 run-name: ${{ github.actor }} is testing Pyarmor
-on:
-  push
+on: workflow_dispatch
 
 jobs:
   test-pack:
