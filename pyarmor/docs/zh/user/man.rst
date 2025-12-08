@@ -411,11 +411,17 @@ pyarmor build
 
 加密工程中的所有脚本，生成相应类型的加密脚本
 
+Pyarmor 目前还无法使用 Freethreading Python 运行，但是新的加密类型 :term:`迷你型脚本` ， :term:`虚拟型脚本` ， :term:`嵌入型脚本` 均支持 Freethreading Python
+
+:term:`迷你型脚本` 和 :term:`虚拟型脚本` 在 Freethreading Python 和普通 Python 中是一样的，生成的方式一样，但是运行时候会安装不同的运行库 :term:`pyarmor.mini` 。在 Freethreading Python 中安装的是 Free-Threaded 的 :term:`pyarmor.mini` ，反之，装的是普通的 :term`:pyarmor.mini`
+
+但是 :term:`嵌入型脚本` 需要分别为两种环境构建脚本，其中 :option:`--ecc-nogil` 和 :option:`--ecc-rft-nogil` 就是专门用来构建 Free-Threaded 的 :term:`嵌入型脚本`
+
 .. describe:: 语法
 
    [#]_ pyarmor build -h
 
-   [#]_ pyarmor build [--mini | --rft | --mini-rft | --vmc | --vmc-rft | --ecc | --ecc-rft]
+   [#]_ pyarmor build [--mini | --rft | --mini-rft | --vmc | --vmc-rft | --ecc | --ecc-rft | --ecc-nogil | --ecc-rft-nogil]
 
    [#]_ pyarmor build [--autofix {0,1,2,3}]
 
@@ -430,45 +436,53 @@ pyarmor build
 
 .. option:: --mini
 
-   构建工程，工程中的所有脚本都生成相应的迷你型加密脚本::
+   构建工程，工程中的所有脚本都生成相应的 :term:`迷你型脚本`::
 
      $ pyarmor build --mini
 
 .. option:: --vmc
 
-   构建工程，工程中的所有脚本都生成相应的虚拟型加密脚本::
+   构建工程，工程中的所有脚本都生成相应的 :term:`虚拟型脚本`::
 
      $ pyarmor build --vmc
 
 .. option:: --ecc
 
-   构建工程，工程中的所有脚本都生成相应的嵌入型加密脚本::
+   构建工程，工程中的所有脚本都生成相应的 :term:`嵌入型脚本`::
 
      $ pyarmor build --ecc
 
 .. option:: --rft
 
-   构建工程，工程中的所有脚本都生成相应的重构型加密脚本::
+   构建工程，工程中的所有脚本都生成相应的 :term:`重构型脚本`::
 
      $ pyarmor build --rft
 
 .. option:: --mini-rft
 
-   构建工程，工程中的所有脚本首先进行重构，然后在生成相应的迷你型加密脚本::
+   构建工程，工程中的所有脚本首先进行重构，然后在生成相应的 :term:`迷你型脚本`::
 
      $ pyarmor build --mini-rft
 
 .. option:: --vmc-rft
 
-   构建工程，工程中的所有脚本首先进行重构，然后在生成相应的虚拟嵌入型加密脚本::
+   构建工程，工程中的所有脚本首先进行重构，然后在生成相应的 :term:`虚拟型脚本`::
 
      $ pyarmor build --vmc-rft
 
 .. option:: --ecc-rft
 
-   构建工程，工程中的所有脚本首先进行重构，然后在生成相应的嵌入型加密脚本::
+   构建工程，工程中的所有脚本首先进行重构，然后在生成相应的 :term:`嵌入型脚本`::
 
      $ pyarmor build --vmc-rft
+
+.. option:: --ecc-nogil
+.. option:: --ecc-rft-nogil
+
+   这两个选项和 :option:`--ecc` ，:option:`--ecc-rft` 的唯一区别是最终构建的 :term:`嵌入型脚本` 能够使用 Freethreading Python 运行::
+
+     $ pyarmor build --ecc-nogil
+     $ pyarmor build --ecc-rft-nogil
 
 .. option:: --autofix {0,1,2,3}
 

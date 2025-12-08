@@ -409,13 +409,19 @@ pyarmor build
 
 .. program:: pyarmor build
 
-Generate obfuscated scripts for project
+Generate obfuscated scripts for project.
+
+Pyarmor now doesn't support free-threading Python, but the obfuscated scripts of :term:`MINI Script`, :term:`VMC Script`, :term:`ECC Script` could run with free-threading Python.
+
+:term:`MINI Script`, :term:`VMC Script` are same in free-threading and not free-threading Python, but :term:`ECC Script` not.
+
+Use :option:`--ecc-nogil` and :option:`--ecc-rft-nogil` to generate free-threading :term:`ECC Script`.
 
 .. describe:: Syntax
 
    [#]_ pyarmor build -h
 
-   [#]_ pyarmor build [--mini | --rft | --mini-rft | --vmc | --vmc-rft | --ecc | --ecc-rft]
+   [#]_ pyarmor build [--mini | --rft | --mini-rft | --vmc | --vmc-rft | --ecc | --ecc-rft | -ecc-nogil | --ecc-rft-nogil]
 
    [#]_ pyarmor build [--autofix {0,1,2,3}]
 
@@ -469,6 +475,14 @@ Generate obfuscated scripts for project
    First refactor the scripts as :term:`RFT Script`, then generate :term:`ECC Script` for this project::
 
      $ pyarmor build --ecc-rft
+
+.. option:: --ecc-nogil
+.. option:: --ecc-rft-nogil
+
+   Same as :option:`--ecc` and :option:`--ecc-rft`, but the final :term:`ECC Script` only works for free-threading Python::
+
+     $ pyarmor build --ecc-nogil
+     $ pyarmor build --ecc-rft-nogil
 
 .. option:: --autofix {0,1,2,3}
 
