@@ -144,7 +144,7 @@ But now Pyarmor still doesn't support free-threading Python, so it need build :t
 
 Then in target machine using free-threading Python to install package :term:`pyarmor.mini`.
 
-For example, build `MINI Script` with normal Python 3.13 in Apple Siliconin Linux.x86_64, then copy obfuscated scripts to Linux.x86_64, and install free-threaded extension `pyarmor_mini` in it::
+For example, build `MINI Script` with normal Python 3.13 in Apple Silicon, then copy obfuscated scripts to Linux.x86_64, and install free-threaded extension `pyarmor_mini` in it::
 
   $ python3.13t -m pip install pyarmor.mini
 
@@ -223,7 +223,11 @@ When publishing :term:`ECC Script`, it also need install package :term:`pyarmor.
 
   $ pip install pyarmor.mini
 
-Like :term:`MINI Script`, :term:`ECC Script` also supports Freethreading feature in runtime.
+:term:`ECC Script` also supports Freethreading feature in runtime, it need use :option:`--ecc-nogil` to generate freethreading :term:`ECC script` respectively::
+
+  $ pyarmor build --ecc-nogil
+
+Because pyarmor still doesn't work with freethreading Python, but the runtime package :term:`pyarmor.bmini` supports freethreading feature, so the final ecc script could work with freethreading Python, .
 
 Refactor Package
 ================

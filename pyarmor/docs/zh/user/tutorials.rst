@@ -228,7 +228,13 @@ Pyarmor 发布在 PyPI 上面，使用下面的命令直接安装::
 
   $ pip install pyarmor.mini
 
-嵌入型脚本也支持运行环境的 Free-threaded Python，和发布迷你型脚本的操作是一样的
+嵌入型脚本也支持运行环境的 Freethreading Python，但是需要使用下面的命令专门构建支持该环境的脚本::
+
+  $ pyarmor build --ecc-nogil
+
+然后在运行环境，安装支持 Freethreading Python 的 :term:`pyarmor.mini` 。 例如::
+
+  $ python3.13t -m pip install pyarmor.mini
 
 重构包
 ======
