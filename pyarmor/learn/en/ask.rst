@@ -135,10 +135,20 @@ Do I need purchase Pyarmor License
 Which license type is right for me
 ----------------------------------
 
+Please click each node that match your project requirements in sequence.
+
+For example, if need obfuscate scripts in devices without internet connection, click the node ``offline obfuscation``
+
+The last row lists all available license types (if multiple are listed, any one will suffice)
+
+If no suitable license type, a combination of two license types may be required
+
 If something is not listed in the figure, it need not be taken into account. For example
 
 - The type of operating system
 - The number of your customer devices in which running obfuscated scripts
+
+Click node ``?`` to goto page top
 
 .. graphviz::
    :caption: Which license is right for me
