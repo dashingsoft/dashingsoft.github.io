@@ -164,10 +164,10 @@ Set option value. For example::
 
        The support format is fnmatch pattern. For example::
 
-          "inc"
-          "dir*"
+          inc
+          dir*
 
-       Note that arguments and local variables are always renamed
+       Note that it does not apply to arguments and local variables 
    * - exclude_funcs
      - List
      -
@@ -175,9 +175,8 @@ Set option value. For example::
 
        The support formats::
 
-          "func"
-          "modname::func"
-          "modname::cls.method"
+          modname::func
+          modname::cls.method
    * - attr_rules
      - List
      -

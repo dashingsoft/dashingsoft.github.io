@@ -510,7 +510,7 @@ Use :option:`--ecc-nogil` and :option:`--ecc-rft-nogil` to generate free-threadi
 
    4. Loop from step 2, until no error
 
-   Refer to `Refactor complex script by autofix mode <../../learn/en/commands.html#project-rft-autofix>`_
+   Refer to `Refactor complex script by autofix mode <../../../learn/en/commands.html#project-rft-autofix>`_
 
    If need disable auto-fix mode, run this command::
 

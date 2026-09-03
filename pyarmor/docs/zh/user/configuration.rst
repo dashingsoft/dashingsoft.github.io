@@ -176,18 +176,17 @@ rft
 
        支持的格式是 fnmatch 的模式，例如::
 
-          "inc"
-          "dir*"
+          inc
+          dir*
 
-       参数和局部变量总是会被重命名，这里列出的名称对参数和局部变量不起作用
+       这里列出的名称对参数和局部变量不起作用
    * - exclude_funcs
      - 模式列表
      -
      - 这里面列出的函数名称，对应的参数都不进行重命名::
 
-          "func"
-          "modname::func"
-          "modname::cls.method"
+          modname::func
+          modname::cls.method
    * - attr_rules
      - 模式列表
      -
