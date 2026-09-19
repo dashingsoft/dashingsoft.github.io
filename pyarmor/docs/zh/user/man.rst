@@ -508,7 +508,7 @@ Pyarmor 目前还无法使用 Freethreading Python 运行，但是新的加密�
 
    3. 根据出现的问题修正规则文件 `.pyarmor/project/rft_autofix.rules`
 
-   4. 从第二步可以重新构建并执行，循环修正直到脚本运行没有问题
+   4. 从第二步可以重新构建并执行，循环修正直到脚本的运行没有问题
 
    详细过程请参阅功能手册中的 `使用自动修正模式重构复杂脚本 <../../../learn/zh/commands.html#project-rft-autofix>`_
 
